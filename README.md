@@ -1,5 +1,5 @@
 # OOP-project-bhs
-this project will be a social media platform similiar to twitter with elements from telegram.
+this project will be a social media platform similar to twitter with elements from telegram.
 
 ## phase-0
 explaining the project with UML diagrams included
@@ -9,4 +9,6 @@ working project but only on the terminal
 fully working platform with gui
 
 ### team
-Borna Khodabandeh, Sepehr Heidari and Hossein Anjidani
+- Borna Khodabandeh
+- Sepehr Heidari
+- Hossein Anjidandi
