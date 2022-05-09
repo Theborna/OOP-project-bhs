@@ -1,11 +1,18 @@
 package com.project.models.user;
 
+import com.project.Table;
 import com.project.models.Message;
 import com.project.models.Post;
 import com.project.models.data;
 import com.project.models.chat.Chat;
 
-public abstract class User extends data{
+/**
+ * abstract class defining users.
+ * 
+ * @abstract Posting and getting stats
+ * @Children NormalUser, BusinessUser
+ */
+public abstract class User extends data {
     private String username, password;
     private boolean isPublic;
 
@@ -17,4 +24,9 @@ public abstract class User extends data{
     }
 
     public abstract void Post(Post post);
+
+    @Override
+    public void send(Table table) {
+
+    }
 }
