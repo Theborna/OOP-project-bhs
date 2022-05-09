@@ -3,8 +3,6 @@ package com.project.models;
 import java.sql.Date;
 import java.util.List;
 
-import com.project.Table;
-
 /**
  * abstract class which is the parent class for all objects that can be stored
  * in the database

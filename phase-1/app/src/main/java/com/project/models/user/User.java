@@ -1,6 +1,5 @@
 package com.project.models.user;
 
-import com.project.Table;
 import com.project.models.Message;
 import com.project.models.Post;
 import com.project.models.data;
