@@ -22,8 +22,6 @@ public abstract class data {
     private Date creationDate, lastModifiedDate;
     private static List<data> allData;
 
-    public abstract void send(Table table);
-
     // static methods
     private static void setAllData() {
         // will update list of allData according to database

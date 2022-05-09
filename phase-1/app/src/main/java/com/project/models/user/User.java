@@ -25,8 +25,4 @@ public abstract class User extends data {
 
     public abstract void Post(Post post);
 
-    @Override
-    public void send(Table table) {
-
-    }
 }
