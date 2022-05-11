@@ -9,28 +9,23 @@ import com.project.view.*;
  */
 public class App {
     private static View view;
+    private static boolean running = true;
 
     public static void start() {
         view = new PrimaryView();
     }
 
-    public static void setView(String nextView) {
-        switch (nextView) {
-            case "primary":
-                view = new PrimaryView();
-                break;
-            default:
-                System.out.println("no such view: " + nextView);
-                break;
-        }
+    public static void setView(ViewsEnum nextView) {
+        view = ViewsEnum.getView(nextView);
+    }
+
+    public static void stop() {
+        running = false;
     }
 
     public static void main(String... args) throws Exception {
         start();
-        String input;
-        while ((input = StdIn.nextLine()) != null) {
-            InputProcessor.parse(input);
+        while (running)
             view.show();
-        }
     }
 }
