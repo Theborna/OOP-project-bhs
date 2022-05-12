@@ -1,8 +1,8 @@
 package com.project.controllers;
 
 import com.project.AppRegex;
-import com.project.util.StdIn;
-import static com.project.util.StdOut.*;
+import com.project.models.user.NormalUser;
+import com.project.models.user.User;
 
 public class LoginController implements Controller {
 
@@ -20,6 +20,10 @@ public class LoginController implements Controller {
         if (AppRegex.PASSWORD.getMatcher(nextLine) != null)
             return nextLine;
         return null;
+    }
+
+    public User logToUser(String username, String password) {
+        return new NormalUser(username, password);
     }
 
 }

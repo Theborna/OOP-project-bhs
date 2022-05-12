@@ -14,6 +14,10 @@ public class PrimaryController implements Controller {
             case "secondary":
                 App.setView(ViewsEnum.SECONDARY);
                 break;
+            case "help":
+                App.setView(ViewsEnum.HELP);
+            case "register":
+                App.setView(ViewsEnum.REGISTER);
             default:
                 break;
         }

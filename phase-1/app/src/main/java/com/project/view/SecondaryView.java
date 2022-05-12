@@ -13,14 +13,14 @@ public class SecondaryView implements View {
 
     @Override
     public void show() {
-        rule();
         println("inside secondary");
         rule();
-        print(StdColor.YELLOW + "enter next command: " + StdColor.RESET);
+        prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Controller getController() {
         return controller;
     }

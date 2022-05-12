@@ -1,7 +1,7 @@
 package com.project.view;
 
 public enum ViewsEnum {
-    PRIMARY, SECONDARY, LOGIN;
+    PRIMARY, SECONDARY, LOGIN, HELP, REGISTER;
 
     public static View getView(ViewsEnum nextView) {
         switch (nextView) {
@@ -11,6 +11,10 @@ public enum ViewsEnum {
                 return new SecondaryView();
             case LOGIN:
                 return new LoginView();
+            case REGISTER:
+                return new RegisterView();
+            case HELP:
+                // return new HelpView();
             default: // would not happen but prevents errors
                 return null;
         }

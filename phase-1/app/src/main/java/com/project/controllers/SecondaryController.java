@@ -8,7 +8,7 @@ public class SecondaryController implements Controller {
 
     @Override
     public void parse(String input) {
-
+        System.out.println("kos mikham with input: " + input);
     }
 
 }

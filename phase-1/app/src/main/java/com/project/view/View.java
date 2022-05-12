@@ -7,5 +7,6 @@ import com.project.controllers.Controller;
  */
 public interface View {
     public void show();
-    public Controller getController();
+
+    public <T extends Controller> T getController();
 }

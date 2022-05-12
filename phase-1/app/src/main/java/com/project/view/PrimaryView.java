@@ -14,14 +14,14 @@ public class PrimaryView implements View {
 
     @Override
     public void show() {
-        StdOut.rule();
         println("inside primary");
         StdOut.rule();
-        print("enter next view: ", StdColor.YELLOW);
+        prompt("enter the next view");
         controller.parse(StdIn.nextLine());
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Controller getController() {
         return controller;
     }

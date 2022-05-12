@@ -1,6 +1,6 @@
 package com.project;
 
-import com.project.util.StdIn;
+import com.project.util.StdOut;
 import com.project.view.*;
 
 /**
@@ -19,13 +19,19 @@ public class App {
         view = ViewsEnum.getView(nextView);
     }
 
+    public static void setView(View view) {
+        App.view = view;
+    }
+
     public static void stop() {
         running = false;
     }
 
     public static void main(String... args) throws Exception {
         start();
-        while (running)
+        while (running) {
+            StdOut.viewBegin(view);
             view.show();
+        }
     }
 }

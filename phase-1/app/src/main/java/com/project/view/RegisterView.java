@@ -1,18 +1,19 @@
 package com.project.view;
 
-import static com.project.util.StdOut.*;
-
-import com.project.App;
-import com.project.controllers.LoginController;
+import com.project.controllers.RegisterController;
 import com.project.models.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 
-public class LoginView implements View {
+import static com.project.util.StdOut.*;
 
-    private LoginController controller = new LoginController();
+import com.project.App;
+
+public class RegisterView implements View {
+
     private String username, password;
     private User user;
+    private RegisterController controller = new RegisterController();
 
     @Override
     public void show() {
@@ -28,9 +29,11 @@ public class LoginView implements View {
             if (password == null)
                 println(StdColor.RED + "invalid password format");
         }
-        if ((user = controller.logToUser(username, password)) == null) {// gets the user
-            // TODO : actually get the user and login
-            println("no such user exists!", StdColor.RED);
+        if ((user = controller.logToUser(username, password)) == null) {
+            print("register successful! ", StdColor.GREEN);
+            // TODO: add user to DB
+        } else {
+            println("user already exists", StdColor.MAGENTA);
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
             if (next.equals("register"))
@@ -39,15 +42,14 @@ public class LoginView implements View {
                 App.setView(ViewsEnum.LOGIN);
             return;
         }
-        print("login successful! ", StdColor.GREEN);
-        println("user: " + username);
+        println("user: " + username + ", password: " + password);
         App.setView(ViewsEnum.SECONDARY);
         rule();
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public LoginController getController() {
+    public RegisterController getController() {
         return controller;
     }
 
