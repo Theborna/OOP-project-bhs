@@ -16,7 +16,8 @@ public abstract class User extends data {
     private boolean isPublic;
 
     public User(String username, String password) {
-        // TODO: make constructor
+        this.username = username;
+        this.password = password;
     }
 
     public void sendMessage(Message message, Chat chat) {
@@ -24,4 +25,7 @@ public abstract class User extends data {
 
     public abstract void Post(Post post);
 
+    public String getUsername() {
+        return username;
+    }
 }

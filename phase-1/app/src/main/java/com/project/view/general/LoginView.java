@@ -1,19 +1,20 @@
-package com.project.view;
-
-import com.project.controllers.RegisterController;
-import com.project.models.user.User;
-import com.project.util.StdColor;
-import com.project.util.StdIn;
+package com.project.view.general;
 
 import static com.project.util.StdOut.*;
 
 import com.project.App;
+import com.project.controllers.LoginController;
+import com.project.models.user.User;
+import com.project.util.StdColor;
+import com.project.util.StdIn;
+import com.project.view.View;
+import com.project.view.ViewsEnum;
 
-public class RegisterView implements View {
+public class LoginView implements View {
 
+    private LoginController controller = new LoginController();
     private String username, password;
     private User user;
-    private RegisterController controller = new RegisterController();
 
     @Override
     public void show() {
@@ -21,19 +22,17 @@ public class RegisterView implements View {
             prompt("enter username");
             username = controller.getUsername(StdIn.nextLine());
             if (username == null)
-                println(StdColor.RED + "invalid username format");
+                printError("invalid username format");
         }
         while (password == null) {
             prompt("enter password");
             password = controller.getPassword(StdIn.nextLine());
             if (password == null)
-                println(StdColor.RED + "invalid password format");
+                printError("invalid password format");
         }
-        if ((user = controller.logToUser(username, password)) == null) {
-            print("register successful! ", StdColor.GREEN);
-            // TODO: add user to DB
-        } else {
-            println("user already exists", StdColor.MAGENTA);
+        if ((user = controller.logToUser(username, password)) == null) {// gets the user
+            // TODO : actually get the user and login
+            printError("no such user exists!");
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
             if (next.equals("register"))
@@ -42,14 +41,15 @@ public class RegisterView implements View {
                 App.setView(ViewsEnum.LOGIN);
             return;
         }
-        println("user: " + username + ", password: " + password);
+        print("login successful! ", StdColor.GREEN);
+        println("user: " + username);
         App.setView(ViewsEnum.SECONDARY);
-        rule();
+        // rule();
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public RegisterController getController() {
+    public LoginController getController() {
         return controller;
     }
 

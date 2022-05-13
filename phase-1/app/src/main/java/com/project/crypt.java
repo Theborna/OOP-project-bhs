@@ -1,4 +1,4 @@
-package com.project.util;
+package com.project;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +14,13 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * this class will handle all encryption and decryption of data
+ * general hashing will use the SHA-256 algorithm and
+ * keyed encryption will use the AES algorithm
+ * 
+ * @main method included for testing
+ */
 public class crypt {
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");

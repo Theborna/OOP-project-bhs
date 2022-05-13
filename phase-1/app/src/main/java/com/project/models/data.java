@@ -20,6 +20,12 @@ public abstract class data {
     private Date creationDate, lastModifiedDate;
     private static List<data> allData;
 
+    public void setData(long id, Date creationDate, Date lastModifiedDate) {
+        this.id = id;
+        this.creationDate = creationDate;
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
     // static methods
     private static void setAllData() {
         // will update list of allData according to database

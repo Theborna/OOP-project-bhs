@@ -2,17 +2,22 @@ package com.project.util;
 
 import static com.project.util.StdColor.*;
 
+import java.util.Arrays;
+
 import com.project.view.View;
 
 public class StdOut {
 
     private static final int RULE_SIZE = 140;
 
+    
     public static void print(Object output) {
         System.out.print(output);
     }
 
     public static void print(Object output, StdColor color) {
+        if (output == null)
+            return;
         System.out.print(color + output.toString() + RESET);
     }
 
@@ -21,12 +26,23 @@ public class StdOut {
     }
 
     public static void println(Object output, StdColor color) {
+        if (output == null)
+            return;
         System.out.println(color + output.toString() + RESET);
     }
 
     public static void prompt(String demand) {
         print(demand + " >> ", YELLOW);
         System.out.print(WHITE_BOLD_BRIGHT);
+    }
+
+    public static void printSelections(String... selections) {
+        print("select from: ", CYAN);
+        println(Arrays.asList(selections));
+    }
+
+    public static void printError(String message) {
+        println("Error! " + message, RED_BRIGHT);
     }
 
     public static void rule() {
@@ -53,4 +69,5 @@ public class StdOut {
         for (int i = 0; i < size; i++)
             System.out.print("#");
     }
+
 }

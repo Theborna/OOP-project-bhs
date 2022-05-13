@@ -2,6 +2,8 @@ package com.project;
 
 import com.project.util.StdOut;
 import com.project.view.*;
+import com.project.view.general.FeedView;
+import com.project.view.general.PrimaryView;
 
 /**
  * Main App class
@@ -12,7 +14,7 @@ public class App {
     private static boolean running = true;
 
     public static void start() {
-        view = new PrimaryView();
+        view = new FeedView();
     }
 
     public static void setView(ViewsEnum nextView) {
