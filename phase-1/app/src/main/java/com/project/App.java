@@ -14,11 +14,7 @@ public class App {
     private static boolean running = true;
 
     public static void start() {
-        view = new FeedView();
-    }
-
-    public static void setView(ViewsEnum nextView) {
-        view = ViewsEnum.getView(nextView);
+        view = new PrimaryView();
     }
 
     public static void setView(View view) {

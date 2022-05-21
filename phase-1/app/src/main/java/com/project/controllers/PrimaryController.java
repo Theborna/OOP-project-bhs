@@ -1,7 +1,10 @@
 package com.project.controllers;
 
 import com.project.App;
-import com.project.view.ViewsEnum;
+import com.project.view.general.HelpView;
+import com.project.view.general.LoginView;
+import com.project.view.general.RegisterView;
+import com.project.view.general.SecondaryView;
 
 public class PrimaryController implements Controller {
 
@@ -9,15 +12,15 @@ public class PrimaryController implements Controller {
     public void parse(String input) {
         switch (input.toLowerCase()) {
             case "login":
-                App.setView(ViewsEnum.LOGIN);
+                App.setView(new LoginView());
                 break;
             case "secondary":
-                App.setView(ViewsEnum.SECONDARY);
+                App.setView(new SecondaryView());
                 break;
             case "help":
-                App.setView(ViewsEnum.HELP);
+                App.setView(new HelpView());
             case "register":
-                App.setView(ViewsEnum.REGISTER);
+                App.setView(new RegisterView());
             default:
                 break;
         }

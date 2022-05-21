@@ -16,9 +16,9 @@ import java.util.List;
  *                 send data to database
  */
 public abstract class data {
-    private long id;
-    private Date creationDate, lastModifiedDate;
-    private static List<data> allData;
+    protected long id;
+    protected Date creationDate, lastModifiedDate;
+    protected static List<data> allData;
 
     public void setData(long id, Date creationDate, Date lastModifiedDate) {
         this.id = id;
@@ -27,7 +27,7 @@ public abstract class data {
     }
 
     // static methods
-    private static void setAllData() {
+    protected static void setAllData() {
         // will update list of allData according to database
     }
 

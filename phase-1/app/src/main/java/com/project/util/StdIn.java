@@ -3,7 +3,7 @@ package com.project.util;
 import java.util.Scanner;
 
 import com.project.App;
-import com.project.view.ViewsEnum;
+import com.project.view.general.PrimaryView;
 
 public class StdIn {
     private static boolean returnsNull;// might be used
@@ -14,7 +14,7 @@ public class StdIn {
         if (answer.equals("exit"))
             System.exit(0);
         if (answer.equals("back"))
-            App.setView(ViewsEnum.PRIMARY);
+            App.setView(new PrimaryView());
         return answer;
     }
 }

@@ -8,7 +8,6 @@ import com.project.models.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.view.View;
-import com.project.view.ViewsEnum;
 
 public class LoginView implements View {
 
@@ -36,14 +35,14 @@ public class LoginView implements View {
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
             if (next.equals("register"))
-                App.setView(ViewsEnum.REGISTER);
+                App.setView(new RegisterView());
             else
-                App.setView(ViewsEnum.LOGIN);
+                App.setView(new LoginView());
             return;
         }
         print("login successful! ", StdColor.GREEN);
         println("user: " + username);
-        App.setView(ViewsEnum.SECONDARY);
+        App.setView(new SecondaryView());
         // rule();
     }
 

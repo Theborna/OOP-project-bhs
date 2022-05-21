@@ -5,7 +5,6 @@ import com.project.models.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.view.View;
-import com.project.view.ViewsEnum;
 
 import static com.project.util.StdOut.*;
 
@@ -36,16 +35,17 @@ public class RegisterView implements View {
             // TODO: add user to DB
         } else {
             println("user already exists", StdColor.MAGENTA);
+            printSelections("register", "login");
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
-            if (next.equals("register"))
-                App.setView(ViewsEnum.REGISTER);
-            else
-                App.setView(ViewsEnum.LOGIN);
+            if (next.equalsIgnoreCase("register"))
+                App.setView(new RegisterView());
+            else if (next.equalsIgnoreCase("login"))
+                App.setView(new LoginView());
             return;
         }
         println("user: " + username + ", password: " + password);
-        App.setView(ViewsEnum.SECONDARY);
+        App.setView(new SecondaryView());
         // rule();
     }
 
