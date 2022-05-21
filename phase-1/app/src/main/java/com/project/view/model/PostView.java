@@ -1,7 +1,7 @@
 package com.project.view.model;
 
 import com.project.controllers.Controller;
-import com.project.models.Post;
+import com.project.models.node.Post;
 import com.project.view.View;
 
 public class PostView implements View {
@@ -14,7 +14,6 @@ public class PostView implements View {
 
     @Override
     public void show() {
-        // TODO Auto-generated method stub
 
     }
 

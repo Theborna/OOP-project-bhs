@@ -11,7 +11,7 @@ public class StdIn {
 
     public static String nextLine() { // TODO: check for valid entries
         String answer = scanner.nextLine().trim();
-        if (answer.equals("exit"))
+        if (answer.equals("exit") || answer.equals("end"))
             System.exit(0);
         if (answer.equals("back"))
             App.setView(new PrimaryView());

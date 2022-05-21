@@ -1,4 +1,4 @@
-package com.project.models.user;
+package com.project.models.node.user;
 
 public class NormalUser extends User {
 
@@ -8,7 +8,7 @@ public class NormalUser extends User {
     }
 
     @Override
-    public void Post(com.project.models.Post post) {
+    public void Post(com.project.models.node.Post post) {
         // TODO Auto-generated method stub
 
     }

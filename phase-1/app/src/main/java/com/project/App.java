@@ -2,7 +2,6 @@ package com.project;
 
 import com.project.util.StdOut;
 import com.project.view.*;
-import com.project.view.general.FeedView;
 import com.project.view.general.PrimaryView;
 
 /**
@@ -11,14 +10,16 @@ import com.project.view.general.PrimaryView;
  */
 public class App {
     private static View view;
+    private static LimitedList<View> pastViews = new LimitedList<>(10);
     private static boolean running = true;
 
     public static void start() {
-        view = new PrimaryView();
+        setView(new PrimaryView());
     }
 
     public static void setView(View view) {
         App.view = view;
+        pastViews.add(view);
     }
 
     public static void stop() {
@@ -30,6 +31,7 @@ public class App {
         while (running) {
             StdOut.viewBegin(view);
             view.show();
+            System.out.println(pastViews);
         }
     }
 }

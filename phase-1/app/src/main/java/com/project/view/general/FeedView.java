@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project.controllers.Controller;
-import com.project.models.Post;
+import com.project.models.node.Post;
 import com.project.util.StdIn;
 import com.project.view.View;
 import static com.project.util.StdOut.*;
@@ -18,9 +18,9 @@ public class FeedView implements View {
 
     @Override
     public void show() {
-    
-        for(Post post : posts)
+        for (Post post : posts)
             post.showAsView();
+        printSelections("scroll up", "scroll down", "show post -id");
         prompt("enter next command");
         StdIn.nextLine();
     }

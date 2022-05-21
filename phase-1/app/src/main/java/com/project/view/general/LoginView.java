@@ -4,7 +4,7 @@ import static com.project.util.StdOut.*;
 
 import com.project.App;
 import com.project.controllers.LoginController;
-import com.project.models.user.User;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.view.View;
@@ -30,7 +30,6 @@ public class LoginView implements View {
                 printError("invalid password format");
         }
         if ((user = controller.logToUser(username, password)) == null) {// gets the user
-            // TODO : actually get the user and login
             printError("no such user exists!");
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
@@ -42,8 +41,7 @@ public class LoginView implements View {
         }
         print("login successful! ", StdColor.GREEN);
         println("user: " + username);
-        App.setView(new SecondaryView());
-        // rule();
+        App.setView(new SecondaryView().setUser(user));
     }
 
     @Override

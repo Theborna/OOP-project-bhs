@@ -1,10 +1,10 @@
-package com.project.models;
+package com.project.models.node;
 
 import java.sql.Date;
 import java.util.List;
 
 /**
- * abstract class which is the parent class for all objects that can be stored
+ * abstract class which is the parent class for all nodes that can be stored
  * in the database
  * 
  * @variables
@@ -15,10 +15,10 @@ import java.util.List;
  *                 get object from the database, match object with dataBase
  *                 send data to database
  */
-public abstract class data {
+public abstract class node {
     protected long id;
     protected Date creationDate, lastModifiedDate;
-    protected static List<data> allData;
+    protected static List<node> allData;
 
     public void setData(long id, Date creationDate, Date lastModifiedDate) {
         this.id = id;
@@ -31,9 +31,9 @@ public abstract class data {
         // will update list of allData according to database
     }
 
-    public static data get(long id) {
+    public static node get(long id) {
         setAllData();
-        for (data data : allData)
+        for (node data : allData)
             if (data.getId() == id)
                 return data;
         return null;
@@ -56,7 +56,7 @@ public abstract class data {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        data other = (data) obj;
+        node other = (node) obj;
         if (id != other.id)
             return false;
         return true;

@@ -1,7 +1,7 @@
 package com.project.view.general;
 
 import com.project.controllers.RegisterController;
-import com.project.models.user.User;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.view.View;

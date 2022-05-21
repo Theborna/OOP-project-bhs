@@ -1,8 +1,8 @@
-package com.project.models;
+package com.project.models.node;
 
-import com.project.models.user.Media;
-import com.project.models.user.NormalUser;
-import com.project.models.user.User;
+import com.project.models.node.user.Media;
+import com.project.models.node.user.NormalUser;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 
 import static com.project.util.StdOut.*;
@@ -10,7 +10,7 @@ import static com.project.util.StdOut.*;
 import java.sql.Date;
 import java.util.ArrayList;
 
-public class Post extends data {
+public class Post extends node {
     private StringBuilder text;
     private Image image = null;
     private ArrayList<Media> media = new ArrayList<Media>();
@@ -26,7 +26,7 @@ public class Post extends data {
         setData(1221513, new Date(1), new Date(2));
     }
 
-    public Post(String text,User Sender) {
+    public Post(String text, User Sender) {
         this.text = new StringBuilder(text);
         sender = Sender;
         likes = 0;
@@ -36,7 +36,7 @@ public class Post extends data {
 
     public void showAsView() {
         print(sender.getUsername(), StdColor.MAGENTA_UNDERLINED);
-        println(" , " + getCreationDate(), StdColor.BLACK_BRIGHT);
+        println(" ,date: " + getCreationDate() + " ,id: " + getId(), StdColor.BLACK_BRIGHT);
         println("\n" + text + "\n");
         print("likes: ", StdColor.RED_BRIGHT);
         print(likes + ", ");

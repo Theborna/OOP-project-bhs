@@ -4,19 +4,27 @@ import static com.project.util.StdOut.*;
 
 import com.project.controllers.Controller;
 import com.project.controllers.SecondaryController;
-import com.project.util.StdColor;
+import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.view.View;
 
 public class SecondaryView implements View {
 
-    private Controller controller = new SecondaryController();
+    private User user;
+    private SecondaryController controller = new SecondaryController();
+
+    public SecondaryView setUser(User user) {
+        if (user == null)
+            return null;
+        this.user = user;
+        controller.setUser(user);
+        return this;
+    }
 
     @Override
     public void show() {
         println("inside secondary");
-        // rule();
-        printSelections("Chat", "Feed", "Search");
+        printSelections("Chat", "Feed", "Search", "new Post", "Page");
         prompt("enter next view");
         controller.parse(StdIn.nextLine());
     }

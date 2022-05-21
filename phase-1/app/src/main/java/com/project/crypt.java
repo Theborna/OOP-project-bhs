@@ -79,9 +79,11 @@ public class crypt {
                 .limit(8).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
         String key = "D*G-KaNdRgUkXp2s", keyedEnc;
         System.out.println("salt: " + randomString);
-        System.out.println(encryptedString("borna"));
-        System.out.println(encryptedString("borna1"));
-        System.out.println(encryptedString("borna" + randomString));
+        System.out.println(encryptedString("borna").toCharArray().length);
+        System.out.println(encryptedString("borna1").toCharArray().length);
+        System.out.println(encryptedString("hossein").toCharArray().length);
+        System.out.println(encryptedString("islhioashfioashfioashfioashfiohasiofhas").toCharArray().length);
+        // System.out.println(encryptedString("borna" + randomString));
         System.out.println("key: " + key);
         System.out.println(keyedEnc = encryptedStringKeyed("borna", key));
         // System.out.println(decryptedStringKeyed(keyedEnc, key));

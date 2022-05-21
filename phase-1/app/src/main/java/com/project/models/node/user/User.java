@@ -1,9 +1,9 @@
-package com.project.models.user;
+package com.project.models.node.user;
 
-import com.project.models.Chat;
-import com.project.models.Message;
-import com.project.models.Post;
-import com.project.models.data;
+import com.project.models.node.Chat;
+import com.project.models.node.Message;
+import com.project.models.node.Post;
+import com.project.models.node.node;
 
 /**
  * abstract class defining users.
@@ -11,7 +11,7 @@ import com.project.models.data;
  * @abstract Posting and getting stats
  * @Children NormalUser, BusinessUser
  */
-public abstract class User extends data {
+public abstract class User extends node {
     private String username, password;
     private boolean isPublic;
 
