@@ -12,15 +12,15 @@ public class PrimaryController implements Controller {
     public void parse(String input) {
         switch (input.toLowerCase()) {
             case "login":
-                App.setView(new LoginView());
+                App.setView(LoginView.getInstance());
                 break;
             case "secondary":
-                App.setView(new SecondaryView());
+                App.setView(SecondaryView.getInstance());
                 break;
             case "help":
-                App.setView(new HelpView());
+                App.setView(HelpView.getInstance());
             case "register":
-                App.setView(new RegisterView());
+                App.setView(RegisterView.getInstance());
             default:
                 break;
         }

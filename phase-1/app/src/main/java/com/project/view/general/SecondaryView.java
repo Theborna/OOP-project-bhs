@@ -12,6 +12,17 @@ public class SecondaryView implements View {
 
     private User user;
     private SecondaryController controller = new SecondaryController();
+    private static SecondaryView instance;
+
+    private SecondaryView() {
+
+    }
+
+    public static SecondaryView getInstance() {
+        if (instance == null)
+            instance = new SecondaryView();
+        return instance;
+    }
 
     public SecondaryView setUser(User user) {
         if (user == null)
@@ -33,5 +44,9 @@ public class SecondaryView implements View {
     @SuppressWarnings("unchecked")
     public Controller getController() {
         return controller;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

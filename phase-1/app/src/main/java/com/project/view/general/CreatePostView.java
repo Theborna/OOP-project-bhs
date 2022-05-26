@@ -29,7 +29,7 @@ public class CreatePostView implements View {
                 break;
         }
         System.out.println(postText);
-        App.setView(new SecondaryView().setUser(user));
+        App.setView(SecondaryView.getInstance().setUser(user));
     }
 
     @Override

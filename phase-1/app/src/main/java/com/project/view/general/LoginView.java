@@ -14,6 +14,17 @@ public class LoginView implements View {
     private LoginController controller = new LoginController();
     private String username, password;
     private User user;
+    private static LoginView instance;
+
+    private LoginView() {
+
+    }
+
+    public static LoginView getInstance() {
+        if (instance == null)
+            instance = new LoginView();
+        return instance;
+    }
 
     @Override
     public void show() {
@@ -34,14 +45,14 @@ public class LoginView implements View {
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
             if (next.equals("register"))
-                App.setView(new RegisterView());
+                App.setView(RegisterView.getInstance());
             else
-                App.setView(new LoginView());
+                App.setView(LoginView.getInstance());
             return;
         }
         print("login successful! ", StdColor.GREEN);
         println("user: " + username);
-        App.setView(new SecondaryView().setUser(user));
+        App.setView(SecondaryView.getInstance().setUser(user));
     }
 
     @Override

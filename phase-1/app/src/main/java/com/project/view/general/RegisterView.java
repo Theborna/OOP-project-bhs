@@ -15,6 +15,17 @@ public class RegisterView implements View {
     private String username, password;
     private User user;
     private RegisterController controller = new RegisterController();
+    private static RegisterView instance;
+
+    private RegisterView() {
+
+    }
+
+    public static RegisterView getInstance() {
+        if (instance == null)
+            instance = new RegisterView();
+        return instance;
+    }
 
     @Override
     public void show() {
@@ -39,13 +50,13 @@ public class RegisterView implements View {
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
             if (next.equalsIgnoreCase("register"))
-                App.setView(new RegisterView());
+                App.setView(RegisterView.getInstance());
             else if (next.equalsIgnoreCase("login"))
-                App.setView(new LoginView());
+                App.setView(LoginView.getInstance());
             return;
         }
         println("user: " + username + ", password: " + password);
-        App.setView(new SecondaryView());
+        App.setView(SecondaryView.getInstance().setUser(user));
         // rule();
     }
 

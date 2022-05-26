@@ -14,7 +14,7 @@ public class App {
     private static boolean running = true;
 
     public static void start() {
-        setView(new PrimaryView());
+        setView(PrimaryView.getInstance());
     }
 
     public static void setView(View view) {

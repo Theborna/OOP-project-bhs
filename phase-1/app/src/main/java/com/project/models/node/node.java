@@ -31,6 +31,10 @@ public abstract class node {
         // will update list of allData according to database
     }
 
+    public static List<node> getAllData() {
+        return allData;
+    }
+
     public static node get(long id) {
         setAllData();
         for (node data : allData)

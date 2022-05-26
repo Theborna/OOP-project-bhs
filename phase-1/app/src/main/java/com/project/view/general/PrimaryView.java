@@ -13,6 +13,18 @@ public class PrimaryView implements View {
 
     private Controller controller = new PrimaryController();
 
+    private static PrimaryView instance;
+
+    private PrimaryView() {
+
+    }
+
+    public static PrimaryView getInstance() {
+        if (instance == null)
+            instance = new PrimaryView();
+        return instance;
+    }
+
     @Override
     public void show() {
         println("inside primary");

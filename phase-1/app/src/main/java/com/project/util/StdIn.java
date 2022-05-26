@@ -14,7 +14,7 @@ public class StdIn {
         if (answer.equals("exit") || answer.equals("end"))
             System.exit(0);
         if (answer.equals("back"))
-            App.setView(new PrimaryView());
+            App.setView(PrimaryView.getInstance());
         return answer;
     }
 }
