@@ -7,4 +7,6 @@ public class Chat extends data {
     public boolean sexsexsex;
     public double sexxxxx;
     public int sexxxxxxxx;
+    public int sexxxdfysdfsds;
+    private int fjdsklafjdksal;
 }
