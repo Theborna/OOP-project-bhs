@@ -1,10 +1,16 @@
 package com.project.models;
 
-public class Chat extends data {
+import java.util.ArrayList;
 
-    public String sex="sex";
-    public int sexsex;
-    public boolean sexsexsex;
-    public double sexxxxx;
-    public int sexxxxxxxx;
+import com.project.models.user.User;
+
+public class Chat extends data {
+    private int participantNum;
+    private ArrayList<User> participants;
+    private ArrayList<Message> messages;
+    private ArrayList<User> administrators;
+    
+    public Chat(ArrayList<User> particpans,){
+
+    }
 }
