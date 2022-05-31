@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-05-31T20:28:40.688906200Z</date>
+  <millis>1654028920688</millis>
+  <nanos>906200</nanos>
+  <sequence>1</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>SEVERE</level>
+  <class>com.project.util.Log</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>severe message</message>
+</record>
+<record>
+  <date>2022-05-31T20:28:40.710181300Z</date>
+  <millis>1654028920710</millis>
+  <nanos>181300</nanos>
+  <sequence>2</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>WARNING</level>
+  <class>com.project.util.Log</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>warning message</message>
+</record>
+<record>
+  <date>2022-05-31T20:28:40.712843600Z</date>
+  <millis>1654028920712</millis>
+  <nanos>843600</nanos>
+  <sequence>3</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.util.Log</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>info message</message>
+</record>
+</log>

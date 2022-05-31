@@ -1,5 +1,6 @@
 package com.project;
 
+import com.project.util.Log;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
 import com.project.view.*;
@@ -16,10 +17,12 @@ public class App {
 
     public static void start() {
         setView(PrimaryView.getInstance());
+        Log.init();
     }
 
     public static void setView(View view) {
         App.view = view;
+        Log.logger.info("changed view to " + view.getClass().getSimpleName());
         pastViews.add(view);
     }
 
