@@ -6,6 +6,7 @@ import com.project.controllers.Controller;
 import com.project.controllers.PrimaryController;
 import com.project.util.StdIn;
 import com.project.util.StdOut;
+import com.project.util.exception.changeViewException;
 import com.project.view.View;
 import com.project.util.StdColor;
 
@@ -26,7 +27,7 @@ public class PrimaryView implements View {
     }
 
     @Override
-    public void show() {
+    public void show() throws changeViewException {
         println("inside primary");
         // StdOut.rule();
         printSelections("Login", "Register", "Help");

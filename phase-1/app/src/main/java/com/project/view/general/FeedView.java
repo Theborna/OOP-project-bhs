@@ -1,25 +1,51 @@
 package com.project.view.general;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.project.controllers.Controller;
+import com.project.models.connection.PostConnection;
 import com.project.models.node.Post;
 import com.project.util.StdIn;
+import com.project.util.exception.changeViewException;
 import com.project.view.View;
+import com.project.view.model.PostView;
+
 import static com.project.util.StdOut.*;
 
 public class FeedView implements View {
+    private static FeedView instance;
 
-    private ArrayList<Post> posts = new ArrayList<Post>(
-            List.of(new Post("kos mikham"), new Post("vay daram mimiram"),
-                    new Post(
-                            "The main reason why System.out.println() can't show Unicode characters is that System.out.println() is a byte stream that deal with only the low-order eight bits of character which is 16-bits. In order to deal with Unicode characters(16-bit Unicode character), you have to use character based stream i.e. PrintWriter.")));
+    private Set<PostView> postViews = new HashSet<PostView>();
+
+    private FeedView() {
+
+    }
+
+    public Set<PostView> getChildren() {
+        return postViews;
+    }
+
+    public void clear() {
+        postViews.clear();
+    }
+
+    public static FeedView getInstance() {
+        if (instance == null)
+            instance = new FeedView();
+        return instance;
+    }
 
     @Override
-    public void show() {
-        for (Post post : posts)
-            post.showAsView();
+    public void show() throws changeViewException {
+        for (PostView postView : postViews)
+            postView.show();
         printSelections("scroll up", "scroll down", "show post -id");
         prompt("enter next command");
         StdIn.nextLine();

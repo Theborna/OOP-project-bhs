@@ -4,14 +4,9 @@ import com.project.App;
 import com.project.models.node.user.User;
 import com.project.view.general.CreatePostView;
 import com.project.view.general.FeedView;
+import com.project.view.model.PostView;
 
 public class SecondaryController implements Controller {
-
-    private User user;
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @Override
     public void parse(String input) {
@@ -19,10 +14,12 @@ public class SecondaryController implements Controller {
         System.out.println("kos mikham with input: " + input);
         switch (input) {
             case "feed":
-                App.setView(new FeedView());
+                FeedView.getInstance().getChildren()
+                        .addAll(User.getCurrentUser().getPosts().stream().map(PostView::new).toList());
+                App.setView(FeedView.getInstance());
                 break;
             case "new post":
-                App.setView(new CreatePostView().setUser(user));
+                App.setView(new CreatePostView());
                 break;
             default:
                 break;

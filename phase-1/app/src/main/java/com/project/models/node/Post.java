@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 public class Post extends node {
+    private static long PostId;
     private StringBuilder text;
     private Image image = null;
     private ArrayList<Media> media = new ArrayList<Media>();
@@ -23,7 +24,7 @@ public class Post extends node {
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        setData(1221513, new Date(1), new Date(2));
+        setData(PostId++, new Date(1), new Date(2));
     }
 
     public Post(String text, User Sender) {
@@ -31,18 +32,45 @@ public class Post extends node {
         sender = Sender;
         likes = 0;
         views = 0;
-        setData(1221513, new Date(1), new Date(2));
+        setData(PostId++, new Date(1), new Date(2));
     }
 
-    public void showAsView() {
-        print(sender.getUsername(), StdColor.MAGENTA_UNDERLINED);
-        println(" ,date: " + getCreationDate() + " ,id: " + getId(), StdColor.BLACK_BRIGHT);
-        println("\n" + text + "\n");
-        print("likes: ", StdColor.RED_BRIGHT);
-        print(likes + ", ");
-        print("views: ", StdColor.GREEN_BRIGHT);
-        print(views);
-        rule();
+    public User getSender() {
+        return sender;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public StringBuilder getText() {
+        return text;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Post other = (Post) obj;
+        if (id != other.id)
+            return false;
+        return true;
     }
 
 }

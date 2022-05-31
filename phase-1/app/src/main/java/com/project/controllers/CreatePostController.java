@@ -1,6 +1,7 @@
 package com.project.controllers;
 
 import com.project.util.StdIn;
+import com.project.util.exception.changeViewException;
 
 public class CreatePostController implements Controller {
 
@@ -10,7 +11,7 @@ public class CreatePostController implements Controller {
 
     }
 
-    public boolean getPostText(StringBuilder postText) {
+    public boolean getPostText(StringBuilder postText) throws changeViewException {
         if (postText == null)
             postText = new StringBuilder();
         String input;

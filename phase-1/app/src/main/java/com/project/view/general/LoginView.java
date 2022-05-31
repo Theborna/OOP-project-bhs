@@ -7,13 +7,12 @@ import com.project.controllers.LoginController;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
+import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
 public class LoginView implements View {
 
     private LoginController controller = new LoginController();
-    private String username, password;
-    private User user;
     private static LoginView instance;
 
     private LoginView() {
@@ -27,7 +26,9 @@ public class LoginView implements View {
     }
 
     @Override
-    public void show() {
+    public void show() throws changeViewException {
+        String username = null, password = null;
+        User user = null;
         while (username == null) {
             prompt("enter username");
             username = controller.getUsername(StdIn.nextLine());
@@ -52,7 +53,7 @@ public class LoginView implements View {
         }
         print("login successful! ", StdColor.GREEN);
         println("user: " + username);
-        App.setView(SecondaryView.getInstance().setUser(user));
+        App.setView(SecondaryView.getInstance());
     }
 
     @Override

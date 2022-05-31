@@ -4,6 +4,7 @@ import com.project.controllers.RegisterController;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
+import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
 import static com.project.util.StdOut.*;
@@ -12,8 +13,6 @@ import com.project.App;
 
 public class RegisterView implements View {
 
-    private String username, password;
-    private User user;
     private RegisterController controller = new RegisterController();
     private static RegisterView instance;
 
@@ -28,7 +27,9 @@ public class RegisterView implements View {
     }
 
     @Override
-    public void show() {
+    public void show() throws changeViewException {
+        String username = null, password = null;
+        User user = null;
         while (username == null) {
             prompt("enter username");
             username = controller.getUsername(StdIn.nextLine());
@@ -56,7 +57,7 @@ public class RegisterView implements View {
             return;
         }
         println("user: " + username + ", password: " + password);
-        App.setView(SecondaryView.getInstance().setUser(user));
+        App.setView(SecondaryView.getInstance());
         // rule();
     }
 

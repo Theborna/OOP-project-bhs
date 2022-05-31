@@ -23,7 +23,7 @@ public class LoginController implements Controller {
     }
 
     public User logToUser(String username, String password) {
-        return new NormalUser(username, password);
+        return User.logToUser(username, password);
     }
 
 }

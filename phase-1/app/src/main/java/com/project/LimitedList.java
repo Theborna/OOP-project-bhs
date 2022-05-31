@@ -8,6 +8,7 @@ public class LimitedList<E> {
     private int n;
     private List<E> items;
     private E defaultItem;
+    private int pos;
 
     public LimitedList(int n) {
         this.n = n;
@@ -21,7 +22,7 @@ public class LimitedList<E> {
     }
 
     public E get(int index) {
-        if (index < 0 || index >= n)
+        if (index < 0 || index >= items.size())
             return defaultItem;
         return items.get(index);
     }
@@ -30,11 +31,16 @@ public class LimitedList<E> {
         if (items.size() + 1 == n)
             items = items.subList(1, items.size());
         items.add(item);
+        pos = items.size();
         return this;
     }
 
     public int indexOf(E item) {
         return items.indexOf(item);
+    }
+
+    public E next() {
+        return this.get(--pos);
     }
 
     @Override

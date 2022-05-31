@@ -1,6 +1,7 @@
 package com.project;
 
 import com.project.util.StdOut;
+import com.project.util.exception.changeViewException;
 import com.project.view.*;
 import com.project.view.general.PrimaryView;
 
@@ -26,12 +27,20 @@ public class App {
         running = false;
     }
 
+    public static View lastView() {
+        return (pastViews.next());
+    }
+
     public static void main(String... args) throws Exception {
         start();
         while (running) {
             StdOut.viewBegin(view);
-            view.show();
-            System.out.println(pastViews);
+            try {
+                view.show();
+            } catch (changeViewException e) {
+                setView(e.getView());
+            }
         }
     }
+
 }

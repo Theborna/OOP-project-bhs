@@ -6,11 +6,11 @@ import com.project.controllers.Controller;
 import com.project.controllers.SecondaryController;
 import com.project.models.node.user.User;
 import com.project.util.StdIn;
+import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
 public class SecondaryView implements View {
 
-    private User user;
     private SecondaryController controller = new SecondaryController();
     private static SecondaryView instance;
 
@@ -24,16 +24,8 @@ public class SecondaryView implements View {
         return instance;
     }
 
-    public SecondaryView setUser(User user) {
-        if (user == null)
-            return null;
-        this.user = user;
-        controller.setUser(user);
-        return this;
-    }
-
     @Override
-    public void show() {
+    public void show() throws changeViewException {
         println("inside secondary");
         printSelections("Chat", "Feed", "Search", "new Post", "Page");
         prompt("enter next view");
@@ -46,7 +38,4 @@ public class SecondaryView implements View {
         return controller;
     }
 
-    public User getUser() {
-        return user;
-    }
 }
