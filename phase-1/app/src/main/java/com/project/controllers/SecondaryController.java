@@ -14,7 +14,7 @@ public class SecondaryController implements Controller {
         System.out.println("kos mikham with input: " + input);
         switch (input) {
             case "feed":
-                FeedView.getInstance().getChildren()
+                FeedView.getInstance().getController().getChildren()
                         .addAll(User.getCurrentUser().getPosts().stream().map(PostView::new).toList());
                 App.setView(FeedView.getInstance());
                 break;

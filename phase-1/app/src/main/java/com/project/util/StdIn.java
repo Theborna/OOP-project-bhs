@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.project.App;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.PrimaryView;
+import com.project.view.general.SecondaryView;
 
 public class StdIn {
     private static boolean returnsNull;// might be used
@@ -21,6 +22,8 @@ public class StdIn {
             throw new changeViewException(PrimaryView.getInstance());
         if (answer.equals("back"))
             throw new changeViewException(App.lastView());
+        if (answer.equals("hub"))
+            throw new changeViewException(SecondaryView.getInstance());
         return answer;
     }
 }
