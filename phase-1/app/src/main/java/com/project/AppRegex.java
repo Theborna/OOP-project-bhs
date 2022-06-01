@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum AppRegex {
-    USERNAME("\\w+"), PASSWORD("\\w+");
+    USERNAME("\\w+"), PASSWORD("\\w+"), SWITCH("switch to -(?<next>\\w+)");
 
     String regex;
 

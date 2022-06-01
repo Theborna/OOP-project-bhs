@@ -21,6 +21,8 @@ public class App {
     }
 
     public static void setView(View view) {
+        if (view == null)
+            return;
         App.view = view;
         Log.logger.info("changed view to " + view.getClass().getSimpleName());
         pastViews.add(view);
