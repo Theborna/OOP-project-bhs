@@ -1,5 +1,6 @@
-package com.project.models;
-import com.project.models.user.User;
+package com.project.models.node;
+
+import com.project.models.node.user.User;
 
 public class NormalPost extends Post{
 
