@@ -24,7 +24,7 @@ public class FeedView implements View {
     @Override
     public void show() throws changeViewException {
         controller.getCurrentPost().show();
-        printSelections("scroll up", "scroll down", "show post -id");
+        printSelections("scroll up", "scroll down", "up vote", "down vote", "comment");
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }
