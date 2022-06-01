@@ -1,9 +1,11 @@
 package com.project.models.connection;
 
+import com.project.models.node.node;
+
 /**
  * 
  */
-public abstract class connection<E, T> {
+public abstract class connection<E, T> extends node {
 
     private E obj1;
     private T obj2;
