@@ -2,6 +2,7 @@ package com.project.models.node.user;
 
 import java.util.Set;
 
+import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.PostConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
@@ -45,5 +46,9 @@ public abstract class User extends node {
 
     public Set<com.project.models.node.Post> getPosts() {
         return PostConnection.getPost(this);
+    }
+
+    public Set<Chat> getChats() {
+        return ChatUserConnection.getChats(this);
     }
 }

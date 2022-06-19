@@ -1,7 +1,6 @@
 package com.project.controllers;
 
 import com.project.AppRegex;
-import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 public class LoginController implements Controller {
@@ -24,6 +23,11 @@ public class LoginController implements Controller {
 
     public User logToUser(String username, String password) {
         return User.logToUser(username, password);
+    }
+
+    @Override
+    public void help() {
+        // no help needed
     }
 
 }

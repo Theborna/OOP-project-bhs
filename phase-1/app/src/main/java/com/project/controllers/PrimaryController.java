@@ -1,10 +1,10 @@
 package com.project.controllers;
 
 import com.project.App;
-import com.project.view.general.HelpView;
+import com.project.util.StdColor;
 import com.project.view.general.LoginView;
 import com.project.view.general.RegisterView;
-import com.project.view.general.SecondaryView;
+import static com.project.util.StdOut.*;
 
 public class PrimaryController implements Controller {
 
@@ -14,16 +14,25 @@ public class PrimaryController implements Controller {
             case "login":
                 App.setView(LoginView.getInstance());
                 break;
-            case "secondary":
-                App.setView(SecondaryView.getInstance());
-                break;
             case "help":
-                App.setView(HelpView.getInstance());
+                help();
+                break;
             case "register":
                 App.setView(RegisterView.getInstance());
             default:
                 break;
         }
+    }
+
+    public void help() {
+        rule('*');
+        print("help:", StdColor.MAGENTA_UNDERLINED);
+        println(" brings up the help menu");
+        print("login:", StdColor.MAGENTA_UNDERLINED);
+        println(" brings up the login menu, you will need a username and password to login");
+        print("register:", StdColor.MAGENTA_UNDERLINED);
+        println(" brings up the register menu, you will create a new account in this page");
+        rule('*');
     }
 
 }

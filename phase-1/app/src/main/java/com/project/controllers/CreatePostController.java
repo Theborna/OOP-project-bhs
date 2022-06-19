@@ -6,9 +6,7 @@ import com.project.util.exception.changeViewException;
 public class CreatePostController implements Controller {
 
     @Override
-    public void parse(String input) {
-        // TODO Auto-generated method stub
-
+    public void parse(String input) {// unnecessary
     }
 
     public boolean getPostText(StringBuilder postText) throws changeViewException {
@@ -18,6 +16,12 @@ public class CreatePostController implements Controller {
         while (!(input = StdIn.nextLine()).equals(""))
             postText.append(input + "\n");
         return true;
+    }
+
+    @Override
+    public void help() {
+        // no help needed
+
     }
 
 }

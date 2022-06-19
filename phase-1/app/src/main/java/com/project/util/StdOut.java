@@ -10,7 +10,6 @@ public class StdOut {
 
     private static final int RULE_SIZE = 140;
 
-    
     public static void print(Object output) {
         System.out.print(output);
     }
@@ -45,9 +44,9 @@ public class StdOut {
         println("Error! " + message, RED_BRIGHT);
     }
 
-    public static void rule() {
+    public static void rule(char character) {
         System.out.println(BLUE);
-        line(RULE_SIZE);
+        line(RULE_SIZE, character);
         System.out.println();
         System.out.println(RESET);
     }
@@ -57,17 +56,17 @@ public class StdOut {
         String name = view.getClass().getSimpleName().replaceFirst("View", "");
         int halfWidth = (RULE_SIZE - name.length()) / 2;
         System.out.print(BLUE_BOLD);
-        line(halfWidth);
+        line(halfWidth, '#');
         print(name, WHITE_BOLD_BRIGHT);
         System.out.print(BLUE_BOLD);
-        line(halfWidth);
+        line(halfWidth, '#');
         System.out.println(RESET);
         System.out.println();
     }
 
-    private static void line(int size) {
+    private static void line(int size, char character) {
         for (int i = 0; i < size; i++)
-            System.out.print("#");
+            System.out.print(character);
     }
 
 }

@@ -5,7 +5,6 @@ import com.project.controllers.Controller;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.FeedView;
-import com.project.view.general.HelpView;
 import com.project.view.general.LoginView;
 import com.project.view.general.PrimaryView;
 import com.project.view.general.RegisterView;
@@ -27,8 +26,6 @@ public interface View {
                 return PrimaryView.getInstance();
             case "secondary":
                 return SecondaryView.getInstance();
-            case "help":
-                return HelpView.getInstance();
             case "feed":
                 return FeedView.getInstance();
             case "login":

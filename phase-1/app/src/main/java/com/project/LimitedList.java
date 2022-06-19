@@ -31,7 +31,7 @@ public class LimitedList<E> {
         if (items.size() + 1 == n)
             items = items.subList(1, items.size());
         items.add(item);
-        pos = items.size();
+        pos = items.size() - 1;
         return this;
     }
 

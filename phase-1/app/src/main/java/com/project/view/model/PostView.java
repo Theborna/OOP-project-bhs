@@ -24,7 +24,7 @@ public class PostView implements View {
         print(post.getLikes() + ", ");
         print("views: ", StdColor.GREEN_BRIGHT);
         print(post.getViews());
-        rule();
+        rule('_');
     }
 
     @Override
@@ -57,6 +57,5 @@ public class PostView implements View {
             return false;
         return true;
     }
-
 
 }

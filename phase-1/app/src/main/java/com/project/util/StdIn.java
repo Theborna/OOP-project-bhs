@@ -19,6 +19,10 @@ public class StdIn {
     }
 
     public static String nextLine() throws changeViewException { // TODO: check for valid entries
+        if (!scanner.hasNext()) {
+            System.out.println(StdColor.RESET);
+            System.exit(0);
+        }
         String answer = scanner.nextLine().trim();
         if (answer.equals("exit") || answer.equals("end"))
             System.exit(0);

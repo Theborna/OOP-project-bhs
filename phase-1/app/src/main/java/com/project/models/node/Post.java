@@ -3,9 +3,6 @@ package com.project.models.node;
 import com.project.models.node.user.Media;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
-import com.project.util.StdColor;
-
-import static com.project.util.StdOut.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
