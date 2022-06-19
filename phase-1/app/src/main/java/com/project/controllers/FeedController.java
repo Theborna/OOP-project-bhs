@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import com.project.models.node.Post;
+import com.project.util.StdColor;
 import com.project.view.model.PostView;
 import static com.project.util.StdOut.*;
 
@@ -28,8 +29,10 @@ public class FeedController implements Controller {
                 break;
             case "t":
             case "top":
-            case "go to top":
                 currentPost = postViews.get(0);
+            case "help":
+                help();
+                break;
             default:
                 break;
         }
@@ -58,6 +61,16 @@ public class FeedController implements Controller {
     @Override
     public void help() {
         rule('*');
+        print("scroll up, up, u:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls up to view the last post");
+        print("scroll down, down, d:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls down to view the next post");
+        print("top, t:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls to the top of the chat list");
+        // print("show -all, all:", StdColor.MAGENTA_UNDERLINED);
+        // println(" shows all chat items at once");
+        print("help:", StdColor.MAGENTA_UNDERLINED);
+        println("brings up the help window");
         rule('*');
     }
 }

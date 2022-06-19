@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.project.models.node.Chat;
+import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
 import com.project.view.model.ChatItemView;
 import static com.project.util.StdOut.*;
@@ -75,6 +76,16 @@ public class ChatListController implements Controller {
     public void help() {
         // TODO : implement help
         rule('*');
+        print("last, l:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls up to view the last chat item");
+        print("next, n:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls down to view the next chat item");
+        print("top, t:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls to the top of the chat list");
+        print("show -all, all:", StdColor.MAGENTA_UNDERLINED);
+        println(" shows all chat items at once");
+        print("help:", StdColor.MAGENTA_UNDERLINED);
+        println("brings up the help window");
         rule('*');
     }
 
