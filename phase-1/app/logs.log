@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-06-19T13:54:37.845784400Z</date>
-  <millis>1655646877845</millis>
-  <nanos>784400</nanos>
+  <date>2022-06-19T14:39:54.734134300Z</date>
+  <millis>1655649594734</millis>
+  <nanos>134300</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -13,3 +13,112 @@
   <thread>1</thread>
   <message>starting application</message>
 </record>
+<record>
+  <date>2022-06-19T14:39:59.259492700Z</date>
+  <millis>1655649599259</millis>
+  <nanos>492700</nanos>
+  <sequence>2</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to RegisterView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:00.187834Z</date>
+  <millis>1655649600187</millis>
+  <nanos>834000</nanos>
+  <sequence>3</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to PrimaryView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:02.977454Z</date>
+  <millis>1655649602977</millis>
+  <nanos>454000</nanos>
+  <sequence>4</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to RegisterView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:06.474279500Z</date>
+  <millis>1655649606474</millis>
+  <nanos>279500</nanos>
+  <sequence>5</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to RegisterView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:17.644072400Z</date>
+  <millis>1655649617644</millis>
+  <nanos>72400</nanos>
+  <sequence>6</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to LoginView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:19.489171400Z</date>
+  <millis>1655649619489</millis>
+  <nanos>171400</nanos>
+  <sequence>7</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to RegisterView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:28.617195900Z</date>
+  <millis>1655649628617</millis>
+  <nanos>195900</nanos>
+  <sequence>8</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to LoginView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:31.705695600Z</date>
+  <millis>1655649631705</millis>
+  <nanos>695600</nanos>
+  <sequence>9</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to SecondaryView</message>
+</record>
+<record>
+  <date>2022-06-19T14:40:35.403864100Z</date>
+  <millis>1655649635403</millis>
+  <nanos>864100</nanos>
+  <sequence>10</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to ChatListView</message>
+</record>
+</log>

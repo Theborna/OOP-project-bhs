@@ -85,7 +85,7 @@ public class ChatListController implements Controller {
         print("show -all, all:", StdColor.MAGENTA_UNDERLINED);
         println(" shows all chat items at once");
         print("help:", StdColor.MAGENTA_UNDERLINED);
-        println("brings up the help window");
+        println(" brings up the help window");
         rule('*');
     }
 
