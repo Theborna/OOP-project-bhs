@@ -1,5 +1,9 @@
 package com.project.util;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public enum StdColor {
     // Color end string, color reset
     RESET("\033[0m"),
@@ -83,5 +87,26 @@ public enum StdColor {
     @Override
     public String toString() {
         return code;
+    }
+
+    public static StdColor random(String format) {
+        format = format.toLowerCase().replaceAll("\\W", "");
+        List<StdColor> colors;
+        switch (format) {
+            case "name":
+                colors = List.of(
+                        RED_BOLD_BRIGHT,
+                        GREEN_BOLD_BRIGHT,
+                        YELLOW_BOLD_BRIGHT,
+                        BLUE_BOLD_BRIGHT,
+                        MAGENTA_BOLD_BRIGHT,
+                        CYAN_BOLD_BRIGHT,
+                        WHITE_BOLD_BRIGHT);
+                break;
+            default:
+                colors = Arrays.asList(values());
+                break;
+        }
+        return colors.get(new Random().nextInt(colors.size()));
     }
 }

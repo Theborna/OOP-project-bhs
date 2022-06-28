@@ -6,7 +6,7 @@ import java.util.Set;
 import com.project.models.node.Post;
 import com.project.models.node.user.User;
 
-public class PostConnection extends connection<User, Post> {
+public class PostUserConnection extends connection<User, Post> {
 
     public static Set<Post> getPost(User user) {
         Set<Post> result = new LinkedHashSet<>();

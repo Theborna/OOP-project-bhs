@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.project.App;
 import com.project.models.node.Chat;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
+import com.project.view.general.ChatView;
 import com.project.view.model.ChatItemView;
 import static com.project.util.StdOut.*;
 
@@ -22,10 +24,16 @@ public class ChatListController implements Controller {
         switch (input) {
             case "n":
             case "next":
+            case "scroll down":
+            case "down":
+            case "d":
                 currentChat = chatItems.get((++current < chatItems.size()) ? current : (current = 0));
                 break;
             case "l":
             case "last":
+            case "scroll up":
+            case "up":
+            case "u":
                 currentChat = chatItems.get((--current >= 0) ? current : (current = 0));
                 break;
             case "t":
@@ -39,7 +47,12 @@ public class ChatListController implements Controller {
             case "help":
                 help();
                 break;
+            case "open":
+                Chat.LogToChat(currentChat.getChat().getId());
+                App.setView(ChatView.getInstance());
+                break;
             default:
+                printError("no such command");
                 break;
         }
     }
@@ -76,10 +89,10 @@ public class ChatListController implements Controller {
     public void help() {
         // TODO : implement help
         rule('*');
-        print("last, l:", StdColor.MAGENTA_UNDERLINED);
-        println(" scrolls up to view the last chat item");
-        print("next, n:", StdColor.MAGENTA_UNDERLINED);
+        print("next, n, down, d, scroll down:", StdColor.MAGENTA_UNDERLINED);
         println(" scrolls down to view the next chat item");
+        print("last, l, up, u, scroll up:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls up to view the last chat item");
         print("top, t:", StdColor.MAGENTA_UNDERLINED);
         println(" scrolls to the top of the chat list");
         print("show -all, all:", StdColor.MAGENTA_UNDERLINED);

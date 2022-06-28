@@ -18,6 +18,10 @@ public class ChatItemView implements View {
         this.chat = chat;
     }
 
+    public Chat getChat() {
+        return chat;
+    }
+
     @Override
     public void show() throws changeViewException {
         rule('_');
@@ -27,8 +31,8 @@ public class ChatItemView implements View {
         Message last = MessageConnection.getLastMessage(chat);
         String shownText = last.getMessage().toString();
         if (last.getMessage().length() > 30)
-            shownText = last.getMessage().substring(0,60) + "...";
-        println(last.getSender().getUsername() + ": " + shownText, StdColor.BLACK_BOLD_BRIGHT);
+            shownText = last.getMessage().substring(0, 60) + "...";
+        println("╚═══@" + last.getSender().getUsername() + ": " + shownText, StdColor.BLACK_BOLD_BRIGHT);
         rule('_');
     }
 

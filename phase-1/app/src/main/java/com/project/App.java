@@ -17,6 +17,8 @@ public class App {
     private static boolean rule;
 
     public static void start() {
+        for (int i = 0; i++ < 20;)
+            System.out.println();
         setView(PrimaryView.getInstance());
         Log.init();
         rule = true;

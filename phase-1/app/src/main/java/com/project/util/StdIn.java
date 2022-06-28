@@ -24,13 +24,13 @@ public class StdIn {
             System.exit(0);
         }
         String answer = scanner.nextLine().trim();
-        if (answer.equals("exit") || answer.equals("end"))
+        if (answer.equals("-exit") || answer.equals("-end"))
             System.exit(0);
-        if (answer.equals("logout"))
+        if (answer.equals("-logout"))
             throw new changeViewException(PrimaryView.getInstance());
-        if (answer.equals("back"))
+        if (answer.equals("-back"))
             throw new changeViewException(App.lastView());
-        if (answer.equals("hub"))
+        if (answer.equals("-hub"))
             throw new changeViewException(SecondaryView.getInstance());
         if ((m = AppRegex.SWITCH.getMatcher(answer)) != null) {
             throw new changeViewException(View.getView(m.group("next")));

@@ -13,15 +13,17 @@ public class CreatePostController implements Controller {
         if (postText == null)
             postText = new StringBuilder();
         String input;
-        while (!(input = StdIn.nextLine()).equals(""))
+        while (!(input = StdIn.nextLine()).equals("")) {
+            if (input.equals("-done"))
+                break;
             postText.append(input + "\n");
+        }
         return true;
     }
 
     @Override
     public void help() {
         // no help needed
-
     }
 
 }

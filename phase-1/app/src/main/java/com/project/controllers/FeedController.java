@@ -17,14 +17,18 @@ public class FeedController implements Controller {
     public void parse(String input) {
         input = input.toLowerCase().trim();
         switch (input) {
-            case "d":
-            case "down":
+            case "n":
+            case "next":
             case "scroll down":
+            case "down":
+            case "d":
                 currentPost = postViews.get((++current < postViews.size()) ? current : (current = 0));
                 break;
-            case "u":
-            case "up":
+            case "l":
+            case "last":
             case "scroll up":
+            case "up":
+            case "u":
                 currentPost = postViews.get((--current >= 0) ? current : (current = 0));
                 break;
             case "t":
@@ -34,6 +38,7 @@ public class FeedController implements Controller {
                 help();
                 break;
             default:
+                printError("no such command");
                 break;
         }
     }
@@ -61,10 +66,10 @@ public class FeedController implements Controller {
     @Override
     public void help() {
         rule('*');
-        print("scroll up, up, u:", StdColor.MAGENTA_UNDERLINED);
-        println(" scrolls up to view the last post");
-        print("scroll down, down, d:", StdColor.MAGENTA_UNDERLINED);
+        print("next, n, down, d, scroll down:", StdColor.MAGENTA_UNDERLINED);
         println(" scrolls down to view the next post");
+        print("last, l, up, u, scroll up:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls up to view the last post");
         print("top, t:", StdColor.MAGENTA_UNDERLINED);
         println(" scrolls to the top of the chat list");
         // print("show -all, all:", StdColor.MAGENTA_UNDERLINED);
