@@ -6,4 +6,6 @@ package com.project.controllers;
 public interface Controller {
 
     public void parse(String input);
+
+    public void help();
 }

@@ -4,7 +4,6 @@ import static com.project.util.StdOut.*;
 
 import com.project.controllers.Controller;
 import com.project.controllers.SecondaryController;
-import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;

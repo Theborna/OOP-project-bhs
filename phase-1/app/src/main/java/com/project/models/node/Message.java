@@ -1,29 +1,36 @@
 package com.project.models.node;
 
-import java.util.ArrayList;
-
+import java.sql.Date;
 import com.project.models.node.user.User;
 
-import java.sql.Date;
-
-public class Message extends node {
-    private StringBuilder text;
-    private Image image = null;
+public class Message extends node { // TODO lots of modifications
+    private StringBuilder message;
     private User sender;
-    private int likes;
-    private ArrayList<User> Likers;
-    private int views;
-    private static int PostNum = 0;
-    private Chat group;
+    private Message replyTo;
+    // private int likes, dislikes;
+    private static long id;
 
-    public Message(String text, User sender, Chat group) {
-        this.text = new StringBuilder(text);
+    public Message(String message, User sender) {
+        this.message = new StringBuilder(message);
         this.sender = sender;
-        this.likes = 0;
-        this.Likers = new ArrayList<User>();
-        this.views = 0;
-        this.group = group;
-        setData(PostNum, new Date(1), new Date(2));
-        PostNum++;
+        setData(id++, new Date(1), new Date(2));
+        replyTo = null;
+    }
+
+    public Message setReplyTo(Message replyTo) {
+        this.replyTo = replyTo;
+        return this;
+    }
+
+    public Message getReplyTo() {
+        return replyTo;
+    }
+
+    public StringBuilder getMessage() {
+        return message;
+    }
+
+    public User getSender() {
+        return sender;
     }
 }

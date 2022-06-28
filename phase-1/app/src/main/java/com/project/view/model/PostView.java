@@ -17,6 +17,7 @@ public class PostView implements View {
 
     @Override
     public void show() {
+        rule('_');
         print(post.getSender().getUsername(), StdColor.MAGENTA_UNDERLINED);
         println(" ,date: " + post.getCreationDate() + " ,id: " + post.getId(), StdColor.BLACK_BRIGHT);
         println("\n" + post.getText().toString() + "\n");
@@ -24,7 +25,9 @@ public class PostView implements View {
         print(post.getLikes() + ", ");
         print("views: ", StdColor.GREEN_BRIGHT);
         print(post.getViews());
-        rule();
+        print("comments: ", StdColor.CYAN);
+        // print(post.);
+        rule('_');
     }
 
     @Override
@@ -57,6 +60,5 @@ public class PostView implements View {
             return false;
         return true;
     }
-
 
 }

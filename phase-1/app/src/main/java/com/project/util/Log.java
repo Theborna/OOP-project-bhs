@@ -14,7 +14,7 @@ public class Log {
     public static void init() {
         LogManager.getLogManager().reset();
         try {
-            logger.addHandler(new FileHandler("app/logs.log", false));
+            logger.addHandler(new FileHandler("logs.log", false));
             logger.info("starting application");
         } catch (SecurityException | IOException e) {
             e.printStackTrace();

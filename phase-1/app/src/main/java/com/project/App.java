@@ -14,16 +14,28 @@ public class App {
     private static View view;
     private static LimitedList<View> pastViews = new LimitedList<>(10);
     private static boolean running = true;
+    private static boolean rule;
 
     public static void start() {
-        setView(PrimaryView.getInstance());
+        for (int i = 0; i++ < 20;)
+            System.out.println();
         Log.init();
+        setView(PrimaryView.getInstance());
+        rule = true;
     }
 
     public static void setView(View view) {
+        setView(view, true);
+    }
+
+    public static void setView(View view, boolean addTo) {
+        if (view == null)
+            return;
         App.view = view;
         Log.logger.info("changed view to " + view.getClass().getSimpleName());
-        pastViews.add(view);
+        rule = true;
+        if (addTo)
+            pastViews.add(view);
     }
 
     public static void stop() {
@@ -37,11 +49,14 @@ public class App {
     public static void main(String... args) throws Exception {
         start();
         while (running) {
-            StdOut.viewBegin(view);
+            if (rule) {
+                StdOut.viewBegin(view);
+                rule = false;
+            }
             try {
                 view.show();
             } catch (changeViewException e) {
-                setView(e.getView());
+                setView(e.getView(), false);
             }
         }
     }

@@ -2,14 +2,11 @@ package com.project.controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
-
-import com.project.LimitedList;
 import com.project.models.node.Post;
+import com.project.util.StdColor;
 import com.project.view.model.PostView;
+import static com.project.util.StdOut.*;
 
 public class FeedController implements Controller {
     private List<PostView> postViews = new ArrayList<PostView>();
@@ -20,15 +17,28 @@ public class FeedController implements Controller {
     public void parse(String input) {
         input = input.toLowerCase().trim();
         switch (input) {
-            case "down":
+            case "n":
+            case "next":
             case "scroll down":
+            case "down":
+            case "d":
                 currentPost = postViews.get((++current < postViews.size()) ? current : (current = 0));
                 break;
-            case "up":
+            case "l":
+            case "last":
             case "scroll up":
+            case "up":
+            case "u":
                 currentPost = postViews.get((--current >= 0) ? current : (current = 0));
                 break;
+            case "t":
+            case "top":
+                currentPost = postViews.get(0);
+            case "help":
+                help();
+                break;
             default:
+                printError("no such command");
                 break;
         }
     }
@@ -51,5 +61,21 @@ public class FeedController implements Controller {
 
     public void addAll(Collection<Post> posts) {
         postViews.addAll(posts.stream().map(PostView::new).toList());
+    }
+
+    @Override
+    public void help() {
+        rule('*');
+        print("next, n, down, d, scroll down:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls down to view the next post");
+        print("last, l, up, u, scroll up:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls up to view the last post");
+        print("top, t:", StdColor.MAGENTA_UNDERLINED);
+        println(" scrolls to the top of the chat list");
+        // print("show -all, all:", StdColor.MAGENTA_UNDERLINED);
+        // println(" shows all chat items at once");
+        print("help:", StdColor.MAGENTA_UNDERLINED);
+        println(" brings up the help window");
+        rule('*');
     }
 }

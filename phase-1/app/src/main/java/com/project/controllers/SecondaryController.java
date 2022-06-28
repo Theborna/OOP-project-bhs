@@ -1,10 +1,10 @@
 package com.project.controllers;
 
 import com.project.App;
-import com.project.models.node.user.User;
+import com.project.view.general.ChatListView;
 import com.project.view.general.CreatePostView;
 import com.project.view.general.FeedView;
-import com.project.view.model.PostView;
+import static com.project.util.StdOut.*;
 
 public class SecondaryController implements Controller {
 
@@ -14,16 +14,27 @@ public class SecondaryController implements Controller {
         System.out.println("kos mikham with input: " + input);
         switch (input) {
             case "feed":
-                FeedView.getInstance().getController().getChildren()
-                        .addAll(User.getCurrentUser().getPosts().stream().map(PostView::new).toList());
                 App.setView(FeedView.getInstance());
                 break;
             case "new post":
                 App.setView(new CreatePostView());
                 break;
+            case "chat":
+                App.setView(ChatListView.getInstance());
+                break;
+            case "help":
+                help();
+                break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void help() {
+        // TODO : implement help
+        rule('*');
+        rule('*');
     }
 
 }
