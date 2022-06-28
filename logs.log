@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-28T17:53:26.856813700Z</date>
+  <millis>1656438806856</millis>
+  <nanos>813700</nanos>
+  <sequence>0</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.util.Log</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>starting application</message>
+</record>
+<record>
+  <date>2022-06-28T17:53:26.874799300Z</date>
+  <millis>1656438806874</millis>
+  <nanos>799300</nanos>
+  <sequence>1</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to PrimaryView</message>
+</record>

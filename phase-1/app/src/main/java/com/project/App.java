@@ -19,8 +19,8 @@ public class App {
     public static void start() {
         for (int i = 0; i++ < 20;)
             System.out.println();
-        setView(PrimaryView.getInstance());
         Log.init();
+        setView(PrimaryView.getInstance());
         rule = true;
     }
 
