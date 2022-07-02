@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#glowStart" prefHeight="72.0" prefWidth="300.0" style="-fx-background-color: #282E33;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.chatItemController">
+   <children>
+      <ImageView fx:id="ivImage" fitHeight="65.0" fitWidth="65.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0">
+         <image>
+            <Image url="@../icons/icons8_github_512px_1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblName" layoutX="75.0" layoutY="14.0" text="Moein makkyan" textFill="WHITE" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HBox layoutX="106.0" layoutY="36.400001525878906" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="75.0">
+         <children>
+            <Label fx:id="lblLastSender" text="You: " textFill="WHITE" />
+            <Label fx:id="lblLastMessage" text="last message" textFill="#ffffffa5" />
+         </children>
+      </HBox>
+      <Circle fx:id="glow" fill="#ffffff10" layoutX="223.0" layoutY="36.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

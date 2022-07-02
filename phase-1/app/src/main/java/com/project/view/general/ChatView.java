@@ -1,7 +1,5 @@
 package com.project.view.general;
 
-import org.apache.logging.log4j.message.Message;
-
 import com.project.controllers.ChatController;
 import com.project.controllers.Controller;
 import com.project.models.connection.MessageConnection;
@@ -19,7 +17,7 @@ public class ChatView implements View {
     private ChatView() {
         controller = new ChatController();
         controller.addAll(MessageConnection.getMessages(Chat.getCurrent()));
-        controller.getCurrentPost();
+        controller.getCurrent();
     }
 
     public static ChatView getInstance() {
@@ -31,8 +29,8 @@ public class ChatView implements View {
     @Override
     public void show() throws changeViewException {
         if (controller.isShowMsg())
-            controller.getCurrentPost().show();
-        printSelections("like", "dislike", "reply", "next", "last", "top", "new message");
+            controller.getCurrent().show();
+        printSelections("like", "dislike", "reply", "next", "last", "top", "new message" , "show -page");
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }

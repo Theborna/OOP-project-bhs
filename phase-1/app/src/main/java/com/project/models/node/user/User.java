@@ -21,6 +21,7 @@ public abstract class User extends node {
     private String username, password;
     private boolean isPublic;
     private StdColor nameColor;
+    private int followerCnt;
 
     public User(String username, String password) {
         this.username = username;
@@ -49,6 +50,14 @@ public abstract class User extends node {
 
     public StdColor getNameColor() {
         return nameColor;
+    }
+
+    public int getFollowerCnt() {
+        return followerCnt;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
     }
 
     public Set<com.project.models.node.Post> getPosts() {

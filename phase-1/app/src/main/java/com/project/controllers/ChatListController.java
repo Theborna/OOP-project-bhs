@@ -12,7 +12,7 @@ import com.project.view.general.ChatView;
 import com.project.view.model.ChatItemView;
 import static com.project.util.StdOut.*;
 
-public class ChatListController implements Controller {
+public class ChatListController implements ListController<ChatItemView> {
 
     private List<ChatItemView> chatItems = new ArrayList<ChatItemView>();
     private ChatItemView currentChat;
@@ -66,7 +66,7 @@ public class ChatListController implements Controller {
             }
     }
 
-    public ChatItemView getCurrentChat() {
+    public ChatItemView getCurrent() {
         if (currentChat == null)
             if (chatItems.size() != 0)
                 currentChat = chatItems.get(0);

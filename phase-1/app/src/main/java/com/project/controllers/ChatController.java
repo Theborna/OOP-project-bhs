@@ -11,9 +11,11 @@ import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.ChatView;
 import com.project.view.model.MessageView;
+import com.project.view.model.PageView;
+
 import static com.project.util.StdOut.*;
 
-public class ChatController implements Controller {
+public class ChatController implements ListController<MessageView> {
 
     private List<MessageView> messages = new ArrayList<MessageView>();
     private MessageView currentMsg;
@@ -46,6 +48,7 @@ public class ChatController implements Controller {
             case "bottom":
             case "b":
                 currentMsg = messages.get(messages.size() - 1);
+                break;
             case "like":
                 println("added like to message", StdColor.GREEN);
                 showMsg = false;
@@ -65,6 +68,9 @@ public class ChatController implements Controller {
                     App.setView(e.getView(), false);
                 }
                 showMsg = false;
+                break;
+            case "show -page":
+                App.setView(PageView.getInstance().setUser(currentMsg.getMessage().getSender()));
                 break;
             case "help":
                 help();
@@ -96,7 +102,7 @@ public class ChatController implements Controller {
         // TODO: actually post the message
     }
 
-    public MessageView getCurrentPost() {
+    public MessageView getCurrent() {
         if (currentMsg == null) {
             if (messages.size() != 0)
                 currentMsg = messages.get(0);

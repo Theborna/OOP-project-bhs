@@ -2,6 +2,8 @@ package com.project.models.node.user;
 
 public class BusinessUser extends User {
 
+    private String businessType;
+
     public BusinessUser(String username, String password) {
         super(username, password);
         // TODO Auto-generated constructor stub
@@ -13,4 +15,7 @@ public class BusinessUser extends User {
 
     }
 
+    public String getBusinessType() {
+        return businessType;
+    }
 }
