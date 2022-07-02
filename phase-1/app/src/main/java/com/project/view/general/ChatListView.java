@@ -16,7 +16,7 @@ public class ChatListView implements View {
     private ChatListView() {
         controller = new ChatListController();
         controller.addAll(User.getCurrentUser().getChats());
-        controller.getCurrentChat();
+        controller.getCurrent();
     }
 
     public static ChatListView getInstance() {
@@ -27,7 +27,7 @@ public class ChatListView implements View {
 
     @Override
     public void show() throws changeViewException {
-        controller.getCurrentChat().show();
+        controller.getCurrent().show();
         printSelections("next", "last", "show -all", "show <chat id>", "top", "open");
         prompt("enter next command");
         controller.parse(StdIn.nextLine());

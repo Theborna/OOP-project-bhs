@@ -29,6 +29,10 @@ public class MessageView implements View {
         rule('_');
     }
 
+    public Message getMessage() {
+        return message;
+    }
+
     @Override
     public <T extends Controller> T getController() {
         return null;

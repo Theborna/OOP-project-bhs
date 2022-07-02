@@ -1,1 +1,62 @@
-<!--  -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:id="mainPane" maxWidth="1.7976931348623157E308" prefHeight="150.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
+   <center>
+      <VBox>
+         <children>
+            <HBox prefHeight="37.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="70.0" text=":\Name\" textFill="#c1ff80">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="date" minHeight="50.0" text="Today at 11:42 &gt;" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TextArea fx:id="text" editable="false" stylesheets="@message.css" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="V_RESIZE" />
+               </cursor>
+            </TextArea>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <AnchorPane prefHeight="73.0" prefWidth="76.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="pfp" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+               <image>
+                  <Image url="@../icons/icons8_github_512px_1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

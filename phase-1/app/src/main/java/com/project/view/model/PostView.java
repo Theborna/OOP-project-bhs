@@ -24,10 +24,14 @@ public class PostView implements View {
         print("likes: ", StdColor.RED_BRIGHT);
         print(post.getLikes() + ", ");
         print("views: ", StdColor.GREEN_BRIGHT);
-        print(post.getViews());
+        print(post.getViews() + ", ");
         print("comments: ", StdColor.CYAN);
         // print(post.);
         rule('_');
+    }
+
+    public Post getPost() {
+        return post;
     }
 
     @Override

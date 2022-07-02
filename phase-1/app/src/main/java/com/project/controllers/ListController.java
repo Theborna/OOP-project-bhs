@@ -1,11 +1,14 @@
 package com.project.controllers;
 
-public interface ListController<E> { // unused at current state
+import com.project.util.exception.changeViewException;
 
-    public void parse(String input);
+public interface ListController<E> extends Controller { // unused at current state
+
+    public void parse(String input) throws changeViewException;
 
     public E getCurrent();
 
     public void clear();
 
+    public void help();
 }
