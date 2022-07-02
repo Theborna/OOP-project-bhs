@@ -41,6 +41,7 @@ public class FeedController implements ListController<PostView> {
                 break;
             case "show -page":
                 App.setView(PageView.getInstance().setUser(currentPost.getPost().getSender()));
+                break;
             case "help":
                 help();
                 break;

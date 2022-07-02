@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-07-02T16:39:12.305117700Z</date>
-  <millis>1656779952305</millis>
-  <nanos>117700</nanos>
+  <date>2022-07-02T16:46:50.376130600Z</date>
+  <millis>1656780410376</millis>
+  <nanos>130600</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-07-02T16:39:12.327059Z</date>
-  <millis>1656779952327</millis>
-  <nanos>59000</nanos>
+  <date>2022-07-02T16:46:50.394081800Z</date>
+  <millis>1656780410394</millis>
+  <nanos>81800</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -25,4 +25,51 @@
   <thread>1</thread>
   <message>changed view to PrimaryView</message>
 </record>
-</log>
+<record>
+  <date>2022-07-02T16:46:52.769333400Z</date>
+  <millis>1656780412769</millis>
+  <nanos>333400</nanos>
+  <sequence>2</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to LoginView</message>
+</record>
+<record>
+  <date>2022-07-02T16:46:54.812559900Z</date>
+  <millis>1656780414812</millis>
+  <nanos>559900</nanos>
+  <sequence>3</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to SecondaryView</message>
+</record>
+<record>
+  <date>2022-07-02T16:46:56.156089800Z</date>
+  <millis>1656780416156</millis>
+  <nanos>89800</nanos>
+  <sequence>4</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to FeedView</message>
+</record>
+<record>
+  <date>2022-07-02T16:47:01.737952500Z</date>
+  <millis>1656780421737</millis>
+  <nanos>952500</nanos>
+  <sequence>5</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to PageView</message>
+</record>
