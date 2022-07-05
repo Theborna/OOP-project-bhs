@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.electro.App;
 import com.electro.controllers.components.chatItemController;
+import com.electro.controllers.components.messageController;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInDown;
@@ -49,7 +50,7 @@ public class MainController implements Initializable {
     private SplitPane splPane, splChat;
 
     @FXML
-    private VBox vboxChat;
+    private VBox vboxChat, vboxMsg;
 
     @FXML
     private Font x3;
@@ -57,7 +58,7 @@ public class MainController implements Initializable {
     @FXML
     private Color x4;
 
-    private ToggleButton tglChat;
+    private ToggleButton tglChat, tglMsg;
 
     private AnchorPane inFront;
     private JMetro metro;
@@ -126,25 +127,37 @@ public class MainController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         initSlidingPane();
         initChatItems();
+        initMessages();
     }
 
     private void initSlidingPane() {
         tglChat = new ToggleButton();
+        tglMsg = new ToggleButton();
         SplitPaneDividerSlider leftSplitPaneDividerSlider = new SplitPaneDividerSlider(splPane, 0,
                 SplitPaneDividerSlider.Direction.LEFT);
         SplitPaneDividerSlider chatsSplitPaneDividerSlider = new SplitPaneDividerSlider(splChat, 0,
                 SplitPaneDividerSlider.Direction.RIGHT);
+        SplitPaneDividerSlider msgSplitPaneDividerSlider = new SplitPaneDividerSlider(splChat, 0,
+                SplitPaneDividerSlider.Direction.LEFT);
         tglClose.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
             leftSplitPaneDividerSlider.setAimContentVisible(t1);
         });
         tglChat.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
             chatsSplitPaneDividerSlider.setAimContentVisible(t1);
         });
+        tglMsg.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
+            msgSplitPaneDividerSlider.setAimContentVisible(t1);
+        });
     }
 
     @FXML
     private void khk() {
         tglChat.selectedProperty().set(!tglChat.selectedProperty().get());
+    }
+
+    @FXML
+    private void jerr() {
+        tglMsg.selectedProperty().set(!tglMsg.selectedProperty().get());
     }
 
     private void initChatItems() {
@@ -155,21 +168,34 @@ public class MainController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("components/chatItem.fxml"));
                 nodes[i] = loader.load();
                 vboxChat.getChildren().add(nodes[i]);
-                final int j = i;
-                // nodes[j].setOnMouseEntered(event -> {
-                //     nodes[j].setStyle("-fx-background-color: #43474D");
-                // });
-                // nodes[j].setOnMouseExited(event -> {
-                //     nodes[j].setStyle("-fx-background-color: transparent");
-                // });
                 ((chatItemController) loader.getController()).checkSize();
                 vboxChat.widthProperty().addListener(new ChangeListener<Number>() {
-
                     @Override
                     public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
                         ((chatItemController) loader.getController()).checkSize();
                     }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void initMessages() {
+        System.out.println("loading the messages...");
+        Node[] nodes = new Node[10];
+        try {
+            for (int i = 0; i < nodes.length; i++) {
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("components/message.fxml"));
+                nodes[i] = loader.load();
+                ((messageController) loader.getController()).initialize();
+                vboxMsg.getChildren().add(nodes[i]);
+                final int j = i;
+                nodes[j].setOnMouseEntered(event -> {
+                    nodes[j].setStyle("-fx-background-color: #32353B");
+                });
+                nodes[j].setOnMouseExited(event -> {
+                    nodes[j].setStyle("-fx-background-color: #36393F");
                 });
 
             }

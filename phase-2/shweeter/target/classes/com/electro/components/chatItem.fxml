@@ -20,7 +20,7 @@
                <children>
                   <ImageView fx:id="ivImage" fitHeight="65.0" fitWidth="75.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0">
                      <image>
-                        <Image url="@../icons/icons8_github_512px_1.png" />
+                        <Image url="@../images/icons8_in_app_messaging_480px_1.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="lblName" layoutX="75.0" layoutY="14.0" text="Moein makkyan" textFill="WHITE" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="14.0">

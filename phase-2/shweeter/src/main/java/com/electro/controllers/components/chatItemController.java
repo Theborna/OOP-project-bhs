@@ -37,6 +37,7 @@ public class chatItemController implements Initializable {
 
     private String date, name, message, sender;
     private double width;
+    private boolean first;
 
     @FXML
     void glowStart(MouseEvent event) {
@@ -49,11 +50,16 @@ public class chatItemController implements Initializable {
         sender = lblLastSender.getText();
         message = lblLastMessage.getText();
         name = lblName.getText();
+        first = true;
         checkSize();
     }
 
     public void checkSize() {
         width = mainPane.getWidth();
+        if (first) {
+            width = 1000;
+            first = false;
+        }
         if (width < 150) {
             lblDate.setText("");
             lblName.setText("");
