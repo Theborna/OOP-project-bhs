@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="mainPane" maxWidth="1.7976931348623157E308" prefHeight="150.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
+<BorderPane fx:id="mainPane" maxWidth="1.7976931348623157E308" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
    <center>
       <VBox>
          <children>
@@ -37,7 +36,7 @@
                   </Label>
                </children>
             </HBox>
-            <TextArea fx:id="text" editable="false" stylesheets="@message.css" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" wrapText="true">
+            <TextArea fx:id="text" editable="false" stylesheets="@message.css" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>

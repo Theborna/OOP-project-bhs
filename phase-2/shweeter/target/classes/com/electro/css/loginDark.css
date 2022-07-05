@@ -1,0 +1,14 @@
+@import url(login.css);
+
+#pnSide {
+    -fx-background-color: #5949a0;
+}
+
+#pnMain {
+    -fx-background-color: #1E1E1E;
+}
+
+#icnMode {
+    -fx-background-image: url(./images/icons8_sun_96px.css);
+}
+

@@ -1,0 +1,57 @@
+@import url(style.css);
+
+#vboxSide {
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #1E1E1E;
+
+}
+
+#bottomBar {
+    -fx-background-color: #5949a0;
+    -fx-border-color: #5949a0;
+
+}
+
+.button {
+    -fx-background-color: #1E1E1E;
+}
+
+.button:hover,
+.toggle-button:hover,
+.toggle-button:pressed,
+.toggle-button:selected {
+    -fx-background-color: #10165F;
+}
+
+.button:pressed {
+    -fx-background-color: #1620A1;
+}
+
+
+#bpMain,
+#topPane {
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #1E1E1E;
+}
+
+#splPane {
+    -fx-background-color: #02030A;
+    -fx-border-color: #02030A;
+}
+
+.anchorPane,
+.scrollPane {
+    -fx-background-color: #1E1E1E;
+}
+
+.msgItem {
+    -fx-background-color: transparent;
+}
+
+.msgItem:hover {
+    -fx-background-color: #5949a050;
+}
+
+.msgItem:pressed {
+    -fx-background-color: #5949a0;
+}

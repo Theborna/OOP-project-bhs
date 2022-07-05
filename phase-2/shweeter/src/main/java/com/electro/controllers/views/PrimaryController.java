@@ -5,13 +5,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.electro.App;
+import com.electro.controllers.components.chatItemController;
 import com.electro.controllers.components.messageController;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableNumberValue;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class PrimaryController implements Initializable {
@@ -22,8 +28,17 @@ public class PrimaryController implements Initializable {
     private Button primaryButton;
 
     @FXML
+    private BorderPane mainPane;
+
+    private boolean noChange;
+
+    public boolean isNoChange() {
+        return noChange;
+    }
+
+    @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        App.setRoot(App.loadFXML("secondary").load());
     }
 
     @Override
@@ -39,6 +54,7 @@ public class PrimaryController implements Initializable {
             for (int i = 0; i < nodes.length; i++) {
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("components/chatItem.fxml"));
                 nodes[i] = loader.load();
+                nodes[i].getStyleClass().add(App.class.getResource("components/message.css").toExternalForm());
                 chats.getChildren().add(nodes[i]);
                 final int j = i;
                 nodes[j].setOnMouseEntered(event -> {
@@ -47,6 +63,15 @@ public class PrimaryController implements Initializable {
                 nodes[j].setOnMouseExited(event -> {
                     nodes[j].setStyle("-fx-background-color: #282E33");
                 });
+                chats.widthProperty().addListener(new ChangeListener<Number>() {
+
+                    @Override
+                    public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+                        ((chatItemController) loader.getController()).checkSize();
+                    }
+
+                });
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,6 +94,7 @@ public class PrimaryController implements Initializable {
                 nodes[j].setOnMouseExited(event -> {
                     nodes[j].setStyle("-fx-background-color: #36393F");
                 });
+
             }
         } catch (Exception e) {
             e.printStackTrace();

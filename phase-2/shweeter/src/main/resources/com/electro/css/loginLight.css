@@ -1,0 +1,9 @@
+@import url(login.css);
+
+#pnSide {
+    -fx-background-color: #e3ddff;
+}
+
+#pnMain {
+    -fx-background-color: #eeeeee;
+}
