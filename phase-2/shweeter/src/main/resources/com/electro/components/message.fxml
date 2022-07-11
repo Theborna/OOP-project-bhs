@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,8 +9,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<BorderPane fx:id="mainPane" maxWidth="1.7976931348623157E308" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
+<BorderPane fx:id="mainPane" prefHeight="178.0" prefWidth="678.0" styleClass="message" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
    <center>
       <VBox>
          <children>
@@ -36,14 +36,11 @@
                   </Label>
                </children>
             </HBox>
-            <TextArea fx:id="text" editable="false" stylesheets="@message.css" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" wrapText="true">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
-               </cursor>
-            </TextArea>
+            <TextFlow fx:id="msgText" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" />
+               </children>
+            </TextFlow>
          </children>
       </VBox>
    </center>

@@ -1,19 +1,27 @@
 @import url(style.css);
 
+.root {
+    -fx-main-back: #1E1E1E;
+    -fx-accent: #5949a0;
+    -fx-dark-accent: #45387e;
+    -fx-accent-transparent: #5949a0cc;
+}
+
 #vboxSide {
-    -fx-background-color: #1E1E1E;
-    -fx-border-color: #1E1E1E;
+    -fx-background-color: -fx-main-back;
+    -fx-border-color: -fx-main-back;
 
 }
 
-#bottomBar {
-    -fx-background-color: #5949a0;
-    -fx-border-color: #5949a0;
+#bottomBar,
+#topBar {
+    -fx-background-color: -fx-accent;
+    -fx-border-color: -fx-accent;
 
 }
 
 .button {
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: -fx-main-back;
 }
 
 .button:hover,
@@ -29,9 +37,10 @@
 
 
 #bpMain,
-#topPane {
-    -fx-background-color: #1E1E1E;
-    -fx-border-color: #1E1E1E;
+#topPane,
+.message {
+    -fx-background-color: -fx-main-back;
+    -fx-border-color: -fx-main-back;
 }
 
 #splPane {
@@ -41,7 +50,7 @@
 
 .anchorPane,
 .scrollPane {
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: -fx-main-back;
 }
 
 .msgItem {
@@ -49,9 +58,86 @@
 }
 
 .msgItem:hover {
-    -fx-background-color: #5949a050;
+    -fx-background-color: derive(-fx-accent, -30%);
 }
 
 .msgItem:pressed {
-    -fx-background-color: #5949a0;
+    -fx-background-color: -fx-accent;
+}
+
+.msgItem:selected {
+    -fx-background-color: -fx-accent;
+}
+
+.circleButton {
+    -fx-background-color: transparent;
+    -fx-fill: -fx-accent;
+}
+
+.circleButton:hover {
+    -fx-background-color: transparent;
+    -fx-fill: -fx-dark-accent;
+}
+
+.text-area {
+    -fx-font-family: Consolas;
+    -fx-font-size: 15;
+    -fx-text-fill: #ffffff;
+    -fx-display-caret: true;
+    -fx-background-color: -fx-accent;
+}
+
+.text-area .content {
+    -fx-background-color: -fx-dark-accent;
+}
+
+.message:hover {
+    -fx-background-color: #252525
+}
+
+.message:pressed {
+    -fx-background-color: #2e2e2e
+}
+
+.post {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, #2e2e2e, #2a2a2a);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+    -fx-border-radius: 2em;
+    -fx-border-width: 10.0;
+    -fx-background-radius: 3em;
+    -fx-padding: 10 0 10 0;
+}
+
+.post:hover {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, -fx-dark-accent, #3a2e40);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+}
+
+.post:pressed {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, -fx-dark-accent, -fx-accent);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+}
+
+.post .button,
+.blur .button {
+    -fx-background-color: transparent;
+}
+
+.post .button:hover,
+.blur .button:hover {
+    -fx-background-color: -fx-dark-accent;
+}
+
+.blur {
+    -fx-background-color: -fx-accent-transparent;
+    -fx-effect: dropshadow(gaussian, -fx-accent-transparent, 0, 0, 0, 1);
 }

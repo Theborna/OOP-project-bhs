@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 
 public class chatItemController implements Initializable {
@@ -37,7 +38,6 @@ public class chatItemController implements Initializable {
 
     private String date, name, message, sender;
     private double width;
-    private boolean first;
 
     @FXML
     void glowStart(MouseEvent event) {
@@ -50,16 +50,15 @@ public class chatItemController implements Initializable {
         sender = lblLastSender.getText();
         message = lblLastMessage.getText();
         name = lblName.getText();
-        first = true;
         checkSize();
     }
 
     public void checkSize() {
+        if (mainPane == null)
+            return;
         width = mainPane.getWidth();
-        if (first) {
-            width = 1000;
-            first = false;
-        }
+        if (width == 0)
+            width = 300;
         if (width < 150) {
             lblDate.setText("");
             lblName.setText("");

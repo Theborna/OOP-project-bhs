@@ -3,18 +3,24 @@ package com.electro.controllers.views;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.electro.App;
-import com.electro.controllers.components.chatItemController;
 import com.electro.controllers.components.messageController;
+import com.electro.views.ChatListView;
+import com.electro.views.MessageListView;
+import com.electro.views.PostListView;
+import com.electro.views.ProfileView;
 
-import animatefx.animation.FadeIn;
-import animatefx.animation.SlideInDown;
-import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import animatefx.animation.SlideInUp;
 import de.jensd.shichimifx.utils.SplitPaneDividerSlider;
-import javafx.beans.value.ChangeListener;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,12 +29,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
@@ -38,27 +47,26 @@ public class MainController implements Initializable {
             lightPath = App.class.getResource("css/styleLight.css").toExternalForm();
 
     @FXML
-    private Button btnChat, btnExplore, btnFeed, btnLogout, btnNotification, btnProfile, btnSaved, btnSettings;
+    private Button btnChat, btnExplore, btnFeed, btnLogout, btnNotification, btnProfile, btnSaved, btnSettings,
+            btnCompose, btnPost, btnScrollPage, btnChatTop, btnMsgTop;
 
     @FXML
-    private ToggleButton tglClose;
+    private ToggleButton tglClose, btnChatListClose, tglChat, tglMsg;
 
     @FXML
-    private AnchorPane pnChat, pnExplore, pnFeed, pnNotifications, pnProfile, pnSettings;
+    private AnchorPane pnChat, pnExplore, pnFeed, pnNotifications, pnProfile, pnSettings, pnCompose;
 
     @FXML
     private SplitPane splPane, splChat;
 
     @FXML
-    private VBox vboxChat, vboxMsg;
+    private ScrollPane scrollChat, scrollPost, scrollMsg, scrollProf;
 
     @FXML
     private Font x3;
 
     @FXML
     private Color x4;
-
-    private ToggleButton tglChat, tglMsg;
 
     private AnchorPane inFront;
     private JMetro metro;
@@ -70,18 +78,24 @@ public class MainController implements Initializable {
             return;
         Button btn = (Button) obj;
         if (btn == btnProfile) {
+            ProfileView.getOther().setUser();
+            scrollProf.setContent(ProfileView.getOther());
+            System.out.println("hi");
+            switchToRight(pnProfile);
         } else if (btn == btnFeed) {
-            switchTo(pnFeed);
+            switchToRight(pnFeed);
         } else if (btn == btnChat) {
-            switchTo(pnChat);
+            switchToRight(pnChat);
         } else if (btn == btnExplore) {
-            switchTo(pnExplore);
+            switchToRight(pnExplore);
         } else if (btn == btnNotification) {
-            switchTo(pnNotifications);
+            switchToRight(pnNotifications);
         } else if (btn == btnSettings) {
-            switchTo(pnSettings);
-        } else if (btn == btnProfile) {
-            switchTo(pnProfile);
+            switchToUp(pnSettings);
+        } else if (btn == btnCompose) {
+            switchToUp(pnCompose);
+        } else if (btn == btnPost) {
+            switchToRight(pnFeed);
         }
     }
 
@@ -115,11 +129,19 @@ public class MainController implements Initializable {
 
     }
 
-    private void switchTo(AnchorPane pane) {
+    private void switchToRight(AnchorPane pane) {
         if (pane == inFront)
             return;
         pane.toFront();
         new SlideInRight(pane).play();
+        inFront = pane;
+    }
+
+    private void switchToUp(AnchorPane pane) {
+        if (pane == inFront)
+            return;
+        pane.toFront();
+        new SlideInUp(pane).play();
         inFront = pane;
     }
 
@@ -128,80 +150,59 @@ public class MainController implements Initializable {
         initSlidingPane();
         initChatItems();
         initMessages();
+        initPosts();
+        System.out.println("done");
     }
 
     private void initSlidingPane() {
-        tglChat = new ToggleButton();
-        tglMsg = new ToggleButton();
-        SplitPaneDividerSlider leftSplitPaneDividerSlider = new SplitPaneDividerSlider(splPane, 0,
-                SplitPaneDividerSlider.Direction.LEFT);
-        SplitPaneDividerSlider chatsSplitPaneDividerSlider = new SplitPaneDividerSlider(splChat, 0,
-                SplitPaneDividerSlider.Direction.RIGHT);
-        SplitPaneDividerSlider msgSplitPaneDividerSlider = new SplitPaneDividerSlider(splChat, 0,
-                SplitPaneDividerSlider.Direction.LEFT);
-        tglClose.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
-            leftSplitPaneDividerSlider.setAimContentVisible(t1);
+        coupleButtonAndSlider(tglChat, splChat, 0, SplitPaneDividerSlider.Direction.RIGHT);
+        coupleButtonAndSlider(tglMsg, splChat, 0, SplitPaneDividerSlider.Direction.LEFT);
+        coupleButtonAndSlider(tglClose, splPane, 0, SplitPaneDividerSlider.Direction.LEFT);
+    }
+
+    private void coupleButtonAndSlider(ToggleButton button, SplitPane pane, int division,
+            SplitPaneDividerSlider.Direction direction) {
+        if (button == null)
+            button = new ToggleButton();
+        SplitPaneDividerSlider slider = new SplitPaneDividerSlider(pane, division, direction);
+        button.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
+            slider.setAimContentVisible(t1);
         });
-        tglChat.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
-            chatsSplitPaneDividerSlider.setAimContentVisible(t1);
-        });
-        tglMsg.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) -> {
-            msgSplitPaneDividerSlider.setAimContentVisible(t1);
-        });
+
     }
 
     @FXML
-    private void khk() {
-        tglChat.selectedProperty().set(!tglChat.selectedProperty().get());
+    private void Scroll(ActionEvent evt) {
+        if (evt.getSource() == btnScrollPage) {
+            scrollTo(scrollProf, true);
+        } else if (evt.getSource() == btnChatTop) {
+            scrollTo(scrollChat, true);
+        } else if (evt.getSource() == btnMsgTop) {
+            scrollTo(scrollMsg, false);
+        }
     }
 
-    @FXML
-    private void jerr() {
-        tglMsg.selectedProperty().set(!tglMsg.selectedProperty().get());
+    private void scrollTo(ScrollPane myScrollPane, boolean top) {
+        Animation animation = new Timeline(
+                new KeyFrame(
+                        Duration.seconds((top ? myScrollPane.getVvalue() : 1 - myScrollPane.getVvalue())
+                                * myScrollPane.getHeight() * 0.003),
+                        new KeyValue(myScrollPane.vvalueProperty(), top ? 0 : 1, Interpolator.EASE_OUT)));
+        animation.play();
     }
 
     private void initChatItems() {
-        System.out.println("loading the chats...");
-        Node[] nodes = new Node[20];
-        try {
-            for (int i = 0; i < nodes.length; i++) {
-                FXMLLoader loader = new FXMLLoader(App.class.getResource("components/chatItem.fxml"));
-                nodes[i] = loader.load();
-                vboxChat.getChildren().add(nodes[i]);
-                ((chatItemController) loader.getController()).checkSize();
-                vboxChat.widthProperty().addListener(new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                        ((chatItemController) loader.getController()).checkSize();
-                    }
-                });
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ChatListView.getPnChatInstance().addAll();
+        scrollChat.setContent(ChatListView.getPnChatInstance());
     }
 
     private void initMessages() {
-        System.out.println("loading the messages...");
-        Node[] nodes = new Node[10];
-        try {
-            for (int i = 0; i < nodes.length; i++) {
-                FXMLLoader loader = new FXMLLoader(App.class.getResource("components/message.fxml"));
-                nodes[i] = loader.load();
-                ((messageController) loader.getController()).initialize();
-                vboxMsg.getChildren().add(nodes[i]);
-                final int j = i;
-                nodes[j].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-background-color: #32353B");
-                });
-                nodes[j].setOnMouseExited(event -> {
-                    nodes[j].setStyle("-fx-background-color: #36393F");
-                });
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MessageListView.getInstance().addAll();
+        scrollMsg.setContent(MessageListView.getInstance());
     }
 
+    private void initPosts() {
+        PostListView.getPnPostInstance().addAll();
+        scrollPost.setContent(PostListView.getPnPostInstance());
+    }
 }

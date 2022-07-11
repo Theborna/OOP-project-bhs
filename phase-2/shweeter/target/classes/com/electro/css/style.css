@@ -40,3 +40,10 @@
     -fx-background-color: transparent;
 }
 
+.message {
+    -fx-background-color: transparent;
+}
+
+.post .button {
+    -fx-background-color: transparent;
+}

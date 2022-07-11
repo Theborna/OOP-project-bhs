@@ -2,19 +2,25 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.LoginController">
    <left>
@@ -45,68 +51,182 @@
    <center>
       <AnchorPane>
          <children>
-            <VBox fx:id="pnMain" alignment="CENTER" minWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="pnMain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Password" />
-                  <AnchorPane maxWidth="400.0">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
+                  <ToggleButton mnemonicParsing="false" onAction="#toggleTheme" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fx:id="icnMode" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8_sun_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <StackPane maxWidth="1.7976931348623157E308" prefWidth="750.0">
                      <children>
-                        <Button fx:id="btnForgot" alignment="BASELINE_LEFT" graphicTextGap="3.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Forgot Password" textFill="#005aff" AnchorPane.leftAnchor="0.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnSignIn" layoutX="123.19999694824219" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="60.0" prefWidth="200.0" text="Sign in" AnchorPane.rightAnchor="0.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
+                        <AnchorPane fx:id="signIn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="750.0" styleClass="anchorPane" StackPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" minWidth="10.0" styleClass="anchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Password" />
+                                    <AnchorPane maxWidth="400.0">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Button fx:id="btnForgot" alignment="BASELINE_LEFT" graphicTextGap="3.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Forgot Password" textFill="#005aff" AnchorPane.leftAnchor="0.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnSignIn" layoutX="123.19999694824219" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="60.0" prefWidth="200.0" text="Sign in" AnchorPane.rightAnchor="0.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                    <BorderPane maxWidth="400.0">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <left>
+                                          <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                       </left>
+                                       <right>
+                                          <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                       </right>
+                                       <center>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </center>
+                                    </BorderPane>
+                                    <Button fx:id="btnSignUp" maxHeight="1.7976931348623157E308" maxWidth="400.0" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign Up">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="signUp" maxWidth="1.7976931348623157E308" styleClass="anchorPane">
+                           <children>
+                              <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                       <children>
+                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Full name">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Password">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </PasswordField>
+                                          <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Confirm Password">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </PasswordField>
+                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="email">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <MenuButton mnemonicParsing="false" prefWidth="200.0" text="Account Type">
+                                                  <items>
+                                                    <MenuItem mnemonicParsing="false" text="Normal" />
+                                                    <MenuItem mnemonicParsing="false" text="Business" />
+                                                  </items>
+                                                   <tooltip>
+                                                      <Tooltip text="can add more settings later on" />
+                                                   </tooltip>
+                                                </MenuButton>
+                                                <MenuButton mnemonicParsing="false" prefWidth="200.0" text="Account Visibility">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" text="Private" />
+                                                      <MenuItem mnemonicParsing="false" text="Public" />
+                                                   </items>
+                                                   <tooltip>
+                                                      <Tooltip text="set the visibility of ur account" />
+                                                   </tooltip>
+                                                </MenuButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <DatePicker minHeight="40.0" prefWidth="400.0" promptText="birth date">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </DatePicker>
+                                          <ColorPicker prefWidth="200.0" />
+                                          <BorderPane maxWidth="400.0">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                             <left>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </left>
+                                             <right>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </right>
+                                             <center>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </center>
+                                          </BorderPane>
+                                          <Button fx:id="btnRegister" maxHeight="1.7976931348623157E308" maxWidth="400.0" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Register">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
                      </children>
-                  </AnchorPane>
-                  <BorderPane maxWidth="400.0">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
-                     <left>
-                        <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
-                     </right>
-                     <center>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </center>
-                  </BorderPane>
-                  <Button fx:id="btnSignOut" maxHeight="1.7976931348623157E308" maxWidth="400.0" mnemonicParsing="false" prefHeight="60.0" text="Sign Up">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
+                  </StackPane>
                </children>
             </VBox>
-            <ToggleButton mnemonicParsing="false" onAction="#toggleTheme" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-               <graphic>
-                  <ImageView fx:id="icnMode" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_sun_96px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </ToggleButton>
          </children>
       </AnchorPane>
    </center>

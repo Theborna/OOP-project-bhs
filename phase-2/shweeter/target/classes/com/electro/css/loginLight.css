@@ -4,6 +4,7 @@
     -fx-background-color: #e3ddff;
 }
 
-#pnMain {
+#pnMain,
+.anchorPane {
     -fx-background-color: #eeeeee;
 }
