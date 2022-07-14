@@ -1,24 +1,35 @@
 package com.electro.controllers.views;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.controlsfx.control.PopOver;
+
 import com.electro.App;
+import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInDown;
 import animatefx.animation.SlideInRight;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
@@ -28,12 +39,22 @@ public class LoginController implements Initializable {
             lightPath = App.class.getResource("css/loginLight.css").toExternalForm();
 
     @FXML
-    private Button btnForgot, btnSignIn, btnSignUp, btnRegister;
+    private Button btnForgot, btnRegister, btnRegister1, btnSignIn, btnSignUp, preview;
+
     @FXML
     private AnchorPane signIn, signUp;
 
+    @FXML
+    private TextField txtFullName, txtUsername;
+    @FXML
+    private PasswordField txtPass, txtPassConf;
+
+    @FXML
+    private VBox vbox;
+
     private AnchorPane inFront;
     private JMetro metro;
+    private FileChooser fileChooser;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -41,6 +62,36 @@ public class LoginController implements Initializable {
         initButton(btnSignIn);
         initButton(btnSignUp);
         initButton(btnRegister);
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"),
+                new FileChooser.ExtensionFilter("HTML Files", "*.htm"));
+        ProfilePopOver popOver = new ProfilePopOver();
+        preview.setOnMouseEntered(evt -> {
+            if (!popOver.isShowing()) {
+                popOver.show((Node) evt.getSource());
+            }
+        });
+        preview.setOnMouseClicked(evt -> {
+            popOver.hide();
+        });
+        // vbox.widthProperty().addListener(new ChangeListener<Number>() {
+        // @Override
+        // public void changed(ObservableValue<? extends Number> arg0, Number arg1,
+        // Number arg2) {
+        // double width = vbox.getWidth();
+        // System.out.println(width);
+        // if (width == 0)
+        // return;
+        // if (width < 750) {
+        // vbox.getChildren().forEach(i -> {
+        // System.out.println("b");
+        // if (i instanceof Button)
+        // ((Button) i).setMaxWidth(width);
+        // });
+        // }
+        // }
+        // });
     }
 
     @FXML
@@ -65,6 +116,11 @@ public class LoginController implements Initializable {
             register();
             switchTo(signIn);
         }
+    }
+
+    @FXML
+    private void browsePfp() {
+        File selectedFile = fileChooser.showOpenDialog(App.getScene().getWindow());
     }
 
     private void register() { // actually register the account

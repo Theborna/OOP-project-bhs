@@ -21,9 +21,8 @@ public class MessageListView extends VBox {
         final int size = 20;
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(10);
-                System.out.println("h");
                 for (int i = 0; i < size; i++) {
+                    Thread.sleep(10);
                     FXMLLoader loader = new FXMLLoader(App.class.getResource("components/message.fxml"));
                     nodes.add(loader.load());
                     ((messageController) loader.getController()).initialize();

@@ -141,3 +141,21 @@
     -fx-background-color: -fx-accent-transparent;
     -fx-effect: dropshadow(gaussian, -fx-accent-transparent, 0, 0, 0, 1);
 }
+
+.titledPane {
+    -fx-background-color: transparent;
+}
+
+.titledPane .text-area .content {
+    -fx-background-color: rgb(10, 10, 10);
+    -fx-border-color: gray;
+}
+
+.titledPane .text-area:hover {
+    -fx-text-fill: #000000;
+
+}
+
+.titledPane .text-area:hover .content {
+    -fx-background-color: #ffffff;
+}

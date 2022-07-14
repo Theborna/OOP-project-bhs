@@ -4,10 +4,13 @@ module com.electro {
     requires AnimateFX;
     requires shichimifx;
     requires transitive org.jfxtras.styles.jmetro;
+    requires org.controlsfx.controls;
 
-    opens com.electro.controllers.components to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro;
-    opens com.electro.controllers.views to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro;
-    opens com.electro to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro;
+    opens com.electro.controllers.components
+            to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls;
+    opens com.electro.controllers.views
+            to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro, org.controlsfx.controls;
+    opens com.electro to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls;
 
     exports com.electro.controllers.components;
     exports com.electro.controllers.views;

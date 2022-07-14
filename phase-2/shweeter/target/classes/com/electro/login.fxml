@@ -17,10 +17,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.ToggleSwitch?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.LoginController">
    <left>
@@ -125,24 +127,24 @@
                            <children>
                               <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <center>
-                                    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                    <VBox fx:id="vbox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
                                        <children>
-                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Full name">
+                                          <TextField fx:id="txtFullName" maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Full name">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </TextField>
-                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
+                                          <TextField fx:id="txtUsername" maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </TextField>
-                                          <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Password">
+                                          <PasswordField fx:id="txtPass" maxWidth="400.0" prefHeight="40.0" promptText="Password">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </PasswordField>
-                                          <PasswordField maxWidth="400.0" prefHeight="40.0" promptText="Confirm Password">
+                                          <PasswordField fx:id="txtPassConf" maxWidth="400.0" prefHeight="40.0" promptText="Confirm Password">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -177,17 +179,47 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </HBox>
-                                          <TextField maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
-                                             <VBox.margin>
-                                                <Insets />
-                                             </VBox.margin>
-                                          </TextField>
                                           <DatePicker minHeight="40.0" prefWidth="400.0" promptText="birth date">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </DatePicker>
-                                          <ColorPicker prefWidth="200.0" />
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ColorPicker prefHeight="36.0" prefWidth="178.0" />
+                                                <Label text="Or" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Button mnemonicParsing="false" onAction="#browsePfp" prefWidth="178.0" text="choose file">
+                                                   <graphic>
+                                                      <ImageView fitHeight="28.0" fitWidth="27.0">
+                                                         <image>
+                                                            <Image url="@images/icons8_image_96px.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="enable targeted content" textFill="WHITE" />
+                                                <Pane prefHeight="200.0" prefWidth="200.0" />
+                                                <ToggleSwitch>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </ToggleSwitch>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
                                           <BorderPane maxWidth="400.0">
                                              <VBox.margin>
                                                 <Insets top="20.0" />
@@ -199,7 +231,7 @@
                                                 <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
                                              </right>
                                              <center>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Done" BorderPane.alignment="CENTER">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -213,6 +245,14 @@
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
+                                          </Button>
+                                          <Button fx:id="preview" maxHeight="1.7976931348623157E308" maxWidth="400.0" mnemonicParsing="false" onAction="#btnHandler" prefHeight="40.0" text="Preview">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <tooltip>
+                                                <Tooltip text="click to hide preview" />
+                                             </tooltip>
                                           </Button>
                                        </children>
                                     </VBox>

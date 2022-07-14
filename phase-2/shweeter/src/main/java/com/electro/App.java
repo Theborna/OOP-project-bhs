@@ -55,7 +55,6 @@ public class App extends Application {
         jMetro.getOverridingStylesheets().add(App.class.getResource("css/loginDark.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void setStyle(Style style) {
