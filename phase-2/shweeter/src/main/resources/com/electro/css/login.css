@@ -1,0 +1,9 @@
+#btnSignIn:hover,
+#btnSignOut:hover {
+    -fx-background-color: #3361D6;
+}
+
+#btnSignIn:pressed,
+#btnSignOut:pressed {
+    -fx-background-color: #0e178d;
+}

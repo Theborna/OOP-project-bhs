@@ -8,19 +8,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.PrimaryController">
+<BorderPane fx:id="mainPane" minHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.PrimaryController">
    <center>
       <SplitPane dividerPositions="0.3096192384769539, 0.629008016032064" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
-            <ScrollPane fitToWidth="true">
-               <content>
-                  <VBox fx:id="messages" prefHeight="200.0" prefWidth="194.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Label" />
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
                   <Label text="Primary View" />
@@ -30,11 +21,20 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </VBox>
-            <ScrollPane fitToWidth="true" maxWidth="1.7976931348623157E308" prefHeight="202.0" prefWidth="226.0">
+            <ScrollPane fitToWidth="true" maxWidth="1.7976931348623157E308" minViewportWidth="75.0" prefHeight="202.0" prefWidth="226.0">
                <content>
                   <VBox fx:id="chats" prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Chats" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <ScrollPane fitToWidth="true">
+               <content>
+                  <VBox fx:id="messages" prefHeight="200.0" prefWidth="194.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Label" />
                      </children>
                   </VBox>
                </content>

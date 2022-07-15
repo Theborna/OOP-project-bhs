@@ -1,0 +1,10 @@
+@import url(login.css);
+
+#pnSide {
+    -fx-background-color: #e3ddff;
+}
+
+#pnMain,
+.anchorPane {
+    -fx-background-color: #eeeeee;
+}

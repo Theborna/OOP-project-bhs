@@ -1,3 +1,7 @@
+.root {
+    -fx-background-color: #36393FFF
+}
+
 .text-area {
     -fx-font-family: Consolas;
     -fx-font-size: 15;
@@ -8,4 +12,9 @@
 
 .text-area .content {
     -fx-background-color: #36393F;
+}
+
+.text-area .scroll-pane {
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
 }

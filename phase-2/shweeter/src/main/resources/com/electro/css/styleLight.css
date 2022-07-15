@@ -1,0 +1,121 @@
+@import url(style.css);
+
+#vboxSide {
+    -fx-background-color: #EBE8F9;
+    -fx-border-color: #EBE8F9;
+}
+
+#bottomBar,
+#topBar {
+    -fx-background-color: #ccc1ff;
+    -fx-border-color: #ccc1ff;
+}
+
+.button {
+    -fx-background-color: #EBE8F9;
+}
+
+.button:hover,
+.toggle-button:hover,
+.toggle-button:pressed,
+.toggle-button:selected {
+    -fx-background-color: #a297d3;
+}
+
+.button:pressed {
+    -fx-background-color: #6b73e2;
+}
+
+#bpMain,
+#topPane,
+.message {
+    -fx-background-color: #eeeeee;
+    -fx-border-color: #eeeeee;
+}
+
+.anchorPane,
+.scrollPane {
+    -fx-background-color: #eeeeee;
+}
+
+.msgItem {
+    -fx-background-color: transparent;
+}
+
+.msgItem:hover {
+    -fx-background-color: #5949a050;
+}
+
+.msgItem:pressed {
+    -fx-background-color: #ccc1ff;
+}
+
+.msgItem:selected {
+    -fx-background-color: #ccc1ff;
+}
+
+.circleButton {
+    -fx-fill: transparent;
+    -fx-stroke: #ffffff;
+}
+
+.circleButton:hover {
+    -fx-background-color: transparent;
+    -fx-fill: #a297d3
+}
+
+.text-area {
+    -fx-font-family: Consolas;
+    -fx-font-size: 15;
+    -fx-text-fill: #000;
+    -fx-display-caret: true;
+    -fx-background-color: #ccc;
+}
+
+.text-area .content {
+    -fx-background-color: #ccc;
+}
+
+.message:hover {
+    -fx-background-color: #ece8ff
+}
+
+.message:pressed {
+    -fx-background-color: #ccc1ff
+}
+
+/* .post {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, #2e2e2e, #2a2a2a);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+    -fx-border-radius: 2em;
+    -fx-border-width: 10.0;
+    -fx-background-radius: 3em;
+    -fx-padding: 10 0 10 0;
+}
+
+.post:hover {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, #2a2a2a, #252525);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+}
+
+.post:pressed {
+    -fx-outer-border: transparent;
+    -fx-body-color: linear-gradient(to bottom, #252525, #202020);
+    -fx-background-color:
+        -fx-outer-border,
+        -fx-body-color;
+} */
+
+.post .button {
+    -fx-background-color: transparent;
+}
+
+.post .button:hover {
+    -fx-background-color: #a297d3;
+}
