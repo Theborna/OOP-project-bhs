@@ -1,5 +1,7 @@
 package com.electro.controllers.components;
 
+import com.electro.views.component.ProfilePopOver;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
@@ -10,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 public class messageController {
@@ -32,6 +35,7 @@ public class messageController {
     public void initialize() { // will include the important stuff about the actual message
         name.setText(":/borna/");
         // mainPane.setPrefHeight(1000);
+        new ProfilePopOver(pfp);
         setContext();
     }
 
@@ -49,7 +53,12 @@ public class messageController {
         contextMenu.setAutoHide(true);
         item3.setOnAction(evt -> {
             ClipboardContent content = new ClipboardContent();
-            content.putString(msgText.toString());
+            final StringBuilder sb = new StringBuilder();
+            msgText.getChildren().forEach(i -> {
+                if (i instanceof Text)
+                    sb.append(i);
+            });
+            content.putString(sb.toString());
             Clipboard.getSystemClipboard().setContent(content);
         });
     }

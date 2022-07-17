@@ -40,7 +40,8 @@ public class FeedView implements View {
     }
 
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "show -page");
+        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "show -page",
+                "new post", "comment");
     }
 
     @Override

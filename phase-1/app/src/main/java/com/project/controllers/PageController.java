@@ -30,7 +30,7 @@ public class PageController extends FeedController {
                 return 1;
             case "no":
             case "n":
-                App.setView(App.lastView());
+                 App.setView(App.lastView());
                 return 2;
             default:
                 return 3;

@@ -12,6 +12,7 @@ public class CreatePostView implements View {
 
     private StringBuilder postText = new StringBuilder();
     private CreatePostController controller = new CreatePostController();
+    private Long inReplyTo = null;
 
     @Override
     public void show() throws changeViewException {
@@ -22,7 +23,14 @@ public class CreatePostView implements View {
                 break;
         }
         System.out.println(postText);
-        App.setView(SecondaryView.getInstance());
+        // TODO: add to DB
+        inReplyTo = null;
+        App.setView(App.lastView());
+    }
+
+    public CreatePostView setInReplyTo(Long inReplyTo) {
+        this.inReplyTo = inReplyTo;
+        return this;
     }
 
     @Override

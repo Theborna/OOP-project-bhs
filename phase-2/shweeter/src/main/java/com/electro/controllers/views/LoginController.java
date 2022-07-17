@@ -66,32 +66,7 @@ public class LoginController implements Initializable {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"),
                 new FileChooser.ExtensionFilter("HTML Files", "*.htm"));
-        ProfilePopOver popOver = new ProfilePopOver();
-        preview.setOnMouseEntered(evt -> {
-            if (!popOver.isShowing()) {
-                popOver.show((Node) evt.getSource());
-            }
-        });
-        preview.setOnMouseClicked(evt -> {
-            popOver.hide();
-        });
-        // vbox.widthProperty().addListener(new ChangeListener<Number>() {
-        // @Override
-        // public void changed(ObservableValue<? extends Number> arg0, Number arg1,
-        // Number arg2) {
-        // double width = vbox.getWidth();
-        // System.out.println(width);
-        // if (width == 0)
-        // return;
-        // if (width < 750) {
-        // vbox.getChildren().forEach(i -> {
-        // System.out.println("b");
-        // if (i instanceof Button)
-        // ((Button) i).setMaxWidth(width);
-        // });
-        // }
-        // }
-        // });
+        new ProfilePopOver(preview);
     }
 
     @FXML
