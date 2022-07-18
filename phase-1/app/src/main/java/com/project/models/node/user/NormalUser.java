@@ -1,10 +1,14 @@
 package com.project.models.node.user;
 
+import java.sql.Date;
+
 public class NormalUser extends User {
 
-    public NormalUser(String username, String password) {
-        super(username, password);
-        // TODO Auto-generated constructor stub
+
+
+    public NormalUser(Date creationDate, String username, String password) {
+        super(creationDate, username, password);
+        //TODO Auto-generated constructor stub
     }
 
     @Override

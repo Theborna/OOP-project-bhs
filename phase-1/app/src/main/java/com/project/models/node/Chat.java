@@ -17,7 +17,8 @@ public class Chat extends node {
     // private ArrayList<Message> messages;
     // private ArrayList<User> administrators;
 
-    public Chat(String name, ChatType type) {
+    public Chat(Date creationDate, String name, ChatType type) {
+        super(creationDate);
         this.name = name;
         this.type = type;
         setData(chatId++, new Date(1), new Date(2));

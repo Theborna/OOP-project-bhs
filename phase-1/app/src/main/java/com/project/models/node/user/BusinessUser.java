@@ -1,13 +1,16 @@
 package com.project.models.node.user;
 
-public class BusinessUser extends User {
+import java.sql.Date;
 
+public class BusinessUser extends User {
+    
     private String businessType;
 
-    public BusinessUser(String username, String password) {
-        super(username, password);
-        // TODO Auto-generated constructor stub
+    public BusinessUser(Date creationDate, String username, String password) {
+        super(creationDate, username, password);
+        //TODO Auto-generated constructor stub
     }
+
 
     @Override
     public void Post(com.project.models.node.Post post) {

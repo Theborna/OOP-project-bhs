@@ -20,6 +20,18 @@ public abstract class node {
     protected Date creationDate, lastModifiedDate;
     protected static List<node> allData;
 
+
+    public node(Date creationDate) {
+        this.id = newId();
+        this.creationDate = creationDate;
+        this.lastModifiedDate = creationDate;
+    }
+
+    private long newId() {
+        // random ya be tartib?
+        return 0;
+    }
+
     public void setData(long id, Date creationDate, Date lastModifiedDate) {
         this.id = id;
         this.creationDate = creationDate;

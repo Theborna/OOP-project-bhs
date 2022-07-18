@@ -10,7 +10,8 @@ public class Message extends node { // TODO lots of modifications
     // private int likes, dislikes;
     private static long id;
 
-    public Message(String message, User sender) {
+    public Message(Date creationDate, String message, User sender) {
+        super(creationDate);
         this.message = new StringBuilder(message);
         this.sender = sender;
         setData(id++, new Date(1), new Date(2));

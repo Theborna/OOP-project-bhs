@@ -10,21 +10,22 @@ import java.util.ArrayList;
 public class Post extends node {
     private static long PostId;
     private StringBuilder text;
-    private Image image = null;
     private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
 
-    public Post(String text) {
+    public Post(Date creationDate, String text) {
+        super(creationDate);
         this.text = new StringBuilder(text);
-        sender = new NormalUser("borna", "");
+        sender = new NormalUser(creationDate, "borna", "");
         likes = 52;
         views = 146;
         setData(PostId++, new Date(1), new Date(2));
     }
 
-    public Post(String text, User Sender) {
+    public Post(Date creationDate, String text, User Sender) {
+        super(creationDate);
         this.text = new StringBuilder(text);
         sender = Sender;
         likes = 0;

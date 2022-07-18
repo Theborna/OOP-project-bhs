@@ -1,5 +1,6 @@
 package com.project.models.node.user;
 
+import java.sql.Date;
 import java.util.Set;
 
 import com.project.models.connection.ChatUserConnection;
@@ -23,7 +24,8 @@ public abstract class User extends node {
     private StdColor nameColor;
     private int followerCnt;
 
-    public User(String username, String password) {
+    public User(Date creationDate, String username, String password) {
+        super(creationDate);
         this.username = username;
         this.password = password;
         nameColor = StdColor.random("name");
@@ -33,9 +35,9 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public static User logToUser(String username, String password) {
+    public static User logToUser(Date creationDate, String username, String password) {
         // get the current user from the database
-        currentUser = new NormalUser(username, password);
+        currentUser = new NormalUser(creationDate, username, password);
         return currentUser;
     }
 
