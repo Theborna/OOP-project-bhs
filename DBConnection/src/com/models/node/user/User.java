@@ -19,13 +19,14 @@ import com.util.StdColor;
  * @Children NormalUser, BusinessUser
  */
 public abstract class User extends node {
+    private long USID;
     private static User currentUser;
     private double promoindex = 0;
     private String salt;
     private String username, password, name, lastName, email;
     private boolean isPublic;
     private StdColor nameColor;
-    private int followerCnt;
+    private int followerCnt, followingCnt, postCnt;
     private LocalDateTime dt;
     private int userType = 0;
 
@@ -33,6 +34,34 @@ public abstract class User extends node {
         this.username = username;
         this.password = password;
         nameColor = StdColor.random("name");
+    }
+
+    public void setFollowerCnt(int followerCnt) {
+        this.followerCnt = followerCnt;
+    }
+
+    public void setPostCnt(int postCnt) {
+        this.postCnt = postCnt;
+    }
+
+    public int getPostCnt() {
+        return postCnt;
+    }
+
+    public int getFollowingCnt() {
+        return followingCnt;
+    }
+
+    public void setFollowingCnt(int followingCnt) {
+        this.followingCnt = followingCnt;
+    }
+
+    public void setUSID(long USID) {
+        this.USID = USID;
+    }
+
+    public long getUSID() {
+        return USID;
     }
 
     public void setPublic(boolean aPublic) {

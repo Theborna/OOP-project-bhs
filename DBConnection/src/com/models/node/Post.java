@@ -16,7 +16,7 @@ public class Post extends node {
     private User sender;
     private int likes;
     private int views;
-
+    private int comments;
     public Post(String text) {
         this.text = new StringBuilder(text);
         sender = new NormalUser("borna", "");
@@ -43,6 +43,14 @@ public class Post extends node {
 
     public int getViews() {
         return views;
+    }
+
+    public int getComments() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
     }
 
     public StringBuilder getText() {

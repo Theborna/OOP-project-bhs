@@ -1,26 +1,24 @@
 package com.models.node;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
  * abstract class which is the parent class for all nodes that can be stored
  * in the database
- * 
- * @variables
- *            id, date created, last modified date,
- * @methods
- *          getters, modifiers, toString, hashCode, equals
- * @static_methods
- *                 get object from the database, match object with dataBase
- *                 send data to database
+ *
+ * @variables id, date created, last modified date,
+ * @methods getters, modifiers, toString, hashCode, equals
+ * @static_methods get object from the database, match object with dataBase
+ * send data to database
  */
 public abstract class node {
     protected long id;
-    protected Date creationDate, lastModifiedDate;
+    protected LocalDateTime creationDate, lastModifiedDate;
     protected static List<node> allData;
 
-    public void setData(long id, Date creationDate, Date lastModifiedDate) {
+    public void setData(long id, LocalDateTime creationDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.creationDate = creationDate;
         this.lastModifiedDate = lastModifiedDate;
@@ -76,11 +74,11 @@ public abstract class node {
         return id;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public Date getLastModifiedDate() {
+    public LocalDateTime getLastModifiedDate() {
         return lastModifiedDate;
     }
 

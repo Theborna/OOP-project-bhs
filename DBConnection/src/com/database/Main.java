@@ -4,6 +4,7 @@ import com.models.node.Post;
 import com.models.node.user.NormalUser;
 import com.models.node.user.User;
 
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,15 +24,20 @@ public class Main {
 //        }
 //
 //    }
-        User us = new NormalUser("Borna","SepH");
-        us.setDt(LocalDateTime.now());
-        us.setEmail("bornaaaaaaaaaa@skdjc.dos");
-        us.setLastName("khoda");
-        us.setName("hsrf");
-        us.setPublic(true);
-        us.setUserType(0);
-        us.setSalt("jhlkjf");
-        us.setPromoindex(0.1);
-        UserDB.updtaeUser(us);
+//        User us = new NormalUser("Borna","SepH");
+//        us.setDt(LocalDateTime.now());
+//        us.setEmail("bornaaaaaaaaaa@skdjc.dos");
+//        us.setLastName("khoda");
+//        us.setName("hsrf");
+//        us.setPublic(true);
+//        us.setUserType(0);
+//        us.setSalt("jhlkjf");
+//        us.setPromoindex(0.1);
+//        //UserDB.updtaeUser(us);
+//        UserDB.getUserInfo(1L);
+        User us = new NormalUser("Borna", "fe");
+                us.setUSID(1);
+
+        System.out.println(UserDB.getFollowers(us,5));
     }
 }
