@@ -10,7 +10,7 @@ import com.project.models.node.user.User;
 
 public class MessageConnection extends connection<Message, Chat> {
 
-    public static Set<Message> getMessages(Chat chat) {
+    public static Set<Message> getMessages(Long chatId) {
         // TODO: run query and shit
         Set<Message> messages = new LinkedHashSet<>();
         User other = new NormalUser("sep", "14124");
@@ -25,7 +25,7 @@ public class MessageConnection extends connection<Message, Chat> {
         return messages;
     }
 
-    public static Message getLastMessage(Chat chat) {
+    public static Message getLastMessage(Long chatId) {
         // TODO: run query and shit
         return new Message(
                 "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
