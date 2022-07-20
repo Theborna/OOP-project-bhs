@@ -5,4 +5,5 @@ phase-1/logs.log
 phase-1/logs.log.lck
 phase-1/app/logs.log
 phase-1/app/logs.log.lck
-phase-1/app/target
+phase-1/app/target/
+phase-1/app/data/
