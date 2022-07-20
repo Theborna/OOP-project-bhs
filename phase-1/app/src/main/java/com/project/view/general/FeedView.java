@@ -22,7 +22,7 @@ public class FeedView implements View {
 
     public void getFeed() {
         controller.clear();
-        controller.addAll(PostUserConnection.getFeed(User.getCurrentUser()));
+        controller.addAll(PostUserConnection.getFeed(User.getCurrentUser().getId()));
     }
 
     public static FeedView getInstance() {

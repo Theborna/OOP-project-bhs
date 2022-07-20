@@ -9,6 +9,8 @@ import com.project.view.View;
 
 import static com.project.util.StdOut.*;
 
+import java.util.Date;
+
 import com.project.App;
 
 public class RegisterView implements View {
@@ -28,19 +30,43 @@ public class RegisterView implements View {
 
     @Override
     public void show() throws changeViewException {
-        String username = null, password = null;
+        String username = null, password = null, repeatPassword = null, fullName = null;
+        Date birthDate = null;
+        String input;
         User user = null;
         while (username == null) {
             prompt("enter username");
-            username = controller.getUsername(StdIn.nextLine());
+            username = controller.getUsername(input = StdIn.nextLine());
             if (username == null)
                 printError("invalid username format");
         }
         while (password == null) {
             prompt("enter password");
-            password = controller.getPassword(StdIn.nextLine());
+            password = controller.getPassword(input = StdIn.nextLine());
             if (password == null)
                 printError("invalid password format");
+        }
+        while (repeatPassword == null) {
+            prompt("repeat password");
+            repeatPassword = controller.getRepeatPassword(input = StdIn.nextLine(), password);
+            if (repeatPassword == null)
+                printError("not the same");
+        }
+        while (fullName == null) {
+            prompt("enter full name");
+            fullName = controller.getFullName(input = StdIn.nextLine());
+            if (fullName == null)
+                printError("invalid full name format");
+        }
+        while (birthDate == null) {
+            prompt("enter birth date(yyyy-mm-dd) or \"--skip\" to skip this part");
+            if ((input = StdIn.nextLine()).equals("--skip")) {
+                println("skipped", StdColor.GREEN);
+                break;
+            }
+            birthDate = controller.getBirthDate(input);
+            if (birthDate == null)
+                printError("invalid birth date format");
         }
         if ((user = controller.logToUser(username, password)) == null) {
             print("register successful! ", StdColor.GREEN);

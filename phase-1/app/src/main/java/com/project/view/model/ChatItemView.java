@@ -28,7 +28,7 @@ public class ChatItemView implements View {
         print(chat.getType() + ": ", StdColor.GREEN_BOLD);
         println(chat.getName(), StdColor.MAGENTA_UNDERLINED);
         println("last active: " + chat.getLastModifiedDate() + ", id: " + chat.getId(), StdColor.BLACK_BRIGHT);
-        Message last = MessageConnection.getLastMessage(chat);
+        Message last = MessageConnection.getLastMessage(chat.getId());
         String shownText = last.getMessage().toString();
         if (last.getMessage().length() > 30)
             shownText = last.getMessage().substring(0, 60) + "...";

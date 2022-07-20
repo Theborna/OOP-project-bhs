@@ -8,7 +8,7 @@ import com.project.models.node.user.User;
 
 public class PostUserConnection extends connection<User, Post> {
 
-    public static Set<Post> getPost(User user) {
+    public static Set<Post> getPost(Long userId) {
         Set<Post> result = new LinkedHashSet<>();
         //TODO run a query on the database and get posts;
         result.add(new Post("kos mikham man borna am vali"));
@@ -21,7 +21,7 @@ public class PostUserConnection extends connection<User, Post> {
         return result;
     }
 
-    public static Set<Post> getFeed(User user) {
+    public static Set<Post> getFeed(Long userId) {
         Set<Post> result = new LinkedHashSet<>();
         //TODO run a query on the database and get posts;
         result.add(new Post("kos mikham"));

@@ -61,10 +61,11 @@ public abstract class User extends node {
     }
 
     public Set<com.project.models.node.Post> getPosts() {
-        return PostUserConnection.getPost(this);
+        return PostUserConnection.getPost(this.id);
     }
 
     public Set<Chat> getChats() {
-        return ChatUserConnection.getChats(this);
+        return ChatUserConnection.getChats(this.id);
     }
+
 }

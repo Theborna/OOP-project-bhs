@@ -16,7 +16,7 @@ public class ChatView implements View {
 
     private ChatView() {
         controller = new ChatController();
-        controller.addAll(MessageConnection.getMessages(Chat.getCurrent()));
+        controller.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
         controller.getCurrent();
     }
 
@@ -30,9 +30,13 @@ public class ChatView implements View {
     public void show() throws changeViewException {
         if (controller.isShowMsg())
             controller.getCurrent().show();
-        printSelections("like", "dislike", "reply", "next", "last", "top", "new message" , "show -page");
+        printSelections("like", "dislike", "reply", "next", "last", "top", "new message", "show -page", "members");
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
+    }
+
+    public void askForUse() {
+         
     }
 
     @Override
@@ -42,7 +46,7 @@ public class ChatView implements View {
 
     public static void promptNewMessage() {
         rule('_');
-        prompt("what's the message?\n");
+        prompt("what's the message?(use \"--cancel\" to stop sending new message)\n");
     }
 
 }
