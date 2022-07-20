@@ -1,5 +1,6 @@
 package com.project.models.connection;
 
+import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -9,6 +10,10 @@ import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 public class MessageConnection extends connection<Message, Chat> {
+
+    public MessageConnection(Message obj1, Chat obj2) {
+        super(obj1, obj2);
+    }
 
     public static Set<Message> getMessages(Long chatId) {
         // TODO: run query and shit

@@ -1,6 +1,6 @@
 package com.project.models.node;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -8,7 +8,7 @@ import java.util.List;
  * in the database
  * 
  * @variables
- *            id, date created, last modified date,
+ *            id, LocalDateTime created, last modified date,
  * @methods
  *          getters, modifiers, toString, hashCode, equals
  * @static_methods
@@ -17,18 +17,24 @@ import java.util.List;
  */
 public abstract class node {
     protected long id;
-    protected Date creationDate, lastModifiedDate;
+    protected LocalDateTime creationDate, lastModifiedDate;
     protected static List<node> allData;
 
-    public void setData(long id, Date creationDate, Date lastModifiedDate) {
+    private long newId() {
+        // random ya be tartib?
+        return 0;
+    }
+
+    public node setData(long id, LocalDateTime creationDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.creationDate = creationDate;
         this.lastModifiedDate = lastModifiedDate;
+        return this;
     }
 
     // static methods
     protected static void setAllData() {
-        // will update list of allData according to database
+        // will upLocalDateTime list of allData according to database
     }
 
     public static List<node> getAllData() {
@@ -36,10 +42,10 @@ public abstract class node {
     }
 
     public static node get(long id) {
-        setAllData();
-        for (node data : allData)
-            if (data.getId() == id)
-                return data;
+        // setAllData();
+        // for (node data : allData)
+        // if (data.getId() == id)
+        // return data;
         return null;
     }
 
@@ -76,11 +82,11 @@ public abstract class node {
         return id;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public Date getLastModifiedDate() {
+    public LocalDateTime getLastModifiedDate() {
         return lastModifiedDate;
     }
 

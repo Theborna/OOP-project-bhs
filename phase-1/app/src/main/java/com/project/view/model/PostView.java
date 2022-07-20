@@ -1,7 +1,7 @@
 package com.project.view.model;
 
 import com.project.controllers.Controller;
-import com.project.models.node.Post;
+import com.project.models.node.post.Post;
 import com.project.util.StdColor;
 import com.project.view.View;
 

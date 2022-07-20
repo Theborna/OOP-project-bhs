@@ -1,16 +1,19 @@
 package com.project.models.node.user;
 
-public class BusinessUser extends User {
+import java.time.LocalDateTime;
 
+public class BusinessUser extends User {
+    
     private String businessType;
 
     public BusinessUser(String username, String password) {
         super(username, password);
-        // TODO Auto-generated constructor stub
+        //TODO Auto-generated constructor stub
     }
 
+
     @Override
-    public void Post(com.project.models.node.Post post) {
+    public void Post(com.project.models.node.post.Post post) {
         // TODO Auto-generated method stub
 
     }

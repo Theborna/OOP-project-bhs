@@ -1,13 +1,14 @@
 package com.project.models.node.user;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
-import com.project.models.node.Post;
 import com.project.models.node.node;
+import com.project.models.node.post.Post;
 import com.project.util.StdColor;
 
 /**
@@ -60,8 +61,8 @@ public abstract class User extends node {
         return isPublic;
     }
 
-    public Set<com.project.models.node.Post> getPosts() {
-        return PostUserConnection.getPost(this.id);
+    public Set<com.project.models.node.post.Post> getPosts() {
+        return PostUserConnection.getPosts(this.id);
     }
 
     public Set<Chat> getChats() {
