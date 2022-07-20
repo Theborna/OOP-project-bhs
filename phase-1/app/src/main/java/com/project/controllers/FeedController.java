@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.project.App;
-import com.project.models.node.Post;
+import com.project.models.node.post.Post;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
 import com.project.view.model.PageView;

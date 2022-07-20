@@ -1,7 +1,5 @@
 package com.project.models.connection;
 
-import java.sql.Date;
-
 import com.project.models.node.node;
 
 /**
@@ -12,9 +10,7 @@ public abstract class connection<E, T> extends node {
     private E obj1;
     private T obj2;
 
-
-    public connection(Date creationDate, E obj1, T obj2) {
-        super(creationDate);
+    public connection(E obj1, T obj2) {
         this.obj1 = obj1;
         this.obj2 = obj2;
     }

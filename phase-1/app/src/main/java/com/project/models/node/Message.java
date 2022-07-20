@@ -1,6 +1,8 @@
 package com.project.models.node;
 
 import java.sql.Date;
+import java.time.ZoneId;
+
 import com.project.models.node.user.User;
 
 public class Message extends node { // TODO lots of modifications
@@ -10,11 +12,11 @@ public class Message extends node { // TODO lots of modifications
     // private int likes, dislikes;
     private static long id;
 
-    public Message(Date creationDate, String message, User sender) {
-        super(creationDate);
+    public Message(String message, User sender) {
         this.message = new StringBuilder(message);
         this.sender = sender;
-        setData(id++, new Date(1), new Date(2));
+        setData(id++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
+                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
         replyTo = null;
     }
 

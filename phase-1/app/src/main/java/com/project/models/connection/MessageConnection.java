@@ -11,8 +11,8 @@ import com.project.models.node.user.User;
 
 public class MessageConnection extends connection<Message, Chat> {
 
-    public MessageConnection(Date creationDate, Message obj1, Chat obj2) {
-        super(creationDate, obj1, obj2);
+    public MessageConnection(Message obj1, Chat obj2) {
+        super(obj1, obj2);
     }
 
     public static Set<Message> getMessages(Chat chat) {

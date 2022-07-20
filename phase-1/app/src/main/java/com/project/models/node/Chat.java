@@ -1,8 +1,10 @@
 
 package com.project.models.node;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.project.models.node.user.User;
 
@@ -17,11 +19,11 @@ public class Chat extends node {
     // private ArrayList<Message> messages;
     // private ArrayList<User> administrators;
 
-    public Chat(Date creationDate, String name, ChatType type) {
-        super(creationDate);
+    public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
-        setData(chatId++, new Date(1), new Date(2));
+        setData(chatId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
+                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
     }
 
     public static void LogToChat(long id) {

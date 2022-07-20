@@ -1,14 +1,14 @@
 package com.project.models.node.user;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
-import com.project.models.node.Post;
 import com.project.models.node.node;
+import com.project.models.node.post.Post;
 import com.project.util.StdColor;
 
 /**
@@ -24,8 +24,7 @@ public abstract class User extends node {
     private StdColor nameColor;
     private int followerCnt;
 
-    public User(Date creationDate, String username, String password) {
-        super(creationDate);
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
         nameColor = StdColor.random("name");
@@ -35,9 +34,9 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public static User logToUser(Date creationDate, String username, String password) {
+    public static User logToUser(String username, String password) {
         // get the current user from the database
-        currentUser = new NormalUser(creationDate, username, password);
+        currentUser = new NormalUser(username, password);
         return currentUser;
     }
 
@@ -62,7 +61,7 @@ public abstract class User extends node {
         return isPublic;
     }
 
-    public Set<com.project.models.node.Post> getPosts() {
+    public Set<com.project.models.node.post.Post> getPosts() {
         return PostUserConnection.getPost(this);
     }
 
