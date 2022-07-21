@@ -14,6 +14,7 @@ import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.ChatView;
+import com.project.view.general.ForwardView;
 import com.project.view.model.MessageView;
 import com.project.view.model.PageView;
 
@@ -82,6 +83,9 @@ public class ChatController implements ListController<MessageView> {
             case "show -page":
                 App.setView(PageView.getInstance().setUser(currentMsg.getMessage().getSender()));
                 break;
+            case "forward":// TODO: add ability to forward multiple messages
+                App.setView(ForwardView.getInstance(currentMsg.getMessage()), false);
+                break;
             case "members":
             case "member":
                 showMembers();
@@ -125,7 +129,9 @@ public class ChatController implements ListController<MessageView> {
     public void post(StringBuilder sb, Long inReply) {
         if (sb == null)
             return;
-        // TODO: actually post the message
+        Message message = new Message(sb.toString(), User.getCurrentUser());
+        // TODO: set message data
+        User.getCurrentUser().sendMessage(message, Chat.getCurrent());
         println("message posted successfully", StdColor.GREEN);
 
     }
@@ -169,6 +175,6 @@ public class ChatController implements ListController<MessageView> {
         println(" brings up the help window");
         rule('*');
     }
-    //sex
+    // sex
 
 }

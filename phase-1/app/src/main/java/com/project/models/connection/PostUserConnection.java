@@ -1,6 +1,5 @@
 package com.project.models.connection;
 
-import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -40,7 +39,7 @@ public class PostUserConnection extends connection<User, Post> {
         return result;
     }
 
-    public static Set<User> getUser(Long postId) {
+    public static Set<User> getUser(Long postId) { // in chi hast???
         Set<User> result = new LinkedHashSet<>();
         // TODO run a query on the database and get Users;
         result.add(new NormalUser("sex", "anal"));
@@ -49,5 +48,9 @@ public class PostUserConnection extends connection<User, Post> {
             result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
         }
         return result;
+    }
+
+    public static Set<Post> getExplore(User user) { // TODO: find appropriate posts to show
+        return getFeed(user.getId());
     }
 }

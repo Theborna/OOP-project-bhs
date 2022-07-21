@@ -22,12 +22,12 @@ public class Chat extends node {
     public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
-        setData(chatId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(chatId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public static void LogToChat(long id) {
-        // find the chat from the database and set current chat
+        // TODO: find the chat from the database and set current chat
         current = new Chat("kos", ChatType.PRIVATE);
     }
 

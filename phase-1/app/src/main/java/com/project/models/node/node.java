@@ -26,8 +26,20 @@ public abstract class node {
     }
 
     public node setData(long id, LocalDateTime creationDate, LocalDateTime lastModifiedDate) {
+        return this.setId(id).setCreationDate(creationDate).setLastModifiedDate(lastModifiedDate);
+    }
+
+    public node setId(long id) {
         this.id = id;
+        return this;
+    }
+
+    public node setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
+        return this;
+    }
+
+    public node setLastModifiedDate(LocalDateTime lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
         return this;
     }

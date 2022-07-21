@@ -14,12 +14,12 @@ import static com.project.util.StdOut.*;
 
 public class ChatListController implements ListController<ChatItemView> {
 
-    private List<ChatItemView> chatItems = new ArrayList<ChatItemView>();
-    private ChatItemView currentChat;
-    private int current;
+    protected List<ChatItemView> chatItems = new ArrayList<ChatItemView>();
+    protected ChatItemView currentChat;
+    protected int current;
 
     @Override
-    public void parse(String input) {
+    public void parse(String input) throws changeViewException {
         input = input.toLowerCase().trim();
         switch (input) {
             case "n":
@@ -57,7 +57,7 @@ public class ChatListController implements ListController<ChatItemView> {
         }
     }
 
-    private void showAll() {
+    protected void showAll() {
         for (ChatItemView item : chatItems)
             try {
                 item.show();

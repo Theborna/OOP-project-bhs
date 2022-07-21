@@ -23,8 +23,8 @@ public class Post extends node {
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        setData(PostId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public Post(String text, User Sender) {
@@ -32,8 +32,8 @@ public class Post extends node {
         sender = Sender;
         likes = 0;
         views = 0;
-        setData(PostId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public User getSender() {

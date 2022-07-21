@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.project.App;
 import com.project.models.node.post.Post;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.CreatePostView;
@@ -48,6 +49,14 @@ public class FeedController implements ListController<PostView> {
                 break;
             case "comment":
                 App.setView(new CreatePostView().setInReplyTo(currentPost.getPost().getId()));
+                break;
+            case "like":
+                print("added like", StdColor.GREEN);
+                User.getCurrentUser().like(currentPost.getPost());
+                break;
+            case "dislike":
+                print("added dislike", StdColor.GREEN);
+                User.getCurrentUser().dislike(currentPost.getPost());
                 break;
             case "help":
                 help();

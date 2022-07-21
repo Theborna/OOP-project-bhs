@@ -30,13 +30,14 @@ public class ChatView implements View {
     public void show() throws changeViewException {
         if (controller.isShowMsg())
             controller.getCurrent().show();
-        printSelections("like", "dislike", "reply", "next", "last", "top", "new message", "show -page", "members");
+        printSelections("like", "dislike", "forward", "reply", "next", "last", "top", "new message", "show -page",
+                "members");
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }
 
     public void askForUse() {
-         
+
     }
 
     @Override
