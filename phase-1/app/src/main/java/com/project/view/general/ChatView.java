@@ -14,7 +14,7 @@ public class ChatView implements View {
     private static ChatView instance;
     private ChatController controller;
 
-    private ChatView() {
+    protected ChatView() {
         controller = new ChatController();
         controller.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
         controller.getCurrent();
