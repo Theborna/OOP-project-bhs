@@ -1,6 +1,5 @@
 package com.project;
 
-
 import com.project.util.Log;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
