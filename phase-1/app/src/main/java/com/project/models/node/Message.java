@@ -1,11 +1,10 @@
 package com.project.models.node;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 import com.project.models.node.user.User;
 
-public class Message extends node { // TODO lots of modifications
+public class Message extends node implements TextBased { // TODO lots of modifications
     private StringBuilder message;
     private User sender;
     private User author;
@@ -30,7 +29,7 @@ public class Message extends node { // TODO lots of modifications
         return replyTo;
     }
 
-    public StringBuilder getMessage() {
+    public StringBuilder getBuilder() {
         return message;
     }
 
@@ -42,12 +41,16 @@ public class Message extends node { // TODO lots of modifications
         return author;
     }
 
-
     public Message forwardFrom(User sender) {
         Message newMsg = new Message(this.message.toString(), sender);
         newMsg.author = this.author;
         newMsg.creationDate = this.creationDate;
         newMsg.lastModifiedDate = LocalDateTime.now();
         return newMsg;
+    }
+
+    @Override
+    public String getText() {
+        return message.toString();
     }
 }

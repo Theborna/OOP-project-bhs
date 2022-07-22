@@ -20,8 +20,8 @@ public abstract class node {
     protected LocalDateTime creationDate, lastModifiedDate;
     protected static List<node> allData;
 
-    private long newId() {
-        // random ya be tartib?
+    protected static long newId() {
+        // TODO find the appropriate from the database for each instance
         return 0;
     }
 

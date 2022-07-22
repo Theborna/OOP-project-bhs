@@ -3,17 +3,12 @@ package com.project.controllers;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-
 import com.project.App;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
 import com.project.models.node.user.User;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.ChatListView;
-import com.project.view.general.ChatView;
-import com.project.view.model.ChatItemView;
-
 import static com.project.util.StdOut.*;
 
 public class ForwardController extends ChatListController {

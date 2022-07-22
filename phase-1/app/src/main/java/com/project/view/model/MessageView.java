@@ -21,14 +21,14 @@ public class MessageView implements View {
         rule('_');
         if (message.getReplyTo() != null) {
             print("╔════@" + message.getReplyTo().getSender().getUsername(), StdColor.BLACK_BRIGHT);
-            println(": " + message.getReplyTo().getMessage(), StdColor.BLACK_BRIGHT);
+            println(": " + message.getReplyTo().getBuilder(), StdColor.BLACK_BRIGHT);
         }
         print(message.getSender().getUsername(), message.getSender().getNameColor());
         if (!message.getAuthor().equals(message.getSender())) {
             print(" " + "forwarded from " + message.getAuthor().getUsername(), StdColor.BLACK_BRIGHT);
         }
         println("  @" + message.getLastModifiedDate(), StdColor.BLACK_BRIGHT);
-        println(message.getMessage());
+        println(message.getBuilder());
         rule('_');
     }
 

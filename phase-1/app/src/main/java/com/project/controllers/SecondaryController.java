@@ -3,7 +3,6 @@ package com.project.controllers;
 import com.project.App;
 import com.project.models.node.user.User;
 import com.project.view.general.ChatListView;
-import com.project.view.general.CreatePostView;
 import com.project.view.general.ExploreView;
 import com.project.view.general.FeedView;
 import com.project.view.model.PageView;

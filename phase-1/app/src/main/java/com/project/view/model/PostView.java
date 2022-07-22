@@ -20,7 +20,7 @@ public class PostView implements View {
         rule('_');
         print(post.getSender().getUsername(), StdColor.MAGENTA_UNDERLINED);
         println(" ,date: " + post.getCreationDate() + " ,id: " + post.getId(), StdColor.BLACK_BRIGHT);
-        println("\n" + post.getText().toString() + "\n");
+        println("\n" + post.getBuilder().toString() + "\n");
         print("likes: ", StdColor.RED_BRIGHT);
         print(post.getLikes() + ", ");
         print("views: ", StdColor.GREEN_BRIGHT);

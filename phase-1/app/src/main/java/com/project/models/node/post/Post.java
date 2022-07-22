@@ -1,19 +1,15 @@
 package com.project.models.node.post;
 
-import com.project.models.node.Media;
+import com.project.models.node.TextBased;
 import com.project.models.node.node;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 
-public class Post extends node {
+public class Post extends node implements TextBased {
     private static long PostId;
     private StringBuilder text;
-    private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
@@ -48,8 +44,13 @@ public class Post extends node {
         return views;
     }
 
-    public StringBuilder getText() {
+    public StringBuilder getBuilder() {
         return text;
+    }
+
+    @Override
+    public String getText() {
+        return text.toString();
     }
 
     @Override

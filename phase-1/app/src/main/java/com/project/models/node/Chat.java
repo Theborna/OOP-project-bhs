@@ -2,11 +2,6 @@
 package com.project.models.node;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-
-import com.project.models.node.user.User;
 
 public class Chat extends node {
     private static Chat current;

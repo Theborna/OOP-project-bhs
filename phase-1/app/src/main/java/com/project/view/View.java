@@ -1,6 +1,5 @@
 package com.project.view;
 
-import com.project.App;
 import com.project.controllers.Controller;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;

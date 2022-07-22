@@ -1,9 +1,6 @@
 package com.project;
 
-import java.sql.SQLClientInfoException;
-import java.sql.SQLData;
 
-import com.mysql.cj.MysqlConnection;
 import com.project.util.Log;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;

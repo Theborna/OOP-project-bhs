@@ -6,7 +6,6 @@ import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
-import com.project.view.model.PostView;
 
 import static com.project.util.StdOut.*;
 
