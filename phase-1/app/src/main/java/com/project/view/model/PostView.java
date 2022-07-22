@@ -65,4 +65,8 @@ public class PostView implements View {
         return true;
     }
 
+    @Override
+    public void reset() {
+        return;
+    }
 }

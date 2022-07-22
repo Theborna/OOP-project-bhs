@@ -93,4 +93,8 @@ public class RegisterView implements View {
         return controller;
     }
 
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

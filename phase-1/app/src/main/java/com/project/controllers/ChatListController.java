@@ -2,6 +2,7 @@ package com.project.controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 import com.project.App;
@@ -9,6 +10,7 @@ import com.project.models.node.Chat;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.ChatView;
+import com.project.view.general.NewChatView;
 import com.project.view.model.ChatItemView;
 import static com.project.util.StdOut.*;
 
@@ -51,6 +53,10 @@ public class ChatListController implements ListController<ChatItemView> {
                 Chat.LogToChat(currentChat.getChat().getId());
                 App.setView(ChatView.getInstance());
                 break;
+            case "new":
+            case "new chat":
+                App.setView(NewChatView.getInstance());
+                break;
             default:
                 printError("no such command");
                 break;
@@ -83,6 +89,24 @@ public class ChatListController implements ListController<ChatItemView> {
 
     public void addAll(Collection<Chat> chats) {
         chatItems.addAll(chats.stream().map(ChatItemView::new).toList());
+        sort();
+    }
+
+    public void add(Chat chat) {
+        chatItems.add(new ChatItemView(chat));
+        sort();
+    }
+
+    public void sort() {
+        chatItems.sort(new Comparator<ChatItemView>() {
+            @Override
+            public int compare(ChatItemView arg0, ChatItemView arg1) {
+                // TODO: find out why this doesn't work
+                int result = -arg0.getChat().getLastModifiedDate().compareTo(arg1.getChat().getLastModifiedDate());
+                // System.out.println(result);
+                return result;
+            }
+        });
     }
 
     @Override

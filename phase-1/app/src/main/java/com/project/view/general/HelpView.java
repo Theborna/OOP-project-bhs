@@ -28,4 +28,9 @@ public class HelpView implements View {
         return null;
     }
 
+    @Override
+    public void reset() {
+        instance = null;
+    }
+
 }

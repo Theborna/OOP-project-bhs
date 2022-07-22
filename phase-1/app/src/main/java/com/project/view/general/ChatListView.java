@@ -37,13 +37,18 @@ public class ChatListView implements View {
     }
 
     protected void showSelections() {
-        printSelections("next", "last", "show -all", "show <chat id>", "top", "open");
+        printSelections("next", "last", "show -all", "show <chat id>", "top", "open", "new chat");
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public Controller getController() {
         return controller;
+    }
+
+    @Override
+    public void reset() {
+        instance = null;        
     }
 
 }

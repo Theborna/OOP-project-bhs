@@ -1,6 +1,6 @@
 package com.project.models.connection;
 
-
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,8 +32,11 @@ public class MessageConnection extends connection<Message, Chat> {
 
     public static Message getLastMessage(Long chatId) {
         // TODO: run query and shit
-        return new Message(
+        Message msg = new Message(
                 "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
                 User.getCurrentUser());
+        msg.setLastModifiedDate(LocalDateTime.now());
+        // System.out.println(msg.getLastModifiedDate());
+        return msg;
     }
 }

@@ -2,6 +2,10 @@
 package com.project.models.node;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.project.models.connection.ChatUserConnection;
+import com.project.models.connection.MessageConnection;
 
 public class Chat extends node {
     private static Chat current;
@@ -36,5 +40,15 @@ public class Chat extends node {
 
     public ChatType getType() {
         return type;
+    }
+
+    @Override
+    public LocalDateTime getLastModifiedDate() {
+        return MessageConnection.getLastMessage(this.id).getLastModifiedDate();
+    }
+
+    public void addAll(List<Long> members) {
+        for (Long member : members)
+            ChatUserConnection.addUser(this.id, member);
     }
 }

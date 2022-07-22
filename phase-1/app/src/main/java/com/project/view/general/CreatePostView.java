@@ -1,7 +1,5 @@
 package com.project.view.general;
 
-import com.project.controllers.Controller;
-import com.project.controllers.CreatePostController;
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 import com.project.util.exception.changeViewException;
@@ -9,6 +7,8 @@ import com.project.view.View;
 import static com.project.util.StdOut.*;
 
 import com.project.App;
+import com.project.controllers.Controller;
+import com.project.controllers.CreatePostController;
 
 public class CreatePostView implements View {
 
@@ -32,7 +32,7 @@ public class CreatePostView implements View {
         App.setView(App.lastView());
     }
 
-    public CreatePostView setInReplyTo(Long inReplyTo) {
+    public CreatePostView inReplyTo(Long inReplyTo) {
         this.inReplyTo = inReplyTo;
         return this;
     }
@@ -42,4 +42,7 @@ public class CreatePostView implements View {
         return null;
     }
 
+    @Override
+    public void reset() {
+    }
 }

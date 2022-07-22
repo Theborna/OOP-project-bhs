@@ -41,4 +41,8 @@ public class MessageView implements View {
         return null;
     }
 
+    @Override
+    public void reset() {
+        return;
+    }
 }

@@ -50,4 +50,8 @@ public class ChatView implements View {
         prompt("what's the message?(use \"--cancel\" to stop sending new message)\n");
     }
 
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

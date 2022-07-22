@@ -6,9 +6,11 @@ import com.project.view.View;
 
 public class SearchView implements View {
 
+    private static SearchView instance;
+
     @Override
     public void show() throws changeViewException {
-        
+
     }
 
     @Override
@@ -16,4 +18,8 @@ public class SearchView implements View {
         return null;
     }
 
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

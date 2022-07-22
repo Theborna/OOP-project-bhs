@@ -50,6 +50,19 @@ public abstract class User extends node {
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
     }
 
+    public void follow(User user) {
+        // TODO : follow the user
+    }
+
+    public void unfollow(User user) {
+        // TODO : unfollow the user
+    }
+
+    public boolean isFollowing(User user) {
+        // TODO : check if the user is following
+        return false;
+    }
+
     public abstract void Post(Post post);
 
     public String getUsername() {
@@ -66,6 +79,11 @@ public abstract class User extends node {
 
     public boolean isPublic() {
         return isPublic;
+    }
+
+    public static Long getID(String username) {
+        // TODO: run a query to get the id
+        return Long.valueOf(1);
     }
 
     public Set<com.project.models.node.post.Post> getPosts() {

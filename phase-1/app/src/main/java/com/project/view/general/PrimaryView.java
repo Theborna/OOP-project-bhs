@@ -38,4 +38,9 @@ public class PrimaryView implements View {
     public Controller getController() {
         return controller;
     }
+
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

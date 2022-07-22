@@ -53,5 +53,8 @@ public class FeedView implements View {
     // public <T extends Controller> T getController() {
     // return controller;
     // }
-
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

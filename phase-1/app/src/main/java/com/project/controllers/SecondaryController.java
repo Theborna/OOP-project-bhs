@@ -6,6 +6,7 @@ import com.project.view.general.ChatListView;
 import com.project.view.general.ExploreView;
 import com.project.view.general.FeedView;
 import com.project.view.model.PageView;
+import com.project.view.model.SelfPageView;
 
 import static com.project.util.StdOut.*;
 
@@ -22,7 +23,7 @@ public class SecondaryController implements Controller {
                 App.setView(ChatListView.getInstance());
                 break;
             case "page":
-                App.setView(PageView.getInstance().setUser(User.getCurrentUser()));
+                App.setView(SelfPageView.getInstance().refresh());
                 break;
             case "explore":
                 App.setView(ExploreView.getInstance());

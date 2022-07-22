@@ -1,6 +1,5 @@
 package com.project.models.connection;
 
-
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -23,7 +22,7 @@ public class ChatUserConnection extends connection<User, Chat> {
         result.add(new Chat("borna saving memes", ChatType.CHANNEL));
         result.add(new Chat("oop", ChatType.GROUP));
         result.add(new Chat("sepehr", ChatType.PRIVATE));
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             result.add(new Chat(String.valueOf(i), ChatType.PRIVATE));
         }
         return result;
@@ -38,6 +37,10 @@ public class ChatUserConnection extends connection<User, Chat> {
             result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
         }
         return result;
+    }
+
+    public static void addUser(Long chatId, Long memberId) {
+        // TODO: add the user to the chat
     }
 
 }

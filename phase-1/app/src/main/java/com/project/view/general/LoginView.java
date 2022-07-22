@@ -62,4 +62,9 @@ public class LoginView implements View {
         return controller;
     }
 
+    @Override
+    public void reset() {
+        instance = null;
+    }
+
 }
