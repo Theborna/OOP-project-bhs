@@ -66,66 +66,75 @@
                      <children>
                         <AnchorPane fx:id="signIn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="750.0" styleClass="anchorPane" StackPane.alignment="CENTER">
                            <children>
-                              <VBox alignment="CENTER" minWidth="10.0" styleClass="anchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TextField fx:id="txtSignUsername" maxWidth="400.0" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <PasswordField fx:id="txtSignPassword" maxWidth="400.0" prefHeight="40.0" promptText="Password" />
-                                    <AnchorPane maxWidth="400.0">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
+                                    <VBox alignment="CENTER" maxWidth="450.0" minWidth="10.0" styleClass="anchorPane">
                                        <children>
-                                          <Button fx:id="btnForgot" alignment="BASELINE_LEFT" graphicTextGap="3.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Forgot Password" textFill="#005aff" AnchorPane.leftAnchor="0.0">
+                                          <TextField fx:id="txtSignUsername" maxWidth="1.7976931348623157E308" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Username">
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <PasswordField fx:id="txtSignPassword" maxWidth="1.7976931348623157E308" prefHeight="40.0" promptText="Password" />
+                                          <VBox>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Button fx:id="btnForgot" alignment="BASELINE_LEFT" graphicTextGap="3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: transparent;" styleClass="text16" text="Forgot Password" textFill="#005aff" HBox.hgrow="NEVER">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <Pane HBox.hgrow="ALWAYS" />
+                                                      <Button fx:id="btnSignIn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="60.0" styleClass="text16" text="Sign in" HBox.hgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <BorderPane maxWidth="1.7976931348623157E308">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                             <left>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </left>
+                                             <right>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </right>
+                                             <center>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text24" text="Or" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </center>
+                                          </BorderPane>
+                                          <Button fx:id="btnSignUp" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" styleClass="text16" text="Sign Up">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
                                              <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Button>
-                                          <Button fx:id="btnSignIn" layoutX="123.19999694824219" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="60.0" prefWidth="200.0" text="Sign in" AnchorPane.rightAnchor="0.0">
-                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="16.0" />
                                              </font>
                                           </Button>
                                        </children>
-                                    </AnchorPane>
-                                    <BorderPane maxWidth="400.0">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                       <left>
-                                          <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
-                                       </left>
-                                       <right>
-                                          <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
-                                       </right>
-                                       <center>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Text>
-                                       </center>
-                                    </BorderPane>
-                                    <Button fx:id="btnSignUp" maxHeight="1.7976931348623157E308" maxWidth="400.0" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign Up">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Button>
+                                    </VBox>
                                  </children>
-                              </VBox>
+                              </HBox>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="signUp" maxWidth="1.7976931348623157E308" styleClass="anchorPane">
                            <children>
                               <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <VBox fx:id="vbox" alignment="CENTER" maxHeight="1.7976931348623157E308" prefWidth="400.0">
+                                    <VBox fx:id="vbox" alignment="CENTER" maxHeight="1.7976931348623157E308" prefWidth="450.0">
                                        <children>
                                           <TextField fx:id="txtFullName" maxWidth="1.7976931348623157E308" minWidth="10.0" prefHeight="40.0" prefWidth="400.0" promptText="Full name">
                                              <VBox.margin>
@@ -152,7 +161,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </TextField>
-                                          <DatePicker fx:id="dateBirth" maxWidth="1.7976931348623157E308" minHeight="40.0" prefWidth="400.0" promptText="birth date">
+                                          <DatePicker fx:id="dateBirth" editable="false" maxWidth="1.7976931348623157E308" minHeight="40.0" prefWidth="400.0" promptText="birth date">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -165,7 +174,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                    <children>
-                                                      <Label text="Or" textFill="WHITE">
+                                                      <Label styleClass="text18" text="Or" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="18.0" />
                                                          </font>
@@ -185,7 +194,11 @@
                                           </HBox>
                                           <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0">
                                              <children>
-                                                <Label text="account type" textFill="WHITE" />
+                                                <Label styleClass="text16" text="account type" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                 <ToggleSwitch fx:id="tglType" text="normal">
                                                    <HBox.margin>
@@ -199,7 +212,11 @@
                                           </HBox>
                                           <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0">
                                              <children>
-                                                <Label text="visibility" textFill="WHITE" />
+                                                <Label styleClass="text16" text="visibility" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                 <ToggleSwitch fx:id="tglVisible" text="private">
                                                    <HBox.margin>
@@ -210,7 +227,11 @@
                                           </HBox>
                                           <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0">
                                              <children>
-                                                <Label text="enable targeted content" textFill="WHITE" />
+                                                <Label styleClass="text16" text="enable targeted content" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                 <ToggleSwitch fx:id="tglTargeted">
                                                    <HBox.margin>
@@ -237,7 +258,7 @@
                                                 </Text>
                                              </center>
                                           </BorderPane>
-                                          <Button fx:id="btnRegister" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Register">
+                                          <Button fx:id="btnRegister" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" styleClass="text16" text="Register">
                                              <VBox.margin>
                                                 <Insets top="20.0" />
                                              </VBox.margin>
@@ -245,13 +266,39 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Button>
-                                          <Button fx:id="preview" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="40.0" text="Preview">
+                                          <Button fx:id="preview" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="40.0" styleClass="text16" text="Preview">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                              <tooltip>
                                                 <Tooltip text="click to hide preview" />
                                              </tooltip>
+                                          </Button>
+                                          <BorderPane maxWidth="1.7976931348623157E308">
+                                             <left>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </left>
+                                             <right>
+                                                <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                             </right>
+                                             <center>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Or" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </center>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </BorderPane>
+                                          <Button fx:id="btnGoToSignIn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" styleClass="text16" text="Sign In">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
                                           </Button>
                                        </children>
                                     </VBox>

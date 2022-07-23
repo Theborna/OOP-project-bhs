@@ -47,7 +47,7 @@ public class LoginPageController implements Initializable {
             lightPath = App.class.getResource("css/loginLight.css").toExternalForm();
 
     @FXML
-    private Button btnForgot, btnRegister, btnRegister1, btnSignIn, btnSignUp, preview;
+    private Button btnForgot, btnRegister, btnSignIn, btnSignUp, preview, btnGoToSignIn;
 
     @FXML
     private ToggleSwitch tglType, tglVisible, tglTargeted;
@@ -115,6 +115,8 @@ public class LoginPageController implements Initializable {
             if (register()) {
                 switchTo(signIn);
             }
+        } else if (b == btnGoToSignIn) {
+            switchTo(signIn);
         }
     }
 
@@ -151,21 +153,21 @@ public class LoginPageController implements Initializable {
 
     // @FXML
     // private void toggleAction(ActionEvent event) {
-    //     // Object o = event.getSource();
-    //     // if (!(o instanceof ToggleSwitch))
-    //     // return;
-    //     // ToggleSwitch b = (ToggleSwitch) o;
-    //     // if (b == tglVisible) {
-    //     // if (tglVisible.isSelected())
-    //     // tglVisible.setText("visible");
-    //     // else
-    //     // tglVisible.setText("private");
-    //     // } else if (b == tglType) {
-    //     // if (tglType.isSelected())
-    //     // tglType.setText("normal");
-    //     // else
-    //     // tglType.setText("business");
-    //     // }
+    // // Object o = event.getSource();
+    // // if (!(o instanceof ToggleSwitch))
+    // // return;
+    // // ToggleSwitch b = (ToggleSwitch) o;
+    // // if (b == tglVisible) {
+    // // if (tglVisible.isSelected())
+    // // tglVisible.setText("visible");
+    // // else
+    // // tglVisible.setText("private");
+    // // } else if (b == tglType) {
+    // // if (tglType.isSelected())
+    // // tglType.setText("normal");
+    // // else
+    // // tglType.setText("business");
+    // // }
     // }
 
     @FXML

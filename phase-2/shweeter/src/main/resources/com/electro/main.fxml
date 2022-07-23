@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
@@ -76,12 +77,15 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Label text="Jimmy Falon" textFill="WHITE">
+                        <Label styleClass="text14" text="Jimmy Falon" textFill="WHITE">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
-                        <Label text="\@Sep_heid" textFill="#b7b7b7">
+                        <Label styleClass="text12" text="\@Sep_heid" textFill="#b7b7b7">
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>
@@ -90,12 +94,12 @@
                            <children>
                               <HBox AnchorPane.leftAnchor="20.0">
                                  <children>
-                                    <Label maxHeight="1.7976931348623157E308" text="Followers:" textFill="#cccccc" underline="true">
+                                    <Label maxHeight="1.7976931348623157E308" styleClass="text16" text="Followers:" textFill="#cccccc" underline="true">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label maxHeight="1.7976931348623157E308" text="12" textFill="WHITE">
+                                    <Label maxHeight="1.7976931348623157E308" styleClass="text16" text="12" textFill="WHITE">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -107,12 +111,12 @@
                               </HBox>
                               <HBox AnchorPane.rightAnchor="20.0">
                                  <children>
-                                    <Label maxHeight="1.7976931348623157E308" text="Following:" textFill="#cccccc" underline="true">
+                                    <Label maxHeight="1.7976931348623157E308" styleClass="text16" text="Following:" textFill="#cccccc" underline="true">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label maxHeight="1.7976931348623157E308" text="12" textFill="WHITE">
+                                    <Label maxHeight="1.7976931348623157E308" styleClass="text16" text="12" textFill="WHITE">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -124,7 +128,7 @@
                               </HBox>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Profile" textAlignment="CENTER">
+                        <Button fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Profile" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -142,7 +146,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnSaved" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Saved messages" textAlignment="CENTER">
+                        <Button fx:id="btnSaved" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Saved messages" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -157,7 +161,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnNewChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="New chat" textAlignment="CENTER">
+                        <Button fx:id="btnNewChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="New chat" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -172,7 +176,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnFeed" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Feed" textAlignment="CENTER">
+                        <Button fx:id="btnFeed" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Feed" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -190,7 +194,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Chat" textAlignment="CENTER">
+                        <Button fx:id="btnChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Chat" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -205,7 +209,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnExplore" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Explore" textAlignment="CENTER">
+                        <Button fx:id="btnExplore" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Explore" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -220,7 +224,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Settings" textAlignment="CENTER">
+                        <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Settings" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -235,7 +239,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnNotification" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="Notifications" textAlignment="CENTER">
+                        <Button fx:id="btnNotification" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Notifications" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -250,7 +254,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnNotification1" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleTheme" prefHeight="50.0" text="Theme" textAlignment="CENTER">
+                        <Button fx:id="btnNotification1" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleTheme" prefHeight="50.0" styleClass="text12" text="Theme" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -265,7 +269,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" prefHeight="50.0" text="Logout" textAlignment="CENTER">
+                        <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" prefHeight="50.0" styleClass="text12" text="Logout" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -302,33 +306,6 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="94.0" layoutY="126.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
-                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnCompose" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
@@ -421,129 +398,6 @@
                                           </HBox>
                                        </children>
                                     </AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnSettings" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="71.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <Accordion prefHeight="325.0" prefWidth="737.0">
-                                            <panes>
-                                              <TitledPane styleClass="titledPane" text="Profile">
-                                                   <content>
-                                                      <ScrollPane fitToHeight="true" fitToWidth="true">
-                                                         <content>
-                                                            <VBox prefHeight="200.0" prefWidth="100.0">
-                                                               <children>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label text="Name" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label text="Location" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label text="Website" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label text="Bio" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextArea prefHeight="200.0" prefWidth="200.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </content>
-                                                      </ScrollPane>
-                                                   </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                              </TitledPane>
-                                              <TitledPane styleClass="titledPane" text="Security">
-                                                   <content>
-                                                      <VBox prefHeight="200.0" prefWidth="100.0">
-                                                         <children>
-                                                            <VBox>
-                                                               <children>
-                                                                  <Label text="Account type" textFill="#7e7e7e">
-                                                                     <font>
-                                                                        <Font size="18.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
-                                                               <children>
-                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Account visibility" HBox.hgrow="ALWAYS">
-                                                                     <textFill>
-                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x41" />
-                                                                     </textFill>
-                                                                  </Label>
-                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                                                                  <ToggleSwitch text="Private" />
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
-                                                               <children>
-                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Switch account type" HBox.hgrow="ALWAYS">
-                                                                     <textFill>
-                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x42" />
-                                                                     </textFill>
-                                                                  </Label>
-                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                                                                  <ToggleSwitch text="Normal" />
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                              </TitledPane>
-                                              <TitledPane styleClass="titledPane" text="Help">
-                                                <content>
-                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                              </TitledPane>
-                                            </panes>
-                                          </Accordion>
-                                       </content>
-                                    </ScrollPane>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnNewChat" prefHeight="200.0" prefWidth="200.0">
@@ -746,13 +600,175 @@
                                     </HBox>
                                  </children>
                               </AnchorPane>
+                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
+                                 <children>
+                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="94.0" layoutY="126.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                       <graphic>
+                                          <AnchorPane>
+                                             <children>
+                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
+                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
+                                                   <image>
+                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pnSettings" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
+                                 <children>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="71.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <Accordion prefHeight="325.0" prefWidth="737.0">
+                                            <panes>
+                                              <TitledPane text="Profile">
+                                                   <content>
+                                                      <ScrollPane fitToHeight="true" fitToWidth="true">
+                                                         <content>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <Label styleClass="text18" text="Name" textFill="#7e7e7e">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <Label styleClass="text18" text="Location" textFill="#7e7e7e">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <Label styleClass="text18" text="Website" textFill="#7e7e7e">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <Label styleClass="text18" text="Bio" textFill="#7e7e7e">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </content>
+                                                      </ScrollPane>
+                                                   </content>
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="titledPane" />
+                                                      <String fx:value="text16" />
+                                                   </styleClass>
+                                              </TitledPane>
+                                              <TitledPane text="Security">
+                                                   <content>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <VBox>
+                                                               <children>
+                                                                  <Label styleClass="text18" text="Account type" textFill="#7e7e7e">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
+                                                               <children>
+                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Account visibility" HBox.hgrow="ALWAYS">
+                                                                     <textFill>
+                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x41" />
+                                                                     </textFill>
+                                                                  </Label>
+                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                                                                  <ToggleSwitch styleClass="text12" text="Private" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </padding>
+                                                            </HBox>
+                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
+                                                               <children>
+                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Switch account type" HBox.hgrow="ALWAYS">
+                                                                     <textFill>
+                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x42" />
+                                                                     </textFill>
+                                                                  </Label>
+                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                                                                  <ToggleSwitch styleClass="text12" text="Normal" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </padding>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="titledPane" />
+                                                      <String fx:value="text16" />
+                                                   </styleClass>
+                                              </TitledPane>
+                                              <TitledPane text="Help">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                </content>
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="titledPane" />
+                                                      <String fx:value="text16" />
+                                                   </styleClass>
+                                              </TitledPane>
+                                            </panes>
+                                          </Accordion>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </StackPane>
                      </center>
                      <top>
                         <AnchorPane fx:id="topPane" BorderPane.alignment="CENTER">
                            <children>
-                              <TextField layoutX="404.0" layoutY="27.0" prefWidth="175.0" promptText="Search" style="-fx-background-color: transparent;" stylesheets="@components/css/search.css" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0" />
+                              <TextField layoutX="404.0" layoutY="27.0" prefWidth="175.0" promptText="Search" style="-fx-background-color: transparent;" styleClass="text12" stylesheets="@components/css/search.css" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0" />
                               <HBox layoutX="1.0" layoutY="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
                                  <children>
                                     <ToggleButton fx:id="tglClose" mnemonicParsing="false">
@@ -764,9 +780,9 @@
                                           </ImageView>
                                        </graphic>
                                     </ToggleButton>
-                                    <Label text="Shweeter" textFill="#e7e5e5">
+                                    <Label styleClass="text24" text="Shweeter" textFill="#e7e5e5">
                                        <font>
-                                          <Font size="23.0" />
+                                          <Font size="24.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -784,16 +800,13 @@
                <children>
                 <HBox id="HBox" alignment="CENTER_LEFT" layoutX="2.0" layoutY="-31.0" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Refreshed" HBox.hgrow="ALWAYS">
-                      <font>
-                        <Font size="11.0" fx:id="x3" />
-                      </font>
+                    <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Refreshed" HBox.hgrow="ALWAYS">
                       <textFill>
                         <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
                       </textFill>
                     </Label>
                     <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                    <Label font="$x3" maxWidth="-1.0" text="Up to date" textFill="$x4" HBox.hgrow="NEVER" />
+                    <Label maxWidth="-1.0" styleClass="text12" text="Up to date" textFill="$x4" HBox.hgrow="NEVER" />
                   </children>
                   <padding>
                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
