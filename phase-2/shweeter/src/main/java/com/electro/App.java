@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetro;
@@ -31,6 +32,7 @@ public class App extends Application {
     public static boolean mouseClick;
     private static double x, y;
     private static Style style;
+    private static FileChooser picChooser;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -50,11 +52,20 @@ public class App extends Application {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
         });
+        // set File Choosers
+        picChooser = new FileChooser();
+        picChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"),
+                new FileChooser.ExtensionFilter("HTML Files", "*.html"));
         style = Style.DARK;
         JMetro jMetro = new JMetro(root, style);
         jMetro.getOverridingStylesheets().add(App.class.getResource("css/loginDark.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static FileChooser getPicChooser() {
+        return picChooser;
     }
 
     public static void setStyle(Style style) {
@@ -90,6 +101,10 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static Image getImage(String url) {
+        return new Image(App.class.getResource(url).toExternalForm());
     }
 
     class WindowButtons extends HBox {

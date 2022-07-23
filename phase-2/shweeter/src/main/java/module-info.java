@@ -16,8 +16,10 @@ module com.electro {
         opens com.electro.util
                         to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro, org.controlsfx.controls,
                         java.desktop;
+        opens com.electro.phase1;
 
         exports com.electro.controllers.components;
         exports com.electro.controllers.views;
         exports com.electro;
+        exports com.electro.phase1;
 }

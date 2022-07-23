@@ -38,12 +38,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -56,6 +58,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.ToggleSwitch?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.MainController">
    <children>
@@ -144,6 +147,21 @@
                               <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/icons8_Box_32px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btnNewChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" text="New chat" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8_add_96px.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -528,6 +546,131 @@
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
+                              <AnchorPane fx:id="pnNewChat" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000aa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <effect>
+                                          <Blend mode="BLUE" opacity="0.0" />
+                                       </effect>
+                                    </AnchorPane>
+                                    <StackPane layoutX="269.0" layoutY="169.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane fx:id="pnSetChatName" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutY="145.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER">
+                                                         <children>
+                                                            <BorderPane prefHeight="150.0" prefWidth="350.0" styleClass="choosePane">
+                                                               <left>
+                                                                  <Button fx:id="btnSetNewChatPic" mnemonicParsing="false" onAction="#confirmChatName" styleClass="circleButton" BorderPane.alignment="CENTER">
+                                                                     <graphic>
+                                                                        <AnchorPane>
+                                                                           <children>
+                                                                              <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
+                                                                              <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
+                                                                                 <image>
+                                                                                    <Image url="@images/icons8_camera_96px.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </graphic>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </left>
+                                                               <bottom>
+                                                                  <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                                                    <buttons>
+                                                                      <Button mnemonicParsing="false" onAction="#cancelNewChat" text="Cancel" />
+                                                                        <Button fx:id="btnConfirmNewChatName" mnemonicParsing="false" onAction="#confirmChatName" text="Next" />
+                                                                    </buttons>
+                                                                  </ButtonBar>
+                                                               </bottom>
+                                                               <center>
+                                                                  <CustomTextField fx:id="txtChatName" prefHeight="40.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+                                                                     <BorderPane.margin>
+                                                                        <Insets right="15.0" />
+                                                                     </BorderPane.margin>
+                                                                  </CustomTextField>
+                                                               </center>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="pnSetChatType" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER">
+                                                         <children>
+                                                            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="choosePane">
+                                                               <top>
+                                                                  <Button fx:id="btnPrivate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Private" BorderPane.alignment="CENTER" />
+                                                               </top>
+                                                               <center>
+                                                                  <Button fx:id="btnGroup" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Group" BorderPane.alignment="CENTER" />
+                                                               </center>
+                                                               <bottom>
+                                                                  <Button fx:id="btnChannel" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Channel" BorderPane.alignment="CENTER" />
+                                                               </bottom>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="pnSetChatMembers" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutY="145.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="302.0" prefWidth="738.0">
+                                                         <children>
+                                                            <BorderPane prefHeight="150.0" prefWidth="350.0" styleClass="choosePane">
+                                                               <bottom>
+                                                                  <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                                                     <buttons>
+                                                                        <Button mnemonicParsing="false" onAction="#cancelNewChat" text="Cancel" />
+                                                                        <Button fx:id="btnAddNewChatMember" mnemonicParsing="false" onAction="#confirmMember" text="add" />
+                                                                        <Button fx:id="btnRemoveNewChatMember" mnemonicParsing="false" onAction="#confirmMember" text="remove" />
+                                                                        <Button fx:id="btnResetNewChatMembers" mnemonicParsing="false" onAction="#confirmMember" text="reset" />
+                                                                        <Button fx:id="btnFinalizeNewGroup" mnemonicParsing="false" onAction="#confirmMember" text="done" />
+                                                                     </buttons>
+                                                                  </ButtonBar>
+                                                               </bottom>
+                                                               <center>
+                                                                  <VBox alignment="CENTER_LEFT" spacing="20.0" BorderPane.alignment="CENTER">
+                                                                     <BorderPane.margin>
+                                                                        <Insets bottom="5.0" right="15.0" top="15.0" />
+                                                                     </BorderPane.margin>
+                                                                     <children>
+                                                                        <TextField fx:id="txtNewMemberName" prefHeight="42.0" prefWidth="322.0" />
+                                                                        <Label text="Current members:" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ListView fx:id="lstNewChatMembers" prefHeight="40.0" prefWidth="322.0" VBox.vgrow="ALWAYS" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </center>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </AnchorPane>
                               <AnchorPane fx:id="pnChat" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
                                  <children>
                                     <SplitPane fx:id="splChat" dividerPositions="0.18097826086956517" layoutX="22.0" layoutY="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
@@ -538,37 +681,29 @@
                                                 <ScrollPane fx:id="scrollMsg" fitToWidth="true" minViewportWidth="100.0" />
                                              </center>
                                              <bottom>
-                                                <AnchorPane>
+                                                <HBox alignment="CENTER" prefHeight="36.0" prefWidth="600.0" styleClass="text-area">
                                                    <children>
-                                                      <HBox alignment="CENTER" styleClass="text-area" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <children>
-                                                            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
-                                                               <graphic>
-                                                                  <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                                     <image>
-                                                                        <Image url="@images/icons8_attach_96px.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </graphic>
-                                                            </Button>
-                                                            <AnchorPane HBox.hgrow="ALWAYS">
-                                                               <children>
-                                                                  <TextArea maxWidth="1.7976931348623157E308" prefHeight="50.0" promptText="Write a message..." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
-                                                               <graphic>
-                                                                  <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                                     <image>
-                                                                        <Image url="@images/icons8_email_send_96px.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </graphic>
-                                                            </Button>
-                                                         </children>
-                                                      </HBox>
+                                                      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
+                                                         <graphic>
+                                                            <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@images/icons8_attach_96px.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <TextArea fx:id="txtAMessage" maxWidth="1.7976931348623157E308" prefHeight="50.0" promptText="Write a message..." wrapText="true" HBox.hgrow="ALWAYS" />
+                                                      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
+                                                         <graphic>
+                                                            <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@images/icons8_email_send_96px.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
                                                    </children>
-                                                </AnchorPane>
+                                                </HBox>
                                              </bottom>
                                           </BorderPane>
                                        </items>

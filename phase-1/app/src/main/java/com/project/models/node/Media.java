@@ -5,4 +5,12 @@ public abstract class Media extends node{
     }
 
     public abstract void showMedia();
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    
 }

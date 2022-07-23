@@ -2,6 +2,7 @@ package com.project.models.node.user;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Set;
 
 import com.project.models.connection.ChatUserConnection;
@@ -25,6 +26,7 @@ public abstract class User extends node {
     private boolean isPublic;
     private StdColor nameColor;
     private int followerCnt;
+    private Date birthDate;
 
     public User(String username, String password) {
         this.username = username;
@@ -39,7 +41,8 @@ public abstract class User extends node {
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
         currentUser = new NormalUser(username, password);
-        return currentUser;
+        // return currentUser;
+        return null;
     }
 
     public static void logout() {
@@ -77,6 +80,16 @@ public abstract class User extends node {
         return followerCnt;
     }
 
+    public User setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+        return this;
+    }
+
+    public User setPublic(boolean isPublic) {
+        this.isPublic = isPublic;
+        return this;
+    }
+
     public boolean isPublic() {
         return isPublic;
     }
@@ -102,6 +115,10 @@ public abstract class User extends node {
     }
 
     public void dislike(com.project.models.node.post.Post post) {// TODO: implement this method
+    }
+
+    public void sendToDB() {
+        // TODO: send the user to the database, register
     }
 
 }

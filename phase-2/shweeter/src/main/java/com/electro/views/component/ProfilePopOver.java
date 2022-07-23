@@ -32,4 +32,18 @@ public class ProfilePopOver extends PopOver {
         });
     }
 
+    // TODO : make showing this timed
+    // public class openThread extends Thread {
+
+    // @Override
+    // public void run() {
+    // try {
+    // Thread.sleep(1000);
+    // } catch (InterruptedException e) {
+    // return;
+    // }
+
+    // }
+
+    // }
 }

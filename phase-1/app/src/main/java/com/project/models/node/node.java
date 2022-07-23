@@ -44,6 +44,8 @@ public abstract class node {
         return this;
     }
 
+    public abstract void sendToDB();
+
     // static methods
     protected static void setAllData() {
         // will upLocalDateTime list of allData according to database

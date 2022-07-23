@@ -34,4 +34,22 @@ public class RegisterController extends LoginController {
         }
     }
 
+    public String getType(String string) {
+        if (string.equals("normal") || string.equals("business"))
+            return string;
+        return null;
+    }
+
+    public String getVisibility(String string) {
+        if (string.equals("public") || string.equals("private"))
+            return string;
+        return null;
+    }
+
+    public String getEmail(String string) {
+        if (AppRegex.EMAIL.matches(string))
+            return string;
+        return null;
+    }
+
 }

@@ -53,4 +53,10 @@ public class Message extends node implements TextBased { // TODO lots of modific
     public String getText() {
         return message.toString();
     }
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        
+    }
 }

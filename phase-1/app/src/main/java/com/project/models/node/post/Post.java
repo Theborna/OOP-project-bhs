@@ -75,4 +75,10 @@ public class Post extends node implements TextBased {
         return true;
     }
 
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

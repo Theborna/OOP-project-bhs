@@ -3,11 +3,18 @@ package com.electro.controllers.views;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import org.controlsfx.control.PopOver;
+import org.controlsfx.control.ToggleSwitch;
 
 import com.electro.App;
+import com.electro.phase1.controllers.LoginController;
+import com.electro.phase1.controllers.RegisterController;
+import com.electro.phase1.models.node.user.User;
+import com.electro.views.component.ErrorNotification;
+import com.electro.views.component.FieldEmptyError;
 import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.FadeIn;
@@ -24,6 +31,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -33,7 +41,7 @@ import javafx.stage.FileChooser;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
-public class LoginController implements Initializable {
+public class LoginPageController implements Initializable {
 
     private static String darkPath = App.class.getResource("css/loginDark.css").toExternalForm(),
             lightPath = App.class.getResource("css/loginLight.css").toExternalForm();
@@ -42,19 +50,23 @@ public class LoginController implements Initializable {
     private Button btnForgot, btnRegister, btnRegister1, btnSignIn, btnSignUp, preview;
 
     @FXML
+    private ToggleSwitch tglType, tglVisible, tglTargeted;
+
+    @FXML
     private AnchorPane signIn, signUp;
 
     @FXML
-    private TextField txtFullName, txtUsername;
+    private DatePicker dateBirth;
     @FXML
-    private PasswordField txtPass, txtPassConf;
+    private TextField txtFullName, txtUsername, txtSignUsername, txtEmail;
+    @FXML
+    private PasswordField txtPass, txtPassConf, txtSignPassword;
 
     @FXML
     private VBox vbox;
 
     private AnchorPane inFront;
     private JMetro metro;
-    private FileChooser fileChooser;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -62,15 +74,27 @@ public class LoginController implements Initializable {
         initButton(btnSignIn);
         initButton(btnSignUp);
         initButton(btnRegister);
-        fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"),
-                new FileChooser.ExtensionFilter("HTML Files", "*.htm"));
         new ProfilePopOver(preview);
     }
 
     @FXML
     private void signIn() throws IOException {
+        // User.logToUser(, "");
+        new FieldEmptyError(txtSignUsername);
+        new FieldEmptyError(txtSignPassword);
+        if (!LoginController.getInstance().setUsername(txtSignUsername.getText()))
+            return;
+        if (!LoginController.getInstance().setPassword(txtSignPassword.getText()))
+            return;
+        if (LoginController.getInstance().logToUser() == null) {
+            new ErrorNotification("incorrect username or password");
+            return;
+        }
+        LoginController.getInstance().reset();
+        switchToSecondary();
+    }
+
+    private void switchToSecondary() throws IOException {
         FXMLLoader loader = App.loadFXML("main");
         Parent root = loader.load();
         App.setRoot(root);
@@ -88,18 +112,61 @@ public class LoginController implements Initializable {
         if (b == btnSignUp) {
             switchTo(signUp);
         } else if (b == btnRegister) {
-            register();
-            switchTo(signIn);
+            if (register()) {
+                switchTo(signIn);
+            }
         }
     }
 
     @FXML
     private void browsePfp() {
-        File selectedFile = fileChooser.showOpenDialog(App.getScene().getWindow());
+        File selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
     }
 
-    private void register() { // actually register the account
+    private boolean register() {
+        RegisterController controller = new RegisterController();
+        new FieldEmptyError(txtFullName);
+        new FieldEmptyError(txtUsername);
+        new FieldEmptyError(txtPass);
+        new FieldEmptyError(txtPassConf);
+        new FieldEmptyError(txtEmail);
+        String username = txtUsername.getText(), password = txtPass.getText(),
+                passwordConf = txtPassConf.getText(), email = txtEmail.getText();
+        boolean b = controller.setUsername(username) && controller.setPassword(password) && controller.setEmail(email);
+        if (!password.equals(passwordConf)) {
+            if (passwordConf.length() != 0)
+                new ErrorNotification("password not the same as confirm password");
+            return false;
+        }
+        if (b) {
+            Boolean isNormal = tglType.isSelected();
+            Boolean isPublic = tglVisible.isSelected();
+            String birthDate = dateBirth.getTypeSelector();
+            System.out.println(isNormal + " " + isPublic + " " + birthDate);
+            controller.makeAccount(isPublic, isNormal, null);
+            // b = false;
+        }
+        return b;
     }
+
+    // @FXML
+    // private void toggleAction(ActionEvent event) {
+    //     // Object o = event.getSource();
+    //     // if (!(o instanceof ToggleSwitch))
+    //     // return;
+    //     // ToggleSwitch b = (ToggleSwitch) o;
+    //     // if (b == tglVisible) {
+    //     // if (tglVisible.isSelected())
+    //     // tglVisible.setText("visible");
+    //     // else
+    //     // tglVisible.setText("private");
+    //     // } else if (b == tglType) {
+    //     // if (tglType.isSelected())
+    //     // tglType.setText("normal");
+    //     // else
+    //     // tglType.setText("business");
+    //     // }
+    // }
 
     @FXML
     private void toggleTheme() throws IOException {
@@ -141,4 +208,5 @@ public class LoginController implements Initializable {
         new SlideInRight(pane).play();
         inFront = pane;
     }
+
 }

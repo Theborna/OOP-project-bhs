@@ -4,8 +4,10 @@ package com.project.models.node;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.project.controllers.ChatListController;
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.MessageConnection;
+import com.project.view.general.ChatListView;
 
 public class Chat extends node {
     private static Chat current;
@@ -50,5 +52,11 @@ public class Chat extends node {
     public void addAll(List<Long> members) {
         for (Long member : members)
             ChatUserConnection.addUser(this.id, member);
+    }
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        ((ChatListController) ChatListView.getInstance().getController()).add(this);
     }
 }

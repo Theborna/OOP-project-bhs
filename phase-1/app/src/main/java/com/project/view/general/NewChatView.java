@@ -64,7 +64,8 @@ public class NewChatView implements View {
         println("name: " + name);
         println("members: ");
         print(names, StdColor.MAGENTA);
-        ((ChatListController) ChatListView.getInstance().getController()).add(chat);
+        // TODO: add the chat to DB
+        chat.sendToDB();
         App.setView(ChatListView.getInstance());
     }
 
