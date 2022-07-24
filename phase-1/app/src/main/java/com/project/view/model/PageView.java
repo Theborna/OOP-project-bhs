@@ -15,11 +15,13 @@ import static com.project.util.StdOut.*;
 public class PageView extends FeedView {
 
     private static PageView instance;
-    private User user;
-    private boolean gaveBasic;
+    protected User user;
+    protected boolean gaveBasic;
+    private boolean follows;
 
-    private PageView() {
+    protected PageView() {
         controller = new PageController();
+        follows = User.getCurrentUser().isFollowing(user);
     }
 
     public static PageView getInstance() {
@@ -32,6 +34,10 @@ public class PageView extends FeedView {
         this.user = user;
         initialize();
         return this;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     private void initialize() {
@@ -61,7 +67,7 @@ public class PageView extends FeedView {
         super.show();
     }
 
-    private void info() { // TODO make this prettier
+    protected void info() { // TODO make this prettier
         rule('_');
         print("username:", StdColor.MAGENTA_UNDERLINED);
         print(" " + user.getUsername());
@@ -79,7 +85,18 @@ public class PageView extends FeedView {
 
     @Override
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info");
+        if (follows)
+            printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "un follow");
+        else
+            printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "follow");
+    }
+
+    public boolean isFollows() {
+        return follows;
+    }
+
+    public void setFollows(boolean follows) {
+        this.follows = follows;
     }
 
     @Override

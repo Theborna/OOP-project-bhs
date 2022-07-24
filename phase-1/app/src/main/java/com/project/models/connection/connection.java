@@ -33,4 +33,12 @@ public abstract class connection<E, T> extends node {
         return obj2;
     }
 
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+
+    }
+
+    
+
 }

@@ -18,28 +18,42 @@ import java.util.List;
 public abstract class node {
     protected long id;
     protected LocalDateTime creationDate, lastModifiedDate;
-    protected static List<node> allData;
+    // protected static List<node> allData;
 
-    private long newId() {
-        // random ya be tartib?
+    protected static long newId() {
+        // TODO find the appropriate from the database for each instance
         return 0;
     }
 
     public node setData(long id, LocalDateTime creationDate, LocalDateTime lastModifiedDate) {
+        return this.setId(id).setCreationDate(creationDate).setLastModifiedDate(lastModifiedDate);
+    }
+
+    public node setId(long id) {
         this.id = id;
+        return this;
+    }
+
+    public node setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
+        return this;
+    }
+
+    public node setLastModifiedDate(LocalDateTime lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
         return this;
     }
+
+    public abstract void sendToDB();
 
     // static methods
     protected static void setAllData() {
         // will upLocalDateTime list of allData according to database
     }
 
-    public static List<node> getAllData() {
-        return allData;
-    }
+    // public static List<node> getAllData() {
+    // return allData;
+    // }
 
     public static node get(long id) {
         // setAllData();

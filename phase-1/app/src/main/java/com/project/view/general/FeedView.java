@@ -6,7 +6,6 @@ import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
-import com.project.view.model.PostView;
 
 import static com.project.util.StdOut.*;
 
@@ -22,7 +21,7 @@ public class FeedView implements View {
 
     public void getFeed() {
         controller.clear();
-        controller.addAll(PostUserConnection.getFeed(User.getCurrentUser()));
+        controller.addAll(PostUserConnection.getFeed(User.getCurrentUser().getId()));
     }
 
     public static FeedView getInstance() {
@@ -40,7 +39,8 @@ public class FeedView implements View {
     }
 
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "show -page");
+        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "show -page",
+                "new post", "comment");
     }
 
     @Override
@@ -53,5 +53,8 @@ public class FeedView implements View {
     // public <T extends Controller> T getController() {
     // return controller;
     // }
-
+    @Override
+    public void reset() {
+        instance = null;
+    }
 }

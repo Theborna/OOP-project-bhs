@@ -3,13 +3,18 @@ package com.project.controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import com.project.App;
+import com.project.models.connection.ChatUserConnection;
+import com.project.models.node.Chat;
 import com.project.models.node.Message;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.ChatView;
+import com.project.view.general.ForwardView;
 import com.project.view.model.MessageView;
 import com.project.view.model.PageView;
 
@@ -26,6 +31,7 @@ public class ChatController implements ListController<MessageView> {
     public void parse(String input) {
         input = input.toLowerCase().trim();
         showMsg = true;
+        Long inReply = null;
         switch (input) {
             case "n":
             case "next":
@@ -57,13 +63,18 @@ public class ChatController implements ListController<MessageView> {
                 println("removed like from message", StdColor.GREEN);
                 showMsg = false;
                 break;
+            case "reply":
+                inReply = currentMsg.getMessage().getId();
             case "new message":
             case "new":
             case "compose":
                 StringBuilder sb = null;
                 try {
-                    if (getMsgText(sb))
-                        post(sb);
+                    if ((sb = getMsgText(sb)) != null)
+                        post(sb, inReply);
+                    else
+                        println("message canceled", StdColor.YELLOW);
+
                 } catch (changeViewException e) {
                     App.setView(e.getView(), false);
                 }
@@ -71,6 +82,13 @@ public class ChatController implements ListController<MessageView> {
                 break;
             case "show -page":
                 App.setView(PageView.getInstance().setUser(currentMsg.getMessage().getSender()));
+                break;
+            case "forward":// TODO: add ability to forward multiple messages
+                App.setView(ForwardView.getInstance(currentMsg.getMessage()), false);
+                break;
+            case "members":
+            case "member":
+                showMembers();
                 break;
             case "help":
                 help();
@@ -81,11 +99,19 @@ public class ChatController implements ListController<MessageView> {
         }
     }
 
+    private void showMembers() {
+        Set<User> users = ChatUserConnection.getUsers(Chat.getCurrent().getId());
+        for (User user : users) {
+            print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
+            print('|');
+        }
+    }
+
     public boolean isShowMsg() {
         return showMsg;
     }
 
-    public boolean getMsgText(StringBuilder msgText) throws changeViewException {
+    public StringBuilder getMsgText(StringBuilder msgText) throws changeViewException {
         if (msgText == null)
             msgText = new StringBuilder();
         String input;
@@ -93,13 +119,21 @@ public class ChatController implements ListController<MessageView> {
         while (!(input = StdIn.nextLine()).equals("")) {
             if (input.equals("-done"))
                 break;
+            if (input.equals("--cancel"))
+                return null;
             msgText.append(input + "\n");
         }
-        return true;
+        return msgText;
     }
 
-    public void post(StringBuilder sb) {
-        // TODO: actually post the message
+    public void post(StringBuilder sb, Long inReply) {
+        if (sb == null)
+            return;
+        Message message = new Message(sb.toString(), User.getCurrentUser());
+        // TODO: set message data
+        User.getCurrentUser().sendMessage(message, Chat.getCurrent());
+        println("message posted successfully", StdColor.GREEN);
+
     }
 
     public MessageView getCurrent() {
@@ -141,6 +175,6 @@ public class ChatController implements ListController<MessageView> {
         println(" brings up the help window");
         rule('*');
     }
-    //sex
+    // sex
 
 }

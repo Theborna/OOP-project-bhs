@@ -1,6 +1,7 @@
 package com.project.models.node;
 
 
+
 public class Video extends Media {
 
     public Video(String address) {

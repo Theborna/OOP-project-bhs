@@ -13,9 +13,11 @@ import com.project.util.StdColor;
 public class ChatItemView implements View {
 
     private Chat chat;
+    private Message last;
 
     public ChatItemView(Chat chat) {
         this.chat = chat;
+        last = MessageConnection.getLastMessage(chat.getId());
     }
 
     public Chat getChat() {
@@ -28,10 +30,9 @@ public class ChatItemView implements View {
         print(chat.getType() + ": ", StdColor.GREEN_BOLD);
         println(chat.getName(), StdColor.MAGENTA_UNDERLINED);
         println("last active: " + chat.getLastModifiedDate() + ", id: " + chat.getId(), StdColor.BLACK_BRIGHT);
-        Message last = MessageConnection.getLastMessage(chat);
-        String shownText = last.getMessage().toString();
-        if (last.getMessage().length() > 30)
-            shownText = last.getMessage().substring(0, 60) + "...";
+        String shownText = last.getBuilder().toString();
+        if (last.getBuilder().length() > 30)
+            shownText = last.getBuilder().substring(0, 60) + "...";
         println("╚═══@" + last.getSender().getUsername() + ": " + shownText, StdColor.BLACK_BOLD_BRIGHT);
         rule('_');
     }
@@ -66,4 +67,8 @@ public class ChatItemView implements View {
         return true;
     }
 
+    @Override
+    public void reset() {
+        return;
+    }
 }

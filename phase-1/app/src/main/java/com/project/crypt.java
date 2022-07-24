@@ -63,7 +63,7 @@ public class crypt {
         return cipher.doFinal(message);
     }
 
-    public static byte[] decryptMessage(byte[] encryptedMessage, byte[] keyBytes) // باک داره یکاریش بکنیم
+    public static byte[] decryptMessage(byte[] encryptedMessage, byte[] keyBytes) //TODO: bug dare
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException,
             BadPaddingException, IllegalBlockSizeException {
 
@@ -73,10 +73,14 @@ public class crypt {
         return cipher.doFinal(encryptedMessage);
     }
 
-    public static void main(String[] args) throws Exception { // testing purposes
-        String randomString = new Random().ints(48, 123)
+    public static String salt() {
+        return new Random().ints(48, 123)
                 .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
                 .limit(8).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+    }
+
+    public static void main(String[] args) throws Exception { // testing purposes
+        String randomString = salt();
         String key = "D*G-KaNdRgUkXp2s", keyedEnc;
         System.out.println("salt: " + randomString);
         System.out.println(encryptedString("borna").toCharArray().length);
@@ -85,7 +89,9 @@ public class crypt {
         System.out.println(encryptedString("islhioashfioashfioashfioashfiohasiofhas").toCharArray().length);
         // System.out.println(encryptedString("borna" + randomString));
         System.out.println("key: " + key);
+        System.out.println(encryptedString("borna"));
+        System.out.println(encryptedString("borna"));
         System.out.println(keyedEnc = encryptedStringKeyed("borna", key));
-        // System.out.println(decryptedStringKeyed(keyedEnc, key));
+        System.out.println(decryptedStringKeyed(keyedEnc, key));
     }
 }

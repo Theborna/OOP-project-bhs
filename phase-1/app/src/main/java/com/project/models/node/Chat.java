@@ -2,11 +2,12 @@
 package com.project.models.node;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
-import com.project.models.node.user.User;
+import com.project.controllers.ChatListController;
+import com.project.models.connection.ChatUserConnection;
+import com.project.models.connection.MessageConnection;
+import com.project.view.general.ChatListView;
 
 public class Chat extends node {
     private static Chat current;
@@ -22,12 +23,12 @@ public class Chat extends node {
     public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
-        setData(chatId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(chatId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public static void LogToChat(long id) {
-        // find the chat from the database and set current chat
+        // TODO: find the chat from the database and set current chat
         current = new Chat("kos", ChatType.PRIVATE);
     }
 
@@ -41,5 +42,21 @@ public class Chat extends node {
 
     public ChatType getType() {
         return type;
+    }
+
+    @Override
+    public LocalDateTime getLastModifiedDate() {
+        return MessageConnection.getLastMessage(this.id).getLastModifiedDate();
+    }
+
+    public void addAll(List<Long> members) {
+        for (Long member : members)
+            ChatUserConnection.addUser(this.id, member);
+    }
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        ((ChatListController) ChatListView.getInstance().getController()).add(this);
     }
 }

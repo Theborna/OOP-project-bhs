@@ -1,6 +1,7 @@
 package com.project.models.node;
 
 
+
 public class Voice extends Media {
 
     public Voice(String address) {

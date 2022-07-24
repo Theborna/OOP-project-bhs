@@ -1,19 +1,15 @@
 package com.project.models.node.post;
 
-import com.project.models.node.Media;
+import com.project.models.node.TextBased;
 import com.project.models.node.node;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 
-public class Post extends node {
+public class Post extends node implements TextBased {
     private static long PostId;
     private StringBuilder text;
-    private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
@@ -23,8 +19,8 @@ public class Post extends node {
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        setData(PostId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public Post(String text, User Sender) {
@@ -32,8 +28,8 @@ public class Post extends node {
         sender = Sender;
         likes = 0;
         views = 0;
-        setData(PostId++, new Date(1).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(),
-                new Date(2).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public User getSender() {
@@ -48,8 +44,13 @@ public class Post extends node {
         return views;
     }
 
-    public StringBuilder getText() {
+    public StringBuilder getBuilder() {
         return text;
+    }
+
+    @Override
+    public String getText() {
+        return text.toString();
     }
 
     @Override
@@ -72,6 +73,12 @@ public class Post extends node {
         if (id != other.id)
             return false;
         return true;
+    }
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        
     }
 
 }

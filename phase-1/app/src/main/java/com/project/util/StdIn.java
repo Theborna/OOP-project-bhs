@@ -26,8 +26,10 @@ public class StdIn {
         String answer = scanner.nextLine().trim();
         if (answer.equals("-exit") || answer.equals("-end"))
             System.exit(0);
-        if (answer.equals("-logout"))
+        if (answer.equals("-logout")) {
+            View.resetAll();
             throw new changeViewException(PrimaryView.getInstance());
+        }
         if (answer.equals("-back"))
             throw new changeViewException(App.lastView());
         if (answer.equals("-hub"))

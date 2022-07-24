@@ -13,15 +13,15 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane minWidth="300.0" styleClass="post" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minWidth="300.0" styleClass="post" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.postController">
    <center>
       <BorderPane>
          <top>
             <HBox prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label maxHeight="1.7976931348623157E308" text="Jimmy falon" textFill="WHITE">
+                  <Label fx:id="lblName" maxHeight="1.7976931348623157E308" styleClass="text24" text="Jimmy falon" textFill="WHITE">
                      <font>
-                        <Font size="21.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -30,7 +30,7 @@
          <center>
             <TextFlow prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="!function(e,t){&quot;use strict&quot;;&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return t(e)}:t(e)}(&quot;undefined&quot;!=typeof window?window:this,function(C,e){&quot;use strict&quot;;var t=[],r=Object.getPrototypeOf,s=t.slice,g=t.flat?function(e){return t.flat.call(e)}:function(e){return t.concat.apply([],e)},u=t.push,i=t.indexOf,n={},o=n.toString,v=n.hasOwnProperty,a=v.toString,l=a.call(Object),y={},m=function(e){return&quot;function&quot;==typeof e&amp;&amp;&quot;number&quot;!=typeof e.nodeType},x=function(e){return null!=e&amp;&amp;e===e.window},E=C.document,c={type:!0,src:!0,nonce:!0,noModule:!0};function b(e,t,n){var r,i,o=(n=n||E).createElement(&quot;script&quot;);if(o.text=e,t)for(r in c)(i=t[r]||t.getAttribute&amp;&amp;t.getAttribute(r))&amp;&amp;o.setAttribute(r,i);n.head.appendChild(o).parentNode.removeChild(o)}function w(e){return null==e?e+&quot;&quot;:&quot;object&quot;==typeof e||&quot;function&quot;==typeof e?n[o.call(e)]||&quot;object&quot;:typeof e}var f=&quot;3.5.1&quot;,S=function(e,t){return n" />
+                  <Text fx:id="content" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text12" text="!function(e,t){&quot;use strict&quot;;&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return t(e)}:t(e)}(&quot;undefined&quot;!=typeof window?window:this,function(C,e){&quot;use strict&quot;;var t=[],r=Object.getPrototypeOf,s=t.slice,g=t.flat?function(e){return t.flat.call(e)}:function(e){return t.concat.apply([],e)},u=t.push,i=t.indexOf,n={},o=n.toString,v=n.hasOwnProperty,a=v.toString,l=a.call(Object),y={},m=function(e){return&quot;function&quot;==typeof e&amp;&amp;&quot;number&quot;!=typeof e.nodeType},x=function(e){return null!=e&amp;&amp;e===e.window},E=C.document,c={type:!0,src:!0,nonce:!0,noModule:!0};function b(e,t,n){var r,i,o=(n=n||E).createElement(&quot;script&quot;);if(o.text=e,t)for(r in c)(i=t[r]||t.getAttribute&amp;&amp;t.getAttribute(r))&amp;&amp;o.setAttribute(r,i);n.head.appendChild(o).parentNode.removeChild(o)}function w(e){return null==e?e+&quot;&quot;:&quot;object&quot;==typeof e||&quot;function&quot;==typeof e?n[o.call(e)]||&quot;object&quot;:typeof e}var f=&quot;3.5.1&quot;,S=function(e,t){return n" />
                </children>
             </TextFlow>
          </center>
@@ -39,11 +39,11 @@
    <bottom>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <ButtonBar buttonMinWidth="40.0" buttonOrder="U+L_HE+FBIX_NCYOA_R" minWidth="300.0" prefHeight="40.0" prefWidth="200.0">
+            <ButtonBar buttonMinWidth="40.0" buttonOrder="U+L_HE+FBIX_NCYOA_R" prefHeight="40.0">
               <buttons>
-                  <HBox maxWidth="1.7976931348623157E308">
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308">
                      <children>
-                      <Button mnemonicParsing="false">
+                      <Button fx:id="btnLike" mnemonicParsing="false">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -52,12 +52,8 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="23.4k" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Button mnemonicParsing="false">
+                        <Label fx:id="lblLikes" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" styleClass="text12" text="23.4k" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="btnDislike" mnemonicParsing="false">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -68,7 +64,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="btnShare" mnemonicParsing="false">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -77,7 +73,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="btnComment" mnemonicParsing="false">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -94,7 +90,7 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ivProfilePic" fitHeight="150.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/jimmy-fallon.png" />
                </image>

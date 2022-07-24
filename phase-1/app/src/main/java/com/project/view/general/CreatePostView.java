@@ -1,17 +1,20 @@
 package com.project.view.general;
 
-import com.project.controllers.Controller;
-import com.project.controllers.CreatePostController;
+import com.project.models.node.post.Post;
+import com.project.models.node.user.User;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 import static com.project.util.StdOut.*;
 
 import com.project.App;
+import com.project.controllers.Controller;
+import com.project.controllers.CreatePostController;
 
 public class CreatePostView implements View {
 
     private StringBuilder postText = new StringBuilder();
     private CreatePostController controller = new CreatePostController();
+    private Long inReplyTo = null;
 
     @Override
     public void show() throws changeViewException {
@@ -22,7 +25,16 @@ public class CreatePostView implements View {
                 break;
         }
         System.out.println(postText);
-        App.setView(SecondaryView.getInstance());
+        // TODO: add more stuff to posts
+        Post post = new Post(postText.toString());
+        User.getCurrentUser().Post(post);
+        inReplyTo = null;
+        App.setView(App.lastView());
+    }
+
+    public CreatePostView inReplyTo(Long inReplyTo) {
+        this.inReplyTo = inReplyTo;
+        return this;
     }
 
     @Override
@@ -30,4 +42,7 @@ public class CreatePostView implements View {
         return null;
     }
 
+    @Override
+    public void reset() {
+    }
 }

@@ -1,7 +1,5 @@
 package com.project.models.node.post;
 
-import java.time.LocalDateTime;
-
 import com.project.models.node.user.User;
 
 public class PromotedPost extends Post {

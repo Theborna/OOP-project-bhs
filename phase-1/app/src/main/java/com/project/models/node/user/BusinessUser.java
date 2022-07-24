@@ -21,4 +21,11 @@ public class BusinessUser extends User {
     public String getBusinessType() {
         return businessType;
     }
+
+
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+        
+    }
 }
