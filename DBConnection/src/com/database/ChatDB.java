@@ -42,6 +42,9 @@ public class ChatDB {
             ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         }
+        rs.close();
+        st.close();
+        con.close();
         return chs;
     }
 
@@ -53,6 +56,8 @@ public class ChatDB {
                 "," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + "," + ch.getOwner().getId() + ","
                 + ch.getType().ordinal() + ","+ch.getName()+")";
         st.execute(query);
+        st.close();
+        con.close();
     }
 
 }

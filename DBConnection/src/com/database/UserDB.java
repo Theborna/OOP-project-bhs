@@ -5,12 +5,10 @@ import com.models.node.user.NormalUser;
 import com.models.node.user.User;
 import org.jetbrains.annotations.NotNull;
 
-import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -158,6 +156,16 @@ public class UserDB {
             cnt++;
         }
         con.close();
+
         return ret;
+    }
+
+    public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = "select * from following where follower_id = " + followingID +" AND following_id = " + currentUserID;
+        ResultSet rs = st.executeQuery(query);
+        rs.next();
+        return rs.getInt(4);
     }
 }
