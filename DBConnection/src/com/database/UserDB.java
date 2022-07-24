@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import static com.database.DBInfo.getConnection;
 
 public class UserDB {
+
+    private UserDB() {
+    }
+
     public static void registerUSer(@NotNull User user) throws SQLException {
         Connection con = getConnection();
         String query = "insert into pmresan.users values(NULL,'" + user.getUsername() + "'" +
@@ -143,13 +147,13 @@ public class UserDB {
         con.close();
     }
 
-    public static ArrayList<User> getFollowers(User user, int size) throws SQLException{
+    public static ArrayList<User> getFollowers(long userId, int size) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from following where follower_id = " + user.getId());
+        ResultSet rs = st.executeQuery("select * from following where follower_id = " + Long.toString(userId));
         int cnt = 0;
         ArrayList<User> ret = new ArrayList<>();
-        while(rs.next() && (cnt< size || size == 0)){
+        while (rs.next() && (cnt < size || size == 0)) {
             ret.add(getUserInfo(rs.getLong(2)));
             cnt++;
         }

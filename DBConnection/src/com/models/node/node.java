@@ -78,6 +78,10 @@ public abstract class node {
         return creationDate;
     }
 
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
     public LocalDateTime getLastModifiedDate() {
         return lastModifiedDate;
     }

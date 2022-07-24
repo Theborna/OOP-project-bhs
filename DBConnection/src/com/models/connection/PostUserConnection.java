@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class PostUserConnection extends connection<User, Post> {
 
-    public static Set<Post> getPost(User user) {
+    public static Set<Post> getPosts(User user) {
         Set<Post> result = new LinkedHashSet<>();
         //TODO run a query on the database and get posts;
         result.add(new Post("kos mikham man borna am vali"));
