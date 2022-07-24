@@ -1,6 +1,5 @@
 package com.project.models.node;
 
-import java.sql.Date;
 
 public class Voice extends Media {
 
