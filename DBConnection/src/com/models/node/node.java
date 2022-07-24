@@ -86,4 +86,7 @@ public abstract class node {
         return lastModifiedDate;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }

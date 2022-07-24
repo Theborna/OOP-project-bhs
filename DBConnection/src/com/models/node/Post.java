@@ -17,12 +17,29 @@ public class Post extends node {
     private int likes;
     private int views;
     private int comments;
+    private Post repliedPost;
     public Post(String text) {
         this.text = new StringBuilder(text);
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
         setData(PostId++, new Date(1), new Date(2));
+    }
+
+    public Post getRepliedPost() {
+        return repliedPost;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
+    }
+
+    public void setRepliedPost(Post repliedPost) {
+        this.repliedPost = repliedPost;
     }
 
     public Post(String text, User Sender) {
@@ -79,4 +96,7 @@ public class Post extends node {
         return true;
     }
 
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
 }
