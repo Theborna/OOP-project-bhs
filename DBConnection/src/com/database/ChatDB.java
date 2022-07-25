@@ -40,7 +40,6 @@ public class ChatDB {
             ch.setVisible(rs.getInt(6) == 1?true:false);
             ch.setMemberCount(rs.getInt(5));
             ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-
         }
         rs.close();
         st.close();

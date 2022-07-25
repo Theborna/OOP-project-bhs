@@ -8,6 +8,7 @@ public class Message extends node { // TODO lots of modifications
     private StringBuilder message;
     private User sender;
     private Message replyTo;
+    private User forwardedFrom;
     // private int likes, dislikes;
     private static long id;
 
@@ -23,6 +24,18 @@ public class Message extends node { // TODO lots of modifications
         return this;
     }
 
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setMessage(StringBuilder message) {
+        this.message = message;
+    }
+
+    public void setForwardedFrom(User forwardedFrom) {
+        this.forwardedFrom = forwardedFrom;
+    }
+
     public Message getReplyTo() {
         return replyTo;
     }
@@ -33,5 +46,9 @@ public class Message extends node { // TODO lots of modifications
 
     public User getSender() {
         return sender;
+    }
+
+    public User getForwardedFrom() {
+        return forwardedFrom;
     }
 }
