@@ -41,8 +41,8 @@ public abstract class User extends node {
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
         currentUser = new NormalUser(username, password);
-        // return currentUser;
-        return null;
+        return currentUser;
+        // return null;
     }
 
     public static void logout() {
@@ -96,7 +96,7 @@ public abstract class User extends node {
 
     public static Long getID(String username) {
         // TODO: run a query to get the id
-        return Long.valueOf(1);
+        return Long.valueOf(username.hashCode());
     }
 
     public Set<com.project.models.node.post.Post> getPosts() {

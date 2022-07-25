@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.project.App;
+import com.project.enums.ChatPermission;
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
@@ -13,6 +14,8 @@ import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
+import com.project.view.general.ChatListView;
+import com.project.view.general.ChatSettingsView;
 import com.project.view.general.ChatView;
 import com.project.view.general.ForwardView;
 import com.project.view.model.MessageView;
@@ -25,10 +28,11 @@ public class ChatController implements ListController<MessageView> {
     private List<MessageView> messages = new ArrayList<MessageView>();
     private MessageView currentMsg;
     private int current;
+    private ChatPermission permission;
     private boolean showMsg = true;
 
     @Override
-    public void parse(String input) {
+    public void parse(String input) throws changeViewException {
         input = input.toLowerCase().trim();
         showMsg = true;
         Long inReply = null;
@@ -68,6 +72,10 @@ public class ChatController implements ListController<MessageView> {
             case "new message":
             case "new":
             case "compose":
+                if (permission == ChatPermission.OBSERVER) {
+                    printError("non sufficient permissions");
+                    break;
+                }
                 StringBuilder sb = null;
                 try {
                     if ((sb = getMsgText(sb)) != null)
@@ -90,6 +98,21 @@ public class ChatController implements ListController<MessageView> {
             case "member":
                 showMembers();
                 break;
+            case "setting":
+            case "settings":
+                if (permission != ChatPermission.OWNER && permission != ChatPermission.ADMIN) {
+                    printError("non sufficient permissions");
+                    break;
+                }
+                goToSettings();
+                break;
+            case "delete":
+                if (permission != ChatPermission.OWNER) {
+                    printError("non sufficient permissions");
+                    break;
+                }
+                deleteChat();
+                break;
             case "help":
                 help();
                 break;
@@ -99,12 +122,62 @@ public class ChatController implements ListController<MessageView> {
         }
     }
 
+    private void goToSettings() {
+        App.setView(ChatSettingsView.getInstance());
+    }
+
+    private void deleteChat() throws changeViewException {
+        boolean running = true;
+        while (running) {
+            prompt("do you want to delete the chat entirely?(Y/N)");
+            switch (isContinue(StdIn.nextLine())) {
+                case 1:
+                    running = false;
+                    print("deleted the chat!", StdColor.RED);
+                    Chat.getCurrent().delete();
+                    App.setView(ChatListView.getInstance());
+                    break;
+                case 2:
+                    print("canceled", StdColor.GREEN);
+                    running = false;
+                    break;
+                case 3:
+                    printError("invalid input");
+                    running = true;// unnecessary
+                default:
+                    break;
+            }
+        }
+    }
+
+    private int isContinue(String input) {
+        input = input.toLowerCase().trim();
+        switch (input) {
+            case "yes":
+            case "y":
+                return 1;
+            case "no":
+            case "n":
+                return 2;
+            default:
+                return 3;
+        }
+    }
+
     private void showMembers() {
-        Set<User> users = ChatUserConnection.getUsers(Chat.getCurrent().getId());
+        Set<User> users = ChatUserConnection.getUsers(Chat.getCurrent().getId()).keySet();
         for (User user : users) {
             print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
             print('|');
         }
+    }
+
+    public void setPermission(ChatPermission permission) {
+        this.permission = permission;
+    }
+
+    public ChatPermission getPermission() {
+        return permission;
     }
 
     public boolean isShowMsg() {

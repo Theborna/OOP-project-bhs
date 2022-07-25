@@ -2,12 +2,18 @@ package com.project.view.general;
 
 import com.project.controllers.ChatController;
 import com.project.controllers.Controller;
+import com.project.enums.ChatPermission;
 import com.project.models.connection.MessageConnection;
 import com.project.models.node.Chat;
+import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 import static com.project.util.StdOut.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ChatView implements View {
 
@@ -18,6 +24,7 @@ public class ChatView implements View {
         controller = new ChatController();
         controller.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
         controller.getCurrent();
+        controller.setPermission(Chat.getCurrent().getPermission(User.getCurrentUser().getId()));
     }
 
     public static ChatView getInstance() {
@@ -30,8 +37,22 @@ public class ChatView implements View {
     public void show() throws changeViewException {
         if (controller.isShowMsg())
             controller.getCurrent().show();
-        printSelections("like", "dislike", "forward", "reply", "next", "last", "top", "new message", "show -page",
-                "members");
+        List<String> selection = new ArrayList<>(Arrays
+                .asList(new String[] { "like", "dislike", "forward", "next", "last", "top", "show -page",
+                        "members" }));
+        switch (controller.getPermission()) {
+            case OWNER:
+                selection.add("delete");
+            case ADMIN:
+                selection.add("settings");
+            case NORMAL:
+                selection.add("new message");
+                selection.add("reply");
+            case OBSERVER:
+            default:
+                break;
+        }
+        printSelections(selection.toArray(new String[selection.size()]));
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }

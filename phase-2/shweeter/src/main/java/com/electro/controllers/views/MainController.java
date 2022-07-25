@@ -16,6 +16,7 @@ import com.electro.phase1.AppRegex;
 import com.electro.phase1.controllers.NewChatController;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.user.User;
+import com.electro.util.ResponsiveVbox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
 import com.electro.views.MessageListView;
@@ -108,6 +109,18 @@ public class MainController implements Initializable {
     private AnchorPane inFront;
     private JMetro metro;
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        initSlidingPane();
+        initChatItems();
+        initMessages();
+        initPosts();
+        lstNewChatMembers.setItems(FXCollections.observableArrayList());
+        pnSetChatType.toFront();
+        StretchTextArea.bind(txtAMessage);
+        System.out.println("done");
+    }
+
     @FXML
     private void SwitchScene(ActionEvent event) {
         Object obj = event.getSource();
@@ -190,18 +203,6 @@ public class MainController implements Initializable {
         pane1.toBack();
         pane2.setVisible(true);
         pane2.toFront();
-    }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        initSlidingPane();
-        initChatItems();
-        initMessages();
-        initPosts();
-        lstNewChatMembers.setItems(FXCollections.observableArrayList());
-        pnSetChatType.toFront();
-        StretchTextArea.bind(txtAMessage);
-        System.out.println("done");
     }
 
     private void initSlidingPane() {
