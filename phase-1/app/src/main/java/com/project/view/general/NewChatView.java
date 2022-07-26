@@ -37,8 +37,8 @@ public class NewChatView implements View {
     public void show() throws changeViewException {
         // Chat chat = new Chat(newMemberName, null);
         try {
-            getName();
             getType();
+            getName();
             getMembers();
             println("got all the members!", StdColor.GREEN);
             changePermissions();
@@ -58,6 +58,8 @@ public class NewChatView implements View {
     }
 
     protected void getUsername() throws changeViewException {
+        if (controller.getType() == ChatType.PRIVATE)
+            return;
         println(idSetOutput);
         boolean running = true;
         while (running)
@@ -91,6 +93,8 @@ public class NewChatView implements View {
         do {
             println("current permissions: "
                     + controller.getPermissions().toString().replaceAll("=", ": ").toLowerCase(), StdColor.MAGENTA);
+            if (controller.getType() == ChatType.PRIVATE)
+                return;
             switch (ans) {
                 case 0:
                     return;
@@ -121,6 +125,7 @@ public class NewChatView implements View {
     }
 
     protected void getName() throws changeViewException {
+
         String name = null;
         while (name == null) {
             prompt(demand);
@@ -167,6 +172,9 @@ public class NewChatView implements View {
                     break;
                 case 5:
                     println("reset...", StdColor.YELLOW);
+                    break;
+                case 6:
+                    printError("can't add more users");
                     break;
                 default:
                     break;

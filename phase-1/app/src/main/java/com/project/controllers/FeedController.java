@@ -3,12 +3,14 @@ package com.project.controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import com.project.App;
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
+import com.project.view.general.CommentView;
 import com.project.view.general.CreatePostView;
 import com.project.view.model.PageView;
 import com.project.view.model.PostView;
@@ -58,6 +60,13 @@ public class FeedController implements ListController<PostView> {
                 print("added dislike", StdColor.GREEN);
                 User.getCurrentUser().dislike(currentPost.getPost());
                 break;
+            case "show -likes":
+                print("likes: ", StdColor.CYAN);
+                break;
+            case "show -comments":
+                println("comments: ", StdColor.CYAN);
+                showComments(input);
+                break;
             case "help":
                 help();
                 break;
@@ -73,6 +82,25 @@ public class FeedController implements ListController<PostView> {
                 currentPost = postViews.get(0);
         }
         return currentPost;
+    }
+
+    public int showLikes(String input) {
+        if (!input.toLowerCase().trim().equals("show -likes"))
+            return 0;
+        if (!currentPost.getPost().getSender().equals(User.getCurrentUser()))
+            return 1;
+        return 2;
+    }
+
+    public int showComments(String input) {
+        if (!input.toLowerCase().trim().equals("show -comments"))
+            return 0;
+        if (currentPost.getPost().getCommentsCount() == 0) {
+            printError("no comments found");
+            return 1;
+        }
+        App.setView(new CommentView().withPost(currentPost.getPost()));
+        return 2;
     }
 
     public List<PostView> getChildren() {

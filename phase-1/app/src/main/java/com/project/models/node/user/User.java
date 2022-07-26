@@ -3,8 +3,10 @@ package com.project.models.node.user;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import com.project.LimitedList;
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
@@ -13,6 +15,7 @@ import com.project.models.node.node;
 import com.project.models.node.post.Post;
 import com.project.util.Log;
 import com.project.util.StdColor;
+import com.project.view.model.MessageView;
 
 /**
  * abstract class defining users.
@@ -27,10 +30,13 @@ public abstract class User extends node {
     private StdColor nameColor;
     private int followerCnt;
     private Date birthDate;
+    private LimitedList<Message> pastMsg;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        setId(username.hashCode());
+        pastMsg = new LimitedList<Message>(10);
         nameColor = StdColor.random("name");
     }
 
@@ -51,6 +57,7 @@ public abstract class User extends node {
 
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
+        pastMsg.add(message);
     }
 
     public void follow(User user) {
@@ -119,6 +126,15 @@ public abstract class User extends node {
 
     public void sendToDB() {
         // TODO: send the user to the database, register
+    }
+
+    @Override
+    public String toString() {
+        return "User [ username=" + username + ", follower count=" + followerCnt + ", visibility=" + isPublic + "]";
+    }
+
+    public LimitedList<Message> getPastMsg() {
+        return pastMsg;
     }
 
 }

@@ -52,6 +52,8 @@ public class ChatView implements View {
             default:
                 break;
         }
+        if (controller.getCurrent().getMessage().getAuthor().equals(User.getCurrentUser()))
+            selection.add("edit");
         printSelections(selection.toArray(new String[selection.size()]));
         prompt("enter next command");
         controller.parse(StdIn.nextLine());

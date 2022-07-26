@@ -72,21 +72,21 @@ public class ChatController implements ListController<MessageView> {
             case "new message":
             case "new":
             case "compose":
-                if (permission == ChatPermission.OBSERVER) {
-                    printError("non sufficient permissions");
-                    break;
+                post(inReply);
+            case "edit":
+                switch (editable(currentMsg.getMessage())) {
+                    case 0:
+                        printError("you are not the author of this message");
+                        break;
+                    case 1:
+                        printError("cannot edit this message");
+                        break;
+                    case 2:
+                        post(null);
+                        break;
+                    default:
+                        break;
                 }
-                StringBuilder sb = null;
-                try {
-                    if ((sb = getMsgText(sb)) != null)
-                        post(sb, inReply);
-                    else
-                        println("message canceled", StdColor.YELLOW);
-
-                } catch (changeViewException e) {
-                    App.setView(e.getView(), false);
-                }
-                showMsg = false;
                 break;
             case "show -page":
                 App.setView(PageView.getInstance().setUser(currentMsg.getMessage().getSender()));
@@ -120,6 +120,32 @@ public class ChatController implements ListController<MessageView> {
                 printError("no such command");
                 return;
         }
+    }
+
+    private int editable(Message message) {
+        if (!message.getAuthor().equals(User.getCurrentUser()))
+            return 0;
+        if (!User.getCurrentUser().getPastMsg().contains(message))
+            return 1;
+        return 2;
+    }
+
+    private void post(Long inReply) { // TODO: check support for editting
+        if (permission == ChatPermission.OBSERVER) {
+            printError("non sufficient permissions");
+            return;
+        }
+        StringBuilder sb = null;
+        try {
+            if ((sb = getMsgText(sb)) != null)
+                post(sb, inReply);
+            else
+                println("message canceled", StdColor.YELLOW);
+
+        } catch (changeViewException e) {
+            App.setView(e.getView(), false);
+        }
+        showMsg = false;
     }
 
     private void goToSettings() {

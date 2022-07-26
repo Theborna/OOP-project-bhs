@@ -175,6 +175,8 @@ public class NewChatController {
         Matcher m;
         input = input.trim().toLowerCase();
         if ((m = AppRegex.ADD_USER.getMatcher(input)) != null) {
+            if (members.size() > 1 && type == ChatType.PRIVATE)
+                return 6;
             members.put(User.getID(m.group("username")), m.group("username"));
             return 1;
         } else if ((m = AppRegex.REMOVE_USER.getMatcher(input)) != null) {

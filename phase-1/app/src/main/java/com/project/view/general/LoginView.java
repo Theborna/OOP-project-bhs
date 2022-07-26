@@ -36,9 +36,12 @@ public class LoginView implements View {
                 printError("invalid username format");
         }
         while (password == null) {
-            prompt("enter password");
-            password = controller.getPassword(StdIn.nextLine());
-            if (password == null)
+            prompt("enter password( use -forgot if you forgot your password )");
+            String input = StdIn.nextLine();
+            password = controller.getPassword(input);
+            if (input.equals("-forgot")) {
+                password = forgot(username);
+            } else if (password == null)
                 printError("invalid password format");
         }
         if ((user = controller.logToUser(username, password)) == null) {// gets the user
@@ -54,6 +57,13 @@ public class LoginView implements View {
         print("login successful! ", StdColor.GREEN);
         println("user: " + username);
         App.setView(SecondaryView.getInstance());
+    }
+
+    private String forgot(String username) {
+        String question, answer, password;
+        // TODO: ask question and return password if answer is correct
+        printError("incorrect");
+        return null;
     }
 
     @Override

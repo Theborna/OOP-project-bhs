@@ -4,6 +4,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.project.models.node.post.Post;
+import com.project.models.node.post.PromotedPost;
+import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
@@ -30,8 +32,9 @@ public class PostUserConnection extends connection<User, Post> {
         Set<Post> result = new LinkedHashSet<>();
         // TODO run a query on the database and get posts;
         result.add(new Post("kos mikham"));
-        result.add(new Post(
-                "The main reason why System.out.println() can't show Unicode characters is that System.out.println() is a byte stream that deal with only the low-order eight bits of character which is 16-bits. In order to deal with Unicode characters(16-bit Unicode character), you have to use character based stream i.e. PrintWriter."));
+        result.add(new PromotedPost(
+                "The main reason why System.out.println() can't show Unicode characters is that System.out.println() is a byte stream that deal with only the low-order eight bits of character which is 16-bits. In order to deal with Unicode characters(16-bit Unicode character), you have to use character based stream i.e. PrintWriter.",
+                new BusinessUser("salam", "12313")));
         result.add(new Post("vay daram mimiram"));
         for (int i = 0; i < 10; i++) {
             result.add(new Post(String.valueOf(i)));
