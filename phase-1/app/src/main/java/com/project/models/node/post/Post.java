@@ -1,26 +1,45 @@
 package com.project.models.node.post;
 
-import com.project.models.node.TextBased;
-import com.project.models.node.node;
-import com.project.models.node.user.NormalUser;
-import com.project.models.node.user.User;
+import com.models.node.user.Media;
+import com.models.node.user.NormalUser;
+import com.models.node.user.User;
 
-import java.time.LocalDateTime;
 
-public class Post extends node implements TextBased {
+import java.sql.Date;
+import java.util.ArrayList;
+
+public class Post extends node {
     private static long PostId;
     private StringBuilder text;
+    private Image image = null;
+    private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
-
+    private int comments;
+    private Post repliedPost;
     public Post(String text) {
         this.text = new StringBuilder(text);
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        setData(PostId++, LocalDateTime.now(),
-                LocalDateTime.now());
+        //setData(PostId++, new Date(1), new Date(2));
+    }
+
+    public Post getRepliedPost() {
+        return repliedPost;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
+    }
+
+    public void setRepliedPost(Post repliedPost) {
+        this.repliedPost = repliedPost;
     }
 
     public Post(String text, User Sender) {
@@ -28,8 +47,7 @@ public class Post extends node implements TextBased {
         sender = Sender;
         likes = 0;
         views = 0;
-        setData(PostId++, LocalDateTime.now(),
-                LocalDateTime.now());
+        //setData(PostId++, new Date(1), new Date(2));
     }
 
     public User getSender() {
@@ -44,13 +62,16 @@ public class Post extends node implements TextBased {
         return views;
     }
 
-    public StringBuilder getBuilder() {
-        return text;
+    public int getComments() {
+        return comments;
     }
 
-    @Override
-    public String getText() {
-        return text.toString();
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
+
+    public StringBuilder getText() {
+        return text;
     }
 
     @Override
@@ -75,10 +96,7 @@ public class Post extends node implements TextBased {
         return true;
     }
 
-    @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
-        
+    public void setSender(User sender) {
+        this.sender = sender;
     }
-
 }

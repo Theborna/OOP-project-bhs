@@ -1,23 +1,32 @@
 package com.project.models.node;
 
-import java.time.LocalDateTime;
+import com.models.node.user.User;
 
-import com.project.models.node.user.User;
+import java.sql.Date;
 
-public class Message extends node implements TextBased { // TODO lots of modifications
+public class Message extends node { // TODO lots of modifications
     private StringBuilder message;
     private User sender;
-    private User author;
     private Message replyTo;
+    private User forwardedFrom;
+    private Chat ch;
+    private String encKey;
     // private int likes, dislikes;
     private static long id;
 
     public Message(String message, User sender) {
         this.message = new StringBuilder(message);
         this.sender = sender;
-        this.author = sender;
-        setData(id++, LocalDateTime.now(), LocalDateTime.now());
+        setData(id++, new Date(1), new Date(2));
         replyTo = null;
+    }
+
+    public void setEncKey(String encKey) {
+        this.encKey = encKey;
+    }
+
+    public String getEncKey() {
+        return encKey;
     }
 
     public Message setReplyTo(Message replyTo) {
@@ -25,11 +34,23 @@ public class Message extends node implements TextBased { // TODO lots of modific
         return this;
     }
 
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setMessage(StringBuilder message) {
+        this.message = message;
+    }
+
+    public void setForwardedFrom(User forwardedFrom) {
+        this.forwardedFrom = forwardedFrom;
+    }
+
     public Message getReplyTo() {
         return replyTo;
     }
 
-    public StringBuilder getBuilder() {
+    public StringBuilder getMessage() {
         return message;
     }
 
@@ -37,26 +58,17 @@ public class Message extends node implements TextBased { // TODO lots of modific
         return sender;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getForwardedFrom() {
+        return forwardedFrom;
     }
 
-    public Message forwardFrom(User sender) {
-        Message newMsg = new Message(this.message.toString(), sender);
-        newMsg.author = this.author;
-        newMsg.creationDate = this.creationDate;
-        newMsg.lastModifiedDate = LocalDateTime.now();
-        return newMsg;
+    public Chat getCh() {
+        return ch;
     }
 
-    @Override
-    public String getText() {
-        return message.toString();
+    public void setCh(Chat ch) {
+        this.ch = ch;
     }
 
-    @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
-        
-    }
+
 }
