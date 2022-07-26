@@ -11,7 +11,7 @@ import java.util.List;
  * @variables id, date created, last modified date,
  * @methods getters, modifiers, toString, hashCode, equals
  * @static_methods get object from the database, match object with dataBase
- * send data to database
+ *                 send data to database
  */
 public abstract class node {
     protected long id;
@@ -89,4 +89,6 @@ public abstract class node {
     public void setId(long id) {
         this.id = id;
     }
+
+    public abstract void sendToDB();
 }

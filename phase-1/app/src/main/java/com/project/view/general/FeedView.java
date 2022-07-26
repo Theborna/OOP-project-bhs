@@ -1,13 +1,18 @@
 package com.project.view.general;
 
 import com.project.controllers.FeedController;
+import com.project.models.connection.Like;
 import com.project.models.connection.PostUserConnection;
+import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
+import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
 import static com.project.util.StdOut.*;
+
+import java.util.Set;
 
 public class FeedView implements View {
     private static FeedView instance;
@@ -35,12 +40,37 @@ public class FeedView implements View {
         controller.getCurrent().show();
         printCommands();
         prompt("enter next command");
-        controller.parse(StdIn.nextLine());
+        String input = StdIn.nextLine();
+        controller.parse(input);
+        showLikes(input);
+    }
+
+    private void showLikes(String input) {
+        switch (controller.showLikes(input)) {
+            case 0:
+                break;
+            case 1:
+                printError("you are not the author");
+                break;
+            case 2:
+                showLikes(controller.getCurrent().getPost());
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void showLikes(Post post) {
+        Set<User> likes = Like.getUsers(post);
+        for (User user : likes) {
+            print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
+            print('|');
+        }
     }
 
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "show -page",
-                "new post", "comment");
+        printSelections("next", "last", "top", "like", "dislike",
+                "new post", "comment", "show -likes", "show -comments", "show -page");
     }
 
     @Override

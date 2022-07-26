@@ -1,8 +1,9 @@
 package com.project.models.node;
 
-import com.models.node.user.User;
-
 import java.sql.Date;
+import java.time.LocalDateTime;
+
+import com.project.models.node.user.User;
 
 public class Message extends node { // TODO lots of modifications
     private StringBuilder message;
@@ -17,7 +18,8 @@ public class Message extends node { // TODO lots of modifications
     public Message(String message, User sender) {
         this.message = new StringBuilder(message);
         this.sender = sender;
-        setData(id++, new Date(1), new Date(2));
+        setData(id++, LocalDateTime.now(),
+                LocalDateTime.now());
         replyTo = null;
     }
 
@@ -70,5 +72,10 @@ public class Message extends node { // TODO lots of modifications
         this.ch = ch;
     }
 
+    @Override
+    public void sendToDB() {
+        // TODO Auto-generated method stub
+
+    }
 
 }

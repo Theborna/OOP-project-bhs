@@ -1,6 +1,5 @@
 package com.project.view.model;
 
-import com.project.controllers.PageController;
 import com.project.controllers.SelfPageController;
 import com.project.models.node.user.User;
 import com.project.util.StdIn;
@@ -39,7 +38,7 @@ public class SelfPageView extends PageView {
                 return;
             gaveBasic = true;
         }
-        super.show();
+        super.showSuper();
     }
 
     @Override

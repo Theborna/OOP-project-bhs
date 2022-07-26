@@ -13,6 +13,7 @@ import com.electro.App;
 import com.electro.phase1.controllers.LoginController;
 import com.electro.phase1.controllers.RegisterController;
 import com.electro.phase1.models.node.user.User;
+import com.electro.util.ResponsiveVbox;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
 import com.electro.views.component.ProfilePopOver;
@@ -33,9 +34,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import jfxtras.styles.jmetro.JMetro;
@@ -65,6 +68,12 @@ public class LoginPageController implements Initializable {
     @FXML
     private VBox vbox;
 
+    @FXML
+    private ScrollPane scrollSignUp;
+
+    @FXML
+    private BorderPane loginPane;
+
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -75,6 +84,39 @@ public class LoginPageController implements Initializable {
         initButton(btnSignUp);
         initButton(btnRegister);
         new ProfilePopOver(preview);
+        // ResponsiveVbox.bind(vbox);
+        // ResponsiveVbox.bind(scrollSignUp);
+        // loginPane.widthProperty().addListener(new ChangeListener<Number>() {
+        // @Override
+        // public void changed(ObservableValue<? extends Number> arg0, Number arg1,
+        // Number arg2) {
+        // double width = arg1.doubleValue();
+        // System.out.println(width);
+        // if (width < 650)
+        // mobile();
+        // else
+        // desktop();
+        // }
+
+        // private void desktop() {
+        // if (loginPane.getLeft() != null)
+        // return;
+        // System.out.println("to desktop");
+        // Node top = loginPane.getTop();
+        // loginPane.setTop(null);
+        // loginPane.setLeft(top);
+        // }
+
+        // private void mobile() {
+        // if (loginPane.getTop() != null)
+        // return;
+        // System.out.println("to mobile");
+        // Node side = loginPane.getLeft();
+        // loginPane.setLeft(null);
+        // loginPane.setTop(side);
+        // }
+
+        // });
     }
 
     @FXML

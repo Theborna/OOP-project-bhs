@@ -13,6 +13,9 @@ import javafx.scene.text.Text;
 
 public class StretchTextArea {
 
+    private StretchTextArea() {
+    }
+
     public static void bind(TextArea textArea) {
         // ScrollBar scrollBar = lookupVerticalScrollBar(textArea);
         // scrollBar.setOpacity(0.0);

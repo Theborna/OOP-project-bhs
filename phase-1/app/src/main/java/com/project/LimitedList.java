@@ -3,6 +3,8 @@ package com.project;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project.models.node.Message;
+
 public class LimitedList<E> {
 
     private int n;
@@ -46,6 +48,10 @@ public class LimitedList<E> {
     @Override
     public String toString() {
         return items.toString();
+    }
+
+    public boolean contains(E item) {
+        return items.contains(item);
     }
 
 }

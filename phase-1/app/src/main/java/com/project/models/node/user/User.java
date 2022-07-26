@@ -1,17 +1,18 @@
 package com.project.models.node.user;
 
-
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import com.models.connection.ChatUserConnection;
-import com.models.connection.PostUserConnection;
-import com.models.node.Chat;
-import com.models.node.Message;
-import com.models.node.Post;
-import com.models.node.node;
+import java.util.Date;
 
-import com.util.StdColor;
+import com.project.LimitedList;
+import com.project.models.connection.ChatUserConnection;
+import com.project.models.node.Chat;
+import com.project.models.node.Message;
+import com.project.models.node.node;
+import com.project.models.node.post.Post;
+import com.project.util.Log;
+import com.project.util.StdColor;
 
 /**
  * abstract class defining users.
@@ -20,9 +21,8 @@ import com.util.StdColor;
  * @Children NormalUser, BusinessUser
  */
 public abstract class User extends node {
-    private long USID;
     private static User currentUser;
-    private double promoindex = 0;
+    private double promoIndex = 0;
     private String salt;
     private String username, password, name, lastName, email;
     private boolean isPublic;
@@ -30,10 +30,14 @@ public abstract class User extends node {
     private int followerCnt, followingCnt, postCnt;
     private LocalDateTime dt;
     private int userType = 0;
+    private Date birthDate;
+    private LimitedList<Message> pastMsg;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        setId(username.hashCode());
+        pastMsg = new LimitedList<Message>(10);
         nameColor = StdColor.random("name");
     }
 
@@ -45,6 +49,13 @@ public abstract class User extends node {
         this.postCnt = postCnt;
     }
 
+    public static User logToUser(String username, String password) {
+        // TODO: get the current user from the database
+        currentUser = new NormalUser(username, password);
+        return currentUser;
+        // return null;
+    }
+
     public int getPostCnt() {
         return postCnt;
     }
@@ -53,16 +64,21 @@ public abstract class User extends node {
         return followingCnt;
     }
 
+    public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
+        Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
+        pastMsg.add(message);
+    }
+
     public void setFollowingCnt(int followingCnt) {
         this.followingCnt = followingCnt;
     }
 
-    public void setUSID(long USID) {
-        this.USID = USID;
+    public void setUSID(long US_ID) {
+        setId(US_ID);
     }
 
     public long getUSID() {
-        return USID;
+        return getId();
     }
 
     public void setPublic(boolean aPublic) {
@@ -90,11 +106,16 @@ public abstract class User extends node {
     }
 
     public double getPromoindex() {
-        return promoindex;
+        return promoIndex;
     }
 
     public void setPromoindex(double promoindex) {
-        this.promoindex = promoindex;
+        this.promoIndex = promoindex;
+    }
+
+    public static Long getID(String username) {
+        // TODO: run a query to get the id
+        return Long.valueOf(username.hashCode());
     }
 
     public String getEmail() {
@@ -133,15 +154,6 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public static User logToUser(String username, String password) {
-        // get the current user from the database
-        currentUser = new NormalUser(username, password);
-        return currentUser;
-    }
-
-    public void sendMessage(Message message, Chat chat) {
-    }
-
     public abstract void Post(Post post);
 
     public String getUsername() {
@@ -159,13 +171,22 @@ public abstract class User extends node {
     public boolean isPublic() {
         return isPublic;
     }
-//
-//    public Set<Post> getPosts() {
-//        return PostUserConnection.getPost(this);
-//    }
+    //
+    // public Set<Post> getPosts() {
+    // return PostUserConnection.getPost(this);
+    // }
 
     public Set<Chat> getChats() {
-        return ChatUserConnection.getChats(this);
+        return ChatUserConnection.getChats(this.id);
+    }
+
+    @Override
+    public String toString() {
+        return "User [ username=" + username + ", follower count=" + followerCnt + ", visibility=" + isPublic + "]";
+    }
+
+    public LimitedList<Message> getPastMsg() {
+        return pastMsg;
     }
 
 }
