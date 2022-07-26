@@ -26,7 +26,7 @@ public class Chat extends node {
     public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
-        setData(chatId++, new Date(1), new Date(2));
+        //setData(chatId++, new Date(1), new Date(2));
     }
 
     public static void LogToChat(long id) {

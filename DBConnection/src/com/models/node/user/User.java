@@ -158,10 +158,10 @@ public abstract class User extends node {
     public boolean isPublic() {
         return isPublic;
     }
-
-    public Set<Post> getPosts() {
-        return PostUserConnection.getPost(this);
-    }
+//
+//    public Set<Post> getPosts() {
+//        return PostUserConnection.getPost(this);
+//    }
 
     public Set<Chat> getChats() {
         return ChatUserConnection.getChats(this);

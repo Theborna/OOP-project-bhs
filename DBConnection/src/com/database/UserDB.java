@@ -48,7 +48,9 @@ public class UserDB {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from users where US_ID=" + Long.toString(usID) + ";");
-        rs.next();
+        if(rs.next()){
+            return null;
+        }
         int userType = rs.getInt(6);
         //0 -> normal user
         //1 -> buisness user
@@ -93,7 +95,10 @@ public class UserDB {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from users where US_USName='" + usName + "';\n");
-        rs.next();
+        if(rs.next()){
+            return null;
+        }
+
         int userType = rs.getInt(6);
         //0 -> normal user
         //1 -> buisness user
@@ -160,12 +165,19 @@ public class UserDB {
         return ret;
     }
 
+    // If the userID does not wxists it will return zero as the id :)
+
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = "select * from following where follower_id = " + followingID +" AND following_id = " + currentUserID;
         ResultSet rs = st.executeQuery(query);
-        rs.next();
+        if(rs.next()){
+            return 0;
+        }
+        rs.close();
+        st.close();
+        con.close();
         return rs.getInt(4);
     }
 }

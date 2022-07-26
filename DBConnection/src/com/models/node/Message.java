@@ -9,6 +9,8 @@ public class Message extends node { // TODO lots of modifications
     private User sender;
     private Message replyTo;
     private User forwardedFrom;
+    private Chat ch;
+    private String encKey;
     // private int likes, dislikes;
     private static long id;
 
@@ -17,6 +19,14 @@ public class Message extends node { // TODO lots of modifications
         this.sender = sender;
         setData(id++, new Date(1), new Date(2));
         replyTo = null;
+    }
+
+    public void setEncKey(String encKey) {
+        this.encKey = encKey;
+    }
+
+    public String getEncKey() {
+        return encKey;
     }
 
     public Message setReplyTo(Message replyTo) {
@@ -51,4 +61,14 @@ public class Message extends node { // TODO lots of modifications
     public User getForwardedFrom() {
         return forwardedFrom;
     }
+
+    public Chat getCh() {
+        return ch;
+    }
+
+    public void setCh(Chat ch) {
+        this.ch = ch;
+    }
+
+
 }

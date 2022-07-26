@@ -39,7 +39,7 @@ public class PageView extends FeedView {
         if (user == null)
             return;
         controller.clear();
-        controller.addAll(user.getPosts());
+        //controller.addAll(user.getPosts());
         gaveBasic = false;
     }
 

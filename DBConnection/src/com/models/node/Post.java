@@ -23,7 +23,7 @@ public class Post extends node {
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        setData(PostId++, new Date(1), new Date(2));
+        //setData(PostId++, new Date(1), new Date(2));
     }
 
     public Post getRepliedPost() {
@@ -47,7 +47,7 @@ public class Post extends node {
         sender = Sender;
         likes = 0;
         views = 0;
-        setData(PostId++, new Date(1), new Date(2));
+        //setData(PostId++, new Date(1), new Date(2));
     }
 
     public User getSender() {

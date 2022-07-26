@@ -34,12 +34,13 @@ public class ChatDB {
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
             Chat ch = new Chat(rs.getString(9), chatType(rs.getInt(8)));
-            ch.setCanSend((rs.getInt(3) == 1?true:false));
+            ch.setCanSend((rs.getInt(3) == 1 ? true : false));
             ch.setSender(UserDB.getUserInfo(rs.getLong(2)));
             ch.setOwner(UserDB.getUserInfo(rs.getLong(7)));
-            ch.setVisible(rs.getInt(6) == 1?true:false);
+            ch.setVisible(rs.getInt(6) == 1 ? true : false);
             ch.setMemberCount(rs.getInt(5));
             ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            ch.setId(rs.getLong(1));
         }
         rs.close();
         st.close();
@@ -53,10 +54,27 @@ public class ChatDB {
         String query = "insert into chat values(" + ch.getId() + ", " + ch.getSender().getId() + "," +
                 (ch.isCanSend() ? "1" : "0") + "," + ch.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
                 "," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + "," + ch.getOwner().getId() + ","
-                + ch.getType().ordinal() + ","+ch.getName()+")";
+                + ch.getType().ordinal() + "," + ch.getName() + ")";
         st.execute(query);
         st.close();
         con.close();
     }
 
+    public static Chat getChatByID(long chatID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from chat where ch_id = " + chatID);
+        Chat ch = null;
+        if (rs.next()) {
+            ch = new Chat(rs.getString(9), chatType(rs.getInt(8)));
+            ch.setId(chatID);
+            ch.setCanSend((rs.getInt(3) == 1 ? true : false));
+            ch.setSender(UserDB.getUserInfo(rs.getLong(2)));
+            ch.setOwner(UserDB.getUserInfo(rs.getLong(7)));
+            ch.setVisible(rs.getInt(6) == 1 ? true : false);
+            ch.setMemberCount(rs.getInt(5));
+            ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        }
+        return ch;
+    }
 }
