@@ -2,6 +2,7 @@ package com.project.view.model;
 
 import com.project.controllers.Controller;
 import com.project.models.node.post.Post;
+import com.project.models.node.post.PromotedPost;
 import com.project.util.StdColor;
 import com.project.view.View;
 
@@ -21,13 +22,16 @@ public class PostView implements View {
         rule('_');
         print(post.getSender().getUsername(), StdColor.MAGENTA_UNDERLINED);
         println(" ,date: " + post.getCreationDate() + " ,id: " + post.getId(), StdColor.BLACK_BRIGHT);
+        if (post instanceof PromotedPost) {
+            println("ADVERTISEMENT", StdColor.RED);
+        }
         println("\n" + post.getBuilder().toString() + "\n");
         print("likes: ", StdColor.RED_BRIGHT);
         print(post.getLikes() + ", ");
         print("views: ", StdColor.GREEN_BRIGHT);
         print(post.getViews() + ", ");
         print("comments: ", StdColor.CYAN);
-        // print(post.);
+        print(post.getCommentsCount());
         rule('_');
     }
 

@@ -22,14 +22,15 @@ public class ProfilePopOver extends PopOver {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        preview.setOnMouseEntered(evt -> {
+        preview.setOnMouseClicked(evt -> {
             if (!this.isShowing()) {
                 this.show((Node) evt.getSource());
-            }
+            } else
+                this.hide();
         });
-        preview.setOnMouseClicked(evt -> {
-            this.hide();
-        });
+        // preview.setOnMouseClicked(evt -> {
+        //     this.hide();
+        // });
     }
 
     // TODO : make showing this timed
