@@ -10,6 +10,7 @@ import static com.project.util.StdOut.*;
 public class PostView implements View {
 
     private Post post;
+    private boolean isSuggestion;
 
     public PostView(Post post) {
         this.post = post;

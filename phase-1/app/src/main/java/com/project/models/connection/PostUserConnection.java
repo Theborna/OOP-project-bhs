@@ -39,15 +39,15 @@ public class PostUserConnection extends connection<User, Post> {
         return result;
     }
 
-    public static Set<User> getUser(Long postId) { // in chi hast???
-        Set<User> result = new LinkedHashSet<>();
+    public static User getUser(Long postId) { // in chi hast??? //khodet fekr mikoni chie borna jan? post ro midi mige male che userie
+        // Set<User> result = new LinkedHashSet<>();
         // TODO run a query on the database and get Users;
-        result.add(new NormalUser("sex", "anal"));
-        result.add(new NormalUser("sex", "vaginal"));
-        for (int i = 0; i < 10; i++) {
-            result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
-        }
-        return result;
+        return(new NormalUser("sex", "anal"));
+        // result.add(new NormalUser("sex", "vaginal"));
+        // for (int i = 0; i < 10; i++) {
+        //     result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
+        // }
+        // return result;
     }
 
     public static Set<Post> getExplore(User user) { // TODO: find appropriate posts to show

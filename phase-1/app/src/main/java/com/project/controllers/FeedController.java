@@ -2,7 +2,9 @@ package com.project.controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.project.App;
 import com.project.models.node.post.Post;
@@ -16,6 +18,7 @@ import static com.project.util.StdOut.*;
 
 public class FeedController implements ListController<PostView> {
     private List<PostView> postViews = new ArrayList<PostView>();
+    private Set<PostView> suggstedPosts = new LinkedHashSet<PostView>();
     private PostView currentPost;
     private int current;
 
