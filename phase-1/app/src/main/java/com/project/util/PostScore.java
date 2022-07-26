@@ -2,12 +2,10 @@ package com.project.util;
 
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.util.PropertySource.Comparator;
-
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 
-public class PostScore implements Comparable<PostScore>{
+public class PostScore implements Comparable<PostScore> {
     private Post post;
     private int score;
 
@@ -21,11 +19,11 @@ public class PostScore implements Comparable<PostScore>{
     }
 
     // public Static ArrayList<Post> getPosts(ArrayList<PostScore> postScores) {
-    //     ArrayList<Post> posts = new ArrayList<Post>();
-    //     for (PostScore postScore : postScores) {
-    //         posts.add(postScore.getPost());
-    //     }
-    //     return posts;
+    // ArrayList<Post> posts = new ArrayList<Post>();
+    // for (PostScore postScore : postScores) {
+    // posts.add(postScore.getPost());
+    // }
+    // return posts;
     // }
 
     public static ArrayList<Post> getPosts(ArrayList<PostScore> postScores) {
@@ -36,24 +34,24 @@ public class PostScore implements Comparable<PostScore>{
         return posts;
     }
 
-    public static ArrayList<PostScore> postScores(ArrayList<Post> posts,User user) {
-        ArrayList<PostScore> postscores = new ArrayList<PostScore>();
-        for (Post post: posts) {
-            postscores.add(new PostScore(post,Suggestion.PostsScore(user,post)));
+    public static ArrayList<PostScore> postScores(ArrayList<Post> posts, User user) {
+        ArrayList<PostScore> postScores = new ArrayList<PostScore>();
+        for (Post post : posts) {
+            postScores.add(new PostScore(post, Suggestion.PostsScore(user, post)));
         }
-        return postscores;
+        return postScores;
     }
 
     @Override
     public int compareTo(PostScore arg0) {
-        // TODO Auto-generated method stub
-        if (this.score>arg0.getScore()){
-            return 1;
-        } else if(this.score<arg0.getScore()){
-            return -1;
-        } else {
-            return 0;
-        }
+        // if (this.score > arg0.getScore()) {
+        // return 1;
+        // } else if (this.score < arg0.getScore()) {
+        // return -1;
+        // } else {
+        // return 0;
+        // }
+        return this.score - arg0.getScore();
     }
 
     private int getScore() {

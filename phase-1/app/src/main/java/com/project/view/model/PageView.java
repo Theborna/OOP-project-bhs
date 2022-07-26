@@ -105,4 +105,8 @@ public class PageView extends FeedView {
         return controller;
     }
 
+    public void showSuper() throws changeViewException {
+        super.show();
+    }
+
 }

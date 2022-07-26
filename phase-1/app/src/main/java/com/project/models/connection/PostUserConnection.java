@@ -1,5 +1,7 @@
 package com.project.models.connection;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -8,6 +10,8 @@ import com.project.models.node.post.PromotedPost;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
+import com.project.util.PostScore;
+import com.project.util.Suggestion;
 
 public class PostUserConnection extends connection<User, Post> {
 
@@ -42,18 +46,23 @@ public class PostUserConnection extends connection<User, Post> {
         return result;
     }
 
-    public static User getUser(Long postId) { // in chi hast??? //khodet fekr mikoni chie borna jan? post ro midi mige male che userie
+    public static User getUser(Long postId) { // in chi hast??? //khodet fekr mikoni chie borna jan? post ro midi mige
+                                              // male che userie
         // Set<User> result = new LinkedHashSet<>();
         // TODO run a query on the database and get Users;
-        return(new NormalUser("sex", "anal"));
+        return (new NormalUser("sex", "anal"));
         // result.add(new NormalUser("sex", "vaginal"));
         // for (int i = 0; i < 10; i++) {
-        //     result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
+        // result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
         // }
         // return result;
     }
 
     public static Set<Post> getExplore(User user) { // TODO: find appropriate posts to show
-        return getFeed(user.getId());
+        ArrayList<PostScore> postScores = PostScore.postScores(new ArrayList<Post>(Suggestion.setScoreForPosts(user)),
+                user);
+        Collections.sort(postScores);
+        return new LinkedHashSet<Post>(PostScore.getPosts(postScores));
+        // return getFeed(user.getId());
     }
 }

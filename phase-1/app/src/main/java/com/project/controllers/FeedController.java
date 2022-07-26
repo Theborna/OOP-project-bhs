@@ -19,7 +19,6 @@ import static com.project.util.StdOut.*;
 
 public class FeedController implements ListController<PostView> {
     private List<PostView> postViews = new ArrayList<PostView>();
-    private Set<PostView> suggstedPosts = new LinkedHashSet<PostView>();
     private PostView currentPost;
     private int current;
 
@@ -55,12 +54,10 @@ public class FeedController implements ListController<PostView> {
                 App.setView(new CreatePostView().inReplyTo(currentPost.getPost().getId()));
                 break;
             case "like":
-                print("added like", StdColor.GREEN);
-                User.getCurrentUser().like(currentPost.getPost());
+                like();
                 break;
             case "dislike":
-                print("added dislike", StdColor.GREEN);
-                User.getCurrentUser().dislike(currentPost.getPost());
+                dislike();
                 break;
             case "show -likes":
                 print("likes: ", StdColor.CYAN);
@@ -76,6 +73,16 @@ public class FeedController implements ListController<PostView> {
                 printError("no such command");
                 break;
         }
+    }
+
+    protected void dislike() {
+        print("added dislike", StdColor.GREEN);
+        User.getCurrentUser().dislike(currentPost.getPost());
+    }
+
+    protected void like() {
+        print("added like", StdColor.GREEN);
+        User.getCurrentUser().like(currentPost.getPost());
     }
 
     public PostView getCurrent() {
