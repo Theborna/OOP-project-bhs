@@ -1,6 +1,5 @@
 package com.database;
 
-
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
@@ -142,12 +141,12 @@ public class UserDB {
         return us;
     }
 
-    public boolean auth(User user) throws Throwable {
+    public static boolean auth(User user) throws Throwable {
         User us = UserDB.getUserInfo(user.getUsername());
         return us.getPassword().equals(us.getPassword());
     }
 
-    public void deleteUser(User user) throws SQLException {
+    public static void deleteUser(User user) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.execute("delete from users where US_ID = " + user.getId());

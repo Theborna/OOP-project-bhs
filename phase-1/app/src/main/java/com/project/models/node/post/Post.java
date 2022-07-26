@@ -4,16 +4,19 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.database.PostDB;
 import com.project.models.node.Image;
 import com.project.models.node.Media;
+import com.project.models.node.TextBased;
 import com.project.models.node.node;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Post extends node {
+public class Post extends node implements TextBased {
     private static long PostId;
     private StringBuilder text;
     private Image image = null;
@@ -29,7 +32,17 @@ public class Post extends node {
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        // setData(PostId++, new Date(1), new Date(2));
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
+    }
+
+    public Post(String text, User Sender) {
+        this.text = new StringBuilder(text);
+        sender = Sender;
+        likes = 0;
+        views = 0;
+        setData(PostId++, LocalDateTime.now(),
+                LocalDateTime.now());
     }
 
     public Post getRepliedPost() {
@@ -46,17 +59,6 @@ public class Post extends node {
 
     public void setRepliedPost(Post repliedPost) {
         this.repliedPost = repliedPost;
-        comments = 10;
-        setData(PostId++, LocalDateTime.now(),
-                LocalDateTime.now());
-    }
-
-    public Post(String text, User Sender) {
-        this.text = new StringBuilder(text);
-        sender = Sender;
-        likes = 0;
-        views = 0;
-        // setData(PostId++, new Date(1), new Date(2));
     }
 
     public User getSender() {
@@ -79,8 +81,13 @@ public class Post extends node {
         this.comments = comments;
     }
 
-    public StringBuilder getText() {
+    public StringBuilder getBuilder() {
         return text;
+    }
+
+    @Override
+    public String getText() {
+        return text.toString();
     }
 
     @Override
@@ -112,7 +119,11 @@ public class Post extends node {
     @Override
     public void sendToDB() {
         // TODO Auto-generated method stub
-
+        try {
+            PostDB.addPost(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Set<Post> getComments() {
@@ -127,4 +138,5 @@ public class Post extends node {
         }
         return result;
     }
+
 }

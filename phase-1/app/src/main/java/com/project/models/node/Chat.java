@@ -1,12 +1,13 @@
 package com.project.models.node;
 
 import java.sql.Date;
-
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.database.ChatDB;
 import com.project.controllers.ChatListController;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
@@ -140,6 +141,10 @@ public class Chat extends node {
     @Override
     public void sendToDB() {
         // TODO Auto-generated method stub
-        
+        try {
+            ChatDB.addChat(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

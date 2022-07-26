@@ -1,12 +1,15 @@
 package com.project.models.node.user;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 import java.util.Date;
 
+import com.database.UserDB;
 import com.project.LimitedList;
 import com.project.models.connection.ChatUserConnection;
+import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
 import com.project.models.node.node;
@@ -28,7 +31,6 @@ public abstract class User extends node {
     private boolean isPublic;
     private StdColor nameColor;
     private int followerCnt, followingCnt, postCnt;
-    private LocalDateTime dt;
     private int userType = 0;
     private Date birthDate;
     private LimitedList<Message> pastMsg;
@@ -52,8 +54,16 @@ public abstract class User extends node {
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
         currentUser = new NormalUser(username, password);
-        return currentUser;
-        // return null;
+        // return currentUser;
+        try {
+            if (!UserDB.auth(currentUser))
+                return null;
+            currentUser = UserDB.getUserInfo(username);
+            return currentUser;
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public int getPostCnt() {
@@ -69,6 +79,19 @@ public abstract class User extends node {
         pastMsg.add(message);
     }
 
+    public void follow(User user) {
+        // TODO : follow the user
+    }
+
+    public void unfollow(User user) {
+        // TODO : unfollow the user
+    }
+
+    public boolean isFollowing(User user) {
+        // TODO : check if the user is following
+        return false;
+    }
+
     public void setFollowingCnt(int followingCnt) {
         this.followingCnt = followingCnt;
     }
@@ -79,10 +102,6 @@ public abstract class User extends node {
 
     public long getUSID() {
         return getId();
-    }
-
-    public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
     }
 
     public void setEmail(String email) {
@@ -139,11 +158,11 @@ public abstract class User extends node {
     }
 
     public LocalDateTime getDt() {
-        return dt;
+        return getCreationDate();
     }
 
     public void setDt(LocalDateTime dt) {
-        this.dt = dt;
+        setCreationDate(dt);
     }
 
     public String getSalt() {
@@ -168,16 +187,22 @@ public abstract class User extends node {
         return followerCnt;
     }
 
-    public boolean isPublic() {
-        return isPublic;
+    public Set<com.project.models.node.post.Post> getPosts() {
+        return PostUserConnection.getPosts(this.id);
     }
-    //
-    // public Set<Post> getPosts() {
-    // return PostUserConnection.getPost(this);
-    // }
 
     public Set<Chat> getChats() {
         return ChatUserConnection.getChats(this.id);
+    }
+
+    public Set<Chat> getAccessibleChats() {// TODO: get appropriate channels
+        return getChats();
+    }
+
+    public void like(com.project.models.node.post.Post post) {// TODO: implement this method
+    }
+
+    public void dislike(com.project.models.node.post.Post post) {// TODO: implement this method
     }
 
     @Override
@@ -187,6 +212,33 @@ public abstract class User extends node {
 
     public LimitedList<Message> getPastMsg() {
         return pastMsg;
+    }
+
+    public static void logout() {
+        currentUser = null;
+    }
+
+    public User setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+        return this;
+    }
+
+    public User setPublic(boolean isPublic) {
+        this.isPublic = isPublic;
+        return this;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void sendToDB() {
+        // TODO: send the user to the database, register
+        try {
+            UserDB.registerUSer(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.database.MessageDB;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
 import com.project.models.node.user.NormalUser;
@@ -27,6 +28,7 @@ public class MessageConnection extends connection<Message, Chat> {
         messages.add(new Message("sammeeee", other).setReplyTo(ziba));
         for (int i = 0; i < 29; i++)
             messages.add(new Message(String.valueOf(i), (i % 2 == 0) ? User.getCurrentUser() : other));
+        // messages.addAll(MessageDB.)
         return messages;
     }
 

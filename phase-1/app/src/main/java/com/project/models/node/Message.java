@@ -1,15 +1,17 @@
 package com.project.models.node;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import com.database.MessageDB;
 import com.project.models.node.user.User;
 
-public class Message extends node { // TODO lots of modifications
+public class Message extends node implements TextBased { // TODO lots of modifications
     private StringBuilder message;
     private User sender;
     private Message replyTo;
-    private User forwardedFrom;
+    private User author;
     private Chat ch;
     private String encKey;
     // private int likes, dislikes;
@@ -18,6 +20,7 @@ public class Message extends node { // TODO lots of modifications
     public Message(String message, User sender) {
         this.message = new StringBuilder(message);
         this.sender = sender;
+        this.author = sender;
         setData(id++, LocalDateTime.now(),
                 LocalDateTime.now());
         replyTo = null;
@@ -45,7 +48,7 @@ public class Message extends node { // TODO lots of modifications
     }
 
     public void setForwardedFrom(User forwardedFrom) {
-        this.forwardedFrom = forwardedFrom;
+        this.author = forwardedFrom;
     }
 
     public Message getReplyTo() {
@@ -56,12 +59,16 @@ public class Message extends node { // TODO lots of modifications
         return message;
     }
 
+    public User getAuthor() {
+        return author;
+    }
+
     public User getSender() {
         return sender;
     }
 
     public User getForwardedFrom() {
-        return forwardedFrom;
+        return author;
     }
 
     public Chat getCh() {
@@ -72,10 +79,32 @@ public class Message extends node { // TODO lots of modifications
         this.ch = ch;
     }
 
+    public Message forwardFrom(User sender) {
+        Message newMsg = new Message(this.message.toString(), sender);
+        newMsg.author = this.author;
+        newMsg.creationDate = this.creationDate;
+        newMsg.lastModifiedDate = LocalDateTime.now();
+        return newMsg;
+    }
+
     @Override
     public void sendToDB() {
         // TODO Auto-generated method stub
+        try {
+            MessageDB.newMessage(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public String getText() {
+        return message.toString();
+    }
+
+    @Override
+    public StringBuilder getBuilder() {
+        return message;
     }
 
 }

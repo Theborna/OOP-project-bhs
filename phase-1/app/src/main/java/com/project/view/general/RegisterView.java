@@ -113,7 +113,7 @@ public class RegisterView implements View {
         println("user: " + username + ", password: " + password + ", visibility: " + visible
                 + ", email: " + email + ", type: " + type + ", born at: "
                 + birthDate.toString().replaceAll("\\d{2}:\\d{2}:\\d{2} ", ""));
-        App.setView(SecondaryView.getInstance());
+        App.setView(LoginView.getInstance());
         // rule();
     }
 
