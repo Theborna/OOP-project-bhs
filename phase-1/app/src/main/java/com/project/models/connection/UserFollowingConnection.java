@@ -18,7 +18,6 @@ public class UserFollowingConnection extends connection<User, User> {
     public UserFollowingConnection(User obj1, User obj2) {
         super(obj1, obj2);
         promoIndex = 100;
-        // TODO Auto-generated constructor stub
     }
 
     public static Set<UserFollowingConnection> getFollowings(User user) {
@@ -46,10 +45,6 @@ public class UserFollowingConnection extends connection<User, User> {
     }
 
     public static boolean Follows(User user1, User user2) {
-        // if(getFollowers(user1).contains(user2)){
-        // return true;
-        // }
-        // return false;
         Set<UserFollowingConnection> connections = getFollowers(user2);
         for (UserFollowingConnection connection : connections) {
             if (connection.getObj1() == user1) {
@@ -77,12 +72,14 @@ public class UserFollowingConnection extends connection<User, User> {
         if (!(promoIndex - decreaseNum < -100)) {
             promoIndex -= decreaseNum;
         }
+        // TODO change the number in the database
     }
 
     public void increasePromoIndex(int increaseNum) {
         if (!(increaseNum + promoIndex > 100)) {
             promoIndex += increaseNum;
         }
+        // TODO change the number in the database
     }
 
 }
