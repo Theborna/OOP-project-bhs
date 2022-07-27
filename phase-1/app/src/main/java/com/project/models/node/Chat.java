@@ -23,7 +23,6 @@ public class Chat extends node {
     private String linkID;
     private String name;
     private ChatType type;
-    private User sender;
     private boolean canSend;
     private int memberCount;
     private boolean visible;
@@ -57,14 +56,6 @@ public class Chat extends node {
 
     public ChatType getType() {
         return type;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public void setSender(User sender) {
-        this.sender = sender;
     }
 
     public boolean isCanSend() {
@@ -128,10 +119,11 @@ public class Chat extends node {
         return null;
     }
 
-    public ChatPermission getPermission(long id) {
-        // TODO: get the permission of the user
-        return ChatPermission.OWNER;
+    public ChatPermission getPermission(long id) throws SQLException {
+
+        return ChatDB.getChatPermission(id, this.id);
     }
+
 
     public void delete() {
         // TODO: delete the chat
