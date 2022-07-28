@@ -93,7 +93,8 @@ public class Chat extends node {
 
     @Override
     public LocalDateTime getLastModifiedDate() {
-        return MessageConnection.getLastMessage(this.id).getLastModifiedDate();
+        Message last = MessageConnection.getLastMessage(this.id);
+        return (last == null) ? creationDate : last.getCreationDate();
     }
 
     public Chat addAll(Map<Long, ChatPermission> memberWithPermit) {

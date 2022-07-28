@@ -4,10 +4,7 @@ import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -19,7 +16,7 @@ public class UserDB {
     }
 
     public static void sendToDB(User us) throws SQLException {
-        User temp = getUserInfo(us.getId());
+        User temp = getUserInfo(us.getUsername());
         if (temp != null) {
             updateUser(us);
         } else {
@@ -34,7 +31,7 @@ public class UserDB {
         Connection con = getConnection();
         String query = "insert into pmresan.users values(NULL,'" + user.getUsername() + "'" +
                 ",'" + user.getPassword() + "','" + user.getSalt() + "', '" +
-                user.getDt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
+                new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
                 "', '" + user.getEmail() + "', 0)";
@@ -61,7 +58,7 @@ public class UserDB {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from users where US_ID=" + Long.toString(usID) + ";");
-        if (rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         int userType = rs.getInt(6);
@@ -73,7 +70,7 @@ public class UserDB {
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
-            us.setDt(rs.getDate(5).toLocalDate().atStartOfDay());
+            us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
             us.setPublic(rs.getBoolean(7));
             us.setFollowerCnt(rs.getInt(8));
@@ -88,7 +85,7 @@ public class UserDB {
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
-            us.setDt(rs.getDate(5).toLocalDate().atStartOfDay());
+            us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
             us.setPublic(rs.getBoolean(7));
             us.setFollowerCnt(rs.getInt(8));
@@ -121,7 +118,7 @@ public class UserDB {
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
-            us.setDt(rs.getDate(5).toLocalDate().atStartOfDay());
+            us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
             us.setPublic(rs.getBoolean(7));
             us.setFollowerCnt(rs.getInt(8));
@@ -136,7 +133,7 @@ public class UserDB {
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
-            us.setDt(rs.getDate(5).toLocalDate().atStartOfDay());
+            us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
             us.setPublic(rs.getBoolean(7));
             us.setFollowerCnt(rs.getInt(8));
@@ -151,9 +148,9 @@ public class UserDB {
         return us;
     }
 
-    public static boolean auth(User user) throws Throwable {
-        User us = UserDB.getUserInfo(user.getUsername());
-        return us != null && us.getPassword().equals(us.getPassword());
+    public static boolean auth(String username, String passwd) throws Throwable {
+        User us = UserDB.getUserInfo(username);
+        return us != null && us.getPassword().equals(passwd);
     }
 
     public static void deleteUser(User user) throws SQLException {

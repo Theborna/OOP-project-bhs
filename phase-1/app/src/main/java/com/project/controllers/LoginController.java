@@ -1,7 +1,10 @@
 package com.project.controllers;
 
+import com.database.UserDB;
 import com.project.AppRegex;
 import com.project.models.node.user.User;
+
+import java.sql.SQLException;
 
 public class LoginController implements Controller {
 
@@ -23,6 +26,19 @@ public class LoginController implements Controller {
 
     public User logToUser(String username, String password) {
         return User.logToUser(username, password);
+    }
+
+    public User logToUser(String username) {
+        return User.logToUser(username);
+    }
+
+    public boolean exists(String usName) {
+        try {
+            return UserDB.getUserInfo(usName) != null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

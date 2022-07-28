@@ -71,14 +71,14 @@ public class ChatDB {
         rs.close();
         st.close();
         con.close();
-        return chs.isEmpty() ? null : chs;
+        return chs;
     }
 
     public static void addChat(Chat ch) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = "insert into chat values(" + "NULL " + "," +
-                (ch.isCanSend() ? "1" : "0") + "," + ch.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
+                ch.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
                 "," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + "," + ch.getOwner().getId() + ","
                 + ch.getType().ordinal() + "," + ch.getName() + ")";
         st.execute(query);
@@ -92,12 +92,12 @@ public class ChatDB {
         ResultSet rs = st.executeQuery("select * from chat where ch_id = " + chatID);
         Chat ch = null;
         if (rs.next()) {
-            ch = new Chat(rs.getString(9), chatType(rs.getInt(8)));
+            ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
             ch.setId(chatID);
-            ch.setOwner(UserDB.getUserInfo(rs.getLong(7)));
-            ch.setVisible(rs.getInt(6) == 1 ? true : false);
-            ch.setMemberCount(rs.getInt(5));
-            ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            ch.setOwner(UserDB.getUserInfo(rs.getLong("ch_owner_id")));
+            ch.setVisible(rs.getInt(4) == 1 ? true : false);
+            ch.setMemberCount(rs.getInt(3));
+            ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
         }
         return ch;
     }

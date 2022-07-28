@@ -5,70 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/OOP-project-bhs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OOP-project-bhs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_29.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/MessageConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/MessageConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/BusinessUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/BusinessUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/NormalUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/NormalUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/ChatItemView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/ChatItemView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/InputProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/InputProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/LimitedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/LimitedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/CreatePostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/CreatePostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ListController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/RegisterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/SecondaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/SecondaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/crypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/crypt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/ChatUserConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/ChatUserConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/MessageConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/MessageConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/PostUserConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/PostUserConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/connection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Chat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Image.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/node.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdColor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/exception/changeViewException.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/exception/changeViewException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/format.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/format.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/View.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatListView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatListView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/CreatePostView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/CreatePostView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/HelpView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/HelpView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/LoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/PrimaryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/PrimaryView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/RegisterView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/SecondaryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/SecondaryView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/ChatItemView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/ChatItemView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/MessageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/MessageView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PostView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PostView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/target/test-classes/com/project/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/test-classes/com/project/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/shweeter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/shweeter.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +39,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -142,5 +112,56 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Chat.java</url>
+          <line>48</line>
+          <properties class="com.project.models.node.Chat" method="getName">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/MessageConnection.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

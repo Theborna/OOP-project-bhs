@@ -1,5 +1,6 @@
 package com.project.models.connection;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -18,27 +19,28 @@ public class MessageConnection extends connection<Message, Chat> {
 
     public static Set<Message> getMessages(Long chatId) {
         // TODO: run query and shit
-        Set<Message> messages = new LinkedHashSet<>();
-        User other = new NormalUser("sep", "14124");
-        Message ziba = new Message(
-                "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
-                User.getCurrentUser());
-        messages.add(ziba);
-        messages.add(new Message("+++++", other).setReplyTo(ziba));
-        messages.add(new Message("sammeeee", other).setReplyTo(ziba));
-        for (int i = 0; i < 29; i++)
-            messages.add(new Message(String.valueOf(i), (i % 2 == 0) ? User.getCurrentUser() : other));
+        Set<Message> messages = null;
+        try {
+            messages = new LinkedHashSet<>(MessageDB.getMessagesByChatID(chatId));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+//        User other = new NormalUser("sep", "14124");
+//        Message ziba = new Message(
+//                "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
+//                User.getCurrentUser());
+//        messages.add(ziba);
+//        messages.add(new Message("+++++", other).setReplyTo(ziba));
+//        messages.add(new Message("sammeeee", other).setReplyTo(ziba));
+//        for (int i = 0; i < 29; i++)
+//            messages.add(new Message(String.valueOf(i), (i % 2 == 0) ? User.getCurrentUser() : other));
         // messages.addAll(MessageDB.)
+
         return messages;
     }
 
     public static Message getLastMessage(Long chatId) {
-        // TODO: run query and shit
-        Message msg = new Message(
-                "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
-                User.getCurrentUser());
-        msg.setLastModifiedDate(LocalDateTime.now());
-        // System.out.println(msg.getLastModifiedDate());
-        return msg;
+        Set<Message> msgs = getMessages(chatId);
+        return (msgs.size() == 0) ? null : (Message) msgs.toArray()[msgs.size() - 1];
     }
 }

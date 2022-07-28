@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-07-28T10:44:27.865343Z</date>
-  <millis>1659005067865</millis>
-  <nanos>343000</nanos>
+  <date>2022-07-28T13:16:32.785982400Z</date>
+  <millis>1659014192785</millis>
+  <nanos>982400</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-07-28T10:44:27.879306500Z</date>
-  <millis>1659005067879</millis>
-  <nanos>306500</nanos>
+  <date>2022-07-28T13:16:32.793961700Z</date>
+  <millis>1659014192793</millis>
+  <nanos>961700</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>changed view to PrimaryView</message>
 </record>
 <record>
-  <date>2022-07-28T10:44:36.433242500Z</date>
-  <millis>1659005076433</millis>
-  <nanos>242500</nanos>
+  <date>2022-07-28T13:16:36.507953Z</date>
+  <millis>1659014196507</millis>
+  <nanos>953000</nanos>
   <sequence>2</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>changed view to LoginView</message>
 </record>
 <record>
-  <date>2022-07-28T10:45:40.872882Z</date>
-  <millis>1659005140872</millis>
-  <nanos>882000</nanos>
+  <date>2022-07-28T13:16:51.512797300Z</date>
+  <millis>1659014211512</millis>
+  <nanos>797300</nanos>
   <sequence>3</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -48,5 +48,29 @@
   <method>setView</method>
   <thread>1</thread>
   <message>changed view to SecondaryView</message>
+</record>
+<record>
+  <date>2022-07-28T13:16:53.746844500Z</date>
+  <millis>1659014213746</millis>
+  <nanos>844500</nanos>
+  <sequence>4</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to ChatListView</message>
+</record>
+<record>
+  <date>2022-07-28T13:17:03.795784700Z</date>
+  <millis>1659014223795</millis>
+  <nanos>784700</nanos>
+  <sequence>5</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to ChatView</message>
 </record>
 </log>

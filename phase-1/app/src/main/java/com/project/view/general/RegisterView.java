@@ -1,5 +1,7 @@
 package com.project.view.general;
 
+import com.project.controllers.Controller;
+import com.project.controllers.LoginController;
 import com.project.controllers.RegisterController;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
@@ -42,6 +44,10 @@ public class RegisterView implements View {
             username = controller.getUsername(input = StdIn.nextLine());
             if (username == null)
                 printError("invalid username format");
+            if (controller.exists(username)) {
+                username = null;
+                printError("User already exists");
+            }
         }
         while (password == null) {
             prompt("enter password");
@@ -69,15 +75,18 @@ public class RegisterView implements View {
         }
         while (birthDate == null) {
             prompt("enter birth date(yyyy-mm-dd) or \"--skip\" to skip this part");
-            if ((input = StdIn.nextLine()).equals("--skip")) {
-                println("skipped", StdColor.GREEN);
-                break;
-            }
+//            if ((input = StdIn.nextLine()).equals("--skip")) {
+//                println("skipped", StdColor.GREEN);
+//                break;
+//            }
+            input = StdIn.nextLine();
             birthDate = controller.getBirthDate(input);
+            //System.out.println(new java.sql.Date(birthDate.getTime()));
+            //System.out.println(new java.sql.Date(birthDate.getTime()));
             if (birthDate == null)
                 printError("invalid birth date format");
         }
-        if ((user = controller.logToUser(username, password)) == null) {
+        if ((user = controller.logToUser(username)) == null) {
             println("register successful! ", StdColor.GREEN);
             while (type == null) {
                 printSelections("normal", "business");
@@ -98,9 +107,11 @@ public class RegisterView implements View {
                 user = new NormalUser(username, password);
             else
                 user = new BusinessUser(username, password);
-            user.setPublic(visible.equals("public")).setBirthDate(birthDate).sendToDB();
+            user.setPublic(visible.equals("public"));
+            user.setBirthDate(birthDate);
+            user.sendToDB();
         } else {
-            println("user already exists", StdColor.MAGENTA);
+            println("Incorrect username or password", StdColor.MAGENTA);
             printSelections("register", "login");
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();

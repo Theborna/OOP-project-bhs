@@ -19,7 +19,7 @@ import com.project.util.StdColor;
 
 /**
  * abstract class defining users.
- * 
+ *
  * @abstract Posting and getting stats
  * @Children NormalUser, BusinessUser
  */
@@ -38,9 +38,13 @@ public abstract class User extends node {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        setId(username.hashCode());
+//        setId(username.hashCode());
         pastMsg = new LimitedList<Message>(10);
         nameColor = StdColor.random("name");
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
     }
 
     public void setFollowerCnt(int followerCnt) {
@@ -51,9 +55,36 @@ public abstract class User extends node {
         this.postCnt = postCnt;
     }
 
+
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
-        currentUser = new NormalUser(username, password);
+        try {
+            if (UserDB.auth(username, password)) {
+                currentUser = logToUser(username);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return currentUser;
+        // try {
+        //     if (!UserDB.auth(currentUser))
+        //         return null;
+        //     currentUser = UserDB.getUserInfo(username);
+        //     return currentUser;
+        // } catch (Throwable e) {
+        //     e.printStackTrace();
+        // }
+        // return null;
+    }
+
+    public static User logToUser(String username) {
+        // TODO: get the current user from the database
+        try {
+            currentUser = UserDB.getUserInfo(username);
+            System.out.println(currentUser.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return currentUser;
         // try {
         //     if (!UserDB.auth(currentUser))
@@ -232,10 +263,12 @@ public abstract class User extends node {
         return isPublic;
     }
 
+    @Override
     public void sendToDB() {
         // TODO: send the user to the database, register
+//        System.out.println("heyuylg");
         try {
-            UserDB.registerUSer(this);
+            UserDB.sendToDB(this);
         } catch (SQLException e) {
             e.printStackTrace();
         }

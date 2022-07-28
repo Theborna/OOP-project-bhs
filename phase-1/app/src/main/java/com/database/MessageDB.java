@@ -79,6 +79,37 @@ public class MessageDB {
         return ret;
     }
 
+    public static ArrayList<Message> getMessagesByChatID(long chatID) throws SQLException {
+        ArrayList<Message> ret = new ArrayList<>();
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = "select * from messages where msg_chat_id = " + Long.toString(chatID) + ";";
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            Message msg = new Message(rs.getString(5), UserDB.getUserInfo(rs.getLong(3)));
+            if (rs.getLong(8) == 0) {
+                msg.setForwardedFrom(null);
+            } else {
+                msg.setForwardedFrom(UserDB.getUserInfo(rs.getLong(8)));
+            }
+            if (rs.getLong(4) != 0) {
+                msg.setReplyTo(MessageDB.getMessageByID(rs.getLong(4)));
+            } else {
+                msg.setReplyTo(null);
+            }
+
+            msg.setCreationDate(LocalDateTime.parse(rs.getString(6).substring(0,rs.getString(6).length() - 2), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            msg.setId(rs.getLong(1));
+            msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
+            msg.setEncKey(rs.getString(7));
+            ret.add(msg);
+        }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
+    }
+
     private static Message getMessageByID(long msgID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();

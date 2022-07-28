@@ -17,10 +17,4 @@ public class NormalUser extends User {
         Log.logger.info("added post: " + post.toString());
     }
 
-    @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
-        
-    }
-
 }
