@@ -18,6 +18,16 @@ public class UserDB {
     private UserDB() {
     }
 
+    public static void sendToDB(User us) throws SQLException {
+        User temp = getUserInfo(us.getId());
+        if (temp != null) {
+            updateUser(us);
+        } else {
+            registerUSer(us);
+        }
+
+    }
+
     public static void registerUSer(User user) throws SQLException {
         if (user == null)
             return;
@@ -98,7 +108,7 @@ public class UserDB {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from users where US_USName='" + usName + "';\n");
-        if (rs.next()) {
+        if (!rs.next()) {
             return null;
         }
 
@@ -143,7 +153,7 @@ public class UserDB {
 
     public static boolean auth(User user) throws Throwable {
         User us = UserDB.getUserInfo(user.getUsername());
-        return us.getPassword().equals(us.getPassword());
+        return us != null && us.getPassword().equals(us.getPassword());
     }
 
     public static void deleteUser(User user) throws SQLException {

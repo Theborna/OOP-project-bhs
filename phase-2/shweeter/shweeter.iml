@@ -43,5 +43,6 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:17" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:17" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:17" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.46-bin" level="project" />
   </component>
 </module>

@@ -1,6 +1,10 @@
 package com.database;
 
 
+import com.project.enums.ChatPermission;
+import com.project.enums.ChatType;
+import com.project.models.node.Chat;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,13 +12,6 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import com.project.enums.ChatPermission;
-import com.project.enums.ChatType;
-import com.project.models.node.Chat;
-import org.sqlite.core.DB;
-
-import javax.swing.plaf.nimbus.State;
 
 public class ChatDB {
     private ChatDB() {
@@ -60,7 +57,7 @@ public class ChatDB {
                 + ch.getName() + " where ch_id = " + ch.getId() + ";";
     }
 
-    // TODO: rewrite this fuck
+
     public static ArrayList<Chat> getChats(long USID) throws SQLException {
         ArrayList<Chat> chs = new ArrayList<>();
         Connection con = DBInfo.getConnection();

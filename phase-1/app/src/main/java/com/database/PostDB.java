@@ -8,10 +8,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import com.project.models.connection.Like;
 import com.project.models.node.post.Post;
 
 public class PostDB {
     private PostDB() {
+    }
+
+    public static void addToDB(Post ps) throws SQLException {
+        Post temp = getPostbyPostID(ps.getId());
+        if (temp != null) {
+            updatePost(ps);
+        } else {
+            addPost(ps);
+        }
     }
 
     public static void addPost(Post post) throws SQLException {
@@ -46,7 +56,9 @@ public class PostDB {
         Statement st = con.createStatement();
         String query = "select * from post_id = " + Long.toString(post_ID);
         ResultSet rs = st.executeQuery(query);
-        rs.next();
+        if (!rs.next()) {
+            return null;
+        }
         Post ps = new Post(rs.getString(2));
         ps.setId(post_ID);
         ps.setCreationDate(LocalDateTime.parse(rs.getString(3)));
@@ -75,6 +87,20 @@ public class PostDB {
             ps.setComments(rs.getInt(8));
         }
         return ret;
+    }
+
+    public static Like getLikes(long postid, long userid) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
+        if(!rs.next()){
+            return null;
+        }
+        return null;//new Like();
+    }
+
+    public static void like() {
+
     }
 
 }
