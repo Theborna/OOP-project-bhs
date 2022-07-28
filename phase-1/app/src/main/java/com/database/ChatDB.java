@@ -77,10 +77,11 @@ public class ChatDB {
     public static void addChat(Chat ch) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "insert into chat values(" + "NULL " + "," +
-                ch.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
-                "," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + "," + ch.getOwner().getId() + ","
-                + ch.getType().ordinal() + "," + ch.getName() + ")";
+        String query = "insert into chat values(" + "NULL " + ",'" +
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
+                "'," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + ","
+                + (ch.getOwner() == null ? "null" : "'" + ch.getOwner().getId() + "'") + ","
+                + ch.getType().ordinal() + ",'" + ch.getName() + "')";
         st.execute(query);
         st.close();
         con.close();

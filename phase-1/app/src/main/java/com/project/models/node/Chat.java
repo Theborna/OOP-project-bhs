@@ -131,7 +131,7 @@ public class Chat extends node {
     public void sendToDB() {
         // TODO Auto-generated method stub
         try {
-            ChatDB.addChat(this);
+            ChatDB.sendToDB(this);
         } catch (SQLException e) {
             e.printStackTrace();
         }
