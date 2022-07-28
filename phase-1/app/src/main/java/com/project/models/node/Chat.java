@@ -1,21 +1,17 @@
 package com.project.models.node;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.database.ChatDB;
-import com.project.controllers.ChatListController;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.MessageConnection;
 import com.project.models.node.user.User;
 import com.project.util.Log;
-import com.project.view.general.ChatListView;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.Map;
+import java.util.Set;
 
 public class Chat extends node {
     private static Chat current;
@@ -23,7 +19,6 @@ public class Chat extends node {
     private String linkID;
     private String name;
     private ChatType type;
-    private User sender;
     private boolean canSend;
     private int memberCount;
     private boolean visible;
@@ -57,14 +52,6 @@ public class Chat extends node {
 
     public ChatType getType() {
         return type;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public void setSender(User sender) {
-        this.sender = sender;
     }
 
     public boolean isCanSend() {
@@ -128,10 +115,11 @@ public class Chat extends node {
         return null;
     }
 
-    public ChatPermission getPermission(long id) {
-        // TODO: get the permission of the user
-        return ChatPermission.OWNER;
+    public ChatPermission getPermission(long id) throws SQLException {
+
+        return ChatDB.getChatPermission(id, this.id);
     }
+
 
     public void delete() {
         // TODO: delete the chat

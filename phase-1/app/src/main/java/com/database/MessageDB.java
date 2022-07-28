@@ -17,6 +17,15 @@ public class MessageDB {
     private MessageDB() {
     }
 
+    public static void adddToDB(Message msg) throws SQLException {
+        Message ret = getMessageByID(msg.getId());
+        if(ret != null){
+            newMessage(msg);
+        } else {
+            updatePreviouslyBuiltMSG(msg);
+        }
+    }
+
     public static void newMessage(Message msg) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
@@ -28,7 +37,7 @@ public class MessageDB {
         con.close();
     }
 
-    public static void UpdatePreviouslyBuiltMSG(Message msg) throws SQLException {
+    public static void updatePreviouslyBuiltMSG(Message msg) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = "update messages set msg_enc = " + msg.getMessage() + ", msg_date = "

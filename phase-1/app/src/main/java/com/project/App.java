@@ -46,7 +46,7 @@ public class App {
         return (pastViews.next());
     }
 
-    public static void main(String... args) throws Exception {
+    public static void main(String[] args) throws Exception {
         start();
         while (running) {
             if (rule) {

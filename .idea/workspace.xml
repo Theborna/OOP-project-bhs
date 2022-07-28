@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/OOP-project-bhs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OOP-project-bhs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_29.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/InputProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/InputProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/LimitedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/LimitedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ChatListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/CreatePostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/CreatePostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/FeedController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/ListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/SecondaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/controllers/SecondaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/crypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/crypt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/ChatUserConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/ChatUserConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/MessageConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/MessageConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/PostUserConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/PostUserConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/connection/connection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Chat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/node.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/StdOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/exception/changeViewException.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/exception/changeViewException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/format.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/util/format.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatListView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatListView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/ChatView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/CreatePostView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/CreatePostView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/HelpView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/HelpView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/PrimaryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/PrimaryView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/RegisterView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/SecondaryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/SecondaryView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/ChatItemView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/ChatItemView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/MessageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/MessageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PostView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PostView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/test-classes/com/project/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/test-classes/com/project/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/shweeter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/shweeter.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CW1v6EsIg99OIrdJXy0kWNEH0I" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../lib/Java libarary/mysql-connector-java-5.1.46-bin.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.App" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="" />
+      <created>1658903754042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658903754042</updated>
+      <workItem from="1658903757387" duration="8931000" />
+      <workItem from="1658920652866" duration="3906000" />
+      <workItem from="1658927590116" duration="2182000" />
+      <workItem from="1658933867769" duration="341000" />
+      <workItem from="1658988020317" duration="1354000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
