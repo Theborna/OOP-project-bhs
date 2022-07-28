@@ -26,7 +26,7 @@ public class SecondaryView implements View {
     @Override
     public void show() throws changeViewException {
         println("inside secondary");
-        printSelections("Chat", "Feed", "Explore", "Page");
+        printSelections("Chat", "Feed", "Explore", "Page", "Settings");
         prompt("enter next view");
         controller.parse(StdIn.nextLine());
     }

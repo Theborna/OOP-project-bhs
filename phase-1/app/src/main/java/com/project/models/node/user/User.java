@@ -54,16 +54,16 @@ public abstract class User extends node {
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
         currentUser = new NormalUser(username, password);
-        // return currentUser;
-        try {
-            if (!UserDB.auth(currentUser))
-                return null;
-            currentUser = UserDB.getUserInfo(username);
-            return currentUser;
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-        return null;
+        return currentUser;
+        // try {
+        //     if (!UserDB.auth(currentUser))
+        //         return null;
+        //     currentUser = UserDB.getUserInfo(username);
+        //     return currentUser;
+        // } catch (Throwable e) {
+        //     e.printStackTrace();
+        // }
+        // return null;
     }
 
     public int getPostCnt() {
@@ -239,6 +239,9 @@ public abstract class User extends node {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setPassword(String password2) {
     }
 
 }
