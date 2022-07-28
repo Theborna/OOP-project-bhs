@@ -16,11 +16,14 @@ import com.electro.phase1.models.node.user.User;
 import com.electro.util.ResponsiveVbox;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
+import com.electro.views.component.InfoNotification;
 import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInDown;
 import animatefx.animation.SlideInRight;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -33,6 +36,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -50,18 +54,19 @@ public class LoginPageController implements Initializable {
             lightPath = App.class.getResource("css/loginLight.css").toExternalForm();
 
     @FXML
-    private Button btnForgot, btnRegister, btnSignIn, btnSignUp, preview, btnGoToSignIn;
+    private Button btnForgot, btnRegister, btnSignIn, btnSignUp, preview, btnGoToSignIn, btnForgotSignIn,
+            btnForgotSignUp;
 
     @FXML
     private ToggleSwitch tglType, tglVisible, tglTargeted;
 
     @FXML
-    private AnchorPane signIn, signUp;
+    private AnchorPane signIn, signUp, forgot;
 
     @FXML
     private DatePicker dateBirth;
     @FXML
-    private TextField txtFullName, txtUsername, txtSignUsername, txtEmail;
+    private TextField txtFullName, txtUsername, txtSignUsername, txtEmail, txtSecAns;
     @FXML
     private PasswordField txtPass, txtPassConf, txtSignPassword;
 
@@ -74,6 +79,10 @@ public class LoginPageController implements Initializable {
     @FXML
     private BorderPane loginPane;
 
+    @FXML
+    private Label lblSecurityQ;
+
+    private StringProperty securityQ;
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -83,7 +92,9 @@ public class LoginPageController implements Initializable {
         initButton(btnSignIn);
         initButton(btnSignUp);
         initButton(btnRegister);
-        new ProfilePopOver(preview);
+        securityQ = new SimpleStringProperty();
+        lblSecurityQ.textProperty().bind(securityQ.concat("?"));
+        // new ProfilePopOver(preview);
         // ResponsiveVbox.bind(vbox);
         // ResponsiveVbox.bind(scrollSignUp);
         // loginPane.widthProperty().addListener(new ChangeListener<Number>() {
@@ -151,15 +162,30 @@ public class LoginPageController implements Initializable {
         if (!(o instanceof Button))
             return;
         Button b = (Button) o;
-        if (b == btnSignUp) {
+        if (b == btnSignUp || b == btnForgotSignUp) {
             switchTo(signUp);
         } else if (b == btnRegister) {
             if (register()) {
                 switchTo(signIn);
             }
-        } else if (b == btnGoToSignIn) {
+        } else if (b == btnGoToSignIn || b == btnForgotSignIn) {
             switchTo(signIn);
+        } else if (b == btnForgot) {
+            forgot();
         }
+    }
+
+    private void forgot() {
+        String username, question;
+        new FieldEmptyError(txtSignUsername);
+        if (!LoginController.getInstance().setUsername(username = txtSignUsername.getText()))
+            return;
+        if ((question = LoginController.getInstance().securityQuestion(username)) == null) {
+            new ErrorNotification("user does not exit");
+            return;
+        }
+        securityQ.set(question);
+        switchTo(forgot);
     }
 
     @FXML
@@ -251,6 +277,20 @@ public class LoginPageController implements Initializable {
         pane.toFront();
         new SlideInRight(pane).play();
         inFront = pane;
+    }
+
+    @FXML
+    private void confirmSecurity() {
+        new FieldEmptyError(txtSecAns);
+        if (txtSecAns.getText().length() < 1)
+            return;
+        String pass;
+        if ((pass = LoginController.getInstance().isCorrectSecure(txtSecAns.getText())) == null) {
+            new ErrorNotification("incorrect answer");
+            return;
+        }
+        new InfoNotification("password = " + pass);
+
     }
 
 }
