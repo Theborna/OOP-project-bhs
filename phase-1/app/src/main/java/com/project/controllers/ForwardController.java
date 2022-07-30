@@ -65,7 +65,7 @@ public class ForwardController extends ChatListController {
         for (Chat chat : selections.keySet())
             if (isSelected(chat))
                 for (Message msg : messages)
-                    User.getCurrentUser().sendMessage(msg.forwardFrom(User.getCurrentUser()), chat);
+                    User.getCurrentUser().sendMessage(msg.forwardFrom(User.getCurrentUser(), chat), chat);
     }
 
     private void deselect(Chat currentChat) {

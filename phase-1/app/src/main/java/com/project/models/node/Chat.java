@@ -39,7 +39,12 @@ public class Chat extends node {
 
     public static void LogToChat(long id) {
         // find the chat from the database and set current chat
-        current = new Chat("kos", ChatType.PRIVATE);
+//        current = new Chat("kos", ChatType.PRIVATE);
+        try {
+            current = ChatDB.getChatByID(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Chat getCurrent() {
@@ -117,7 +122,7 @@ public class Chat extends node {
     }
 
     public ChatPermission getPermission(long id) throws SQLException {
-
+        System.out.println(this.id + " user: " + id);
         return ChatDB.getChatPermission(id, this.id);
     }
 

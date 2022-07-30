@@ -16,7 +16,7 @@ import java.util.List;
  *                 send data to database
  */
 public abstract class node {
-    protected long id;
+    protected long id = 0;
     protected LocalDateTime creationDate, lastModifiedDate;
     // protected static List<node> allData;
 

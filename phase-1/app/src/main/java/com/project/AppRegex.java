@@ -23,7 +23,7 @@ public enum AppRegex {
     ;
 
     static final String username() {
-        return "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$";
+        return "(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]";
     };
 
     static final String password() {

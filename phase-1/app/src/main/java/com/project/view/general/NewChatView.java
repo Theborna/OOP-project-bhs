@@ -48,7 +48,7 @@ public class NewChatView implements View {
             println("name: " + controller.getName());
             println("members: ");
             print(controller.getMembers().values(), StdColor.MAGENTA);
-            controller.makeChat().sendToDB();
+            controller.makeChat();
             instance = null;
             App.setView(ChatListView.getInstance());
         } catch (changeViewException e) {
@@ -175,6 +175,9 @@ public class NewChatView implements View {
                     break;
                 case 6:
                     printError("can't add more users");
+                    break;
+                case 7:
+                    printError("no such user exists!");
                     break;
                 default:
                     break;

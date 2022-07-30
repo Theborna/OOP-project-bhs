@@ -68,12 +68,16 @@ public class ChatController implements ListController<MessageView> {
                 showMsg = false;
                 break;
             case "reply":
+                if(currentMsg != null)
                 inReply = currentMsg.getMessage().getId();
             case "new message":
             case "new":
             case "compose":
                 post(inReply);
+                break;
             case "edit":
+                if(currentMsg == null)
+                    break;
                 switch (editable(currentMsg.getMessage())) {
                     case 0:
                         printError("you are not the author of this message");
@@ -228,7 +232,7 @@ public class ChatController implements ListController<MessageView> {
     public void post(StringBuilder sb, Long inReply) {
         if (sb == null)
             return;
-        Message message = new Message(sb.toString(), User.getCurrentUser());
+        Message message = new Message(sb.toString(), User.getCurrentUser(),Chat.getCurrent());
         // TODO: set message data
         User.getCurrentUser().sendMessage(message, Chat.getCurrent());
         println("message posted successfully", StdColor.GREEN);

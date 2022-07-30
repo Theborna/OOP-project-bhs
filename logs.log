@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-07-28T13:38:18.584856300Z</date>
-  <millis>1659015498584</millis>
-  <nanos>856300</nanos>
+  <date>2022-07-30T09:45:13.034875100Z</date>
+  <millis>1659174313034</millis>
+  <nanos>875100</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:18.595764400Z</date>
-  <millis>1659015498595</millis>
-  <nanos>764400</nanos>
+  <date>2022-07-30T09:45:13.043850800Z</date>
+  <millis>1659174313043</millis>
+  <nanos>850800</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>changed view to PrimaryView</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:25.686010700Z</date>
-  <millis>1659015505686</millis>
-  <nanos>10700</nanos>
+  <date>2022-07-30T09:45:18.914872900Z</date>
+  <millis>1659174318914</millis>
+  <nanos>872900</nanos>
   <sequence>2</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>changed view to LoginView</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:34.850018700Z</date>
-  <millis>1659015514850</millis>
-  <nanos>18700</nanos>
+  <date>2022-07-30T09:45:24.186391200Z</date>
+  <millis>1659174324186</millis>
+  <nanos>391200</nanos>
   <sequence>3</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -50,9 +50,9 @@
   <message>changed view to SecondaryView</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:38.705907900Z</date>
-  <millis>1659015518705</millis>
-  <nanos>907900</nanos>
+  <date>2022-07-30T09:45:28.520651300Z</date>
+  <millis>1659174328520</millis>
+  <nanos>651300</nanos>
   <sequence>4</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -62,110 +62,62 @@
   <message>changed view to ChatListView</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:41.248827100Z</date>
-  <millis>1659015521248</millis>
-  <nanos>827100</nanos>
+  <date>2022-07-30T09:45:29.533280700Z</date>
+  <millis>1659174329533</millis>
+  <nanos>280700</nanos>
   <sequence>5</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
   <class>com.project.App</class>
   <method>setView</method>
   <thread>1</thread>
-  <message>changed view to NewChatView</message>
+  <message>changed view to ChatView</message>
 </record>
 <record>
-  <date>2022-07-28T13:38:53.391379Z</date>
-  <millis>1659015533391</millis>
-  <nanos>379000</nanos>
+  <date>2022-07-30T09:45:44.841225600Z</date>
+  <millis>1659174344841</millis>
+  <nanos>225600</nanos>
   <sequence>6</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
+  <class>com.project.models.node.user.User</class>
+  <method>sendMessage</method>
   <thread>1</thread>
-  <message>changed view to ChatListView</message>
+  <message>sent message: Message[id=2] to chat: Chat[id=5]</message>
 </record>
 <record>
-  <date>2022-07-28T13:39:15.606224500Z</date>
-  <millis>1659015555606</millis>
-  <nanos>224500</nanos>
+  <date>2022-07-30T09:46:04.082933400Z</date>
+  <millis>1659174364082</millis>
+  <nanos>933400</nanos>
   <sequence>7</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
   <class>com.project.App</class>
   <method>setView</method>
   <thread>1</thread>
-  <message>changed view to NewChatView</message>
+  <message>changed view to ChatListView</message>
 </record>
 <record>
-  <date>2022-07-28T13:39:22.910209200Z</date>
-  <millis>1659015562910</millis>
-  <nanos>209200</nanos>
+  <date>2022-07-30T09:46:09.959133300Z</date>
+  <millis>1659174369959</millis>
+  <nanos>133300</nanos>
   <sequence>8</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
   <class>com.project.App</class>
   <method>setView</method>
   <thread>1</thread>
-  <message>changed view to ChatListView</message>
+  <message>changed view to ChatView</message>
 </record>
 <record>
-  <date>2022-07-28T13:39:27.061945600Z</date>
-  <millis>1659015567061</millis>
-  <nanos>945600</nanos>
+  <date>2022-07-30T09:47:09.136604900Z</date>
+  <millis>1659174429136</millis>
+  <nanos>604900</nanos>
   <sequence>9</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
   <class>com.project.App</class>
   <method>setView</method>
   <thread>1</thread>
-  <message>changed view to SecondaryView</message>
-</record>
-<record>
-  <date>2022-07-28T13:39:29.989223Z</date>
-  <millis>1659015569989</millis>
-  <nanos>223000</nanos>
-  <sequence>10</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to ChatListView</message>
-</record>
-<record>
-  <date>2022-07-28T13:39:37.454298300Z</date>
-  <millis>1659015577454</millis>
-  <nanos>298300</nanos>
-  <sequence>11</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to NewChatView</message>
-</record>
-<record>
-  <date>2022-07-28T13:41:06.950068300Z</date>
-  <millis>1659015666950</millis>
-  <nanos>68300</nanos>
-  <sequence>12</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to ChatListView</message>
-</record>
-<record>
-  <date>2022-07-28T13:41:11.645018700Z</date>
-  <millis>1659015671645</millis>
-  <nanos>18700</nanos>
-  <sequence>13</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to NewChatView</message>
+  <message>changed view to PageView</message>
 </record>

@@ -6,6 +6,7 @@ import java.util.Set;
 
 import java.util.Date;
 
+import com.database.MessageDB;
 import com.database.UserDB;
 import com.project.LimitedList;
 import com.project.models.connection.ChatUserConnection;
@@ -108,6 +109,11 @@ public abstract class User extends node {
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
         pastMsg.add(message);
+        try {
+            MessageDB.adddToDB(message);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void follow(User user) {
@@ -165,7 +171,13 @@ public abstract class User extends node {
 
     public static Long getID(String username) {
         // TODO: run a query to get the id
-        return Long.valueOf(username.hashCode());
+        try {
+            User us = UserDB.getUserInfo(username);
+            return (us == null ? 0 : us.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String getEmail() {

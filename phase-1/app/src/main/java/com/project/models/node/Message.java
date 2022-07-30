@@ -17,10 +17,11 @@ public class Message extends node implements TextBased { // TODO lots of modific
     // private int likes, dislikes;
     private static long id;
 
-    public Message(String message, User sender) {
+    public Message(String message, User sender, Chat ch) {
         this.message = new StringBuilder(message);
         this.sender = sender;
         this.author = sender;
+        this.ch = ch;
         setData(id++, LocalDateTime.now(),
                 LocalDateTime.now());
         replyTo = null;
@@ -68,6 +69,8 @@ public class Message extends node implements TextBased { // TODO lots of modific
     }
 
     public User getForwardedFrom() {
+        if (author == null)
+            author = sender;
         return author;
     }
 
@@ -79,11 +82,11 @@ public class Message extends node implements TextBased { // TODO lots of modific
         this.ch = ch;
     }
 
-    public Message forwardFrom(User sender) {
-        Message newMsg = new Message(this.message.toString(), sender);
+    public Message forwardFrom(User sender, Chat ch) {
+        Message newMsg = new Message(this.message.toString(), sender, ch);
         newMsg.author = this.author;
-        newMsg.creationDate = this.creationDate;
-        newMsg.lastModifiedDate = LocalDateTime.now();
+        newMsg.creationDate = LocalDateTime.now();
+//        newMsg.lastModifiedDate =
         return newMsg;
     }
 
