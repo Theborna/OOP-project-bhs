@@ -46,7 +46,7 @@ public class SelfPageView extends PageView {
 
     @Override
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "settings");
+        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "settings","comment","show -comments");
     }
 
     @Override

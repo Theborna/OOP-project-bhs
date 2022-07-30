@@ -51,7 +51,7 @@ public class FeedController implements ListController<PostView> {
                 App.setView(new CreatePostView().inReplyTo(null));
                 break;
             case "comment":
-                App.setView(new CreatePostView().inReplyTo(currentPost.getPost().getId()));
+                App.setView(new CreatePostView().inReplyTo(currentPost.getPost()));
                 break;
             case "like":
                 like();

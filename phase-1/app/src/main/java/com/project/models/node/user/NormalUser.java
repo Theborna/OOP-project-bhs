@@ -12,9 +12,10 @@ public class NormalUser extends User {
     }
 
     @Override
-    public void Post(String post) {
+    public void Post(String post, Post inReplyTo) {
         // TODO: add post to DB
         Post newPost = new NormalPost(post,this);
+        newPost.setRepliedPost(inReplyTo);
         Log.logger.info("added post: " + newPost.toString());
         newPost.sendToDB();
     }

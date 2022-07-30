@@ -14,6 +14,7 @@ import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
 import com.project.models.node.node;
+import com.project.models.node.post.Post;
 import com.project.util.Log;
 import com.project.util.StdColor;
 
@@ -219,7 +220,7 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public abstract void Post(String post);
+    public abstract void Post(String post, Post inReplyTo);
 
     public String getUsername() {
         return username;

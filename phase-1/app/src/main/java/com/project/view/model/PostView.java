@@ -20,6 +20,10 @@ public class PostView implements View {
     @Override
     public void show() {
         rule('_');
+        if (post.getRepliedPost() != null) {
+            print("╔════@" + post.getRepliedPost().getSender().getUsername(), StdColor.BLACK_BRIGHT);
+            println(": " + post.getRepliedPost().getBuilder(), StdColor.BLACK_BRIGHT);
+        }
         print(post.getSender().getUsername(), StdColor.MAGENTA_UNDERLINED);
         println(" ,date: " + post.getCreationDate() + " ,id: " + post.getId(), StdColor.BLACK_BRIGHT);
         if (post instanceof PromotedPost) {
