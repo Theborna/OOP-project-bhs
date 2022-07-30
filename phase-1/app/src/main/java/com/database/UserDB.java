@@ -5,6 +5,7 @@ import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -245,5 +246,18 @@ public class UserDB {
         st.close();
         con.close();
         return ret.isEmpty() ? null : ret;
+    }
+
+    public static void follow(User current, User toFollow) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        st.execute("insert into following values(" + current.getId() + ", " + toFollow.getId() + ",'"
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 0);");
+    }
+
+    public static void unFollow(User current, User toFollow) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        st.execute("delete from following where follower_id = " + current.getId() + " and follow");
     }
 }
