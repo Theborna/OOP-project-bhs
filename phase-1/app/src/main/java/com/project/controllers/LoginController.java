@@ -2,8 +2,10 @@ package com.project.controllers;
 
 import com.database.UserDB;
 import com.project.AppRegex;
+import com.project.crypt;
 import com.project.models.node.user.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class LoginController implements Controller {
@@ -25,7 +27,7 @@ public class LoginController implements Controller {
     }
 
     public User logToUser(String username, String password) {
-        return User.logToUser(username, password);
+            return User.logToUser(username, password);
     }
 
     public User logToUser(String username) {

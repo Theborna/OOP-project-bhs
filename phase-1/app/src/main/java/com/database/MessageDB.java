@@ -48,7 +48,7 @@ public class MessageDB {
         String query = "update messages set msg_enc = '" + msg.getMessage() + "', msg_date = '"
                 + msg.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 + "', msg_sender_priv_key_enc = '" + msg.getEncKey() + "' where msg_id = " + msg.getId() + ";";
-        System.out.println(query);
+        //System.out.println(query);
         st.execute(query);
         st.close();
         con.close();

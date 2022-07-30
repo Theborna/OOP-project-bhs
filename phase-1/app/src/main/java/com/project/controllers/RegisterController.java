@@ -18,7 +18,7 @@ public class RegisterController extends LoginController {
     }
 
     public String getFullName(String nextLine) {
-        if (nextLine.matches("\\S+") && nextLine.length() <= 30)
+        if (AppRegex.FULL_NAME.matches(nextLine))
             return nextLine;
         return null;
     }

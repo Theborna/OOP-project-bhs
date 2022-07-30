@@ -26,8 +26,8 @@ public class CreatePostView implements View {
         }
         System.out.println(postText);
         // TODO: add more stuff to posts
-        Post post = new Post(postText.toString());
-        User.getCurrentUser().Post(post);
+//        Post post = new Post(postText.toString());
+        User.getCurrentUser().Post(postText.toString());
         inReplyTo = null;
         App.setView(App.lastView());
     }

@@ -17,7 +17,7 @@ public enum AppRegex {
             "-permission (?<username>" + username() + ") (?<permission>(owner)|(admin)|(normal)|(observer))"),
     CHAT_ID(username()),
     SET_PASSWORD("-set -password (?<password>\\w+)"),
-    SET_USERNAME("-set -username (?<username>\\w+)"), SET_NAME("-set -name (?<name>\\w+)"),
+    SET_USERNAME("-set -username (?<username>\\w+)"), SET_NAME("-set -name (?<name>.+)"),
     SET_BIO("-set -bio (?<bio>.+)"),
     SET_VISIBILITY("-set -visibility (?<visibility>\\w+)"),
     ;
@@ -31,7 +31,7 @@ public enum AppRegex {
     }
 
     static final String fullName() {
-        return "\\S+";
+        return "(^[A-Za-z]{1,16})([ ]{0,1})([A-Za-z]{0,16})?([ ]{0,1})?([A-Za-z]{0,16})?([ ]{0,1})?([A-Za-z]{0,16})";
     }
 
     String regex;

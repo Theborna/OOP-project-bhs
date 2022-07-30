@@ -3,6 +3,7 @@ package com.project.view.general;
 import com.project.controllers.Controller;
 import com.project.controllers.LoginController;
 import com.project.controllers.RegisterController;
+import com.project.crypt;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
@@ -13,6 +14,7 @@ import com.project.view.View;
 
 import static com.project.util.StdOut.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import com.project.App;
@@ -103,12 +105,17 @@ public class RegisterView implements View {
                     printError("invalid input");
             }
             print("register completed! ", StdColor.GREEN);
+            String salt = crypt.salt();
+            password = crypt.encryptedString(password + salt);
             if (type.equals("normal"))
                 user = new NormalUser(username, password);
             else
                 user = new BusinessUser(username, password);
             user.setPublic(visible.equals("public"));
             user.setBirthDate(birthDate);
+            user.setEmail(email);
+            user.setUserType(user instanceof NormalUser ? 0 : 1);
+            user.setSalt(salt);
             user.sendToDB();
         } else {
             println("Incorrect username or password", StdColor.MAGENTA);
@@ -121,7 +128,7 @@ public class RegisterView implements View {
                 App.setView(LoginView.getInstance());
             return;
         }
-        println("user: " + username + ", password: " + password + ", visibility: " + visible
+        println("user: " + username + ", visibility: " + visible
                 + ", email: " + email + ", type: " + type + ", born at: "
                 + birthDate.toString().replaceAll("\\d{2}:\\d{2}:\\d{2} ", ""));
         App.setView(LoginView.getInstance());

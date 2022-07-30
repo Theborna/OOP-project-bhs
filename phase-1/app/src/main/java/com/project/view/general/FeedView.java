@@ -41,7 +41,7 @@ public class FeedView implements View {
             controller.getCurrent().show();
             printCommands();
         } else
-            print("no posts to show",StdColor.CYAN);
+            println("no posts to show",StdColor.CYAN);
         prompt("enter next command");
         String input = StdIn.nextLine();
         controller.parse(input);

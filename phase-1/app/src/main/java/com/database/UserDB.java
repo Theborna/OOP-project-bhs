@@ -1,5 +1,6 @@
 package com.database;
 
+import com.project.crypt;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
@@ -18,6 +19,8 @@ public class UserDB {
 
     public static void sendToDB(User us) throws SQLException {
         User temp = getUserInfo(us.getUsername());
+        if (temp == null)
+            temp = getUserInfo(us.getId());
         if (temp != null) {
             updateUser(us);
         } else {
@@ -48,8 +51,8 @@ public class UserDB {
                 "US_Salt = '" + user.getSalt() + "', US_Type = " + Integer.toString(user.getUserType()) + "" +
                 ", US_Visibilty = " + ((user.isPublic()) ? "1" : "0") + ", US_Name = '" + user.getName() + "'" +
                 ", US_LastName = '" + user.getLastName() + "', US_Email = '" + user.getLastName() +
-                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) + ";";
-        // System.out.println(query);
+                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) + " where US_ID = " + user.getId() + ";";
+        //System.out.println(query);
         con.createStatement().execute(query);
         con.close();
     }
@@ -67,7 +70,7 @@ public class UserDB {
         // 1 -> buisness user
 
         if (userType == 0) {
-            System.out.println(userType);
+            //System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -82,7 +85,7 @@ public class UserDB {
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
         } else {
-            System.out.println(userType);
+            //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -155,7 +158,7 @@ public class UserDB {
 
     public static boolean auth(String username, String passwd) throws Throwable {
         User us = UserDB.getUserInfo(username);
-        return us != null && us.getPassword().equals(passwd);
+        return us != null && us.getPassword().equals(crypt.encryptedString(passwd + us.getSalt()));
     }
 
     public static void deleteUser(User user) throws SQLException {
@@ -188,8 +191,8 @@ public class UserDB {
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "select * from following where follower_id = " + followingID + " AND following_id = "
-                + currentUserID;
+        String query = "select * from following where follower_id = " + currentUserID + " AND following_id = "
+                + followingID;
         ResultSet rs = st.executeQuery(query);
         if (rs.next()) {
             return 0;
@@ -258,6 +261,7 @@ public class UserDB {
     public static void unFollow(User current, User toFollow) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.execute("delete from following where follower_id = " + current.getId() + " and follow");
+        st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
+                + toFollow.getId());
     }
 }

@@ -1,7 +1,9 @@
 package com.database;
 
 import com.project.models.connection.Like;
+import com.project.models.node.post.NormalPost;
 import com.project.models.node.post.Post;
+import com.project.models.node.post.PromotedPost;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,7 +31,8 @@ public class PostDB {
                 "'" + post.getText().toString() + "','" +
                 "" + post.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
                 "" + post.getSender().getId() + ", "
-                + (post.getRepliedPost() != null ? Long.toString(post.getRepliedPost().getId()) : "0") + ", 0, 0, 0)");
+                + (post.getRepliedPost() != null ? Long.toString(post.getRepliedPost().getId()) : "0") + ", 0, 0, 0, "
+                + (post instanceof PromotedPost ? "1" : "0") + ")");
         DBInfo.getConnection().close();
     }
 
@@ -55,14 +58,19 @@ public class PostDB {
     public static Post getPostbyPostID(long post_ID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "select * from post_id = " + Long.toString(post_ID);
+        String query = "select * from post where post_id = " + Long.toString(post_ID);
         ResultSet rs = st.executeQuery(query);
         if (!rs.next()) {
             return null;
         }
-        Post ps = new Post(rs.getString(2));
+        Post ps;
+        if (rs.getInt(9) == 0)
+            ps = new NormalPost(rs.getString(2), null);
+        else
+            ps = new PromotedPost(rs.getString(2), null);
+
         ps.setId(post_ID);
-        ps.setCreationDate(LocalDateTime.parse(rs.getString(3)));
+        ps.setCreationDate(DBInfo.parseDate(rs.getString(3)));
         ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
         ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
         ps.setLikes(rs.getInt(6));
@@ -74,21 +82,27 @@ public class PostDB {
         return ps;
     }
 
-    public static ArrayList<Post> getPostByID(long us_ID) throws SQLException {
+    public static ArrayList<Post> getPostsByUSID(long us_ID) throws SQLException {
         ArrayList<Post> ret = new ArrayList<>();
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "select * form post where us_ID = " + us_ID;
+        String query = "select * from post where post_sender_id = " + us_ID;
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
-            Post ps = new Post(rs.getString(2));
+            Post ps;
+            if (rs.getInt(9) == 0)
+                ps = new NormalPost(rs.getString(2), null);
+            else
+                ps = new PromotedPost(rs.getString(2), null);
+
             ps.setId(rs.getLong(1));
-            ps.setCreationDate(LocalDateTime.parse(rs.getString(3)));
+            ps.setCreationDate(DBInfo.parseDate(rs.getString(3)));
             ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
             ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            ret.add(ps);
         }
         rs.close();
         st.close();
@@ -118,9 +132,14 @@ public class PostDB {
         ResultSet rs = st.executeQuery("select * from post where post_data like '" + txt + "'");
         ArrayList<Post> ret = new ArrayList<>();
         while (rs.next()) {
-            Post ps = new Post(rs.getString(2));
+            Post ps;
+            if (rs.getInt(9) == 0)
+                ps = new NormalPost(rs.getString(2), null);
+            else
+                ps = new PromotedPost(rs.getString(2), null);
+
             ps.setId(rs.getLong(1));
-            ps.setCreationDate(LocalDateTime.parse(rs.getString(3)));
+            ps.setCreationDate(DBInfo.parseDate(rs.getString(3)));
             ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
             ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
             ps.setLikes(rs.getInt(6));

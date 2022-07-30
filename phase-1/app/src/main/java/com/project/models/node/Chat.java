@@ -122,7 +122,7 @@ public class Chat extends node {
     }
 
     public ChatPermission getPermission(long id) throws SQLException {
-        System.out.println(this.id + " user: " + id);
+        //System.out.println(this.id + " user: " + id);
         return ChatDB.getChatPermission(id, this.id);
     }
 

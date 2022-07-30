@@ -3,6 +3,7 @@ package com.project.controllers;
 import java.util.regex.Matcher;
 
 import com.project.AppRegex;
+import com.project.crypt;
 import com.project.models.node.user.User;
 import com.project.util.exception.changeViewException;
 
@@ -48,8 +49,8 @@ public class SettingsController implements Controller {
 
     public void confirm() {// TODO : complete these
         user.setName(name);
-        user.setPassword(password);
-        user.setName(username);
+        user.setPassword(crypt.encryptedString(password + user.getSalt()));
+        user.setUsername(username);
         user.setPublic(visible);
         user.sendToDB();
     }
