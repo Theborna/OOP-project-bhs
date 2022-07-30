@@ -57,6 +57,8 @@ public class ChatDB {
                 + " , ch_owner_id = " + ch.getOwner().getId() + ", ch_type = " + ch.getType().ordinal() + ", ch_name = "
                 + ch.getName() + ", ch_txt_id = '" + ch.getLinkID() + "' where ch_id = " + ch.getId() + ";";
         st.executeQuery(query);
+        st.close();
+        con.close();
     }
 
 
@@ -103,6 +105,9 @@ public class ChatDB {
             ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
             ch.setLinkID(rs.getString(8));
         }
+        rs.close();
+        st.close();
+        con.close();
         return ch;
     }
 
@@ -120,6 +125,9 @@ public class ChatDB {
             ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
             ch.setLinkID(rs.getString(8));
         }
+        rs.close();
+        st.close();
+        con.close();
         return ch;
     }
 
@@ -130,6 +138,9 @@ public class ChatDB {
         if (rs.next()) {
             return chatPermission(rs.getInt(3));
         }
+        rs.close();
+        st.close();
+        con.close();
         return null;
     }
 
@@ -137,12 +148,16 @@ public class ChatDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.execute("insert into member values(" + usid + "," + chatid + "," + cp.ordinal() + ")");
+        st.close();
+        con.close();
     }
 
     public static void removeMemeber(long usid, long chatid) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.executeQuery("delete from member where userid = " + usid + " and chatid = " + chatid);
+        st.close();
+        con.close();
     }
 
 

@@ -101,7 +101,7 @@ public abstract class node {
     }
 
     public LocalDateTime getLastModifiedDate() {
-        return lastModifiedDate;
+        return getCreationDate();
     }
 
 }

@@ -40,6 +40,7 @@ public class PostDB {
                 "" + Integer.toString(post.getLikes()) + ", post_view_count = " + post.getViews()
                 + ", post_comments_count = "
                 + post.getComments() + " where post_id = " + post.getId() + ";");
+        st.close();
         con.close();
     }
 
@@ -67,6 +68,9 @@ public class PostDB {
         ps.setLikes(rs.getInt(6));
         ps.setViews(rs.getInt(7));
         ps.setComments(rs.getInt(8));
+        rs.close();
+        st.close();
+        con.close();
         return ps;
     }
 
@@ -86,6 +90,7 @@ public class PostDB {
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
         }
+        rs.close();
         st.close();
         con.close();
         return ret;
@@ -97,6 +102,9 @@ public class PostDB {
         ResultSet rs = st.executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
         if (!rs.next()) {
         }
+        st.close();
+        rs.close();
+        con.close();
         return null;//new Like();
     }
 
@@ -120,6 +128,9 @@ public class PostDB {
             ps.setComments(rs.getInt(8));
             ret.add(ps);
         }
+        rs.close();
+        st.close();
+        con.close();
         return ret.isEmpty() ? null : ret;
     }
 

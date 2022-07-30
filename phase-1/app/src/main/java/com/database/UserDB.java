@@ -96,6 +96,8 @@ public class UserDB {
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
         }
+        rs.close();
+        st.close();
         con.close();
         return us;
     }
@@ -144,6 +146,8 @@ public class UserDB {
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
         }
+        rs.close();
+        st.close();
         con.close();
         return us;
     }
@@ -157,6 +161,7 @@ public class UserDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.execute("delete from users where US_ID = " + user.getId());
+        st.close();
         con.close();
     }
 
@@ -170,6 +175,8 @@ public class UserDB {
             ret.add(getUserInfo(rs.getLong(2)));
             cnt++;
         }
+        rs.close();
+        st.close();
         con.close();
 
         return ret;
@@ -234,6 +241,9 @@ public class UserDB {
                 us.setPromoindex(rs.getDouble(14));
             }
         }
+        rs.close();
+        st.close();
+        con.close();
         return ret.isEmpty() ? null : ret;
     }
 }

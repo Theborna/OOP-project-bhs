@@ -22,8 +22,8 @@ public class Message extends node implements TextBased { // TODO lots of modific
         this.sender = sender;
         this.author = sender;
         this.ch = ch;
-        setData(id++, LocalDateTime.now(),
-                LocalDateTime.now());
+//        setData(id++, LocalDateTime.now(),
+//                LocalDateTime.now());
         replyTo = null;
     }
 

@@ -2,6 +2,7 @@ package com.project.models.node.user;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.Set;
 
 import java.util.Date;
@@ -41,7 +42,7 @@ public abstract class User extends node {
         this.password = password;
 //        setId(username.hashCode());
         pastMsg = new LimitedList<Message>(10);
-        nameColor = StdColor.random("name");
+        nameColor = StdColor.values()[(int) (id%StdColor.values().length)];
     }
 
     public Date getBirthDate() {
@@ -108,7 +109,7 @@ public abstract class User extends node {
 
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
-        pastMsg.add(message);
+//        pastMsg.add(message);
         try {
             MessageDB.adddToDB(message);
         } catch (SQLException e) {
@@ -254,6 +255,12 @@ public abstract class User extends node {
     }
 
     public LimitedList<Message> getPastMsg() {
+        pastMsg.clear();
+        try {
+            pastMsg.addAll(MessageDB.getMessagesByUserID(this.id));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return pastMsg;
     }
 
