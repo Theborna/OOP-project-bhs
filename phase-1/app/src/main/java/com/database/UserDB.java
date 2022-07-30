@@ -114,7 +114,7 @@ public class UserDB {
         // 1 -> buisness user
 
         if (userType == 0) {
-            System.out.println(userType);
+            //System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -129,7 +129,7 @@ public class UserDB {
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
         } else {
-            System.out.println(userType);
+            //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -190,5 +190,50 @@ public class UserDB {
         st.close();
         con.close();
         return rs.getInt(4);
+    }
+
+    public static ArrayList<User> searchByUserName(String entry) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from users where US_USName like '" + entry + "' or US_Name like '" + entry + "';");
+        ArrayList<User> ret = new ArrayList<>();
+        while (rs.next()) {
+            int userType = rs.getInt(6);
+            // 0 -> normal user
+            // 1 -> buisness user
+            User us;
+            if (userType == 0) {
+                //System.out.println(userType);
+                us = new NormalUser(rs.getString(2), rs.getString(3));
+                us.setUSID(rs.getLong(1));
+                us.setSalt(rs.getString(4));
+                us.setBirthDate(rs.getDate(5));
+                us.setUserType(userType);
+                us.setPublic(rs.getBoolean(7));
+                us.setFollowerCnt(rs.getInt(8));
+                us.setFollowingCnt(rs.getInt(9));
+                us.setPostCnt(rs.getInt(10));
+                us.setName(rs.getString(11));
+                us.setLastName(rs.getString(12));
+                us.setEmail(rs.getString(13));
+                us.setPromoindex(rs.getDouble(14));
+            } else {
+                //System.out.println(userType);
+                us = new BusinessUser(rs.getString(2), rs.getString(3));
+                us.setUSID(rs.getLong(1));
+                us.setSalt(rs.getString(4));
+                us.setBirthDate(rs.getDate(5));
+                us.setUserType(userType);
+                us.setPublic(rs.getBoolean(7));
+                us.setFollowerCnt(rs.getInt(8));
+                us.setFollowingCnt(rs.getInt(9));
+                us.setPostCnt(rs.getInt(10));
+                us.setName(rs.getString(11));
+                us.setLastName(rs.getString(12));
+                us.setEmail(rs.getString(13));
+                us.setPromoindex(rs.getDouble(14));
+            }
+        }
+        return ret.isEmpty() ? null : ret;
     }
 }

@@ -1,5 +1,8 @@
 package com.database;
 
+import com.project.models.connection.Like;
+import com.project.models.node.post.Post;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,9 +10,6 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import com.project.models.connection.Like;
-import com.project.models.node.post.Post;
 
 public class PostDB {
     private PostDB() {
@@ -86,6 +86,8 @@ public class PostDB {
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
         }
+        st.close();
+        con.close();
         return ret;
     }
 
@@ -93,14 +95,32 @@ public class PostDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
-        if(!rs.next()){
-            return null;
+        if (!rs.next()) {
         }
         return null;//new Like();
     }
 
     public static void like() {
 
+    }
+
+    public static ArrayList<Post> searchByText(String txt) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from post where post_data like '" + txt + "'");
+        ArrayList<Post> ret = new ArrayList<>();
+        while (rs.next()) {
+            Post ps = new Post(rs.getString(2));
+            ps.setId(rs.getLong(1));
+            ps.setCreationDate(LocalDateTime.parse(rs.getString(3)));
+            ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
+            ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
+            ps.setLikes(rs.getInt(6));
+            ps.setViews(rs.getInt(7));
+            ps.setComments(rs.getInt(8));
+            ret.add(ps);
+        }
+        return ret.isEmpty() ? null : ret;
     }
 
 }

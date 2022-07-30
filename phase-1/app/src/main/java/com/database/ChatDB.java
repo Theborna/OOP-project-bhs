@@ -4,6 +4,7 @@ package com.database;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.node.Chat;
+import com.project.models.node.post.Post;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -113,10 +114,17 @@ public class ChatDB {
         return null;
     }
 
-    public static void setChatPermission(long usid, long chatid, ChatPermission cp) throws SQLException {
+    public static void addMemeber(long usid, long chatid, ChatPermission cp) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.executeQuery("insert into member values(" + usid + "," + chatid + "," + cp.ordinal() + ")");
     }
+
+    public static void removeMemeber(long usid, long chatid, ChatPermission cp) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        st.executeQuery("delete from member where userid = " + usid + " and chatid = " + chatid);
+    }
+
 
 }
