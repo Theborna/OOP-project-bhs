@@ -22,7 +22,7 @@ public class UserDB {
         User temp = getUserInfo(us.getUsername());
         if (temp == null)
             temp = getUserInfo(us.getId());
-        if (temp != null) {
+        if (temp != null && us.getId() != 0) {
             updateUser(us);
         } else {
             registerUSer(us);
@@ -39,7 +39,7 @@ public class UserDB {
                 new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
-                "', '" + user.getEmail() + "', 0, "+user.getSecType().ordinal()+", '"+user.getSecAns()+"')";
+                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns() + "')";
         // System.out.println(query);
         con.createStatement().execute(query);
         con.close();

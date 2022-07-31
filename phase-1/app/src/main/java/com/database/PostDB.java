@@ -19,7 +19,7 @@ public class PostDB {
 
     public static void addToDB(Post ps) throws SQLException {
         Post temp = getPostbyPostID(ps.getId());
-        if (temp != null) {
+        if (temp != null && ps.getId() != 0) {
             updatePost(ps);
         } else {
             addPost(ps);

@@ -20,7 +20,7 @@ public class ChatDB {
 
     public static void sendToDB(Chat ch) throws SQLException {
         Chat temp = getChatByID(ch.getId());
-        if (temp != null) {
+        if (temp != null && ch.getId() != 0) {
             updateChat(ch);
         } else {
             addChat(ch);
