@@ -19,7 +19,7 @@ import static com.project.util.StdOut.*;
 
 public class FeedController implements ListController<PostView> {
     private List<PostView> postViews = new ArrayList<PostView>();
-    private PostView currentPost;
+    protected PostView currentPost;
     private int current;
 
     @Override

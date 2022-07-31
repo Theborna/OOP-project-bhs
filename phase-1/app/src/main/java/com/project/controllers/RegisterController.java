@@ -11,7 +11,7 @@ public class RegisterController extends LoginController {
     private Security securityQ = Security.randomQuestion();
     private String securityAns;
 
-    @Override
+    @Override   
     public void parse(String input) {
     }
 

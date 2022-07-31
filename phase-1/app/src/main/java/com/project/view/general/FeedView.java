@@ -12,6 +12,7 @@ import com.project.view.View;
 
 import static com.project.util.StdOut.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class FeedView implements View {
@@ -30,18 +31,18 @@ public class FeedView implements View {
     }
 
     public static FeedView getInstance() {
-//        if (instance == null)
-            instance = new FeedView();
+        // if (instance == null)
+        instance = new FeedView();
         return instance;
     }
 
     @Override
     public void show() throws changeViewException {
-        if(controller.getCurrent() != null) {
+        if (controller.getCurrent() != null) {
             controller.getCurrent().show();
             printCommands();
         } else
-            println("no posts to show",StdColor.CYAN);
+            println("no posts to show", StdColor.CYAN);
         prompt("enter next command");
         String input = StdIn.nextLine();
         controller.parse(input);
@@ -64,7 +65,7 @@ public class FeedView implements View {
     }
 
     private void showLikes(Post post) {
-        Set<User> likes = Like.getUsers(post);
+        Set<User> likes = new HashSet<>();// TODO: Like.getUsers(post);
         for (User user : likes) {
             print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
             print('|');
