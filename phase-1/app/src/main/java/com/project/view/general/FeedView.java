@@ -18,7 +18,7 @@ public class FeedView implements View {
     private static FeedView instance;
     protected FeedController controller;
 
-    protected FeedView() {
+    public FeedView() {
         controller = new FeedController();
         getFeed();
         controller.getCurrent();

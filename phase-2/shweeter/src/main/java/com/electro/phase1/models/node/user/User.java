@@ -138,4 +138,8 @@ public abstract class User extends node {
     public static String[] getSecurityQuestion(String username2) {// TODO: add this
         return new String[] { "what's the name of your dog?", "teddy", "boobs" };
     }
+
+    public static User get(String selectedItem) {
+        return currentUser;// TODO
+    }
 }

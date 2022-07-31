@@ -42,6 +42,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
@@ -65,9 +67,9 @@
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
-          <SplitPane fx:id="splPane" dividerPositions="0.28997704667176744" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+          <SplitPane fx:id="splPane" dividerPositions="0.23355011476664117" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
-                  <VBox fx:id="vboxSide" alignment="CENTER" maxWidth="400.0" minWidth="300.0" prefWidth="300.0">
+                  <VBox fx:id="vboxSide" alignment="TOP_CENTER" minWidth="250.0">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,12 +141,12 @@
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnSaved" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Saved messages" textAlignment="CENTER">
                            <graphic>
@@ -285,6 +287,9 @@
                            </padding>
                         </Button>
                      </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
                   </VBox>
                   <BorderPane fx:id="bpMain" prefWidth="552.0">
                      <center>
@@ -389,33 +394,6 @@
                                           </HBox>
                                        </children>
                                     </AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="94.0" layoutY="126.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
-                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnSettings" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
@@ -847,36 +825,89 @@
                                     </HBox>
                                  </children>
                               </AnchorPane>
+                              <AnchorPane fx:id="pnSearch" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
+                                 <children>
+                                    <TabPane layoutX="269.0" layoutY="144.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <tabs>
+                                        <Tab text="Users">
+                                             <content>
+                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0" />
+                                             </content>
+                                        </Tab>
+                                        <Tab text="Chats">
+                                          <content>
+                                            <AnchorPane fx:id="lslSearchChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          </content>
+                                             <content>
+                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0" />
+                                             </content>
+                                        </Tab>
+                                          <Tab text="Posts">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
+                                 <children>
+                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="319.20001220703125" layoutY="40.0" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                       <graphic>
+                                          <AnchorPane>
+                                             <children>
+                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
+                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
+                                                   <image>
+                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </StackPane>
                      </center>
                      <top>
-                        <AnchorPane fx:id="topPane" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </BorderPane.margin>
                            <children>
-                              <TextField layoutX="404.0" layoutY="27.0" prefWidth="175.0" promptText="Search" style="-fx-background-color: transparent;" styleClass="text12" stylesheets="@components/css/search.css" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0" />
-                              <HBox layoutX="1.0" layoutY="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+                              <ToggleButton fx:id="tglClose" mnemonicParsing="false">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8_Xbox_Menu_32px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </ToggleButton>
+                              <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ToggleButton fx:id="tglClose" mnemonicParsing="false">
-                                       <graphic>
-                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@images/icons8_Xbox_Menu_32px.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </ToggleButton>
-                                    <Label styleClass="text24" text="Shweeter" textFill="#e7e5e5">
+                                    <Label fx:id="lblLogo" styleClass="text24" text="Shweeter" textFill="#e7e5e5">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
+                              <TextField fx:id="txtSearch" prefWidth="175.0" promptText="Search" styleClass="txtSearch" />
                            </children>
-                           <BorderPane.margin>
-                              <Insets bottom="10.0" />
-                           </BorderPane.margin>
-                        </AnchorPane>
+                        </HBox>
                      </top>
                   </BorderPane>
             </items>

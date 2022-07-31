@@ -13,7 +13,7 @@ import com.electro.App;
 import com.electro.phase1.controllers.LoginController;
 import com.electro.phase1.controllers.RegisterController;
 import com.electro.phase1.models.node.user.User;
-import com.electro.util.ResponsiveVbox;
+import com.electro.util.ResponsiveHBox;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
 import com.electro.views.component.InfoNotification;
@@ -71,7 +71,7 @@ public class LoginPageController implements Initializable {
     private PasswordField txtPass, txtPassConf, txtSignPassword;
 
     @FXML
-    private VBox vbox;
+    private VBox vbox, vboxSign, vboxForgot;
 
     @FXML
     private ScrollPane scrollSignUp;
@@ -95,39 +95,39 @@ public class LoginPageController implements Initializable {
         securityQ = new SimpleStringProperty();
         lblSecurityQ.textProperty().bind(securityQ.concat("?"));
         // new ProfilePopOver(preview);
-        // ResponsiveVbox.bind(vbox);
-        // ResponsiveVbox.bind(scrollSignUp);
-        // loginPane.widthProperty().addListener(new ChangeListener<Number>() {
-        // @Override
-        // public void changed(ObservableValue<? extends Number> arg0, Number arg1,
-        // Number arg2) {
-        // double width = arg1.doubleValue();
-        // System.out.println(width);
-        // if (width < 650)
-        // mobile();
-        // else
-        // desktop();
-        // }
+        ResponsiveHBox.bind(vboxSign);
+        ResponsiveHBox.bind(scrollSignUp);
+        ResponsiveHBox.bind(vboxForgot);
+        loginPane.widthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> arg0, Number arg1,
+                    Number arg2) {
+                double width = arg1.doubleValue();
+                if (width == 0)
+                    return;
+                if (width < 650)
+                    mobile();
+                else
+                    desktop();
+            }
 
-        // private void desktop() {
-        // if (loginPane.getLeft() != null)
-        // return;
-        // System.out.println("to desktop");
-        // Node top = loginPane.getTop();
-        // loginPane.setTop(null);
-        // loginPane.setLeft(top);
-        // }
+            private void desktop() {
+                if (loginPane.getLeft() != null)
+                    return;
+                Node top = loginPane.getTop();
+                loginPane.setTop(null);
+                loginPane.setLeft(top);
+            }
 
-        // private void mobile() {
-        // if (loginPane.getTop() != null)
-        // return;
-        // System.out.println("to mobile");
-        // Node side = loginPane.getLeft();
-        // loginPane.setLeft(null);
-        // loginPane.setTop(side);
-        // }
+            private void mobile() {
+                if (loginPane.getTop() != null)
+                    return;
+                Node side = loginPane.getLeft();
+                loginPane.setLeft(null);
+                loginPane.setTop(side);
+            }
 
-        // });
+        });
     }
 
     @FXML

@@ -54,7 +54,7 @@ public abstract class User extends node {
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
         currentUser = new NormalUser(username, password);
-        return currentUser;
+        // return currentUser;
         // try {
         //     if (!UserDB.auth(currentUser))
         //         return null;
@@ -63,7 +63,7 @@ public abstract class User extends node {
         // } catch (Throwable e) {
         //     e.printStackTrace();
         // }
-        // return null;
+        return null;
     }
 
     public int getPostCnt() {

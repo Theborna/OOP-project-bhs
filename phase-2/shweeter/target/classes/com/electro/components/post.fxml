@@ -27,6 +27,15 @@
                   </Label>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
+                        <Button fx:id="btnAdvertisement" mnemonicParsing="false" onAction="#btnHandle">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_graph_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                         <Label fx:id="lblAdvertisement" maxHeight="1.7976931348623157E308" styleClass="text18" text="advertisement" textFill="#ecff30">
                            <HBox.margin>
                               <Insets right="20.0" />

@@ -38,6 +38,7 @@ public class ProfilePopOver extends PopOver {
             super.setContentNode(root);
             super.setAnimated(true);
             super.setFadeInDuration(Duration.seconds(0.7));
+            super.setTitle(user.getUsername());
             clicks.addListener((a, b, c) -> {
                 System.out.println("hiiii");
             });

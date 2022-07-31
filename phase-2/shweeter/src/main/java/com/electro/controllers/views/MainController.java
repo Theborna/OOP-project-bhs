@@ -20,13 +20,14 @@ import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
-import com.electro.util.ResponsiveVbox;
+import com.electro.util.ResponsiveHBox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
 import com.electro.views.MessageListView;
 import com.electro.views.PostListView;
 import com.electro.views.ProfileView;
 import com.electro.views.component.ErrorNotification;
+import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInRight;
@@ -38,9 +39,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,7 +88,7 @@ public class MainController implements Initializable {
 
     @FXML
     private AnchorPane pnChat, pnExplore, pnFeed, pnNotifications, pnProfile, pnSettings, pnCompose, pnNewChat,
-            pnForward;
+            pnForward, pnSearch;
 
     @FXML
     private AnchorPane pnSetChatName, pnSetChatType, pnSetChatMembers;
@@ -100,10 +104,10 @@ public class MainController implements Initializable {
     private TextArea txtAMessage;
 
     @FXML
-    private TextField txtNewMemberName;
+    private TextField txtNewMemberName, txtSearch;
 
     @FXML
-    private ListView<String> lstNewChatMembers;
+    private ListView<String> lstNewChatMembers, lstSearchUser;
 
     @FXML
     private SplitPane splPane, splChat;
@@ -115,7 +119,7 @@ public class MainController implements Initializable {
     private BorderPane bpReply;
 
     @FXML
-    private Label lblRepliedName, lblRepliedMsg;
+    private Label lblRepliedName, lblRepliedMsg, lblLogo;
 
     // @FXML
     // private BorderPane bpChatsToForward;
@@ -139,10 +143,29 @@ public class MainController implements Initializable {
         setExplore();
         initForward();
         lstNewChatMembers.setItems(FXCollections.observableArrayList());
+        ObservableList<String> searchResults = FXCollections.observableArrayList();
+        lstSearchUser.setItems(searchResults);
+        searchResults.addAll("asdad", "Asdasd", "asfasfasiofj");// TODO
         pnSetChatType.toFront();
         StretchTextArea.bind(txtAMessage);
-        ResponsiveVbox.bind(ProfileView.getOther());
+        ResponsiveHBox.bind(ProfileView.getOther());
+        ResponsiveHBox.bindCentering(lblLogo);
         System.out.println("done");
+        txtSearch.textProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                searchResults.clear();
+                searchResults.addAll(arg1, arg2);
+                switchToUp(pnSearch);
+            }
+
+        });
+        lstSearchUser.getSelectionModel().selectedItemProperty().addListener((a, old, niu) -> {
+            User selectedUser = User.get(lstSearchUser.getSelectionModel().getSelectedItem());
+            System.out.println(selectedUser);
+            // new ProfilePopOver(, selectedUser)
+        });
     }
 
     private void initForward() {

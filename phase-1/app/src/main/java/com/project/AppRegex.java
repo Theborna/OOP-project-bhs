@@ -20,10 +20,11 @@ public enum AppRegex {
     SET_USERNAME("-set -username (?<username>\\w+)"), SET_NAME("-set -name (?<name>\\w+)"),
     SET_BIO("-set -bio (?<bio>.+)"),
     SET_VISIBILITY("-set -visibility (?<visibility>\\w+)"),
+    SEARCH_USER("-search")
     ;
 
     static final String username() {
-        return "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$";
+        return "(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]";
     };
 
     static final String password() {
