@@ -41,6 +41,7 @@ public class RegisterView implements View {
         Date birthDate = null;
         String input;
         User user = null;
+        controller = new RegisterController();
         while (username == null) {
             prompt("enter username");
             username = controller.getUsername(input = StdIn.nextLine());
@@ -77,14 +78,8 @@ public class RegisterView implements View {
         }
         while (birthDate == null) {
             prompt("enter birth date(yyyy-mm-dd) or \"--skip\" to skip this part");
-//            if ((input = StdIn.nextLine()).equals("--skip")) {
-//                println("skipped", StdColor.GREEN);
-//                break;
-//            }
             input = StdIn.nextLine();
             birthDate = controller.getBirthDate(input);
-            //System.out.println(new java.sql.Date(birthDate.getTime()));
-            //System.out.println(new java.sql.Date(birthDate.getTime()));
             if (birthDate == null)
                 printError("invalid birth date format");
         }
@@ -104,6 +99,7 @@ public class RegisterView implements View {
                 if (visible == null)
                     printError("invalid input");
             }
+            getSecurityQuestion();
             print("register completed! ", StdColor.GREEN);
             String salt = crypt.salt();
             password = crypt.encryptedString(password + salt);
@@ -116,6 +112,8 @@ public class RegisterView implements View {
             user.setEmail(email);
             user.setUserType(user instanceof NormalUser ? 0 : 1);
             user.setSalt(salt);
+            user.setSecType(controller.getSecurityQ());
+            user.setSecAns(controller.getSecurityAns());
             user.sendToDB();
         } else {
             println("Incorrect username or password", StdColor.MAGENTA);
@@ -133,6 +131,28 @@ public class RegisterView implements View {
                 + birthDate.toString().replaceAll("\\d{2}:\\d{2}:\\d{2} ", ""));
         App.setView(LoginView.getInstance());
         // rule();
+    }
+
+    private void getSecurityQuestion() throws changeViewException {
+        boolean running = true;
+        while (running) {
+            println("answer the security question or use \"-change\" to change the question", StdColor.CYAN);
+            prompt(controller.getSecurityQ().toString());
+            switch (controller.getSecurityQuestion(StdIn.nextLine())) {
+                case 1:
+                    printError("answer cannot be empty");
+                    break;
+                case 2:
+                    print("question changed");
+                    break;
+                case 3:
+                    print("answers saved");
+                    running = false;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     @Override

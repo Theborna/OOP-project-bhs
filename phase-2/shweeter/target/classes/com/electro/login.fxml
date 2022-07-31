@@ -8,6 +8,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
@@ -300,6 +301,19 @@
                                                       </ToggleSwitch>
                                                    </children>
                                                 </HBox>
+                                                <SplitMenuButton fx:id="splitBtnSecurity" graphicTextGap="20.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Security Question" VBox.vgrow="ALWAYS">
+                                                   <graphic>
+                                                      <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/icons8_cyber_security_96px.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </SplitMenuButton>
+                                                <TextField fx:id="txtSecurityAns" prefHeight="40.0" promptText="answer" />
                                                 <HBox alignment="CENTER">
                                                    <children>
                                                       <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">

@@ -12,6 +12,7 @@ import org.controlsfx.control.ToggleSwitch;
 import com.electro.App;
 import com.electro.phase1.controllers.LoginController;
 import com.electro.phase1.controllers.RegisterController;
+import com.electro.phase1.enums.Security;
 import com.electro.phase1.models.node.user.User;
 import com.electro.util.ResponsiveHBox;
 import com.electro.views.component.ErrorNotification;
@@ -37,8 +38,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -66,7 +69,7 @@ public class LoginPageController implements Initializable {
     @FXML
     private DatePicker dateBirth;
     @FXML
-    private TextField txtFullName, txtUsername, txtSignUsername, txtEmail, txtSecAns;
+    private TextField txtFullName, txtUsername, txtSignUsername, txtEmail, txtSecAns, txtSecurityAns;
     @FXML
     private PasswordField txtPass, txtPassConf, txtSignPassword;
 
@@ -82,7 +85,10 @@ public class LoginPageController implements Initializable {
     @FXML
     private Label lblSecurityQ;
 
-    private StringProperty securityQ;
+    @FXML
+    private SplitMenuButton splitBtnSecurity;
+
+    private StringProperty securityQ, chosenSecurityQ;
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -92,6 +98,7 @@ public class LoginPageController implements Initializable {
         initButton(btnSignIn);
         initButton(btnSignUp);
         initButton(btnRegister);
+        initSecurityQuestion();
         securityQ = new SimpleStringProperty();
         lblSecurityQ.textProperty().bind(securityQ.concat("?"));
         // new ProfilePopOver(preview);
@@ -128,6 +135,18 @@ public class LoginPageController implements Initializable {
             }
 
         });
+    }
+
+    private void initSecurityQuestion() {
+        MenuItem items[] = new MenuItem[Security.values().length];
+        chosenSecurityQ = new SimpleStringProperty("please choose a question");
+        txtSecurityAns.promptTextProperty().bind(chosenSecurityQ.concat(" (answer this)"));
+        for (int i = 0; i < items.length; i++) {
+            String s = Security.values()[i].toString();
+            items[i] = new MenuItem(s);
+            items[i].setOnAction(evt -> chosenSecurityQ.setValue(s));
+        }
+        splitBtnSecurity.getItems().addAll(items);
     }
 
     @FXML
@@ -200,6 +219,7 @@ public class LoginPageController implements Initializable {
         new FieldEmptyError(txtPass);
         new FieldEmptyError(txtPassConf);
         new FieldEmptyError(txtEmail);
+        new FieldEmptyError(txtSecurityAns);
         String username = txtUsername.getText(), password = txtPass.getText(),
                 passwordConf = txtPassConf.getText(), email = txtEmail.getText();
         boolean b = controller.setUsername(username) && controller.setPassword(password) && controller.setEmail(email);
