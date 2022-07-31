@@ -9,6 +9,7 @@ import java.util.Date;
 import com.database.MessageDB;
 import com.database.UserDB;
 import com.project.LimitedList;
+import com.project.enums.Security;
 import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
@@ -34,6 +35,8 @@ public abstract class User extends node {
     private int followerCnt, followingCnt, postCnt;
     private int userType = 0;
     private Date birthDate;
+    private Security secType;
+    private String secAns;
     private LimitedList<Message> pastMsg;
 
     public User(String username, String password) {
@@ -42,6 +45,22 @@ public abstract class User extends node {
         // setId(username.hashCode());
         pastMsg = new LimitedList<Message>(10);
         nameColor = StdColor.values()[(int) (id % StdColor.values().length)];
+    }
+
+    public void setSecAns(String secAns) {
+        this.secAns = secAns;
+    }
+
+    public String getSecAns() {
+        return secAns;
+    }
+
+    public Security getSecType() {
+        return secType;
+    }
+
+    public void setSecType(Security secType) {
+        this.secType = secType;
     }
 
     public void setUsername(String username) {

@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/BusinessUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/BusinessUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/NormalUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/NormalUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/CreatePostView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/CreatePostView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +49,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../lib/Java libarary/mysql-connector-java-5.1.46-bin.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37241378" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunManager">
@@ -124,7 +117,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java</url>
-          <line>260</line>
+          <line>279</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
