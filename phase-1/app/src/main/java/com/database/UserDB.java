@@ -1,6 +1,7 @@
 package com.database;
 
 import com.project.crypt;
+import com.project.enums.Security;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
@@ -38,7 +39,7 @@ public class UserDB {
                 new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
-                "', '" + user.getEmail() + "', 0)";
+                "', '" + user.getEmail() + "', 0, "+user.getSecType().ordinal()+", '"+user.getSecAns()+"')";
         // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
@@ -84,6 +85,8 @@ public class UserDB {
             us.setLastName(rs.getString(12));
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
+            us.setSecType(Security.values()[rs.getInt(15)]);
+            us.setSecAns(rs.getString(16));
         } else {
             //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -99,6 +102,8 @@ public class UserDB {
             us.setLastName(rs.getString(12));
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
+            us.setSecType(Security.values()[rs.getInt(15)]);
+            us.setSecAns(rs.getString(16));
         }
         rs.close();
         st.close();
@@ -134,6 +139,8 @@ public class UserDB {
             us.setLastName(rs.getString(12));
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
+            us.setSecType(Security.values()[rs.getInt(15)]);
+            us.setSecAns(rs.getString(16));
         } else {
             //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -149,6 +156,8 @@ public class UserDB {
             us.setLastName(rs.getString(12));
             us.setEmail(rs.getString(13));
             us.setPromoindex(rs.getDouble(14));
+            us.setSecType(Security.values()[rs.getInt(15)]);
+            us.setSecAns(rs.getString(16));
         }
         rs.close();
         st.close();
@@ -228,6 +237,8 @@ public class UserDB {
                 us.setLastName(rs.getString(12));
                 us.setEmail(rs.getString(13));
                 us.setPromoindex(rs.getDouble(14));
+                us.setSecType(Security.values()[rs.getInt(15)]);
+                us.setSecAns(rs.getString(16));
             } else {
                 //System.out.println(userType);
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -243,6 +254,8 @@ public class UserDB {
                 us.setLastName(rs.getString(12));
                 us.setEmail(rs.getString(13));
                 us.setPromoindex(rs.getDouble(14));
+                us.setSecType(Security.values()[rs.getInt(15)]);
+                us.setSecAns(rs.getString(16));
             }
         }
         rs.close();
