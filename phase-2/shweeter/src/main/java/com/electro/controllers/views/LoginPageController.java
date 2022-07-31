@@ -142,9 +142,9 @@ public class LoginPageController implements Initializable {
         chosenSecurityQ = new SimpleStringProperty("please choose a question");
         txtSecurityAns.promptTextProperty().bind(chosenSecurityQ.concat(" (answer this)"));
         for (int i = 0; i < items.length; i++) {
-            String s = Security.values()[i].toString();
-            items[i] = new MenuItem(s);
-            items[i].setOnAction(evt -> chosenSecurityQ.setValue(s));
+            Security s = Security.values()[i];
+            items[i] = new MenuItem(s.toString());
+            items[i].setOnAction(evt -> chosenSecurityQ.setValue(s.toString()));
         }
         splitBtnSecurity.getItems().addAll(items);
     }
@@ -219,10 +219,19 @@ public class LoginPageController implements Initializable {
         new FieldEmptyError(txtPass);
         new FieldEmptyError(txtPassConf);
         new FieldEmptyError(txtEmail);
-        new FieldEmptyError(txtSecurityAns);
+        // new FieldEmptyError(txtSecurityAns);
+        Security s;
+        controller.setSecurityQ(s = Security.getQuestion(chosenSecurityQ.get()));
+        if (s == null) {
+            new ErrorNotification("please choose a security question");
+            return false;
+        }
         String username = txtUsername.getText(), password = txtPass.getText(),
                 passwordConf = txtPassConf.getText(), email = txtEmail.getText();
-        boolean b = controller.setUsername(username) && controller.setPassword(password) && controller.setEmail(email);
+        boolean b = controller.setUsername(username) && controller.setPassword(password) && controller.setEmail(email)
+                && controller.getSecurityQuestion(txtSecurityAns.getText());
+        System.out.println(chosenSecurityQ.get());
+        System.out.println(txtSecurityAns.getText());
         if (!password.equals(passwordConf)) {
             if (passwordConf.length() != 0)
                 new ErrorNotification("password not the same as confirm password");

@@ -29,4 +29,11 @@ public enum Security {
     public static Security randomQuestion() {
         return values()[new Random().nextInt(Security.values().length)];
     }
+
+    public static Security getQuestion(String ans) {
+        for (Security s : Security.values())
+            if (ans.equals(s.toString()))
+                return s;
+        return null;
+    }
 }
