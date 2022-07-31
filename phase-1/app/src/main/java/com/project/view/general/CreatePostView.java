@@ -14,7 +14,7 @@ public class CreatePostView implements View {
 
     private StringBuilder postText = new StringBuilder();
     private CreatePostController controller = new CreatePostController();
-    private Long inReplyTo = null;
+    private Post inReplyTo = null;
 
     @Override
     public void show() throws changeViewException {
@@ -26,13 +26,13 @@ public class CreatePostView implements View {
         }
         System.out.println(postText);
         // TODO: add more stuff to posts
-        Post post = new Post(postText.toString());
-        User.getCurrentUser().Post(post);
+//        Post post = new Post(postText.toString());
+        User.getCurrentUser().Post(postText.toString(),inReplyTo);
         inReplyTo = null;
         App.setView(App.lastView());
     }
 
-    public CreatePostView inReplyTo(Long inReplyTo) {
+    public CreatePostView inReplyTo(Post inReplyTo) {
         this.inReplyTo = inReplyTo;
         return this;
     }

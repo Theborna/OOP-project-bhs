@@ -39,7 +39,12 @@ public class Chat extends node {
 
     public static void LogToChat(long id) {
         // find the chat from the database and set current chat
-        current = new Chat("kos", ChatType.PRIVATE);
+//        current = new Chat("kos", ChatType.PRIVATE);
+        try {
+            current = ChatDB.getChatByID(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Chat getCurrent() {
@@ -93,7 +98,8 @@ public class Chat extends node {
 
     @Override
     public LocalDateTime getLastModifiedDate() {
-        return MessageConnection.getLastMessage(this.id).getLastModifiedDate();
+        Message last = MessageConnection.getLastMessage(this.id);
+        return (last == null) ? creationDate : last.getCreationDate();
     }
 
     public Chat addAll(Map<Long, ChatPermission> memberWithPermit) {
@@ -116,7 +122,7 @@ public class Chat extends node {
     }
 
     public ChatPermission getPermission(long id) throws SQLException {
-
+        //System.out.println(this.id + " user: " + id);
         return ChatDB.getChatPermission(id, this.id);
     }
 
@@ -130,7 +136,7 @@ public class Chat extends node {
     public void sendToDB() {
         // TODO Auto-generated method stub
         try {
-            ChatDB.addChat(this);
+            ChatDB.sendToDB(this);
         } catch (SQLException e) {
             e.printStackTrace();
         }

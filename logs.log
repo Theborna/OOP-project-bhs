@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-07-28T10:44:27.865343Z</date>
-  <millis>1659005067865</millis>
-  <nanos>343000</nanos>
+  <date>2022-07-30T15:35:01.516068100Z</date>
+  <millis>1659195301516</millis>
+  <nanos>68100</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-07-28T10:44:27.879306500Z</date>
-  <millis>1659005067879</millis>
-  <nanos>306500</nanos>
+  <date>2022-07-30T15:35:01.528065900Z</date>
+  <millis>1659195301528</millis>
+  <nanos>65900</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>changed view to PrimaryView</message>
 </record>
 <record>
-  <date>2022-07-28T10:44:36.433242500Z</date>
-  <millis>1659005076433</millis>
-  <nanos>242500</nanos>
+  <date>2022-07-30T15:35:03.663419300Z</date>
+  <millis>1659195303663</millis>
+  <nanos>419300</nanos>
   <sequence>2</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>changed view to LoginView</message>
 </record>
 <record>
-  <date>2022-07-28T10:45:40.872882Z</date>
-  <millis>1659005140872</millis>
-  <nanos>882000</nanos>
+  <date>2022-07-30T15:35:09.790826100Z</date>
+  <millis>1659195309790</millis>
+  <nanos>826100</nanos>
   <sequence>3</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -48,5 +48,17 @@
   <method>setView</method>
   <thread>1</thread>
   <message>changed view to SecondaryView</message>
+</record>
+<record>
+  <date>2022-07-30T15:35:16.149481700Z</date>
+  <millis>1659195316149</millis>
+  <nanos>481700</nanos>
+  <sequence>4</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to SelfPageView</message>
 </record>
 </log>

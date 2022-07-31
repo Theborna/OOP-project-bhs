@@ -35,7 +35,7 @@ public class ChatController implements ListController<MessageView> {
     public void parse(String input) throws changeViewException {
         input = input.toLowerCase().trim();
         showMsg = true;
-        Long inReply = null;
+        Message inReply = null;
         switch (input) {
             case "n":
             case "next":
@@ -68,12 +68,16 @@ public class ChatController implements ListController<MessageView> {
                 showMsg = false;
                 break;
             case "reply":
-                inReply = currentMsg.getMessage().getId();
+                if(currentMsg != null)
+                inReply = currentMsg.getMessage();
             case "new message":
             case "new":
             case "compose":
                 post(inReply);
+                break;
             case "edit":
+                if(currentMsg == null)
+                    break;
                 switch (editable(currentMsg.getMessage())) {
                     case 0:
                         printError("you are not the author of this message");
@@ -130,7 +134,7 @@ public class ChatController implements ListController<MessageView> {
         return 2;
     }
 
-    private void post(Long inReply) { // TODO: check support for editting
+    private void post(Message inReply) { // TODO: check support for editting
         if (permission == ChatPermission.OBSERVER) {
             printError("non sufficient permissions");
             return;
@@ -225,11 +229,12 @@ public class ChatController implements ListController<MessageView> {
         return msgText;
     }
 
-    public void post(StringBuilder sb, Long inReply) {
+    public void post(StringBuilder sb, Message inReply) {
         if (sb == null)
             return;
-        Message message = new Message(sb.toString(), User.getCurrentUser());
+        Message message = new Message(sb.toString(), User.getCurrentUser(),Chat.getCurrent());
         // TODO: set message data
+        message.setReplyTo(inReply);
         User.getCurrentUser().sendMessage(message, Chat.getCurrent());
         println("message posted successfully", StdColor.GREEN);
 

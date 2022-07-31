@@ -1,6 +1,7 @@
 package com.project.view.model;
 
 import com.project.controllers.SelfPageController;
+import com.project.models.connection.PostUserConnection;
 import com.project.models.node.user.User;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
@@ -14,10 +15,12 @@ public class SelfPageView extends PageView {
     protected SelfPageView() {
         controller = new SelfPageController();
         user = User.getCurrentUser();
+        controller.addAll(PostUserConnection.getPosts(User.getCurrentUser().getId()));
+        controller.getCurrent();
     }
 
     public static SelfPageView getInstance() {
-        if (instance == null)
+//        if (instance == null)
             instance = new SelfPageView();
         return instance;
     }
@@ -43,7 +46,7 @@ public class SelfPageView extends PageView {
 
     @Override
     protected void printCommands() {
-        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "settings");
+        printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "settings","comment","show -comments");
     }
 
     @Override

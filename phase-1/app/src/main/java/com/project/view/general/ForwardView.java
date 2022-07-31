@@ -20,7 +20,7 @@ public class ForwardView extends ChatListView {
     }
 
     public static ForwardView getInstance(Message... messages) {
-        if (instance == null)
+//        if (instance == null)
             instance = new ForwardView(Arrays.asList(messages));
         return instance;
     }

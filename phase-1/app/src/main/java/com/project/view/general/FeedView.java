@@ -30,15 +30,18 @@ public class FeedView implements View {
     }
 
     public static FeedView getInstance() {
-        if (instance == null)
+//        if (instance == null)
             instance = new FeedView();
         return instance;
     }
 
     @Override
     public void show() throws changeViewException {
-        controller.getCurrent().show();
-        printCommands();
+        if(controller.getCurrent() != null) {
+            controller.getCurrent().show();
+            printCommands();
+        } else
+            println("no posts to show",StdColor.CYAN);
         prompt("enter next command");
         String input = StdIn.nextLine();
         controller.parse(input);

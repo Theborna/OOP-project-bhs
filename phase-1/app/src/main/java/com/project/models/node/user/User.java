@@ -6,6 +6,7 @@ import java.util.Set;
 
 import java.util.Date;
 
+import com.database.MessageDB;
 import com.database.UserDB;
 import com.project.LimitedList;
 import com.project.models.connection.ChatUserConnection;
@@ -19,7 +20,7 @@ import com.project.util.StdColor;
 
 /**
  * abstract class defining users.
- * 
+ *
  * @abstract Posting and getting stats
  * @Children NormalUser, BusinessUser
  */
@@ -38,9 +39,17 @@ public abstract class User extends node {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        setId(username.hashCode());
+        // setId(username.hashCode());
         pastMsg = new LimitedList<Message>(10);
-        nameColor = StdColor.random("name");
+        nameColor = StdColor.values()[(int) (id % StdColor.values().length)];
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
     }
 
     public void setFollowerCnt(int followerCnt) {
@@ -53,17 +62,42 @@ public abstract class User extends node {
 
     public static User logToUser(String username, String password) {
         // TODO: get the current user from the database
-        currentUser = new NormalUser(username, password);
-        // return currentUser;
+        try {
+            if (UserDB.auth(username, password)) {
+                currentUser = logToUser(username);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return currentUser;
         // try {
-        //     if (!UserDB.auth(currentUser))
-        //         return null;
-        //     currentUser = UserDB.getUserInfo(username);
-        //     return currentUser;
+        // if (!UserDB.auth(currentUser))
+        // return null;
+        // currentUser = UserDB.getUserInfo(username);
+        // return currentUser;
         // } catch (Throwable e) {
-        //     e.printStackTrace();
+        // e.printStackTrace();
         // }
-        return null;
+        // return null;
+    }
+
+    public static User logToUser(String username) {
+        // TODO: get the current user from the database
+        try {
+            currentUser = UserDB.getUserInfo(username);
+            // System.out.println(currentUser.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return currentUser;
+        // try {
+        // if (!UserDB.auth(currentUser))
+        // return null;
+        // currentUser = UserDB.getUserInfo(username);
+        // return currentUser;
+        // } catch (Throwable e) {
+        // e.printStackTrace();
+        // }
     }
 
     public int getPostCnt() {
@@ -76,7 +110,12 @@ public abstract class User extends node {
 
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
-        pastMsg.add(message);
+        // pastMsg.add(message);
+        try {
+            MessageDB.adddToDB(message);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void follow(User user) {
@@ -134,7 +173,13 @@ public abstract class User extends node {
 
     public static Long getID(String username) {
         // TODO: run a query to get the id
-        return Long.valueOf(username.hashCode());
+        try {
+            User us = UserDB.getUserInfo(username);
+            return (us == null ? 0 : us.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String getEmail() {
@@ -173,7 +218,7 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public abstract void Post(Post post);
+    public abstract void Post(String post, Post inReplyTo);
 
     public String getUsername() {
         return username;
@@ -211,6 +256,12 @@ public abstract class User extends node {
     }
 
     public LimitedList<Message> getPastMsg() {
+        pastMsg.clear();
+        try {
+            pastMsg.addAll(MessageDB.getMessagesByUserID(this.id));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return pastMsg;
     }
 
@@ -232,10 +283,12 @@ public abstract class User extends node {
         return isPublic;
     }
 
+    @Override
     public void sendToDB() {
         // TODO: send the user to the database, register
+        // System.out.println("heyuylg");
         try {
-            UserDB.registerUSer(this);
+            UserDB.sendToDB(this);
         } catch (SQLException e) {
             e.printStackTrace();
         }

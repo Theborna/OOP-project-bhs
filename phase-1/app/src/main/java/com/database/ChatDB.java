@@ -4,6 +4,7 @@ package com.database;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.node.Chat;
+import com.project.models.node.post.Post;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -54,7 +55,10 @@ public class ChatDB {
         Statement st = con.createStatement();
         String query = "update chat set ch_member_count =" + ch.getMemberCount() + " , ch_is_visible =" + (ch.isVisible() ? 1 : 0)
                 + " , ch_owner_id = " + ch.getOwner().getId() + ", ch_type = " + ch.getType().ordinal() + ", ch_name = "
-                + ch.getName() + " where ch_id = " + ch.getId() + ";";
+                + ch.getName() + ", ch_txt_id = '" + ch.getLinkID() + "' where ch_id = " + ch.getId() + ";";
+        st.executeQuery(query);
+        st.close();
+        con.close();
     }
 
 
@@ -71,16 +75,17 @@ public class ChatDB {
         rs.close();
         st.close();
         con.close();
-        return chs.isEmpty() ? null : chs;
+        return chs;
     }
 
     public static void addChat(Chat ch) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "insert into chat values(" + "NULL " + "," +
-                (ch.isCanSend() ? "1" : "0") + "," + ch.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
-                "," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + "," + ch.getOwner().getId() + ","
-                + ch.getType().ordinal() + "," + ch.getName() + ")";
+        String query = "insert into chat values(" + "NULL " + ",'" +
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
+                "'," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + ","
+                + (ch.getOwner() == null ? "null" : "'" + ch.getOwner().getId() + "'") + ","
+                + ch.getType().ordinal() + ",'" + ch.getName() + "', '" + ch.getLinkID() + "')";
         st.execute(query);
         st.close();
         con.close();
@@ -92,13 +97,37 @@ public class ChatDB {
         ResultSet rs = st.executeQuery("select * from chat where ch_id = " + chatID);
         Chat ch = null;
         if (rs.next()) {
-            ch = new Chat(rs.getString(9), chatType(rs.getInt(8)));
+            ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
             ch.setId(chatID);
-            ch.setOwner(UserDB.getUserInfo(rs.getLong(7)));
-            ch.setVisible(rs.getInt(6) == 1 ? true : false);
-            ch.setMemberCount(rs.getInt(5));
-            ch.setCreationDate(LocalDateTime.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            ch.setOwner(UserDB.getUserInfo(rs.getLong("ch_owner_id")));
+            ch.setVisible(rs.getInt(4) == 1 ? true : false);
+            ch.setMemberCount(rs.getInt(3));
+            ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
+            ch.setLinkID(rs.getString(8));
         }
+        rs.close();
+        st.close();
+        con.close();
+        return ch;
+    }
+
+    public static Chat getChatByLinkID(String chatLinkID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from chat where ch_txt_id = '" + chatLinkID + "'");
+        Chat ch = null;
+        if (rs.next()) {
+            ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
+            ch.setId(rs.getLong(1));
+            ch.setOwner(UserDB.getUserInfo(rs.getLong("ch_owner_id")));
+            ch.setVisible(rs.getInt(4) == 1 ? true : false);
+            ch.setMemberCount(rs.getInt(3));
+            ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
+            ch.setLinkID(rs.getString(8));
+        }
+        rs.close();
+        st.close();
+        con.close();
         return ch;
     }
 
@@ -109,13 +138,27 @@ public class ChatDB {
         if (rs.next()) {
             return chatPermission(rs.getInt(3));
         }
+        rs.close();
+        st.close();
+        con.close();
         return null;
     }
 
-    public static void setChatPermission(long usid, long chatid, ChatPermission cp) throws SQLException {
+    public static void addMemeber(long usid, long chatid, ChatPermission cp) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.executeQuery("insert into member values(" + usid + "," + chatid + "," + cp.ordinal() + ")");
+        st.execute("insert into member values(" + usid + "," + chatid + "," + cp.ordinal() + ")");
+        st.close();
+        con.close();
     }
+
+    public static void removeMemeber(long usid, long chatid) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        st.executeQuery("delete from member where userid = " + usid + " and chatid = " + chatid);
+        st.close();
+        con.close();
+    }
+
 
 }

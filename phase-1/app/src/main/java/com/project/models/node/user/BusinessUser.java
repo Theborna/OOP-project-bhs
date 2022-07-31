@@ -1,6 +1,8 @@
 package com.project.models.node.user;
 
-import java.time.LocalDateTime;
+import com.project.models.node.post.Post;
+import com.project.models.node.post.PromotedPost;
+import com.project.util.Log;
 
 public class BusinessUser extends User {
     
@@ -13,19 +15,15 @@ public class BusinessUser extends User {
 
 
     @Override
-    public void Post(com.project.models.node.post.Post post) {
+    public void Post(String post, Post inReplyTo) {
         // TODO Auto-generated method stub
-
+        Post newPost = new PromotedPost(post,this);
+        newPost.setRepliedPost(inReplyTo);
+        Log.logger.info("added post: " + newPost.toString());
+        newPost.sendToDB();
     }
 
     public String getBusinessType() {
         return businessType;
-    }
-
-
-    @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
-        
     }
 }

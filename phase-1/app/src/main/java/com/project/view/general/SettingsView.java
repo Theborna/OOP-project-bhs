@@ -61,6 +61,7 @@ public class SettingsView implements View {
             return;
         } else if (input.trim().toLowerCase().equals("-confirm")) {
             controller.confirm();
+            println("changes applied",StdColor.GREEN);
             App.setView(SecondaryView.getInstance());
         } else if (input.trim().toLowerCase().equals("-cancel")) {
             App.setView(SecondaryView.getInstance());

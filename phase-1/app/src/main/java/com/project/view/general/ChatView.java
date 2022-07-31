@@ -6,6 +6,7 @@ import com.project.enums.ChatPermission;
 import com.project.models.connection.MessageConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.user.User;
+import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
@@ -34,15 +35,13 @@ public class ChatView implements View {
     }
 
     public static ChatView getInstance() {
-        if (instance == null)
+//        if (instance == null)
             instance = new ChatView();
         return instance;
     }
 
     @Override
     public void show() throws changeViewException {
-        if (controller.isShowMsg())
-            controller.getCurrent().show();
         List<String> selection = new ArrayList<>(Arrays
                 .asList(new String[]{"like", "dislike", "forward", "next", "last", "top", "show -page",
                         "members"}));
@@ -58,8 +57,13 @@ public class ChatView implements View {
             default:
                 break;
         }
-        if (controller.getCurrent().getMessage().getAuthor().equals(User.getCurrentUser()))
-            selection.add("edit");
+        if(controller.getCurrent() != null) {
+            if (controller.getCurrent().getMessage().getAuthor().equals(User.getCurrentUser()))
+                selection.add("edit");
+            if (controller.isShowMsg())
+                controller.getCurrent().show();
+        } else
+            println("no messages yet", StdColor.CYAN);
         printSelections(selection.toArray(new String[selection.size()]));
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
