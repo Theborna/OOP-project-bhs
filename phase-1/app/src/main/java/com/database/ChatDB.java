@@ -160,5 +160,9 @@ public class ChatDB {
         con.close();
     }
 
+    public static void searchChat(String linkID){
+        Connection con = DBInfo.getConnection();
+        
+    }
 
 }
