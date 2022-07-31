@@ -152,7 +152,7 @@ public class MessageDB {
         return ret;
     }
 
-    private static Message getMessageByID(long msgID) throws SQLException {
+    private static Message getMessageByID(long msgID,boolean loadReply) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = "select * from messages where msg_id = " + msgID;
@@ -166,8 +166,8 @@ public class MessageDB {
             } else {
                 msg.setForwardedFrom(UserDB.getUserInfo(rs.getLong(8)));
             }
-            if (rs.getLong(4) != 0) {
-                msg.setReplyTo(MessageDB.getMessageByID(rs.getLong(4)));
+            if (rs.getLong(4) != 0 && loadReply) {
+                msg.setReplyTo(MessageDB.getMessageByID(rs.getLong(4),false));
             } else {
                 msg.setReplyTo(null);
             }
@@ -181,6 +181,10 @@ public class MessageDB {
         st.close();
         con.close();
         return msg;
+    }
+
+    private static Message getMessageByID(long msgID) throws SQLException{
+        return  getMessageByID(msgID, true);
     }
 
     public static ArrayList<Message> getMessagesByChatNUserID(long chatID, long userID) throws SQLException {

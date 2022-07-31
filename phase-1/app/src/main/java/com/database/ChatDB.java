@@ -5,6 +5,7 @@ import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.node.Chat;
 import com.project.models.node.post.Post;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -160,9 +161,25 @@ public class ChatDB {
         con.close();
     }
 
-    public static void searchChat(String linkID){
+    public static ArrayList<Chat> searchChat(String linkID) throws SQLException {
         Connection con = DBInfo.getConnection();
-        
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from chat where ch_name like '" + linkID + "' or ch_txt_id like '" + linkID + "'");
+        ArrayList<Chat> ret = new ArrayList<>();
+        while (rs.next()) {
+            Chat ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
+            ch.setId(rs.getLong(1));
+            ch.setOwner(UserDB.getUserInfo(rs.getLong("ch_owner_id")));
+            ch.setVisible(rs.getInt(4) == 1 ? true : false);
+            ch.setMemberCount(rs.getInt(3));
+            ch.setCreationDate(rs.getDate(2).toLocalDate().atStartOfDay());
+            ch.setLinkID(rs.getString(8));
+            ret.add(ch);
+        }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
     }
 
 }

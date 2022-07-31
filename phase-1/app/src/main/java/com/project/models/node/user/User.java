@@ -11,6 +11,7 @@ import com.database.UserDB;
 import com.project.LimitedList;
 import com.project.enums.Security;
 import com.project.models.connection.ChatUserConnection;
+import com.project.models.connection.Like;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
@@ -27,6 +28,7 @@ import com.project.util.StdColor;
  */
 public abstract class User extends node {
     private static User currentUser;
+    private long lastViewed;
     private double promoIndex = 0;
     private String salt;
     private String username, password, name, lastName, email;
@@ -263,10 +265,32 @@ public abstract class User extends node {
         return getChats();
     }
 
-    public void like(com.project.models.node.post.Post post) {// TODO: implement this method
+    public void view(Post post, int value) {
+        new Like(post, this).setValue(value).sendToDB();
+        Log.logger.info("viewed post " + post + " ,value: " + value);
     }
 
-    public void dislike(com.project.models.node.post.Post post) {// TODO: implement this method
+    public void view(Post post) {
+        lastViewed = post.getId();
+        long thisView = lastViewed;
+        Thread wait = new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+                if (lastViewed == thisView)
+                    view(post, 0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        wait.start();
+    }
+
+    public void like(com.project.models.node.post.Post post) {
+        view(post, 1);
+    }
+
+    public void dislike(com.project.models.node.post.Post post) {
+        view(post, -1);
     }
 
     @Override
