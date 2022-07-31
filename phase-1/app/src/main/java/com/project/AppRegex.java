@@ -20,12 +20,16 @@ public enum AppRegex {
     SET_USERNAME("-set -username (?<username>\\w+)"), SET_NAME("-set -name (?<name>.+)"),
     SET_BIO("-set -bio (?<bio>.+)"),
     SET_VISIBILITY("-set -visibility (?<visibility>\\w+)"),
-    SEARCH_USER("-search")
+    SEARCH_USER("-search -user (?<username>\\w+)"),
+    SEARCH_POST("-search -post (?<post>.+)"),
+    SEARCH_CHAT("-search -chat (?<chat>\\w+)"),
     ;
 
     static final String username() {
         return "(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]";
-    };
+    }
+
+    ;
 
     static final String password() {
         return "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";

@@ -33,16 +33,14 @@ public abstract class connection<E, T> extends node {
         return obj2;
     }
 
-    public void setValue(int value) {
+    public Like setValue(int value) {
         this.value = value;
+        return null;
     }
 
     @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
+    public void sendToDB(){
 
     }
-
-    
 
 }

@@ -5,13 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/AppRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/AppRegex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SecondaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SearchView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SearchView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SecondaryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SecondaryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/AppRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/BusinessUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/NormalUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/models/node/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/general/FeedView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/target/classes/com/project/view/model/PageView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,6 +78,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37241378" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.project.controllers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -117,7 +147,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java</url>
-          <line>279</line>
+          <line>303</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
