@@ -1,35 +1,27 @@
 package com.electro.controllers.views;
 
-import java.beans.EventHandler;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.controlsfx.control.textfield.CustomTextField;
 
 import com.electro.App;
-import com.electro.controllers.components.messageController;
-import com.electro.phase1.AppRegex;
 import com.electro.phase1.controllers.ChatController;
-import com.electro.phase1.controllers.NewChatController;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
-import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
 import com.electro.util.ResponsiveHBox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
+import com.electro.views.CreateChatView;
+import com.electro.views.ExploreView;
 import com.electro.views.MessageListView;
 import com.electro.views.PostListView;
 import com.electro.views.ProfileView;
-import com.electro.views.component.ErrorNotification;
+import com.electro.views.SearchView;
 import com.electro.views.component.ProfilePopOver;
 
-import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInRight;
 import animatefx.animation.SlideInUp;
 import de.jensd.shichimifx.utils.SplitPaneDividerSlider;
@@ -38,9 +30,6 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -49,24 +38,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.skin.AccordionSkin;
-import javafx.scene.control.skin.TitledPaneSkin;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
@@ -87,33 +70,29 @@ public class MainController implements Initializable {
     private ToggleButton tglClose, btnChatListClose, tglChat, tglMsg;
 
     @FXML
-    private AnchorPane pnChat, pnExplore, pnFeed, pnNotifications, pnProfile, pnSettings, pnCompose, pnNewChat,
-            pnForward, pnSearch;
+    private StackPane stackPanes;
 
     @FXML
-    private AnchorPane pnSetChatName, pnSetChatType, pnSetChatMembers;
+    private AnchorPane pnChat, pnFeed, pnNotifications, pnSettings, pnCompose,
+            pnForward;
 
     @FXML
-    private Button btnPrivate, btnGroup, btnChannel, btnAddNewChatMember, btnRemoveNewChatMember,
-            btnResetNewChatMembers, btnFinalizeNewGroup, btnSetNewChatPic, btnConfirmNewChatName,
-            btnForward;
-    @FXML
-    private CustomTextField txtChatName;
+    private Button btnForward;
 
     @FXML
     private TextArea txtAMessage;
 
     @FXML
-    private TextField txtNewMemberName, txtSearch;
+    private TextField txtSearch;
 
     @FXML
-    private ListView<String> lstNewChatMembers, lstSearchUser;
+    private ListView<String> lstSearchUser;
 
     @FXML
     private SplitPane splPane, splChat;
 
     @FXML
-    private ScrollPane scrollChat, scrollPost, scrollMsg, scrollProf, scrollExplore, scrollForward;
+    private ScrollPane scrollChat, scrollPost, scrollMsg, scrollForward;
 
     @FXML
     private BorderPane bpReply;
@@ -130,6 +109,10 @@ public class MainController implements Initializable {
     @FXML
     private Color x4;
 
+    private CreateChatView pnNewChat;
+    private ProfileView pnProfile;
+    private ExploreView pnExplore;
+    private SearchView pnSearch;
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -140,31 +123,39 @@ public class MainController implements Initializable {
         initChatItems();
         initMessages();
         initPosts();
-        setExplore();
         initForward();
-        lstNewChatMembers.setItems(FXCollections.observableArrayList());
+        pnNewChat = new CreateChatView();
+        stackPanes.getChildren().add(pnNewChat);
+        pnNewChat.finishedProperty().addListener((arg, old, niu) -> {
+            System.out.println("salam");
+            if (niu)
+                switchToRight(pnChat);
+        });
+        pnExplore = new ExploreView();
+        stackPanes.getChildren().add(pnExplore);
+        pnProfile = new ProfileView().withUser(User.getCurrentUser());
+        stackPanes.getChildren().add(pnProfile);
+        pnSearch = new SearchView(txtSearch.textProperty());
+        stackPanes.getChildren().add(pnSearch);
+        txtSearch.textProperty().addListener((a, old, niu) -> switchToUp(pnSearch));
+        pnProfile.toFront();
+        // pnNewChat.toFront();
         ObservableList<String> searchResults = FXCollections.observableArrayList();
         lstSearchUser.setItems(searchResults);
         searchResults.addAll("asdad", "Asdasd", "asfasfasiofj");// TODO
-        pnSetChatType.toFront();
         StretchTextArea.bind(txtAMessage);
-        ResponsiveHBox.bind(ProfileView.getOther());
         ResponsiveHBox.bindCentering(lblLogo);
         System.out.println("done");
-        txtSearch.textProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                searchResults.clear();
-                searchResults.addAll(arg1, arg2);
-                switchToUp(pnSearch);
-            }
-
-        });
         lstSearchUser.getSelectionModel().selectedItemProperty().addListener((a, old, niu) -> {
             User selectedUser = User.get(lstSearchUser.getSelectionModel().getSelectedItem());
             System.out.println(selectedUser);
             // new ProfilePopOver(, selectedUser)
+        });
+        ProfilePopOver.getPreviewRequest().addListener((a, old, niu) -> {
+            if (!niu)
+                return;
+            System.out.println(ProfilePopOver.getSelectedUser());
+            switchToRight(pnProfile.withUser(ProfilePopOver.getSelectedUser()));
         });
     }
 
@@ -181,6 +172,7 @@ public class MainController implements Initializable {
                     switchToUp(pnChat);
             }
         });
+        pnChat.toFront();
     }
 
     @FXML
@@ -190,18 +182,14 @@ public class MainController implements Initializable {
             return;
         Button btn = (Button) obj;
         if (btn == btnProfile) {
-            ProfileView.getOther().withUser(User.getCurrentUser());
-            scrollProf.setContent(ProfileView.getOther());
-            System.out.println("hi");
-            switchToRight(pnProfile);
+            switchToRight(pnProfile.withUser(User.getCurrentUser()));
         } else if (btn == btnFeed) {
             initPosts();
             switchToRight(pnFeed);
         } else if (btn == btnChat) {
             switchToRight(pnChat);
         } else if (btn == btnExplore) {
-            setExplore();
-            switchToRight(pnExplore);
+            switchToRight(pnExplore.refresh());
         } else if (btn == btnNotification) {
             switchToRight(pnNotifications);
         } else if (btn == btnSettings) {
@@ -212,7 +200,6 @@ public class MainController implements Initializable {
             switchToRight(pnFeed);
         } else if (btn == btnNewChat) {
             switchToUp(pnNewChat);
-            pnSetChatType.toFront();
         }
     }
 
@@ -225,12 +212,6 @@ public class MainController implements Initializable {
         switchToRight(pnChat);
     }
 
-    private void setFeed() {
-    }
-
-    private void setExplore() {
-        scrollExplore.setContent(new PostListView().withPosts(PostUserConnection.getExplore(User.getCurrentUser())));
-    }
 
     @FXML
     private void logout() throws IOException {
@@ -278,13 +259,6 @@ public class MainController implements Initializable {
         inFront = pane;
     }
 
-    private void switchPanes(AnchorPane pane1, AnchorPane pane2) {
-        pane1.setVisible(false);
-        pane1.toBack();
-        pane2.setVisible(true);
-        pane2.toFront();
-    }
-
     private void initSlidingPane() {
         coupleButtonAndSlider(tglChat, splChat, 0, SplitPaneDividerSlider.Direction.RIGHT);
         coupleButtonAndSlider(tglMsg, splChat, 0, SplitPaneDividerSlider.Direction.LEFT);
@@ -304,9 +278,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void Scroll(ActionEvent evt) {
-        if (evt.getSource() == btnScrollPage) {
-            scrollTo(scrollProf, true);
-        } else if (evt.getSource() == btnChatTop) {
+        if (evt.getSource() == btnChatTop) {
             scrollTo(scrollChat, true);
         } else if (evt.getSource() == btnMsgTop) {
             scrollTo(scrollMsg, false);
@@ -337,68 +309,6 @@ public class MainController implements Initializable {
 
     private void initPosts() {
         scrollPost.setContent(new PostListView().withPosts(PostUserConnection.getFeed(User.getCurrentUser().getId())));
-    }
-
-    @FXML
-    private void setChatType(ActionEvent event) {
-        Object obj = event.getSource();
-        if (!(obj instanceof Button))
-            return;
-        Button btn = (Button) obj;
-        if (btn == btnPrivate) {
-            NewChatController.getInstance().setType(NewChatController.getInstance().getChatType("private"));
-        } else if (btn == btnChannel) {
-            NewChatController.getInstance().setType(NewChatController.getInstance().getChatType("channel"));
-        } else if (btn == btnGroup) {
-            NewChatController.getInstance().setType(NewChatController.getInstance().getChatType("group"));
-        }
-        switchPanes(pnSetChatType, pnSetChatName);
-    }
-
-    @FXML
-    private void confirmChatName(ActionEvent event) {
-        Object obj = event.getSource();
-        if (!(obj instanceof Button))
-            return;
-        Button btn = (Button) obj;
-        if (btn == btnConfirmNewChatName)
-            if (NewChatController.getInstance().setChatName(txtChatName))
-                switchPanes(pnSetChatName, pnSetChatMembers);
-            else
-                new ErrorNotification("invalid chat name format");
-        else if (btn == btnSetNewChatPic) {
-            File profilePic = App.getPicChooser().showOpenDialog(App.getScene().getWindow());// TODO: use the file
-        }
-    }
-
-    @FXML
-    private void cancelNewChat() {
-        switchToRight(pnChat);
-    }
-
-    @FXML
-    private void confirmMember(ActionEvent event) {
-        Object obj = event.getSource();
-        if (!(obj instanceof Button))
-            return;
-        Button btn = (Button) obj;
-        if (btn == btnAddNewChatMember) {
-            if (NewChatController.getInstance().addMember(txtNewMemberName.getText()))
-                lstNewChatMembers.getItems().add(txtNewMemberName.getText());
-        } else if (btn == btnRemoveNewChatMember) {
-            if (NewChatController.getInstance().removeMember(txtNewMemberName.getText()))
-                lstNewChatMembers.getItems().remove(txtNewMemberName.getText());
-        } else if (btn == btnResetNewChatMembers) {
-            NewChatController.getInstance().clearMembers();
-            lstNewChatMembers.getItems().clear();
-        } else if (btn == btnFinalizeNewGroup) {
-            if (!NewChatController.getInstance().finalizeChat()) {
-                new ErrorNotification("cannot create an empty group");
-                return;
-            }
-            switchToRight(pnChat);
-            switchPanes(pnSetChatMembers, pnSetChatType);
-        }
     }
 
     @FXML

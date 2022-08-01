@@ -3,25 +3,18 @@ package com.electro.controllers.views;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
-import org.controlsfx.control.PopOver;
 import org.controlsfx.control.ToggleSwitch;
 
 import com.electro.App;
 import com.electro.phase1.controllers.LoginController;
 import com.electro.phase1.controllers.RegisterController;
 import com.electro.phase1.enums.Security;
-import com.electro.phase1.models.node.user.User;
 import com.electro.util.ResponsiveHBox;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
 import com.electro.views.component.InfoNotification;
-import com.electro.views.component.ProfilePopOver;
-
-import animatefx.animation.FadeIn;
-import animatefx.animation.SlideInDown;
 import animatefx.animation.SlideInRight;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -47,7 +40,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 

@@ -5,6 +5,7 @@ import com.project.models.connection.Like;
 import com.project.models.node.post.Post;
 import com.project.models.node.post.PromotedPost;
 import com.project.util.StdColor;
+import com.project.util.format;
 import com.project.view.View;
 
 import static com.project.util.StdOut.*;
@@ -32,7 +33,8 @@ public class PostView implements View {
             println(": " + post.getRepliedPost().getBuilder(), StdColor.BLACK_BRIGHT);
         }
         print(post.getSender().getUsername(), StdColor.MAGENTA_UNDERLINED);
-        println(" ,date: " + post.getCreationDate() + " ,id: " + post.getId(), StdColor.BLACK_BRIGHT);
+        println(" ,date: " + format.SimpleDate(post.getCreationDate()) + " ,id: " + post.getId(),
+                StdColor.BLACK_BRIGHT);
         if (post instanceof PromotedPost) {
             println("ADVERTISEMENT", StdColor.RED);
         }

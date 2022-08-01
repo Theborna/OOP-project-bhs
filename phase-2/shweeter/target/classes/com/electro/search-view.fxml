@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pnSearch" prefHeight="500.0" prefWidth="500.0" styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.SearchController">
+    <children>
+        <TabPane layoutX="269.0" layoutY="144.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab fx:id="pnUser" text="Users">
+                    <content>
+                        <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0">
+                            <tooltip>
+                                <Tooltip text="click on any user to view their page" />
+                            </tooltip>
+                        </ListView>
+                    </content>
+                </Tab>
+                <Tab fx:id="pnChat" text="Chats">
+                    <content>
+                        <ListView fx:id="lstSearchChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab fx:id="pnPost" text="Posts">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

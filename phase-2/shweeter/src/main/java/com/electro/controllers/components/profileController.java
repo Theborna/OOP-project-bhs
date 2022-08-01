@@ -47,7 +47,7 @@ public class profileController {
 
     @FXML
     private void profRequest() {
-        clicks.add(1);
+        clicks.setValue(clicks.getValue() + 1);
     }
 
     public IntegerProperty clickProperty() {

@@ -70,4 +70,8 @@ public class Chat extends node {
             nameProperty = new SimpleStringProperty();
         return nameProperty;
     }
+
+    public Chat setLinkID(String linkID) {
+        return null;
+    }
 }

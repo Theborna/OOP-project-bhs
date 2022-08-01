@@ -48,7 +48,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -61,7 +63,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.ToggleSwitch?>
-<?import org.controlsfx.control.textfield.CustomTextField?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.MainController">
    <children>
@@ -71,7 +72,7 @@
             <items>
                   <VBox fx:id="vboxSide" alignment="TOP_CENTER" minWidth="250.0">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                            <image>
                               <Image url="@images/jimmy-fallon.png" />
                            </image>
@@ -189,12 +190,12 @@
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnChat" alignment="BASELINE_LEFT" graphicTextGap="22.0" lineSpacing="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SwitchScene" prefHeight="50.0" styleClass="text12" text="Chat" textAlignment="CENTER">
                            <graphic>
@@ -290,10 +291,13 @@
                      <padding>
                         <Insets top="10.0" />
                      </padding>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </VBox>
                   <BorderPane fx:id="bpMain" prefWidth="552.0">
                      <center>
-                        <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                        <StackPane fx:id="stackPanes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                            <children>
                               <AnchorPane fx:id="pnNotifications" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
                                  <children>
@@ -349,51 +353,6 @@
                                           </AnchorPane>
                                        </graphic>
                                     </Button>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnProfile" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
-                                 <children>
-                                    <ScrollPane fx:id="scrollProf" fitToWidth="true" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <AnchorPane fx:id="bottomBar1" styleClass="blur" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color: #ffffff11;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <Button fx:id="btnScrollPage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Scroll" style="-fx-background-color: transparent;" text="Jimmy Falon" textFill="WHITE">
-                                                   <font>
-                                                      <Font size="22.0" />
-                                                   </font>
-                                                </Button>
-                                                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                                                <ButtonBar buttonMinWidth="10.0" buttonOrder="L_HE+FBIX_NCYOA_RU+" prefHeight="40.0" prefWidth="300.0">
-                                                  <buttons>
-                                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
-                                                         <graphic>
-                                                            <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@images/icons8_email_send_96px.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="133.0" text="Follow" textFill="WHITE" />
-                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
-                                                         <graphic>
-                                                            <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
-                                                               <image>
-                                                                  <Image url="@images/icons8_more_96px.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
-                                                  </buttons>
-                                                </ButtonBar>
-                                             </children>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </HBox>
-                                       </children>
-                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnSettings" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
@@ -531,141 +490,6 @@
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="pnExplore" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <Label styleClass="text14" text="Explore" textFill="#e7e5e5">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <ScrollPane fx:id="scrollExplore" fitToWidth="true" layoutY="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnNewChat" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000aa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <effect>
-                                          <Blend mode="BLUE" opacity="0.0" />
-                                       </effect>
-                                    </AnchorPane>
-                                    <StackPane layoutX="269.0" layoutY="169.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <AnchorPane fx:id="pnSetChatName" prefHeight="200.0" prefWidth="200.0" visible="false">
-                                             <children>
-                                                <VBox alignment="CENTER" layoutY="145.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <children>
-                                                      <HBox alignment="CENTER">
-                                                         <children>
-                                                            <BorderPane prefHeight="150.0" prefWidth="350.0" styleClass="choosePane">
-                                                               <left>
-                                                                  <Button fx:id="btnSetNewChatPic" mnemonicParsing="false" onAction="#confirmChatName" styleClass="circleButton" BorderPane.alignment="CENTER">
-                                                                     <graphic>
-                                                                        <AnchorPane>
-                                                                           <children>
-                                                                              <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                                              <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                                                 <image>
-                                                                                    <Image url="@images/icons8_camera_96px.png" />
-                                                                                 </image>
-                                                                              </ImageView>
-                                                                           </children>
-                                                                        </AnchorPane>
-                                                                     </graphic>
-                                                                     <cursor>
-                                                                        <Cursor fx:constant="HAND" />
-                                                                     </cursor>
-                                                                  </Button>
-                                                               </left>
-                                                               <bottom>
-                                                                  <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                                    <buttons>
-                                                                      <Button mnemonicParsing="false" onAction="#cancelNewChat" text="Cancel" />
-                                                                        <Button fx:id="btnConfirmNewChatName" mnemonicParsing="false" onAction="#confirmChatName" text="Next" />
-                                                                    </buttons>
-                                                                  </ButtonBar>
-                                                               </bottom>
-                                                               <center>
-                                                                  <CustomTextField fx:id="txtChatName" prefHeight="40.0" prefWidth="214.0" BorderPane.alignment="CENTER">
-                                                                     <BorderPane.margin>
-                                                                        <Insets right="15.0" />
-                                                                     </BorderPane.margin>
-                                                                  </CustomTextField>
-                                                               </center>
-                                                            </BorderPane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="pnSetChatType" prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <children>
-                                                      <HBox alignment="CENTER">
-                                                         <children>
-                                                            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="choosePane">
-                                                               <top>
-                                                                  <Button fx:id="btnPrivate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Private" BorderPane.alignment="CENTER" />
-                                                               </top>
-                                                               <center>
-                                                                  <Button fx:id="btnGroup" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Group" BorderPane.alignment="CENTER" />
-                                                               </center>
-                                                               <bottom>
-                                                                  <Button fx:id="btnChannel" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setChatType" prefHeight="50.0" prefWidth="200.0" text="Channel" BorderPane.alignment="CENTER" />
-                                                               </bottom>
-                                                            </BorderPane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="pnSetChatMembers" prefHeight="200.0" prefWidth="200.0" visible="false">
-                                             <children>
-                                                <VBox alignment="CENTER" layoutY="145.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <children>
-                                                      <HBox alignment="CENTER" prefHeight="302.0" prefWidth="738.0">
-                                                         <children>
-                                                            <BorderPane prefHeight="150.0" prefWidth="350.0" styleClass="choosePane">
-                                                               <bottom>
-                                                                  <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                                     <buttons>
-                                                                        <Button mnemonicParsing="false" onAction="#cancelNewChat" text="Cancel" />
-                                                                        <Button fx:id="btnAddNewChatMember" mnemonicParsing="false" onAction="#confirmMember" text="add" />
-                                                                        <Button fx:id="btnRemoveNewChatMember" mnemonicParsing="false" onAction="#confirmMember" text="remove" />
-                                                                        <Button fx:id="btnResetNewChatMembers" mnemonicParsing="false" onAction="#confirmMember" text="reset" />
-                                                                        <Button fx:id="btnFinalizeNewGroup" mnemonicParsing="false" onAction="#confirmMember" text="done" />
-                                                                     </buttons>
-                                                                  </ButtonBar>
-                                                               </bottom>
-                                                               <center>
-                                                                  <VBox alignment="CENTER_LEFT" spacing="20.0" BorderPane.alignment="CENTER">
-                                                                     <BorderPane.margin>
-                                                                        <Insets bottom="5.0" left="15.0" right="15.0" top="15.0" />
-                                                                     </BorderPane.margin>
-                                                                     <children>
-                                                                        <TextField fx:id="txtNewMemberName" prefHeight="42.0" prefWidth="322.0" />
-                                                                        <Label text="Current members:" textFill="WHITE">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <ListView fx:id="lstNewChatMembers" prefHeight="40.0" prefWidth="322.0" VBox.vgrow="ALWAYS" />
-                                                                     </children>
-                                                                  </VBox>
-                                                               </center>
-                                                            </BorderPane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </StackPane>
-                                 </children>
-                              </AnchorPane>
                               <AnchorPane fx:id="pnForward" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000aa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -706,6 +530,63 @@
                                           </AnchorPane>
                                        </children>
                                     </StackPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pnSearch" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
+                                 <children>
+                                    <TabPane layoutX="269.0" layoutY="144.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <tabs>
+                                        <Tab text="Users">
+                                             <content>
+                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0">
+                                                   <tooltip>
+                                                      <Tooltip text="click on any user to view their page" />
+                                                   </tooltip>
+                                                </ListView>
+                                             </content>
+                                        </Tab>
+                                        <Tab text="Chats">
+                                          <content>
+                                            <AnchorPane fx:id="lslSearchChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          </content>
+                                             <content>
+                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0" />
+                                             </content>
+                                        </Tab>
+                                          <Tab text="Posts">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
+                                 <children>
+                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="319.20001220703125" layoutY="40.0" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                       <graphic>
+                                          <AnchorPane>
+                                             <children>
+                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
+                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
+                                                   <image>
+                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnChat" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
@@ -823,59 +704,6 @@
                                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                        </padding>
                                     </HBox>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnSearch" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
-                                 <children>
-                                    <TabPane layoutX="269.0" layoutY="144.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <tabs>
-                                        <Tab text="Users">
-                                             <content>
-                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0" />
-                                             </content>
-                                        </Tab>
-                                        <Tab text="Chats">
-                                          <content>
-                                            <AnchorPane fx:id="lslSearchChat" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                          </content>
-                                             <content>
-                                                <ListView fx:id="lstSearchUser" prefHeight="200.0" prefWidth="200.0" />
-                                             </content>
-                                        </Tab>
-                                          <Tab text="Posts">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                             </content>
-                                          </Tab>
-                                      </tabs>
-                                    </TabPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnFeed" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <Label text="Feed" textFill="#e7e5e5" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <ScrollPane fx:id="scrollPost" fitToHeight="true" fitToWidth="true" layoutX="319.20001220703125" layoutY="40.0" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
-                                    <Button fx:id="btnCompose" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_ball_point_pen_96px_1.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                  </children>
                               </AnchorPane>
                            </children>

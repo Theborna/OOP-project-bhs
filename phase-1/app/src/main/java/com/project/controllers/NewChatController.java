@@ -190,7 +190,7 @@ public class NewChatController {
             if (members.size() > 1 && type == ChatType.PRIVATE)
                 return 6;
             Long usId = User.getID(m.group("username"));
-            if(usId == 0)
+            if (usId == 0)
                 return 7;
             members.put(usId, m.group("username"));
             return 1;
@@ -199,6 +199,8 @@ public class NewChatController {
                 return 2;
             return 3;
         } else if (input.equals("-done")) {
+            if (members.size() < 2)
+                return 8;
             setDefaultPermissions();
             return 4;
         } else if (input.equals("-reset")) {

@@ -5,6 +5,7 @@ import com.project.models.connection.MessageConnection;
 import com.project.models.node.Chat;
 import com.project.models.node.Message;
 import com.project.util.StdColor;
+import com.project.util.format;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
@@ -31,7 +32,8 @@ public class ChatItemView implements View {
         rule('_');
         print(chat.getType() + ": ", StdColor.GREEN_BOLD);
         println(chat.getName(), StdColor.MAGENTA_UNDERLINED);
-        println("last active: " + chat.getLastModifiedDate() + ", id: " + chat.getId(), StdColor.BLACK_BRIGHT);
+        println("last active: " + format.SimpleDate(chat.getLastModifiedDate()) + ", id: " + chat.getId(),
+                StdColor.BLACK_BRIGHT);
         if (last != null) {
             String shownText = last.getBuilder().toString();
             if (last.getBuilder().length() > 30)

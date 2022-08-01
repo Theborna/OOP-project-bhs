@@ -179,6 +179,9 @@ public class NewChatView implements View {
                 case 7:
                     printError("no such user exists!");
                     break;
+                case 8:
+                    printError("cannot create an empty chat!");
+                    break;
                 default:
                     break;
             }

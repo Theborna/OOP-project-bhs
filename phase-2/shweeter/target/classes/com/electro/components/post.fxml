@@ -20,12 +20,12 @@
          <top>
             <HBox prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="lblName" maxHeight="1.7976931348623157E308" styleClass="text24" text="Jimmy falon" textFill="WHITE">
+                  <Label fx:id="lblName" maxHeight="1.7976931348623157E308" styleClass="text24" text="Jimmy falon" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="SOMETIMES">
                      <children>
                         <Button fx:id="btnAdvertisement" mnemonicParsing="false" onAction="#btnHandle">
                            <graphic>
@@ -103,7 +103,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btnComment" mnemonicParsing="false" onAction="#btnHandle">
+                  <Button fx:id="btnComment" mnemonicParsing="false" onAction="#btnHandle" text="1.2k" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>

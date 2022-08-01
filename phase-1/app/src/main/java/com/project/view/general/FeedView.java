@@ -7,6 +7,7 @@ import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
+import com.project.util.format;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
@@ -65,11 +66,21 @@ public class FeedView implements View {
     }
 
     private void showLikes(Post post) {
-        Set<User> likes = new HashSet<>();// TODO: Like.getUsers(post);
-        for (User user : likes) {
-            print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
-            print('|');
+        Set<Like> likes = Like.getUsers(post);
+        int likesCnt = 0, dislikeCnt = 0;
+        for (Like like : likes) {
+            if (like.getValue() == 0) {
+                continue;
+            } else if (like.getValue() == 1) {
+                likesCnt++;
+                print(like.getObj2().getName() + " :", StdColor.GREEN);
+            } else if (like.getValue() == -1) {
+                dislikeCnt++;
+                print(like.getObj2().getName() + " :", StdColor.RED);
+            }
+            println("@ " + format.SimpleDate(like.getLastModifiedDate()));
         }
+        println("\ntotal likes: " + likesCnt + ", total dislikes: " + dislikeCnt + ", total views: " + likes.size());
     }
 
     protected void printCommands() {
