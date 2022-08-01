@@ -23,6 +23,8 @@ public enum AppRegex {
     SEARCH_USER("-search -user (?<username>\\w+)"),
     SEARCH_POST("-search -post (?<post>.+)"),
     SEARCH_CHAT("-search -chat (?<chat>\\w+)"),
+    SHOW_USER("-show -user (?<username>\\w+)"),
+    SHOW_CHAT("-show -chat (?<chat>\\w+)"),
     ;
 
     static final String username() {

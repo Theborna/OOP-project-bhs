@@ -2,12 +2,16 @@ package com.project;
 
 import com.database.DBInfo;
 import com.project.util.Log;
+import com.project.util.StdColor;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
 import com.project.view.*;
 import com.project.view.general.PrimaryView;
+import com.project.view.general.SearchView;
 
 import java.sql.Connection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Main App class
@@ -19,7 +23,7 @@ public class App {
     private static boolean rule;
 
     public static void start() {
-        for (int i = 0; i++ < 20; )
+        for (int i = 0; i++ < 20;)
             System.out.println();
         Log.init();
         setView(PrimaryView.getInstance());
@@ -49,8 +53,8 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-//        Connection con = DBInfo.getConnection();
-//        System.out.println(con.getCatalog());
+        // Connection con = DBInfo.getConnection();
+        // System.out.println(con.getCatalog());
         start();
         while (running) {
             if (rule) {
@@ -63,6 +67,7 @@ public class App {
                 setView(e.getView(), false);
             }
         }
+
     }
 
 }
