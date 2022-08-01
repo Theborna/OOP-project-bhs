@@ -195,6 +195,23 @@ public class UserDB {
         return ret;
     }
 
+    public static ArrayList<User> getFollowings(long userId, int size) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
+        int cnt = 0;
+        ArrayList<User> ret = new ArrayList<>();
+        while (rs.next() && (cnt < size || size == 0)) {
+            ret.add(getUserInfo(rs.getLong(2)));
+            cnt++;
+        }
+        rs.close();
+        st.close();
+        con.close();
+
+        return ret;
+    }
+
     // If the userID does not wxists it will return zero as the id :)
 
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
