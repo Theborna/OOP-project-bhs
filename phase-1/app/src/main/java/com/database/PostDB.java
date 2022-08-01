@@ -4,6 +4,7 @@ import com.project.models.connection.Like;
 import com.project.models.node.post.NormalPost;
 import com.project.models.node.post.Post;
 import com.project.models.node.post.PromotedPost;
+import com.project.models.node.user.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -151,6 +152,47 @@ public class PostDB {
         st.close();
         con.close();
         return ret.isEmpty() ? null : ret;
+    }
+
+    public ArrayList<Post> getFeed(long userID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = generateQueryForFeed(userID);
+        System.out.println(query);
+        ArrayList<Post> ret = new ArrayList<>();
+        if (query == null)
+            return new ArrayList<Post>();
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            Post ps;
+            if (rs.getInt(9) == 0)
+                ps = new NormalPost(rs.getString(2), null);
+            else
+                ps = new PromotedPost(rs.getString(2), null);
+
+            ps.setId(rs.getLong(1));
+            ps.setCreationDate(DBInfo.parseDate(rs.getString(3)));
+            ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
+            ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
+            ps.setLikes(rs.getInt(6));
+            ps.setViews(rs.getInt(7));
+            ps.setComments(rs.getInt(8));
+            ret.add(ps);
+        }
+        return ret;
+    }
+
+
+    private String generateQueryForFeed(long userID) throws SQLException {
+        ArrayList<User> followings = UserDB.getFollowings(userID, 0);
+        if (followings.isEmpty())
+            return null;
+        String temp = "";
+        for (User us : followings) {
+            temp += "post_sender_id = " + us.getId() + " or ";
+        }
+        temp.substring(0, temp.length() - 4);
+        return "select * from post where " + temp;
     }
 
 }

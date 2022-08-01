@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-07-31T11:43:48.181429200Z</date>
-  <millis>1659267828181</millis>
-  <nanos>429200</nanos>
+  <date>2022-08-01T02:59:39.299137100Z</date>
+  <millis>1659322779299</millis>
+  <nanos>137100</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-07-31T11:43:48.194482900Z</date>
-  <millis>1659267828194</millis>
-  <nanos>482900</nanos>
+  <date>2022-08-01T02:59:39.321078500Z</date>
+  <millis>1659322779321</millis>
+  <nanos>78500</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -24,77 +24,5 @@
   <method>setView</method>
   <thread>1</thread>
   <message>changed view to PrimaryView</message>
-</record>
-<record>
-  <date>2022-07-31T11:43:52.959187300Z</date>
-  <millis>1659267832959</millis>
-  <nanos>187300</nanos>
-  <sequence>2</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to LoginView</message>
-</record>
-<record>
-  <date>2022-07-31T11:44:46.415090400Z</date>
-  <millis>1659267886415</millis>
-  <nanos>90400</nanos>
-  <sequence>3</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to SecondaryView</message>
-</record>
-<record>
-  <date>2022-07-31T11:44:49.855374500Z</date>
-  <millis>1659267889855</millis>
-  <nanos>374500</nanos>
-  <sequence>4</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to ChatListView</message>
-</record>
-<record>
-  <date>2022-07-31T11:44:52.704222Z</date>
-  <millis>1659267892704</millis>
-  <nanos>222000</nanos>
-  <sequence>5</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to ChatView</message>
-</record>
-<record>
-  <date>2022-07-31T11:45:01.416232500Z</date>
-  <millis>1659267901416</millis>
-  <nanos>232500</nanos>
-  <sequence>6</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.models.node.user.User</class>
-  <method>sendMessage</method>
-  <thread>1</thread>
-  <message>sent message: Message[id=0] to chat: Chat[id=7]</message>
-</record>
-<record>
-  <date>2022-07-31T11:45:06.225378300Z</date>
-  <millis>1659267906225</millis>
-  <nanos>378300</nanos>
-  <sequence>7</sequence>
-  <logger>com.project.util.Log</logger>
-  <level>INFO</level>
-  <class>com.project.App</class>
-  <method>setView</method>
-  <thread>1</thread>
-  <message>changed view to ChatListView</message>
 </record>
 </log>
