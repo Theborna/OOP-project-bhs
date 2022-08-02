@@ -67,20 +67,28 @@ public class Suggestion {
     }
 
     public static void likedSuggestedPost(User user,Post post){
-        Set<User> usersWhoLiked=Like.getUsers(post);
+        Set<Like> usersWhoLiked=Like.getUsers(post);
+        Set<User> usersWhoLiked2=new LinkedHashSet<User>();
+        for (Like like : usersWhoLiked) {
+            usersWhoLiked2.add(like.getObj2());
+        }
         Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            if(usersWhoLiked.contains(connection.getObj2())){
+            if(usersWhoLiked2.contains(connection.getObj2())){
                 connection.increasePromoIndex(40);
             }
         }
     }
 
     public static void dislikedSuggestedPost(User user,Post post){
-        Set<User> usersWhoLiked=Like.getUsers(post);
+        Set<Like> usersWhoLiked=Like.getUsers(post);
+        Set<User> usersWhoLiked2=new LinkedHashSet<User>();
+        for (Like like : usersWhoLiked) {
+            usersWhoLiked2.add(like.getObj2());
+        }
         Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            if(usersWhoLiked.contains(connection.getObj2())){
+            if(usersWhoLiked2.contains(connection.getObj2())){
                 connection.decreasePromoIndex(40);
             }
         }
