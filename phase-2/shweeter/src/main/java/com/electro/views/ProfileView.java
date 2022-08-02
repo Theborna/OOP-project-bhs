@@ -43,4 +43,5 @@ public class ProfileView extends inPane {
         return other;
     }
 
+
 }

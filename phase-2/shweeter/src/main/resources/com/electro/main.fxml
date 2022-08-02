@@ -32,18 +32,14 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
@@ -58,7 +54,6 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.ToggleSwitch?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.MainController">
    <children>
@@ -302,188 +297,6 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnCompose" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
-                                 <children>
-                                    <TextArea layoutX="56.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" promptText="What's happening?&gt;&gt;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                    <Button fx:id="btnPost" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_paper_plane_96px_2.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                    </Button>
-                                    <Button fx:id="btnPost1" layoutX="576.0" layoutY="412.0" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="80.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_attach_96px.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                    </Button>
-                                    <Button fx:id="btnPost11" layoutX="14.0" layoutY="414.0" mnemonicParsing="false" onAction="#SwitchScene" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0">
-                                       <graphic>
-                                          <AnchorPane>
-                                             <children>
-                                                <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
-                                                <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
-                                                   <image>
-                                                      <Image url="@images/icons8_trash_96px.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="pnSettings" prefHeight="200.0" prefWidth="686.0" styleClass="anchorPane">
-                                 <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="71.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <Accordion prefHeight="325.0" prefWidth="737.0">
-                                            <panes>
-                                              <TitledPane text="Profile">
-                                                   <content>
-                                                      <ScrollPane fitToHeight="true" fitToWidth="true">
-                                                         <content>
-                                                            <VBox prefHeight="200.0" prefWidth="100.0">
-                                                               <children>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label styleClass="text18" text="Name" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label styleClass="text18" text="Location" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label styleClass="text18" text="Website" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextField prefHeight="40.0" prefWidth="716.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                                  <VBox>
-                                                                     <children>
-                                                                        <Label styleClass="text18" text="Bio" textFill="#7e7e7e">
-                                                                           <font>
-                                                                              <Font size="18.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <TextArea prefHeight="200.0" prefWidth="200.0" />
-                                                                     </children>
-                                                                  </VBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </content>
-                                                      </ScrollPane>
-                                                   </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <styleClass>
-                                                      <String fx:value="titledPane" />
-                                                      <String fx:value="text16" />
-                                                   </styleClass>
-                                              </TitledPane>
-                                              <TitledPane text="Security">
-                                                   <content>
-                                                      <VBox prefHeight="200.0" prefWidth="100.0">
-                                                         <children>
-                                                            <VBox>
-                                                               <children>
-                                                                  <Label styleClass="text18" text="Account type" textFill="#7e7e7e">
-                                                                     <font>
-                                                                        <Font size="18.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
-                                                               <children>
-                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Account visibility" HBox.hgrow="ALWAYS">
-                                                                     <textFill>
-                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x41" />
-                                                                     </textFill>
-                                                                  </Label>
-                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                                                                  <ToggleSwitch styleClass="text12" text="Private" />
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
-                                                               <children>
-                                                                  <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Switch account type" HBox.hgrow="ALWAYS">
-                                                                     <textFill>
-                                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x42" />
-                                                                     </textFill>
-                                                                  </Label>
-                                                                  <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                                                                  <ToggleSwitch styleClass="text12" text="Normal" />
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <styleClass>
-                                                      <String fx:value="titledPane" />
-                                                      <String fx:value="text16" />
-                                                   </styleClass>
-                                              </TitledPane>
-                                              <TitledPane text="Help">
-                                                <content>
-                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                </content>
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <styleClass>
-                                                      <String fx:value="titledPane" />
-                                                      <String fx:value="text16" />
-                                                   </styleClass>
-                                              </TitledPane>
-                                            </panes>
-                                          </Accordion>
-                                       </content>
-                                    </ScrollPane>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="pnForward" prefHeight="200.0" prefWidth="200.0">

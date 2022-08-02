@@ -7,6 +7,7 @@ import com.project.view.View;
 import static com.project.util.StdOut.*;
 
 import com.project.App;
+import com.project.AppRegex;
 import com.project.controllers.Controller;
 import com.project.controllers.CreatePostController;
 
@@ -24,7 +25,10 @@ public class CreatePostView implements View {
             if (controller.getPostText(postText))
                 break;
         }
-        System.out.println(postText);
+        if(!AppRegex.POST.matches(postText.toString())){
+            printError("invalid post format");
+            return;
+        }
         // TODO: add more stuff to posts
 //        Post post = new Post(postText.toString());
         User.getCurrentUser().Post(postText.toString(),inReplyTo);

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+<AnchorPane fx:id="pnSettings" prefHeight="600.0" prefWidth="800.0" styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.SettingsController">
+    <children>
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="71.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <Accordion prefHeight="325.0" prefWidth="737.0">
+                    <panes>
+                        <TitledPane text="Profile">
+                            <content>
+                                <ScrollPane fitToHeight="true" fitToWidth="true">
+                                    <content>
+                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                            <children>
+                                                <VBox>
+                                                    <children>
+                                                        <Label styleClass="text18" text="Username" textFill="#7e7e7e">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="txtUsername" prefHeight="40.0" prefWidth="716.0" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox>
+                                                    <children>
+                                                        <Label styleClass="text18" text="Password" textFill="#7e7e7e">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="txtPassword" prefHeight="40.0" prefWidth="716.0" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox>
+                                                    <children>
+                                                      <VBox>
+                                                          <children>
+                                                              <Label styleClass="text18" text="Full name" textFill="#7e7e7e">
+                                                                  <font>
+                                                                      <Font size="18.0" />
+                                                                  </font>
+                                                              </Label>
+                                                <TextField fx:id="txtName" maxWidth="1.7976931348623157E308" prefHeight="40.0" />
+                                                          </children>
+                                                      </VBox>
+                                                        <Label styleClass="text18" text="Email" textFill="#7e7e7e">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="716.0" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="titledPane" />
+                                <String fx:value="text16" />
+                            </styleClass>
+                        </TitledPane>
+                        <TitledPane text="Security">
+                            <content>
+                                <VBox prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <VBox>
+                                            <children>
+                                                <Label styleClass="text18" text="Account type" textFill="#7e7e7e">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
+                                            <children>
+                                                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Account visibility" HBox.hgrow="ALWAYS">
+                                                    <textFill>
+                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x41" />
+                                                    </textFill>
+                                                </Label>
+                                                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                                                <ToggleSwitch fx:id="tglPriv" styleClass="text12" text="Private" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="1514.0" spacing="5.0" style="-fx-background-color: transparent;">
+                                            <children>
+                                                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" styleClass="text12" text="Switch account type" HBox.hgrow="ALWAYS">
+                                                    <textFill>
+                                                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x42" />
+                                                    </textFill>
+                                                </Label>
+                                                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                                                <ToggleSwitch fx:id="tglType" styleClass="text12" text="Normal" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="titledPane" />
+                                <String fx:value="text16" />
+                            </styleClass>
+                        </TitledPane>
+                        <TitledPane text="Help">
+                            <content>
+                        <TextFlow prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shweeter CO" />
+                           </children>
+                        </TextFlow>
+                            </content>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="titledPane" />
+                                <String fx:value="text16" />
+                            </styleClass>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </content>
+        </ScrollPane>
+      <Button fx:id="btnConfirm" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#confirmChanges" styleClass="circleButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <graphic>
+            <AnchorPane>
+               <children>
+                  <Circle fill="DODGERBLUE" layoutX="30.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleButton" />
+                  <ImageView fitHeight="150.0" fitWidth="30.0" layoutY="15.199999809265137" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="17.0">
+                     <image>
+                        <Image url="@images/icons8_apply_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</AnchorPane>

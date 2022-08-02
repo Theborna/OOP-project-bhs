@@ -16,6 +16,9 @@ import com.electro.phase1.models.node.post.Post;
 import com.electro.phase1.util.StdColor;
 import com.electro.phase1.util.StdOut;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  * abstract class defining users.
  * 
@@ -24,7 +27,7 @@ import com.electro.phase1.util.StdOut;
  */
 public abstract class User extends node {
     private static User currentUser;
-    private String username, password, fullName;
+    private String username, password, fullName, email, salt;
     private boolean isPublic;
     private StdColor nameColor;
     private int followerCnt, followingCnt;
@@ -33,7 +36,9 @@ public abstract class User extends node {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        email = "asdad@adad";
         fullName = "jimmy fallen";
+        salt = "asdasda";
         nameColor = StdColor.random("name");
     }
 
@@ -141,5 +146,33 @@ public abstract class User extends node {
 
     public static User get(String selectedItem) {
         return currentUser;// TODO
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setUsername(StringProperty username2) {
+    }
+
+    public void setPublic(BooleanProperty visible) {
+    }
+
+    public void setName(StringProperty name) {
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setPassword(String encryptedString) {
     }
 }

@@ -14,12 +14,14 @@ import com.electro.util.ResponsiveHBox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
 import com.electro.views.ChatView;
+import com.electro.views.ComposeView;
 import com.electro.views.CreateChatView;
 import com.electro.views.ExploreView;
 import com.electro.views.MessageListView;
 import com.electro.views.PostListView;
 import com.electro.views.ProfileView;
 import com.electro.views.SearchView;
+import com.electro.views.SettingsView;
 import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.SlideInRight;
@@ -63,7 +65,7 @@ public class MainController implements Initializable {
 
     @FXML
     private Button btnChat, btnExplore, btnFeed, btnLogout, btnNotification, btnProfile, btnSaved, btnSettings,
-            btnCompose, btnPost, btnScrollPage, btnNewChat;
+            btnCompose, btnScrollPage, btnNewChat;
 
     @FXML
     private ToggleButton tglClose, btnChatListClose, tglChat, tglMsg;
@@ -72,7 +74,7 @@ public class MainController implements Initializable {
     private StackPane stackPanes;
 
     @FXML
-    private AnchorPane pnFeed, pnNotifications, pnSettings, pnCompose, pnForward;
+    private AnchorPane pnFeed, pnNotifications, pnForward;
 
     @FXML
     private Button btnForward;
@@ -103,6 +105,8 @@ public class MainController implements Initializable {
     private ExploreView pnExplore;
     private SearchView pnSearch;
     private ChatView pnChat;
+    private SettingsView pnSettings;
+    private ComposeView pnCompose;
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -125,9 +129,13 @@ public class MainController implements Initializable {
         pnChat = new ChatView();
         stackPanes.getChildren().add(pnChat);
         pnChat.setOnRequest(() -> switchToUp(pnNewChat.withChat(Chat.getCurrent())));
+        pnSettings = new SettingsView();
+        stackPanes.getChildren().add(pnSettings);
+        pnCompose = new ComposeView();
+        stackPanes.getChildren().add(pnCompose);
+        pnCompose.setOnFinished(() -> switchToUp(pnFeed));
         txtSearch.textProperty().addListener((a, old, niu) -> switchToUp(pnSearch));
         pnProfile.toFront();
-        // pnNewChat.toFront();
         ObservableList<String> searchResults = FXCollections.observableArrayList();
         searchResults.addAll("asdad", "Asdasd", "asfasfasiofj");// TODO
         ResponsiveHBox.bindCentering(lblLogo);
@@ -174,11 +182,9 @@ public class MainController implements Initializable {
         } else if (btn == btnNotification) {
             switchToRight(pnNotifications);
         } else if (btn == btnSettings) {
-            switchToUp(pnSettings);
+            switchToUp(pnSettings.withUser(User.getCurrentUser()));
         } else if (btn == btnCompose) {
-            switchToUp(pnCompose);
-        } else if (btn == btnPost) {
-            switchToRight(pnFeed);
+            switchToUp(pnCompose.withPost(null));
         } else if (btn == btnNewChat) {
             switchToUp(pnNewChat.withChat(null));
         }
