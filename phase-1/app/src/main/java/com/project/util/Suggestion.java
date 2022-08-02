@@ -1,6 +1,7 @@
 package com.project.util;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -37,7 +38,7 @@ public class Suggestion {
 
     public static int PostsScore(User user, Post post) {
         int a = 0;
-        Set<User> usersWhoLiked = Like.getUsers(post);
+        Set<User> usersWhoLiked = new HashSet<>();// = Like.getUsers(post);//TODO:fix
         Set<UserFollowingConnection> Followings = UserFollowingConnection.getFollowings(user);
         User UserWhoPosted = PostUserConnection.getUser(post.getId());
         for (UserFollowingConnection user2 : Followings) {

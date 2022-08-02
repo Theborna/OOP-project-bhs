@@ -7,16 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane fx:id="mainPane" prefHeight="178.0" prefWidth="678.0" styleClass="message" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
+<BorderPane fx:id="mainPane" styleClass="message" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.messageController">
    <center>
-      <VBox>
+      <VBox alignment="CENTER">
          <children>
-            <HBox prefHeight="37.0" prefWidth="600.0">
+            <HBox prefHeight="37.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
                   <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="70.0" styleClass="text18" text=":\Name\" textFill="#c1ff80">
                      <font>
@@ -34,12 +35,21 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
+                  <Label fx:id="lblForwardedFrom" maxHeight="1.7976931348623157E308" styleClass="text14" text="Forwarded from&gt;" textFill="#0026ff">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblForward" maxHeight="1.7976931348623157E308" styleClass="text14" text="Hossein" />
                </children>
             </HBox>
-            <TextFlow fx:id="msgText" prefHeight="200.0" prefWidth="200.0">
+            <TextFlow fx:id="msgText" prefWidth="200.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text12" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" />
+                  <Text fx:id="txtMsg" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text12" text="khaste am va az badbaknam edame bedam in mozakhrafat ro riazi ham moondeimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moondekhaste am va az badbam moondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi hamoondekhaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ha" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </VBox.margin>
             </TextFlow>
          </children>
       </VBox>
@@ -55,4 +65,30 @@
          </children>
       </AnchorPane>
    </left>
+   <top>
+      <HBox fx:id="hBoxReply" alignment="CENTER" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefWidth="80.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Pane style="-fx-background-color: #ffffff44;" styleClass="choosePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER_LEFT" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Label fx:id="lblReplyName" styleClass="text12" text="Label" />
+                  <Label fx:id="lblReplyMsg" styleClass="text12" text="Label" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

@@ -53,4 +53,8 @@ public class Message extends node implements TextBased { // TODO lots of modific
     public String getText() {
         return message.toString();
     }
+
+    public boolean isForwarded() {
+        return true;
+    }
 }

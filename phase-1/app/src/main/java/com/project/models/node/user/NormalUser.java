@@ -1,7 +1,7 @@
 package com.project.models.node.user;
 
-import java.time.LocalDateTime;
-
+import com.project.models.node.post.NormalPost;
+import com.project.models.node.post.Post;
 import com.project.util.Log;
 
 public class NormalUser extends User {
@@ -12,15 +12,12 @@ public class NormalUser extends User {
     }
 
     @Override
-    public void Post(com.project.models.node.post.Post post) {
+    public void Post(String post, Post inReplyTo) {
         // TODO: add post to DB
-        Log.logger.info("added post: " + post.toString());
-    }
-
-    @Override
-    public void sendToDB() {
-        // TODO Auto-generated method stub
-        
+        Post newPost = new NormalPost(post,this);
+        newPost.setRepliedPost(inReplyTo);
+        Log.logger.info("added post: " + newPost.toString());
+        newPost.sendToDB();
     }
 
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane minWidth="300.0" styleClass="post" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.postController">
+<BorderPane styleClass="post" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.postController">
    <center>
       <BorderPane>
          <top>
@@ -24,14 +25,43 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="btnAdvertisement" mnemonicParsing="false" onAction="#btnHandle">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8_graph_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label fx:id="lblAdvertisement" maxHeight="1.7976931348623157E308" styleClass="text18" text="advertisement" textFill="#ecff30">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <tooltip>
+                              <Tooltip text="this post has been promoted to you from a business user" />
+                           </tooltip>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblDate" maxHeight="1.7976931348623157E308" styleClass="text14" text="2020/10/42" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
          </top>
          <center>
-            <TextFlow prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TextFlow prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Text fx:id="content" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text12" text="!function(e,t){&quot;use strict&quot;;&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return t(e)}:t(e)}(&quot;undefined&quot;!=typeof window?window:this,function(C,e){&quot;use strict&quot;;var t=[],r=Object.getPrototypeOf,s=t.slice,g=t.flat?function(e){return t.flat.call(e)}:function(e){return t.concat.apply([],e)},u=t.push,i=t.indexOf,n={},o=n.toString,v=n.hasOwnProperty,a=v.toString,l=a.call(Object),y={},m=function(e){return&quot;function&quot;==typeof e&amp;&amp;&quot;number&quot;!=typeof e.nodeType},x=function(e){return null!=e&amp;&amp;e===e.window},E=C.document,c={type:!0,src:!0,nonce:!0,noModule:!0};function b(e,t,n){var r,i,o=(n=n||E).createElement(&quot;script&quot;);if(o.text=e,t)for(r in c)(i=t[r]||t.getAttribute&amp;&amp;t.getAttribute(r))&amp;&amp;o.setAttribute(r,i);n.head.appendChild(o).parentNode.removeChild(o)}function w(e){return null==e?e+&quot;&quot;:&quot;object&quot;==typeof e||&quot;function&quot;==typeof e?n[o.call(e)]||&quot;object&quot;:typeof e}var f=&quot;3.5.1&quot;,S=function(e,t){return n" />
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" right="20.0" />
+               </BorderPane.margin>
             </TextFlow>
          </center>
       </BorderPane>
@@ -43,7 +73,7 @@
               <buttons>
                   <HBox alignment="CENTER" maxWidth="1.7976931348623157E308">
                      <children>
-                      <Button fx:id="btnLike" mnemonicParsing="false">
+                      <Button fx:id="btnLike" mnemonicParsing="false" onAction="#btnHandle">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -53,7 +83,7 @@
                            </graphic>
                         </Button>
                         <Label fx:id="lblLikes" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" styleClass="text12" text="23.4k" textAlignment="CENTER" textFill="WHITE" />
-                        <Button fx:id="btnDislike" mnemonicParsing="false">
+                        <Button fx:id="btnDislike" mnemonicParsing="false" onAction="#btnHandle">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -64,7 +94,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Button fx:id="btnShare" mnemonicParsing="false">
+                  <Button fx:id="btnShare" mnemonicParsing="false" onAction="#btnHandle">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -73,7 +103,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btnComment" mnemonicParsing="false">
+                  <Button fx:id="btnComment" mnemonicParsing="false" onAction="#btnHandle">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>

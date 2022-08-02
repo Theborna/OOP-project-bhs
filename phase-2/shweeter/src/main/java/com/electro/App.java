@@ -60,6 +60,7 @@ public class App extends Application {
         style = Style.DARK;
         JMetro jMetro = new JMetro(root, style);
         jMetro.getOverridingStylesheets().add(App.class.getResource("css/loginDark.css").toExternalForm());
+        stage.setMinWidth(500);
         stage.setScene(scene);
         stage.show();
     }

@@ -36,8 +36,13 @@ public class crypt {
         return hexString.toString();
     }
 
-    public static String encryptedString(String input) throws NoSuchAlgorithmException {
-        return toHexString(getSHA(input));
+    public static String encryptedString(String input)  {
+        try {
+            return toHexString(getSHA(input));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static String encryptedStringKeyed(String input, String key)
