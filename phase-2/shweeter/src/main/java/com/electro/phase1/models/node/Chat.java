@@ -8,11 +8,17 @@ import java.util.List;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.MessageConnection;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+
 public class Chat extends node {
     private static Chat current;
     private static long chatId;
+    private static StringProperty nameProperty;
     private String name;
     private ChatType type;
+    private String linkID;
     // TODO: sepehr changes
     // private int participantNum;
     // private ArrayList<User> participants;
@@ -29,6 +35,9 @@ public class Chat extends node {
     public static void LogToChat(long id) {
         // TODO: find the chat from the database and set current chat
         current = new Chat("kos", ChatType.PRIVATE);
+        if (nameProperty == null)
+            nameProperty = new SimpleStringProperty(current.name);
+        nameProperty.set(current.name);
     }
 
     public static Chat getCurrent() {
@@ -55,5 +64,20 @@ public class Chat extends node {
 
     public void sendToDB() {// TODO: add for other stuff
         // TODO Auto-generated method stub
+    }
+
+    public static ObservableValue<? extends String> getCurrentName() {
+        if (nameProperty == null)
+            nameProperty = new SimpleStringProperty();
+        return nameProperty;
+    }
+
+    public Chat setLinkID(String linkID) {
+        this.linkID = linkID;
+        return this;
+    }
+
+    public String getLinkID() {
+        return linkID;
     }
 }

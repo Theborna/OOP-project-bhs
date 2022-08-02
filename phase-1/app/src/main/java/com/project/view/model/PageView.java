@@ -25,7 +25,7 @@ public class PageView extends FeedView {
     }
 
     public static PageView getInstance() {
-        if (instance == null)
+//        if (instance == null)
             instance = new PageView();
         return instance;
     }

@@ -1,7 +1,12 @@
 package com.electro.controllers.components;
 
+import com.electro.phase1.models.node.Message;
+import com.electro.phase1.models.node.user.User;
+import com.electro.phase1.util.format;
 import com.electro.views.component.ProfilePopOver;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
@@ -12,19 +17,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 public class messageController {
 
     @FXML
-    private Label date;
+    private Label date, lblForward, lblForwardedFrom;
 
     @FXML
     private BorderPane mainPane;
 
     @FXML
-    private Label name;
+    private Label name, lblReplyName, lblReplyMsg;
 
     @FXML
     private ImageView pfp;
@@ -32,10 +38,31 @@ public class messageController {
     @FXML
     private TextFlow msgText;
 
-    public void initialize() { // will include the important stuff about the actual message
-        name.setText(":/borna/");
-        // mainPane.setPrefHeight(1000);
-        new ProfilePopOver(pfp);
+    @FXML
+    private Text txtMsg;
+
+    @FXML
+    private HBox hBoxReply;
+
+    private BooleanProperty repliedProperty, forwardProperty;
+    private Message message;
+
+    public void initialize(Message message) { // will include the important stuff about the actual message
+        this.message = message;
+        name.setText(":/" + message.getSender().getUsername() + "/");
+        // name.setTextFill(message.getSender().getNameColor());
+        txtMsg.setText(message.getText());
+        date.setText(format.SimpleDate(message.getLastModifiedDate()));
+        lblForward.setText(message.getAuthor().getUsername());
+        lblForwardedFrom.visibleProperty().bindBidirectional(lblForward.visibleProperty());
+        lblForward.setVisible(message.isForwarded());
+        if (message.getReplyTo() != null) {
+            hBoxReply.setVisible(true);
+            lblReplyName.textProperty().set(message.getReplyTo().getSender().getUsername());
+            lblReplyMsg.textProperty().set(message.getReplyTo().getText());
+        } else
+            mainPane.setTop(null);
+        new ProfilePopOver(pfp, message.getSender());
         setContext();
     }
 
@@ -46,7 +73,10 @@ public class messageController {
         MenuItem item1 = new MenuItem("reply");
         MenuItem item2 = new MenuItem("forward");
         MenuItem item3 = new MenuItem("copy");
+        MenuItem item4 = new MenuItem("edit");
         contextMenu.getItems().addAll(item1, item2, item3);
+        if (message.getAuthor().equals(User.getCurrentUser()))
+            contextMenu.getItems().add(item4);
         msgText.setOnContextMenuRequested(evt -> {
             contextMenu.show(msgText, evt.getScreenX(), evt.getScreenY());
         });
@@ -54,12 +84,31 @@ public class messageController {
         item3.setOnAction(evt -> {
             ClipboardContent content = new ClipboardContent();
             final StringBuilder sb = new StringBuilder();
-            msgText.getChildren().forEach(i -> {
-                if (i instanceof Text)
-                    sb.append(i);
-            });
+            sb.append(txtMsg.getText());
             content.putString(sb.toString());
             Clipboard.getSystemClipboard().setContent(content);
         });
+        item1.setOnAction(evt -> {
+            repliedProperty.set(!repliedProperty.get());
+            if (repliedProperty.get())
+                item1.setText("remove reply");
+            else
+                item1.setText("reply");
+        });
+        item2.setOnAction(evt -> {
+            forwardProperty.set(true);
+        });
+    }
+
+    public BooleanProperty repliedProperty() {
+        if (repliedProperty == null)
+            repliedProperty = new SimpleBooleanProperty(false);
+        return repliedProperty;
+    }
+
+    public BooleanProperty getForwardProperty() {
+        if (forwardProperty == null)
+            forwardProperty = new SimpleBooleanProperty(false);
+        return forwardProperty;
     }
 }

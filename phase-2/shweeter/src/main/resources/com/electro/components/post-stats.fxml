@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.postStatController">
+   <children>
+      <StackedAreaChart fx:id="stats" alternativeColumnFillVisible="true" legendSide="TOP" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <xAxis>
+          <NumberAxis label="date" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="TOP" />
+        </yAxis>
+      </StackedAreaChart>
+   </children>
+</AnchorPane>

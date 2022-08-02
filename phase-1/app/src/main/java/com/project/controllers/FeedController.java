@@ -19,7 +19,7 @@ import static com.project.util.StdOut.*;
 
 public class FeedController implements ListController<PostView> {
     private List<PostView> postViews = new ArrayList<PostView>();
-    private PostView currentPost;
+    protected PostView currentPost;
     private int current;
 
     @Override
@@ -32,6 +32,7 @@ public class FeedController implements ListController<PostView> {
             case "down":
             case "d":
                 currentPost = postViews.get((++current < postViews.size()) ? current : (current = 0));
+                User.getCurrentUser().view(currentPost.getPost());
                 break;
             case "l":
             case "last":
@@ -39,6 +40,7 @@ public class FeedController implements ListController<PostView> {
             case "up":
             case "u":
                 currentPost = postViews.get((--current >= 0) ? current : (current = 0));
+                User.getCurrentUser().view(currentPost.getPost());
                 break;
             case "t":
             case "top":
@@ -51,7 +53,7 @@ public class FeedController implements ListController<PostView> {
                 App.setView(new CreatePostView().inReplyTo(null));
                 break;
             case "comment":
-                App.setView(new CreatePostView().inReplyTo(currentPost.getPost().getId()));
+                App.setView(new CreatePostView().inReplyTo(currentPost.getPost()));
                 break;
             case "like":
                 like();

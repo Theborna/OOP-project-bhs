@@ -15,7 +15,7 @@ public class ExploreView extends FeedView {
     }
 
     public static ExploreView getInstance() {
-        if (instance == null)
+//        if (instance == null)
             instance = new ExploreView();
         return instance;
     }

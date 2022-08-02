@@ -7,18 +7,20 @@ import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
+import com.project.util.format;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
 import static com.project.util.StdOut.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class FeedView implements View {
     private static FeedView instance;
     protected FeedController controller;
 
-    protected FeedView() {
+    public FeedView() {
         controller = new FeedController();
         getFeed();
         controller.getCurrent();
@@ -30,15 +32,18 @@ public class FeedView implements View {
     }
 
     public static FeedView getInstance() {
-        if (instance == null)
-            instance = new FeedView();
+        // if (instance == null)
+        instance = new FeedView();
         return instance;
     }
 
     @Override
     public void show() throws changeViewException {
-        controller.getCurrent().show();
-        printCommands();
+        if (controller.getCurrent() != null) {
+            controller.getCurrent().show();
+            printCommands();
+        } else
+            println("no posts to show", StdColor.CYAN);
         prompt("enter next command");
         String input = StdIn.nextLine();
         controller.parse(input);
@@ -61,11 +66,21 @@ public class FeedView implements View {
     }
 
     private void showLikes(Post post) {
-        Set<User> likes = Like.getUsers(post);
-        for (User user : likes) {
-            print(user.toString(), StdColor.WHITE_BOLD_BRIGHT);
-            print('|');
+        Set<Like> likes = Like.getUsers(post);
+        int likesCnt = 0, dislikeCnt = 0;
+        for (Like like : likes) {
+            if (like.getValue() == 0) {
+                continue;
+            } else if (like.getValue() == 1) {
+                likesCnt++;
+                print(like.getObj2().getName() + " :", StdColor.GREEN);
+            } else if (like.getValue() == -1) {
+                dislikeCnt++;
+                print(like.getObj2().getName() + " :", StdColor.RED);
+            }
+            println("@ " + format.SimpleDate(like.getLastModifiedDate()));
         }
+        println("\ntotal likes: " + likesCnt + ", total dislikes: " + dislikeCnt + ", total views: " + likes.size());
     }
 
     protected void printCommands() {

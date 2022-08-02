@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="600.0" styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="600.0" styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.profileController">
    <children>
       <Pane style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,34 +26,19 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="42.0" layoutY="272.0" text="Borna Khoda" textFill="WHITE" AnchorPane.leftAnchor="15.0">
+      <Label fx:id="lblName" layoutX="42.0" layoutY="272.0" styleClass="text24" text="Borna Khoda" textFill="WHITE" AnchorPane.leftAnchor="15.0">
          <font>
             <Font name="Arial Rounded MT Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="299.0" text="\@Sep_Heid" textFill="#8e8e8e">
+      <Label fx:id="lblUsername" layoutX="15.0" layoutY="299.0" styleClass="text18" text="\@Sep_Heid" textFill="#8e8e8e">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextFlow layoutX="15.0" layoutY="326.0" prefHeight="70.0" prefWidth="574.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="326.0">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="man eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaam">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="man eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaam">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="man eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaam">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="man eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaam">
+            <Text fx:id="txtBio" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text16" text="man eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaamman eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaamman eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaamman eshgh hip hop am, harchiiiii kooooon gholombe ye zeshte mighapaaaam">
                <font>
                   <Font size="16.0" />
                </font>
@@ -91,12 +76,12 @@
       </ButtonBar>
       <HBox layoutX="165.0" layoutY="222.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="Followers:" textFill="WHITE" underline="true">
+            <Label styleClass="text24" text="Followers:" textFill="WHITE" underline="true">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" text="23" textFill="#aeaeae">
+            <Label fx:id="lblFollowers" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" styleClass="text24" text="23" textFill="#aeaeae">
                <HBox.margin>
                   <Insets left="10.0" top="4.0" />
                </HBox.margin>
@@ -104,7 +89,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Followers:" textFill="WHITE" underline="true">
+            <Label styleClass="text24" text="Following:" textFill="WHITE" underline="true">
                <font>
                   <Font size="22.0" />
                </font>
@@ -112,7 +97,7 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </Label>
-            <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" text="23" textFill="#aeaeae">
+            <Label fx:id="lblFollowing" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" styleClass="text24" text="23" textFill="#aeaeae">
                <font>
                   <Font size="20.0" />
                </font>
@@ -123,7 +108,7 @@
          </children>
       </HBox>
       <Separator layoutX="385.0" layoutY="221.0" prefWidth="400.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="105.0">
+      <ImageView fx:id="ivProfile" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="105.0" onMouseClicked="#profRequest" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="105.0">
          <image>
             <Image url="@../images/jimmy-fallon.png" />
          </image>
@@ -133,7 +118,7 @@
             <Insets top="5.0" />
          </padding>
       </Separator>
-      <Label layoutX="22.0" layoutY="392.0" text="Private, Normal account" textFill="#aeaeae" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0">
+      <Label fx:id="lblInfo" layoutX="22.0" layoutY="392.0" styleClass="text18" text="Private, Normal account" textFill="#aeaeae" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0">
          <font>
             <Font size="18.0" />
          </font>

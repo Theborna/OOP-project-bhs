@@ -1,28 +1,37 @@
 package com.project.models.node.post;
 
+import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import com.database.PostDB;
+import com.project.models.node.Image;
+import com.project.models.node.Media;
 import com.project.models.node.TextBased;
 import com.project.models.node.node;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
-import java.time.LocalDateTime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Post extends node implements TextBased {
     private static long PostId;
     private StringBuilder text;
+    private Image image = null;
+    private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
-    private int commentsCount;
+    private int comments;
+    private Post repliedPost;
 
     public Post(String text) {
         this.text = new StringBuilder(text);
         sender = new NormalUser("borna", "");
         likes = 52;
         views = 146;
-        commentsCount = 10;
         setData(PostId++, LocalDateTime.now(),
                 LocalDateTime.now());
     }
@@ -36,8 +45,20 @@ public class Post extends node implements TextBased {
                 LocalDateTime.now());
     }
 
-    public int getCommentsCount() {
-        return commentsCount;
+    public Post getRepliedPost() {
+        return repliedPost;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
+    }
+
+    public void setRepliedPost(Post repliedPost) {
+        this.repliedPost = repliedPost;
     }
 
     public User getSender() {
@@ -50,6 +71,14 @@ public class Post extends node implements TextBased {
 
     public int getViews() {
         return views;
+    }
+
+    public int getCommentsCount() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
     }
 
     public StringBuilder getBuilder() {
@@ -83,10 +112,18 @@ public class Post extends node implements TextBased {
         return true;
     }
 
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
     @Override
     public void sendToDB() {
         // TODO Auto-generated method stub
-
+        try {
+            PostDB.addPost(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Set<Post> getComments() {

@@ -1,5 +1,6 @@
-.text-field {
+.txtSearch {
     -fx-border-color: #B7C3D7;
     -fx-border-radius: 2em;
     -fx-font-color: #FFFFFF;
+    -fx-font-size: 12px;
 }

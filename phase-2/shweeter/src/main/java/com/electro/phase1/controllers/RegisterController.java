@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.electro.phase1.AppRegex;
+import com.electro.phase1.enums.Security;
 import com.electro.phase1.models.node.user.BusinessUser;
 import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
@@ -15,8 +16,8 @@ public class RegisterController extends LoginController {
     // @Override
     // public void parse(String input) {
     // }
-    private static RegisterController instance;
-
+    private Security securityQ;
+    private String securityAns;
     private String email, fullName;
 
     public RegisterController() {
@@ -82,6 +83,24 @@ public class RegisterController extends LoginController {
             user = new NormalUser(username, password);
         else
             user = new BusinessUser(username, password);
-        user.setPublic(isPublic).setBirthDate(birthDate).sendToDB();
+        user.setPublic(isPublic).setBirthDate(birthDate).sendToDB(); // TODO: update controller
+    }
+
+    public boolean getSecurityQuestion(String nextLine) {
+        nextLine = nextLine.trim().toLowerCase();
+        if (nextLine.length() < 2) {
+            new ErrorNotification("security answer cannot be empty");
+            return false;
+        }
+        securityAns = nextLine;
+        return true;
+    }
+
+    public void setSecurityQ(Security securityQ) {
+        this.securityQ = securityQ;
+    }
+
+    public String getSecurityAns() {
+        return securityAns;
     }
 }

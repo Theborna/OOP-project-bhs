@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pnProfile" styleClass="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.views.ProfilePageController">
+    <children>
+        <ScrollPane fx:id="scrollProf" fitToWidth="true" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane styleClass="blur" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color: #ffffff11;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Button fx:id="btnScrollPage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Scroll" style="-fx-background-color: transparent;" text="Jimmy Falon" textFill="WHITE">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                        </Button>
+                        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                        <ButtonBar buttonMinWidth="10.0" buttonOrder="L_HE+FBIX_NCYOA_RU+" prefHeight="40.0" prefWidth="300.0">
+                            <buttons>
+                                <Button fx:id="btnMessage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/icons8_email_send_96px.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnFollow" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="133.0" text="Follow" textFill="WHITE" />
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
+                                            <image>
+                                                <Image url="@images/icons8_more_96px.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                    <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
