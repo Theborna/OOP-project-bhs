@@ -9,7 +9,7 @@ public abstract class connection<E, T> extends node {
 
     private E obj1;
     private T obj2;
-    private int value;
+
     public connection(E obj1, T obj2) {
         this.obj1 = obj1;
         this.obj2 = obj2;
@@ -33,14 +33,12 @@ public abstract class connection<E, T> extends node {
         return obj2;
     }
 
-    public Like setValue(int value) {
-        this.value = value;
-        return null;
-    }
-
     @Override
-    public void sendToDB(){
+    public void sendToDB() {
+        // TODO Auto-generated method stub
 
     }
+
+    
 
 }

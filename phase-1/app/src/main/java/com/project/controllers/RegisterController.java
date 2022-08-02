@@ -4,14 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import com.project.AppRegex;
-import com.project.enums.Security;
 
 public class RegisterController extends LoginController {
 
-    private Security securityQ = Security.randomQuestion();
-    private String securityAns;
-
-    @Override   
+    @Override
     public void parse(String input) {
     }
 
@@ -22,7 +18,7 @@ public class RegisterController extends LoginController {
     }
 
     public String getFullName(String nextLine) {
-        if (AppRegex.FULL_NAME.matches(nextLine))
+        if (nextLine.matches("\\S+") && nextLine.length() <= 30)
             return nextLine;
         return null;
     }
@@ -56,23 +52,4 @@ public class RegisterController extends LoginController {
         return null;
     }
 
-    public int getSecurityQuestion(String nextLine) {
-        nextLine = nextLine.trim().toLowerCase();
-        if (nextLine.length() < 2)
-            return 1;
-        if (nextLine.equals("-change")) {
-            securityQ = Security.randomQuestion();
-            return 2;
-        }
-        securityAns = nextLine;
-        return 0;
-    }
-
-    public Security getSecurityQ() {
-        return securityQ;
-    }
-
-    public String getSecurityAns() {
-        return securityAns;
-    }
 }

@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.Set;
 
 import com.electro.phase1.models.connection.ChatUserConnection;
-import com.electro.phase1.models.connection.MessageConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
 import com.electro.phase1.models.node.Message;
@@ -14,7 +13,6 @@ import com.electro.phase1.models.node.node;
 import com.electro.phase1.models.node.post.Post;
 // import com.electro.phase1.util.Log;
 import com.electro.phase1.util.StdColor;
-import com.electro.phase1.util.StdOut;
 
 /**
  * abstract class defining users.
@@ -24,16 +22,15 @@ import com.electro.phase1.util.StdOut;
  */
 public abstract class User extends node {
     private static User currentUser;
-    private String username, password, fullName;
+    private String username, password;
     private boolean isPublic;
     private StdColor nameColor;
-    private int followerCnt, followingCnt;
+    private int followerCnt;
     private Date birthDate;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        fullName = "jimmy fallen";
         nameColor = StdColor.random("name");
     }
 
@@ -54,7 +51,7 @@ public abstract class User extends node {
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
         // Log.logger.info("sent message: " + message.toString() + " to chat: " +
         // chat.toString());
-        MessageConnection.msg.add(message);
+
     }
 
     public void follow(User user) {
@@ -82,10 +79,6 @@ public abstract class User extends node {
 
     public int getFollowerCnt() {
         return followerCnt;
-    }
-
-    public String getFullName() {
-        return fullName;
     }
 
     public boolean isPublic() {
@@ -120,26 +113,12 @@ public abstract class User extends node {
     }
 
     public void like(com.electro.phase1.models.node.post.Post post) {// TODO: implement this method
-        StdOut.println("liked " + post, StdColor.GREEN);
     }
 
     public void dislike(com.electro.phase1.models.node.post.Post post) {// TODO: implement this method
-        StdOut.println("disliked " + post, StdColor.GREEN);
     }
 
     public void sendToDB() {
         // TODO: send the user to the database, register
-    }
-
-    public int getFollowingCnt() {
-        return followingCnt;
-    }
-
-    public static String[] getSecurityQuestion(String username2) {// TODO: add this
-        return new String[] { "what's the name of your dog?", "teddy", "boobs" };
-    }
-
-    public static User get(String selectedItem) {
-        return currentUser;// TODO
     }
 }

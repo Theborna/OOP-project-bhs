@@ -20,14 +20,6 @@ public class Message extends node implements TextBased { // TODO lots of modific
         replyTo = null;
     }
 
-    public Message(String message, User sender, Chat current) {
-        this.message = new StringBuilder(message);
-        this.sender = sender;
-        this.author = sender;
-        setData(id++, LocalDateTime.now(), LocalDateTime.now());
-        replyTo = null;
-    }
-
     public Message setReplyTo(Message replyTo) {
         this.replyTo = replyTo;
         return this;
@@ -60,9 +52,5 @@ public class Message extends node implements TextBased { // TODO lots of modific
     @Override
     public String getText() {
         return message.toString();
-    }
-
-    public boolean isForwarded() {
-        return author != sender;
     }
 }

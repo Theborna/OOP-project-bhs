@@ -1,7 +1,6 @@
 package com.project;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.project.models.node.Message;
@@ -38,14 +37,6 @@ public class LimitedList<E> {
         return this;
     }
 
-    public void addAll(Collection<E> items){
-        for(E item : items)
-            add(item);
-    }
-    public  void clear(){
-       items.clear();
-       pos = 0;
-    }
     public int indexOf(E item) {
         return items.indexOf(item);
     }

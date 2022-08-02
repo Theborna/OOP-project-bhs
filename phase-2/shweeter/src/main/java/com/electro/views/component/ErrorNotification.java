@@ -10,13 +10,8 @@ import javafx.util.Duration;
 import jfxtras.styles.jmetro.Style;
 
 public class ErrorNotification {
-    private static int notifications;
-    static final int NOTIFICATION_LIMIT = 3;
 
     public ErrorNotification(String message) {
-        if (notifications >= NOTIFICATION_LIMIT)
-            return;
-        notifications++;
         Notifications notification = Notifications.create()
                 .title("Error!")
                 .text(message)
@@ -26,15 +21,6 @@ public class ErrorNotification {
         if (App.getStyle() == Style.DARK)
             notification.darkStyle();
         notification.show();
-        Thread th = new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            notifications--;
-        });
-        th.start();
     }
 
 }

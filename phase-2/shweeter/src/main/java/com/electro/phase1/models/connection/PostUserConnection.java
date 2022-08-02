@@ -4,7 +4,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.electro.phase1.models.node.post.Post;
-import com.electro.phase1.models.node.post.PromotedPost;
 import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
 
@@ -30,7 +29,7 @@ public class PostUserConnection extends connection<User, Post> {
     public static Set<Post> getFeed(Long userId) {
         Set<Post> result = new LinkedHashSet<>();
         // TODO run a query on the database and get posts;
-        result.add(new PromotedPost("kos mikham", new NormalUser("sex", "anal")));
+        result.add(new Post("kos mikham"));
         result.add(new Post(
                 "The main reason why System.out.println() can't show Unicode characters is that System.out.println() is a byte stream that deal with only the low-order eight bits of character which is 16-bits. In order to deal with Unicode characters(16-bit Unicode character), you have to use character based stream i.e. PrintWriter."));
         result.add(new Post("vay daram mimiram"));

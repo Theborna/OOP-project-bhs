@@ -4,7 +4,6 @@ import com.project.controllers.ChatListController;
 import com.project.controllers.Controller;
 import com.project.controllers.ListController;
 import com.project.models.node.user.User;
-import com.project.util.StdColor;
 import com.project.util.StdIn;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
@@ -24,19 +23,15 @@ public class ChatListView implements View {
     }
 
     public static ChatListView getInstance() {
-//        if (instance == null)
-        instance = new ChatListView();
+        if (instance == null)
+            instance = new ChatListView();
         return instance;
     }
 
     @Override
     public void show() throws changeViewException {
-        if (controller.getCurrent() != null) {
-            controller.getCurrent().show();
-            showSelections();
-        }
-        else
-            print("no chats available...", StdColor.CYAN);
+        controller.getCurrent().show();
+        showSelections();
         prompt("enter next command");
         controller.parse(StdIn.nextLine());
     }
@@ -53,7 +48,7 @@ public class ChatListView implements View {
 
     @Override
     public void reset() {
-        instance = null;
+        instance = null;        
     }
 
 }

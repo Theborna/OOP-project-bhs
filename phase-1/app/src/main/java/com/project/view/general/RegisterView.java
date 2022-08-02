@@ -1,9 +1,6 @@
 package com.project.view.general;
 
-import com.project.controllers.Controller;
-import com.project.controllers.LoginController;
 import com.project.controllers.RegisterController;
-import com.project.crypt;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
@@ -14,7 +11,6 @@ import com.project.view.View;
 
 import static com.project.util.StdOut.*;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import com.project.App;
@@ -41,16 +37,11 @@ public class RegisterView implements View {
         Date birthDate = null;
         String input;
         User user = null;
-        controller = new RegisterController();
         while (username == null) {
             prompt("enter username");
             username = controller.getUsername(input = StdIn.nextLine());
             if (username == null)
                 printError("invalid username format");
-            if (controller.exists(username)) {
-                username = null;
-                printError("User already exists");
-            }
         }
         while (password == null) {
             prompt("enter password");
@@ -78,12 +69,15 @@ public class RegisterView implements View {
         }
         while (birthDate == null) {
             prompt("enter birth date(yyyy-mm-dd) or \"--skip\" to skip this part");
-            input = StdIn.nextLine();
+            if ((input = StdIn.nextLine()).equals("--skip")) {
+                println("skipped", StdColor.GREEN);
+                break;
+            }
             birthDate = controller.getBirthDate(input);
             if (birthDate == null)
                 printError("invalid birth date format");
         }
-        if ((user = controller.logToUser(username)) == null) {
+        if ((user = controller.logToUser(username, password)) == null) {
             println("register successful! ", StdColor.GREEN);
             while (type == null) {
                 printSelections("normal", "business");
@@ -99,24 +93,14 @@ public class RegisterView implements View {
                 if (visible == null)
                     printError("invalid input");
             }
-            getSecurityQuestion();
             print("register completed! ", StdColor.GREEN);
-            String salt = crypt.salt();
-            password = crypt.encryptedString(password + salt);
             if (type.equals("normal"))
                 user = new NormalUser(username, password);
             else
                 user = new BusinessUser(username, password);
-            user.setPublic(visible.equals("public"));
-            user.setBirthDate(birthDate);
-            user.setEmail(email);
-            user.setUserType(user instanceof NormalUser ? 0 : 1);
-            user.setSalt(salt);
-            user.setSecType(controller.getSecurityQ());
-            user.setSecAns(controller.getSecurityAns());
-            user.sendToDB();
+            user.setPublic(visible.equals("public")).setBirthDate(birthDate).sendToDB();
         } else {
-            println("Incorrect username or password", StdColor.MAGENTA);
+            println("user already exists", StdColor.MAGENTA);
             printSelections("register", "login");
             prompt("do you want to register or login?");
             String next = StdIn.nextLine();
@@ -126,33 +110,11 @@ public class RegisterView implements View {
                 App.setView(LoginView.getInstance());
             return;
         }
-        println("user: " + username + ", visibility: " + visible
+        println("user: " + username + ", password: " + password + ", visibility: " + visible
                 + ", email: " + email + ", type: " + type + ", born at: "
                 + birthDate.toString().replaceAll("\\d{2}:\\d{2}:\\d{2} ", ""));
-        App.setView(LoginView.getInstance());
+        App.setView(SecondaryView.getInstance());
         // rule();
-    }
-
-    private void getSecurityQuestion() throws changeViewException {
-        boolean running = true;
-        while (running) {
-            println("answer the security question or use \"-change\" to change the question", StdColor.CYAN);
-            prompt(controller.getSecurityQ().toString());
-            switch (controller.getSecurityQuestion(StdIn.nextLine())) {
-                case 1:
-                    printError("answer cannot be empty");
-                    break;
-                case 2:
-                    print("question changed");
-                    break;
-                case 3:
-                    print("answers saved");
-                    running = false;
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 
     @Override

@@ -1,9 +1,6 @@
 package com.project.controllers;
 
 import com.project.App;
-import com.project.models.node.user.BusinessUser;
-import com.project.models.node.user.User;
-import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
 import com.project.view.model.SettingsView;
 
@@ -22,11 +19,6 @@ public class SelfPageController extends FeedController {
             case "settings":
                 App.setView(SettingsView.getInstance());
                 break;
-            case "show -stats":
-                if (User.getCurrentUser() instanceof BusinessUser)
-                    currentPost.showStats();
-                else
-                    StdOut.printError("statistics not available for non business users");
             default:
                 super.parse(input);
                 break;

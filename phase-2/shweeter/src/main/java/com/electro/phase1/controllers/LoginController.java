@@ -11,27 +11,10 @@ public class LoginController implements Controller {
     protected String username;
     protected String password;
     protected User user;
-    protected String securityQ, securityAns;
 
     // @Override
     // public void parse(String input) {
     // }
-
-    public String securityQuestion(String username) {
-        if (User.getID(username) == null)
-            return null;
-        String[] ans = User.getSecurityQuestion(username);
-        securityAns = ans[1];
-        password = ans[2];
-        return securityQ = ans[0];
-    }
-
-    public String isCorrectSecure(String answer) {
-        if (securityAns.equals(answer.toLowerCase().trim()))
-            return password;
-        return null;
-    }
-
     public LoginController() {
         username = null;
         password = null;

@@ -1,13 +1,10 @@
 package com.project.controllers;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-import com.database.ChatDB;
-import com.database.DBInfo;
 import com.project.AppRegex;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
@@ -166,21 +163,12 @@ public class NewChatController {
         return 1;
     }
 
-    public void makeChat() {
+    public Chat makeChat() {
         Chat chat = new Chat(name, type);
         Map<Long, ChatPermission> memberWithPermit = new HashMap<Long, ChatPermission>();
         for (Long member : members.keySet())
             memberWithPermit.put(member, permissions.get(members.get(member)));
-        chat.setLinkID(linkID).sendToDB();
-        // Adding members
-        try {
-            Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());
-            for (long id : memberWithPermit.keySet()) {
-                ChatDB.addMemeber(id, chatTemp.getId(), memberWithPermit.get(id));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return chat.setLinkID(linkID).addAll(memberWithPermit);
     }
 
     public int parseMember(String input) {
@@ -189,18 +177,13 @@ public class NewChatController {
         if ((m = AppRegex.ADD_USER.getMatcher(input)) != null) {
             if (members.size() > 1 && type == ChatType.PRIVATE)
                 return 6;
-            Long usId = User.getID(m.group("username"));
-            if (usId == 0)
-                return 7;
-            members.put(usId, m.group("username"));
+            members.put(User.getID(m.group("username")), m.group("username"));
             return 1;
         } else if ((m = AppRegex.REMOVE_USER.getMatcher(input)) != null) {
             if (members.remove(User.getID(m.group("username")), m.group("username")))
                 return 2;
             return 3;
         } else if (input.equals("-done")) {
-            if (members.size() < 2)
-                return 8;
             setDefaultPermissions();
             return 4;
         } else if (input.equals("-reset")) {

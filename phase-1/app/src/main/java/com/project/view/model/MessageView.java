@@ -3,7 +3,6 @@ package com.project.view.model;
 import com.project.controllers.Controller;
 import com.project.models.node.Message;
 import com.project.util.StdColor;
-import com.project.util.format;
 import com.project.util.exception.changeViewException;
 import com.project.view.View;
 
@@ -28,7 +27,7 @@ public class MessageView implements View {
         if (!message.getAuthor().equals(message.getSender())) {
             print(" " + "forwarded from " + message.getAuthor().getUsername(), StdColor.BLACK_BRIGHT);
         }
-        println("  @" + format.SimpleDate(message.getLastModifiedDate()), StdColor.BLACK_BRIGHT);
+        println("  @" + message.getLastModifiedDate(), StdColor.BLACK_BRIGHT);
         println(message.getBuilder());
         rule('_');
     }

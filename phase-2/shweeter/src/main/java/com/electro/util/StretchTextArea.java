@@ -38,7 +38,7 @@ public class StretchTextArea {
             StackPane pane = new StackPane(t);
             pane.layout();
             double height = t.getLayoutBounds().getHeight();
-            double padding = 18;
+            double padding = 20;
             textArea.setMinHeight(height + padding);
         });
     }
