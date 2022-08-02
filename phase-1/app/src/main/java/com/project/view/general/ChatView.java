@@ -25,6 +25,8 @@ public class ChatView implements View {
 
     protected ChatView() {
         controller = new ChatController();
+        if(Chat.getCurrent() == null)
+            return;
         controller.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
         controller.getCurrent();
         try {
@@ -36,6 +38,7 @@ public class ChatView implements View {
 
     public static ChatView getInstance() {
 //        if (instance == null)
+
             instance = new ChatView();
         return instance;
     }

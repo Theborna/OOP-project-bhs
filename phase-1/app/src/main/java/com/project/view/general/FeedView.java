@@ -21,19 +21,19 @@ public class FeedView implements View {
     protected FeedController controller;
 
     public FeedView() {
-        controller = new FeedController();
-        getFeed();
-        controller.getCurrent();
     }
 
     public void getFeed() {
+        controller = new FeedController();
         controller.clear();
         controller.addAll(PostUserConnection.getFeed(User.getCurrentUser().getId()));
+        controller.getCurrent();
     }
 
     public static FeedView getInstance() {
         // if (instance == null)
         instance = new FeedView();
+        instance.getFeed();
         return instance;
     }
 

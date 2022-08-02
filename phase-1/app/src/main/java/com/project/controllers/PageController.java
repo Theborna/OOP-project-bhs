@@ -10,6 +10,8 @@ import static com.project.util.StdOut.*;
 public class PageController extends FeedController {
 
     private boolean needInfo;
+    private User user;
+    private boolean follows;
 
     @Override
     public void parse(String input) throws changeViewException {
@@ -21,17 +23,21 @@ public class PageController extends FeedController {
                 needInfo = true;
                 break;
             case "follow":
-                if (PageView.getInstance().isFollows())
+                if (follows)
                     printError("already following!");
-                else
-                    User.getCurrentUser().follow(PageView.getInstance().getUser());
+                else {
+                    User.getCurrentUser().follow(user);
+                    follows = true;
+                }
                 break;
             case "un follow":
             case "un":
-                if (!PageView.getInstance().isFollows())
+                if (!follows)
                     printError("not following!");
-                else
-                    User.getCurrentUser().unfollow(PageView.getInstance().getUser());
+                else {
+                    User.getCurrentUser().unfollow(user);
+                    follows = false;
+                }
                 break;
             default:
                 super.parse(input);
@@ -54,7 +60,19 @@ public class PageController extends FeedController {
         }
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public boolean isNeedInfo() {
         return needInfo;
+    }
+
+    public boolean isFollows() {
+        return follows;
+    }
+
+    public void setFollows(boolean follows) {
+        this.follows = follows;
     }
 }

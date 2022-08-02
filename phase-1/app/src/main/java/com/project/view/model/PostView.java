@@ -4,6 +4,7 @@ import com.project.controllers.Controller;
 import com.project.models.connection.Like;
 import com.project.models.node.post.Post;
 import com.project.models.node.post.PromotedPost;
+import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.format;
 import com.project.view.View;
@@ -46,6 +47,7 @@ public class PostView implements View {
         print("comments: ", StdColor.CYAN);
         print(post.getCommentsCount());
         rule('_');
+        User.getCurrentUser().view(post);
     }
 
     public Post getPost() {

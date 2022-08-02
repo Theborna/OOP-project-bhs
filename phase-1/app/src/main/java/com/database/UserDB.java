@@ -181,7 +181,7 @@ public class UserDB {
     public static ArrayList<User> getFollowers(long userId, int size) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from following where follower_id = " + Long.toString(userId));
+        ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
         int cnt = 0;
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next() && (cnt < size || size == 0)) {
@@ -198,7 +198,7 @@ public class UserDB {
     public static ArrayList<User> getFollowings(long userId, int size) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
+        ResultSet rs = st.executeQuery("select * from following where follower_id = " + Long.toString(userId));
         int cnt = 0;
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next() && (cnt < size || size == 0)) {
@@ -232,7 +232,7 @@ public class UserDB {
     public static ArrayList<User> searchByUserName(String entry) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from users where US_USName like '" + entry + "' or US_Name like '" + entry + "';");
+        ResultSet rs = st.executeQuery("select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next()) {
             int userType = rs.getInt(6);
@@ -274,11 +274,12 @@ public class UserDB {
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
             }
+            ret.add(us);
         }
         rs.close();
         st.close();
         con.close();
-        return ret.isEmpty() ? null : ret;
+        return ret;
     }
 
     public static void follow(User current, User toFollow) throws SQLException {
@@ -293,5 +294,18 @@ public class UserDB {
         Statement st = con.createStatement();
         st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
                 + toFollow.getId());
+    }
+
+
+    public static boolean isFollowed(User currentUser, User user) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from following where follower_id = "
+                + currentUser.getId() + " and following_id = " + user.getId());
+        if (!rs.next()) {
+            return false;
+        }
+        return true;
+
     }
 }

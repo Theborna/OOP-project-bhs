@@ -17,16 +17,16 @@ public class PageView extends FeedView {
     private static PageView instance;
     protected User user;
     protected boolean gaveBasic;
-    private boolean follows;
+
 
     protected PageView() {
         controller = new PageController();
-        follows = User.getCurrentUser().isFollowing(user);
     }
 
     public static PageView getInstance() {
 //        if (instance == null)
-            instance = new PageView();
+        System.out.println("got instance");
+        instance = new PageView();
         return instance;
     }
 
@@ -44,8 +44,10 @@ public class PageView extends FeedView {
         if (user == null)
             return;
         controller.clear();
+        ((PageController) controller).setUser(user);
         controller.addAll(user.getPosts());
         gaveBasic = false;
+        ((PageController) controller).setFollows(User.getCurrentUser().isFollowing(user));
     }
 
     @Override
@@ -85,19 +87,12 @@ public class PageView extends FeedView {
 
     @Override
     protected void printCommands() {
-        if (follows)
+        if (((PageController) controller).isFollows())
             printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "un follow");
         else
             printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "follow");
     }
 
-    public boolean isFollows() {
-        return follows;
-    }
-
-    public void setFollows(boolean follows) {
-        this.follows = follows;
-    }
 
     @Override
     @SuppressWarnings("unchecked")

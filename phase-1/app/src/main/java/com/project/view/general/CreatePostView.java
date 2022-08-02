@@ -25,10 +25,10 @@ public class CreatePostView implements View {
             if (controller.getPostText(postText))
                 break;
         }
-        if(!AppRegex.POST.matches(postText.toString())){
-            printError("invalid post format");
-            return;
-        }
+//        if(!AppRegex.POST.matches(postText.toString())){
+//            printError("invalid post format");
+//            return;
+//        }
         // TODO: add more stuff to posts
 //        Post post = new Post(postText.toString());
         User.getCurrentUser().Post(postText.toString(),inReplyTo);

@@ -32,7 +32,6 @@ public class FeedController implements ListController<PostView> {
             case "down":
             case "d":
                 currentPost = postViews.get((++current < postViews.size()) ? current : (current = 0));
-                User.getCurrentUser().view(currentPost.getPost());
                 break;
             case "l":
             case "last":
@@ -40,7 +39,6 @@ public class FeedController implements ListController<PostView> {
             case "up":
             case "u":
                 currentPost = postViews.get((--current >= 0) ? current : (current = 0));
-                User.getCurrentUser().view(currentPost.getPost());
                 break;
             case "t":
             case "top":

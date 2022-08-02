@@ -140,15 +140,28 @@ public abstract class User extends node {
     }
 
     public void follow(User user) {
-        // TODO : follow the user
+        try {
+            UserDB.follow(this, user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void unfollow(User user) {
-        // TODO : unfollow the user
+        try {
+            UserDB.unFollow(this, user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isFollowing(User user) {
-        // TODO : check if the user is following
+        try {
+            return UserDB.isFollowed(this, user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Fuck");
         return false;
     }
 

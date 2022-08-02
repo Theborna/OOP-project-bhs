@@ -164,7 +164,7 @@ public class ChatDB {
     public static ArrayList<Chat> searchChat(String linkID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from chat where ch_name like '" + linkID + "' or ch_txt_id like '" + linkID + "'");
+        ResultSet rs = st.executeQuery("select * from chat where ch_name like '%" + linkID + "%' or ch_txt_id like '%" + linkID + "%'");
         ArrayList<Chat> ret = new ArrayList<>();
         while (rs.next()) {
             Chat ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
