@@ -25,7 +25,6 @@ public class PageView extends FeedView {
 
     public static PageView getInstance() {
 //        if (instance == null)
-        System.out.println("got instance");
         instance = new PageView();
         return instance;
     }

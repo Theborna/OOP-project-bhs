@@ -7,119 +7,13 @@
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/AppRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/AppRegex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/ExploreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/ExploreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Dislike.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/post/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/ChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/ChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/CreatePostView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/CreatePostView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/FeedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/FeedView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/App$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/App$WindowButtons$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/App$WindowButtons.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/chatItemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/messageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postStatController$HoveredThresholdNodes$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postStatController$HoveredThresholdNodes$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postStatController$HoveredThresholdNodes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/postStatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/components/profileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/ChatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/CreateChatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/ExploreController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/ExploreController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/LoginPageController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/LoginPageController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/LoginPageController$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/LoginPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/MainController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/PrimaryController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/ProfilePageController$ProfileVbox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/ProfilePageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/SearchController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/SearchController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/controllers/views/SecondaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/AppRegex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/ListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/NewChatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/RegisterController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/controllers/SecondaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/enums/ChatPermission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/enums/ChatType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/enums/Security.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/connection/ChatUserConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/connection/Like.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/connection/MessageConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/connection/PostUserConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/connection/connection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Chat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/ChatType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Image.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Media.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/TextBased.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Video.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/Voice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/post/NormalPost.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/post/Post.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/post/PromotedPost.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/user/BusinessUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/user/NormalUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/models/node/user/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/Dictionary$Word.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/Dictionary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/NameCompare.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/ReadCSV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/StdColor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/StdOut.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/TextSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/phase1/util/format.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/ResponsiveHBox$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/ResponsiveHBox$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/ResponsiveHBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/Sounds$Volume.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/Sounds.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/util/StretchTextArea.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ChatListView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ChatListView$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ChatListView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ChatView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/CreateChatView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ExploreView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/MessageListView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/MessageListView$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/MessageListView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/PostListView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/ProfileView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/SearchView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/component/ErrorNotification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/component/FieldEmptyError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/component/InfoNotification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/component/PostStatsPopOver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/component/ProfilePopOver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/com/electro/views/inPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/target/classes/module-info.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +112,7 @@
       <workItem from="1659154476974" duration="26236000" />
       <workItem from="1659194683460" duration="853000" />
       <workItem from="1659320546221" duration="2189000" />
-      <workItem from="1659444733553" duration="4273000" />
+      <workItem from="1659444733553" duration="7368000" />
     </task>
     <servers />
   </component>
@@ -283,11 +177,6 @@
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SearchView.java</url>
           <line>56</line>
           <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PageView.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java</url>

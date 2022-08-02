@@ -32,8 +32,8 @@ public class SearchController implements Controller {
     }
 
     public List<User> getUserResult(String username) {
-        if (!AppRegex.USERNAME.matches(username))
-            return null;
+//        if (!AppRegex.USERNAME.matches(username))
+//            return null;
         userResult = new ArrayList<User>();
         try {
             userResult.addAll(UserDB.searchByUserName(username));
@@ -44,8 +44,8 @@ public class SearchController implements Controller {
     }
 
     public List<Chat> getChatResult(String chat) {
-        if (!AppRegex.CHAT_ID.matches(chat))
-            return null;
+//        if (!AppRegex.CHAT_ID.matches(chat))
+//            return null;
         chatResult = new ArrayList<Chat>();
         try {
             chatResult.addAll(ChatDB.searchChat(chat));

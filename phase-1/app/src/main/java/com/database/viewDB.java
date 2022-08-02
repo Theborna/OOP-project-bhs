@@ -99,7 +99,7 @@ public class viewDB {
             Like lk = new Like(PostDB.getPostbyPostID(rs.getLong(1)), UserDB.getUserInfo(rs.getLong(2)));
             lk.setValue(rs.getInt(3));
             lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
-            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            if (rs.getString(5)!=null) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
             ret.add(lk);
         }
         rs.close();

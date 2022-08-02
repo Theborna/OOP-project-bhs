@@ -350,7 +350,8 @@ public abstract class User extends node {
         }
     }
 
-    public void setPassword(String password2) {
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
     }
-
 }
