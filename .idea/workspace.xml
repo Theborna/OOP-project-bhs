@@ -8,7 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/Like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/PostUserConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/connection/PostUserConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/Suggestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/Suggestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
