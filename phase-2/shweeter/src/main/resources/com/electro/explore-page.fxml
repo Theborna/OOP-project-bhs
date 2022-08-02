@@ -24,6 +24,7 @@
          <right>
             <VBox fx:id="vboxRecommend" alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
+                  <Label styleClass="text14" text="Recommended Pages" />
                   <AnchorPane styleClass="choosePane">
                      <children>
                         <ListView fx:id="lstRecommendedPages" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">

@@ -80,6 +80,7 @@ public class ChatListView extends VBox {
                             }
 
                         });
+                    Thread.sleep(60); // sleep
                 }
             } catch (Exception e) {
                 e.printStackTrace();

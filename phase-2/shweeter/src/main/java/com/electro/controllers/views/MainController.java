@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.electro.App;
-import com.electro.phase1.controllers.ChatController;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
@@ -14,6 +13,7 @@ import com.electro.phase1.models.node.user.User;
 import com.electro.util.ResponsiveHBox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
+import com.electro.views.ChatView;
 import com.electro.views.CreateChatView;
 import com.electro.views.ExploreView;
 import com.electro.views.MessageListView;
@@ -63,8 +63,7 @@ public class MainController implements Initializable {
 
     @FXML
     private Button btnChat, btnExplore, btnFeed, btnLogout, btnNotification, btnProfile, btnSaved, btnSettings,
-            btnCompose, btnPost, btnScrollPage, btnChatTop, btnMsgTop, btnNewChat, btnChatSettings, btnMsgSend,
-            btnMsgFile;
+            btnCompose, btnPost, btnScrollPage, btnNewChat;
 
     @FXML
     private ToggleButton tglClose, btnChatListClose, tglChat, tglMsg;
@@ -73,32 +72,22 @@ public class MainController implements Initializable {
     private StackPane stackPanes;
 
     @FXML
-    private AnchorPane pnChat, pnFeed, pnNotifications, pnSettings, pnCompose,
-            pnForward;
+    private AnchorPane pnFeed, pnNotifications, pnSettings, pnCompose, pnForward;
 
     @FXML
     private Button btnForward;
 
     @FXML
-    private TextArea txtAMessage;
-
-    @FXML
     private TextField txtSearch;
-
-    @FXML
-    private ListView<String> lstSearchUser;
 
     @FXML
     private SplitPane splPane, splChat;
 
     @FXML
-    private ScrollPane scrollChat, scrollPost, scrollMsg, scrollForward;
+    private ScrollPane scrollPost, scrollForward;
 
     @FXML
-    private BorderPane bpReply;
-
-    @FXML
-    private Label lblRepliedName, lblRepliedMsg, lblLogo;
+    private Label lblLogo;
 
     // @FXML
     // private BorderPane bpChatsToForward;
@@ -113,6 +102,7 @@ public class MainController implements Initializable {
     private ProfileView pnProfile;
     private ExploreView pnExplore;
     private SearchView pnSearch;
+    private ChatView pnChat;
     private AnchorPane inFront;
     private JMetro metro;
 
@@ -120,37 +110,28 @@ public class MainController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         Chat.LogToChat(1);// TODO: change this
         initSlidingPane();
-        initChatItems();
-        initMessages();
         initPosts();
         initForward();
+        // adding all the panes, kinda duplicated but cant be bothered to do better
         pnNewChat = new CreateChatView();
         stackPanes.getChildren().add(pnNewChat);
-        pnNewChat.finishedProperty().addListener((arg, old, niu) -> {
-            System.out.println("salam");
-            if (niu)
-                switchToRight(pnChat);
-        });
+        pnNewChat.setOnFinished(() -> switchToRight(pnChat));
         pnExplore = new ExploreView();
         stackPanes.getChildren().add(pnExplore);
         pnProfile = new ProfileView().withUser(User.getCurrentUser());
         stackPanes.getChildren().add(pnProfile);
         pnSearch = new SearchView(txtSearch.textProperty());
         stackPanes.getChildren().add(pnSearch);
+        pnChat = new ChatView();
+        stackPanes.getChildren().add(pnChat);
+        pnChat.setOnRequest(() -> switchToUp(pnNewChat.withChat(Chat.getCurrent())));
         txtSearch.textProperty().addListener((a, old, niu) -> switchToUp(pnSearch));
         pnProfile.toFront();
         // pnNewChat.toFront();
         ObservableList<String> searchResults = FXCollections.observableArrayList();
-        lstSearchUser.setItems(searchResults);
         searchResults.addAll("asdad", "Asdasd", "asfasfasiofj");// TODO
-        StretchTextArea.bind(txtAMessage);
         ResponsiveHBox.bindCentering(lblLogo);
         System.out.println("done");
-        lstSearchUser.getSelectionModel().selectedItemProperty().addListener((a, old, niu) -> {
-            User selectedUser = User.get(lstSearchUser.getSelectionModel().getSelectedItem());
-            System.out.println(selectedUser);
-            // new ProfilePopOver(, selectedUser)
-        });
         ProfilePopOver.getPreviewRequest().addListener((a, old, niu) -> {
             if (!niu)
                 return;
@@ -172,7 +153,7 @@ public class MainController implements Initializable {
                     switchToUp(pnChat);
             }
         });
-        pnChat.toFront();
+        // pnChat.toFront();
     }
 
     @FXML
@@ -199,7 +180,7 @@ public class MainController implements Initializable {
         } else if (btn == btnPost) {
             switchToRight(pnFeed);
         } else if (btn == btnNewChat) {
-            switchToUp(pnNewChat);
+            switchToUp(pnNewChat.withChat(null));
         }
     }
 
@@ -211,7 +192,6 @@ public class MainController implements Initializable {
             ChatListView.getPnForwardInstance().forward(false);
         switchToRight(pnChat);
     }
-
 
     @FXML
     private void logout() throws IOException {
@@ -260,8 +240,6 @@ public class MainController implements Initializable {
     }
 
     private void initSlidingPane() {
-        coupleButtonAndSlider(tglChat, splChat, 0, SplitPaneDividerSlider.Direction.RIGHT);
-        coupleButtonAndSlider(tglMsg, splChat, 0, SplitPaneDividerSlider.Direction.LEFT);
         coupleButtonAndSlider(tglClose, splPane, 0, SplitPaneDividerSlider.Direction.LEFT);
     }
 
@@ -276,59 +254,8 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    private void Scroll(ActionEvent evt) {
-        if (evt.getSource() == btnChatTop) {
-            scrollTo(scrollChat, true);
-        } else if (evt.getSource() == btnMsgTop) {
-            scrollTo(scrollMsg, false);
-        }
-    }
-
-    private void scrollTo(ScrollPane myScrollPane, boolean top) {
-        Animation animation = new Timeline(
-                new KeyFrame(
-                        Duration.seconds((top ? myScrollPane.getVvalue() : 1 - myScrollPane.getVvalue())
-                                * myScrollPane.getHeight() * 0.003),
-                        new KeyValue(myScrollPane.vvalueProperty(), top ? 0 : 1, Interpolator.EASE_OUT)));
-        animation.play();
-    }
-
-    private void initChatItems() {
-        ChatListView.getPnChatInstance().withChat(ChatUserConnection.getChats(User.getCurrentUser().getId()));
-        scrollChat.setContent(ChatListView.getPnChatInstance());
-    }
-
-    private void initMessages() {
-        MessageListView.getInstance().addAll();
-        scrollMsg.setContent(MessageListView.getInstance());
-        lblRepliedName.textProperty().bind(MessageListView.getInstance().getRepliedName());
-        lblRepliedMsg.textProperty().bind(MessageListView.getInstance().getRepliedMsg());
-        btnMsgTop.textProperty().bind(Chat.getCurrentName());
-    }
-
     private void initPosts() {
         scrollPost.setContent(new PostListView().withPosts(PostUserConnection.getFeed(User.getCurrentUser().getId())));
     }
 
-    @FXML
-    private void cancelReply() {
-        MessageListView.getInstance().clearReply();
-    }
-
-    @FXML
-    private void msgButton(ActionEvent event) {
-        Object o = event.getSource();
-        if (!(o instanceof Button))
-            return;
-        Button btn = (Button) o;
-        if (btn == btnMsgSend) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(txtAMessage.getText());
-            ChatController.post(sb, MessageListView.getInstance().getRepliedTo());
-            txtAMessage.setText("");
-        } else if (btn == btnMsgFile) {
-            File selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
-        }
-    }
 }

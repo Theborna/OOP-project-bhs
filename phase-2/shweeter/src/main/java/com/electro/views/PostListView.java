@@ -37,6 +37,7 @@ public class PostListView extends VBox {
                         controller.initialize(post);
                         super.getChildren().add(node);
                     });
+                    Thread.sleep(60);// chill time
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -6,6 +6,9 @@ import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
 
 import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Post extends node implements TextBased {
     private static long PostId;
@@ -75,4 +78,18 @@ public class Post extends node implements TextBased {
         return true;
     }
 
+    public Set<Post> getComments() {
+        Set<Post> result = new LinkedHashSet<>();
+        if (new Random().nextInt() % 2 == 0)
+            return result;
+        // TODO run a query on the database and get posts;
+        result.add(new Post("kos mikham be soorat comment"));
+        result.add(new Post(
+                "The main reason why System.out.println() can't show Unicode characters is that System.out.println() is a byte stream that deal with only the low-order eight bits of character which is 16-bits. In order to deal with Unicode characters(16-bit Unicode character), you have to use character based stream i.e. PrintWriter."));
+        result.add(new Post("vay daram mimiram"));
+        for (int i = 0; i < 10; i++) {
+            result.add(new Post(String.valueOf(i)));
+        }
+        return result;
+    }
 }

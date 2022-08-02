@@ -88,6 +88,7 @@ public class ProfilePageController {
                             super.getChildren().add(nodes.get(j));
                         });
                         nodes.add(node_);
+                        Thread.sleep(60);// resting
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

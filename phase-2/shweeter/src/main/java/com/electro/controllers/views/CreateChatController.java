@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -31,7 +32,11 @@ import org.controlsfx.control.textfield.CustomTextField;
 import com.electro.App;
 import com.electro.phase1.controllers.NewChatController;
 import com.electro.phase1.enums.ChatPermission;
+import com.electro.phase1.models.connection.ChatUserConnection;
+import com.electro.phase1.models.node.Chat;
+import com.electro.phase1.models.node.user.User;
 import com.electro.views.component.ErrorNotification;
+import com.electro.views.component.InfoNotification;
 
 public class CreateChatController implements Initializable {
 
@@ -58,6 +63,8 @@ public class CreateChatController implements Initializable {
 
     private NewChatController controller;
     private ContextMenu context;
+    private Chat chat;
+    private String finalMessage = "chat was made successfully";
 
     @FXML
     private void cancelNewChat() {
@@ -110,7 +117,9 @@ public class CreateChatController implements Initializable {
                 new ErrorNotification("cannot create an empty group");
                 return;
             }
-            // switchToRight(pnChat);
+            new InfoNotification(finalMessage);
+            finishedProperty.setValue(true);
+            controller = new NewChatController();
             switchPanes(pnSetChatMembers, pnSetChatType);
         }
     }
@@ -141,14 +150,6 @@ public class CreateChatController implements Initializable {
             permissions = FXCollections.observableArrayList();
         lstMembers.setItems(members);
         lstPermissions.setItems(permissions);
-        pnSetChatType.toFront();
-        pnSetChatType.setVisible(true);
-        if (onTop != null)
-            onTop.setVisible(false);
-        onTop = pnSetChatType;
-        if (finishedProperty == null)
-            finishedProperty = new SimpleBooleanProperty();
-        finishedProperty.setValue(false);
         setContext();
         // initial values
         setInitial();
@@ -189,6 +190,18 @@ public class CreateChatController implements Initializable {
         members.addAll(controller.getInitialMembers().values());
         permissions.addAll(controller.getPermissions().values().stream().map(i -> i.toString().toLowerCase())
                 .collect(Collectors.toList()));
+        if (finishedProperty == null)
+            finishedProperty = new SimpleBooleanProperty();
+        finishedProperty.setValue(false);
+        if (onTop != null)
+            onTop.setVisible(false);
+        if (chat == null)
+            onTop = pnSetChatType;
+        else
+            onTop = pnSetChatName;
+        onTop.toFront();
+        onTop.setVisible(true);
+
     }
 
     private void switchPanes(AnchorPane pane1, AnchorPane pane2) {
@@ -201,6 +214,28 @@ public class CreateChatController implements Initializable {
 
     public BooleanProperty getFinishedProperty() {
         return finishedProperty;
+    }
+
+    public void setChat(Chat chat) {
+        controller = new NewChatController();
+        this.chat = chat;
+        if (chat != null) {
+            Map<User, ChatPermission> memberData = ChatUserConnection.getUsers(chat.getId());
+            Map<Long, String> initialMembers = new HashMap<Long, String>();
+            Map<String, ChatPermission> initialPerm = new HashMap<String, ChatPermission>();
+            for (User u : memberData.keySet()) {
+                initialMembers.put(u.getId(), u.getUsername());
+                initialPerm.put(u.getUsername(), memberData.get(u));
+            }
+            controller.setName(Chat.getCurrent().getName()).setLinkID(Chat.getCurrent().getLinkID())
+                    .setType(Chat.getCurrent().getType())
+                    .setInitialMembers(initialMembers).setInitialPermissions(initialPerm)
+                    .setDefaultPermissions();
+            finalMessage = "chat modifications were successful";
+        } else {
+            finalMessage = "chat created successfully";
+        }
+        setInitial();
     }
 
 }

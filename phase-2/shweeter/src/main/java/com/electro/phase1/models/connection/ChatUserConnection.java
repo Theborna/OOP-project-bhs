@@ -1,9 +1,12 @@
 package com.electro.phase1.models.connection;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
+import com.electro.phase1.enums.ChatPermission;
 import com.electro.phase1.models.node.Chat;
 import com.electro.phase1.models.node.ChatType;
 import com.electro.phase1.models.node.user.NormalUser;
@@ -28,13 +31,14 @@ public class ChatUserConnection extends connection<User, Chat> {
         return result;
     }
 
-    public static Set<User> getUsers(Long chatId) {
-        Set<User> result = new LinkedHashSet<User>();
+    // TODO: i made this into a Map!!!
+    public static Map<User, ChatPermission> getUsers(Long chatId) { // TODO: i made this into a Map!!!
+        Map<User, ChatPermission> result = new LinkedHashMap<User, ChatPermission>();
         // TODO: run a query and get all the users in the chat
-        result.add(new NormalUser("sex", "anal"));
-        result.add(new NormalUser("sex", "vaginal"));
+        result.put(new NormalUser("sex", "anal"), ChatPermission.NORMAL);
+        result.put(new NormalUser("sex2", "vaginal"), ChatPermission.NORMAL);
         for (int i = 0; i < 10; i++) {
-            result.add(new NormalUser(Integer.toString(i), Integer.toString((2 * i))));
+            result.put(new NormalUser(Integer.toString(i), Integer.toString((2 * i))), ChatPermission.NORMAL);
         }
         return result;
     }

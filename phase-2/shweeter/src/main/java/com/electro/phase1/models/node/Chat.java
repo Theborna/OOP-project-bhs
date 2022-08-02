@@ -18,6 +18,7 @@ public class Chat extends node {
     private static StringProperty nameProperty;
     private String name;
     private ChatType type;
+    private String linkID;
     // TODO: sepehr changes
     // private int participantNum;
     // private ArrayList<User> participants;
@@ -72,6 +73,11 @@ public class Chat extends node {
     }
 
     public Chat setLinkID(String linkID) {
-        return null;
+        this.linkID = linkID;
+        return this;
+    }
+
+    public String getLinkID() {
+        return linkID;
     }
 }

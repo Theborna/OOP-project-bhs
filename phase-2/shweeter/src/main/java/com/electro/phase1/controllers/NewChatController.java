@@ -208,10 +208,6 @@ public class NewChatController {
         return null;
     }
 
-    public void setType(ChatType type) {
-        this.type = type;
-    }
-
     public boolean makeChat() {
         if (members.size() < 2)
             return false;
@@ -239,11 +235,6 @@ public class NewChatController {
         permissions.putAll(initialPermissions);
     }
 
-    public NewChatController setLinkID(String linkID) {
-        this.linkID = linkID;
-        return this;
-    }
-
     public boolean setPermission(String username, ChatPermission permission) {
         if (username == User.getCurrentUser().getUsername())
             return false;
@@ -269,6 +260,21 @@ public class NewChatController {
 
     public String getLinkID() {
         return linkID;
+    }
+
+    public NewChatController setType(ChatType type) {
+        this.type = type;
+        return this;
+    }
+
+    public NewChatController setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public NewChatController setLinkID(String linkID) {
+        this.linkID = linkID;
+        return this;
     }
 
 }

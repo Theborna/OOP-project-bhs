@@ -88,7 +88,6 @@ public class MessageListView extends VBox {
                     newMsg.removeAll(messages);
                     addMessages(newMsg);
                     messages.addAll(newMsg);
-                    // System.out.println("salam " + newMsg);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -100,7 +99,7 @@ public class MessageListView extends VBox {
         updater.start();
     }
 
-    private void addMessages(List<Message> messages) throws IOException {
+    private void addMessages(List<Message> messages) throws IOException, InterruptedException {
         for (int i = 0; i < messages.size(); i++) {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("components/message.fxml"));
             Node node = loader.load();
@@ -153,6 +152,7 @@ public class MessageListView extends VBox {
                     System.out.println(forwarding);
                 }
             });
+            Thread.sleep(60);
         }
     }
 
