@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-08-01T02:59:39.299137100Z</date>
-  <millis>1659322779299</millis>
-  <nanos>137100</nanos>
+  <date>2022-08-02T09:26:54.991571800Z</date>
+  <millis>1659432414991</millis>
+  <nanos>571800</nanos>
   <sequence>0</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>starting application</message>
 </record>
 <record>
-  <date>2022-08-01T02:59:39.321078500Z</date>
-  <millis>1659322779321</millis>
-  <nanos>78500</nanos>
+  <date>2022-08-02T09:26:55.003571100Z</date>
+  <millis>1659432415003</millis>
+  <nanos>571100</nanos>
   <sequence>1</sequence>
   <logger>com.project.util.Log</logger>
   <level>INFO</level>
@@ -25,4 +25,15 @@
   <thread>1</thread>
   <message>changed view to PrimaryView</message>
 </record>
-</log>
+<record>
+  <date>2022-08-02T09:27:08.979960600Z</date>
+  <millis>1659432428979</millis>
+  <nanos>960600</nanos>
+  <sequence>2</sequence>
+  <logger>com.project.util.Log</logger>
+  <level>INFO</level>
+  <class>com.project.App</class>
+  <method>setView</method>
+  <thread>1</thread>
+  <message>changed view to LoginView</message>
+</record>

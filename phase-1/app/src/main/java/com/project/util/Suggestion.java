@@ -19,7 +19,7 @@ public class Suggestion {
         for (UserFollowingConnection following : Followings) {
             Set<Post> followingLiked = following.getObj2().getPosts();
             for (Post post : followingLiked) {
-                if (PostUserConnection.getUser(post.getId()).isPublic()) {
+                if (post.getSender().isPublic()) {
                     Posts.add(post);
                 }
             }
@@ -40,7 +40,7 @@ public class Suggestion {
         int a = 0;
         Set<User> usersWhoLiked = new HashSet<>();// = Like.getUsers(post);//TODO:fix
         Set<UserFollowingConnection> Followings = UserFollowingConnection.getFollowings(user);
-        User UserWhoPosted = PostUserConnection.getUser(post.getId());
+        User UserWhoPosted = post.getSender();
         for (UserFollowingConnection user2 : Followings) {
             if (usersWhoLiked.contains(user2.getObj2())) {
                 a += (int) (20.0 * (((double) (user2.getPromoIndex())) / 100.0));

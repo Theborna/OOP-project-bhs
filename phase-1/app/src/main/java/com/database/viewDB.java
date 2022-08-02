@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class viewDB {
 
@@ -57,12 +58,46 @@ public class viewDB {
             Like lk = new Like(PostDB.getPostbyPostID(postID), UserDB.getUserInfo(userID));
             lk.setValue(rs.getInt(3));
             lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
-            lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
             rs.close();
             return lk;
         }
+    }
 
+    public static ArrayList<Like> getLikesByUserID(long userID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from views where user_id = " + userID);
+        ArrayList<Like> ret = new ArrayList<>();
+        while (rs.next()) {
+            Like lk = new Like(PostDB.getPostbyPostID(rs.getLong(1)), UserDB.getUserInfo(rs.getLong(2)));
+            lk.setValue(rs.getInt(3));
+            lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
+            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            ret.add(lk);
+        }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
+    }
 
+    public static ArrayList<Like> getLikesByPostID(long userID) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from views where post_id = " + userID);
+        ArrayList<Like> ret = new ArrayList<>();
+        while (rs.next()) {
+            Like lk = new Like(PostDB.getPostbyPostID(rs.getLong(1)), UserDB.getUserInfo(rs.getLong(2)));
+            lk.setValue(rs.getInt(3));
+            lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
+            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            ret.add(lk);
+        }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
     }
 
     public static boolean isExists(long userID, long postID) throws SQLException {

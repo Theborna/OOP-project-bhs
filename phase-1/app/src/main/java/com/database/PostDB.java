@@ -154,7 +154,7 @@ public class PostDB {
         return ret.isEmpty() ? null : ret;
     }
 
-    public ArrayList<Post> getFeed(long userID) throws SQLException {
+    public static ArrayList<Post> getFeed(long userID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = generateQueryForFeed(userID);
@@ -183,7 +183,7 @@ public class PostDB {
     }
 
 
-    private String generateQueryForFeed(long userID) throws SQLException {
+    private static String generateQueryForFeed(long userID) throws SQLException {
         ArrayList<User> followings = UserDB.getFollowings(userID, 0);
         if (followings.isEmpty())
             return null;

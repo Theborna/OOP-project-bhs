@@ -114,6 +114,7 @@ public class RegisterView implements View {
             user.setSalt(salt);
             user.setSecType(controller.getSecurityQ());
             user.setSecAns(controller.getSecurityAns());
+            user.setName(fullName);
             user.sendToDB();
         } else {
             println("Incorrect username or password", StdColor.MAGENTA);
@@ -145,7 +146,7 @@ public class RegisterView implements View {
                 case 2:
                     print("question changed");
                     break;
-                case 3:
+                case 0:
                     print("answers saved");
                     running = false;
                     break;
