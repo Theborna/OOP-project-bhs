@@ -1,6 +1,7 @@
 package com.electro.controllers.components;
 
 import java.util.Set;
+import java.util.function.Consumer;
 
 import com.electro.phase1.models.node.post.Post;
 import com.electro.phase1.models.node.post.PromotedPost;
@@ -18,6 +19,7 @@ import animatefx.animation.SlideInUp;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.BooleanProperty;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,6 +60,8 @@ public class postController {
 
     private Post post;
 
+    private static Consumer<Post> commentAction;
+
     public void initialize(Post post) {
         this.post = post;
         content.setText(post.getText());
@@ -82,10 +86,10 @@ public class postController {
             like();
         else if (btn == btnDislike)
             dislike();
-        else if (btn == btnComment)
-            comment();
         else if (btn == btnShare)
             share();
+        else if (btn == btnComment)
+            commentAction.accept(post);
         // else if (btn == btnAdvertisement)
         // advertisement();
     }
@@ -98,9 +102,6 @@ public class postController {
     }
 
     private void share() {
-    }
-
-    private void comment() {
     }
 
     private void dislike() {
@@ -140,5 +141,9 @@ public class postController {
             }
         });
         vboxComments.setSpacing(10);
+    }
+
+    public static void setCommentAction(Consumer<Post> commentAction) {
+        postController.commentAction = commentAction;
     }
 }

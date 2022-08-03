@@ -69,53 +69,6 @@
                   </ToggleButton>
                   <StackPane maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane fx:id="forgot" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
-                           <children>
-                              <HBox alignment="CENTER" layoutX="21.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <VBox fx:id="vboxForgot" alignment="CENTER" minWidth="450.0">
-                                       <children>
-                                          <Label fx:id="lblSecurityQ" maxWidth="1.7976931348623157E308" styleClass="text24" text="Label" />
-                                          <TextField fx:id="txtSecAns" maxWidth="1.7976931348623157E308" prefHeight="40.0">
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </TextField>
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmSecurity" prefHeight="60.0" text="Confirm">
-                                             <VBox.margin>
-                                                <Insets top="40.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                          <HBox alignment="CENTER">
-                                             <children>
-                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                   <padding>
-                                                      <Insets left="10.0" right="10.0" />
-                                                   </padding>
-                                                </Separator>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text24" text="Or">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                </Text>
-                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
-                                                   <padding>
-                                                      <Insets left="10.0" right="10.0" />
-                                                   </padding>
-                                                </Separator>
-                                             </children>
-                                          </HBox>
-                                          <Button fx:id="btnForgotSignIn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign In" />
-                                          <Button fx:id="btnForgotSignUp" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign Up" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
                         <AnchorPane fx:id="signUp" maxWidth="1.7976931348623157E308" styleClass="anchorPane" StackPane.alignment="CENTER">
                            <children>
                               <HBox alignment="BASELINE_CENTER" focusTraversable="true" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -313,6 +266,105 @@
                                           </VBox>
                                        </content>
                                     </ScrollPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="forgot" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="21.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox fx:id="vboxForgot" alignment="CENTER" minWidth="450.0">
+                                       <children>
+                                          <Label fx:id="lblSecurityQ" maxWidth="1.7976931348623157E308" styleClass="text24" text="Label" />
+                                          <TextField fx:id="txtSecAns" maxWidth="1.7976931348623157E308" prefHeight="40.0">
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmSecurity" prefHeight="60.0" text="Confirm">
+                                             <VBox.margin>
+                                                <Insets top="40.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text24" text="Or">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="btnForgotSignIn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign In" />
+                                          <Button fx:id="btnForgotSignUp" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign Up" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="changePass" prefHeight="200.0" prefWidth="200.0" styleClass="anchorPane">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="21.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox fx:id="vboxChangePass" alignment="CENTER" minWidth="450.0">
+                                       <children>
+                                          <Label maxWidth="1.7976931348623157E308" styleClass="text24" text="Enter your new password" />
+                                          <PasswordField fx:id="txtNewPass" prefHeight="40.0" promptText="password">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </PasswordField>
+                                          <PasswordField fx:id="txtNewPassConfirm" prefHeight="40.0" promptText="confirm password">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </PasswordField>
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changePass" prefHeight="60.0" text="Change password">
+                                             <VBox.margin>
+                                                <Insets top="40.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text24" text="Or">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                                <Separator maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="btnForgotSignIn1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign In" />
+                                          <Button fx:id="btnForgotSignUp1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnHandler" prefHeight="60.0" text="Sign Up" />
+                                       </children>
+                                    </VBox>
                                  </children>
                               </HBox>
                            </children>

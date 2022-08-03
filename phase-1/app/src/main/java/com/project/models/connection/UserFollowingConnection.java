@@ -1,10 +1,14 @@
 package com.project.models.connection;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
+import com.project.util.Suggestion;
+import com.project.util.UserScore;
 
 public class UserFollowingConnection extends connection<User, User> {
 
@@ -72,14 +76,27 @@ public class UserFollowingConnection extends connection<User, User> {
         if (!(promoIndex - decreaseNum < -100)) {
             promoIndex -= decreaseNum;
         }
-        // TODO change the number in the database
+        this.sendToDB();
     }
 
     public void increasePromoIndex(int increaseNum) {
         if (!(increaseNum + promoIndex > 100)) {
             promoIndex += increaseNum;
         }
-        // TODO change the number in the database
+        this.sendToDB();
+    }
+
+    public static Set<User> getExploreUsers(User user) { // TODO: find appropriate users to show
+        ArrayList<UserScore> userScores = UserScore.userScores(new ArrayList<User>(Suggestion.setScoreForUsers(user)),
+                user);
+        Collections.sort(userScores);
+        return new LinkedHashSet<User>(UserScore.getUsers(userScores));
+        // return getFeed(user.getId());
+    }
+
+    @Override
+    public void sendToDB() {
+        
     }
 
 }

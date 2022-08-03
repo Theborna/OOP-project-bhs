@@ -1,19 +1,12 @@
 package com.electro.views;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import com.electro.App;
-import com.electro.controllers.components.chatItemController;
 import com.electro.controllers.components.postController;
-import com.electro.phase1.models.connection.PostUserConnection;
-import com.electro.phase1.models.node.node;
 import com.electro.phase1.models.node.post.Post;
-import com.electro.phase1.models.node.user.User;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
@@ -37,7 +30,7 @@ public class PostListView extends VBox {
                         controller.initialize(post);
                         super.getChildren().add(node);
                     });
-                    Thread.sleep(60);// chill time
+                    Thread.sleep(120);// chill time
                 }
             } catch (Exception e) {
                 e.printStackTrace();

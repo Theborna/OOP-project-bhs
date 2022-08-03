@@ -35,6 +35,8 @@ public class ComposeController {
     @FXML
     private BorderPane bpMain;
 
+
+    
     @FXML
     private TextArea txtPost;
 
@@ -94,6 +96,7 @@ public class ComposeController {
             Platform.runLater(() -> {
                 controller.initialize(withPost);
                 bpMain.setTop(node);
+                node.setDisable(true);
             });
         } catch (IOException e) {
             e.printStackTrace();

@@ -3,6 +3,7 @@ package com.electro.phase1.models.node.user;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Random;
 import java.util.Set;
 
 import com.electro.phase1.models.connection.ChatUserConnection;
@@ -40,6 +41,7 @@ public abstract class User extends node {
         fullName = "jimmy fallen";
         salt = "asdasda";
         nameColor = StdColor.random("name");
+        id = new Random().nextInt();
     }
 
     public static User getCurrentUser() {

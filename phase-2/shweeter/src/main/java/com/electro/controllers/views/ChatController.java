@@ -77,6 +77,12 @@ public class ChatController implements Initializable {
         lblRepliedName.textProperty().bind(MessageListView.getInstance().getRepliedName());
         lblRepliedMsg.textProperty().bind(MessageListView.getInstance().getRepliedMsg());
         btnMsgTop.textProperty().bind(Chat.getCurrentName());
+        lblRepliedName.textProperty().addListener((a, old, niu) -> {
+            if (niu == null || niu.length() == 0)
+                bpReply.setTop(null);
+            else
+                bpReply.setTop(hBoxReply);
+        });
     }
 
     @FXML

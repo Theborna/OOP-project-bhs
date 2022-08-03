@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.electro.App;
+import com.electro.controllers.components.postController;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
@@ -119,7 +120,6 @@ public class MainController implements Initializable {
         // adding all the panes, kinda duplicated but cant be bothered to do better
         pnNewChat = new CreateChatView();
         stackPanes.getChildren().add(pnNewChat);
-        pnNewChat.setOnFinished(() -> switchToRight(pnChat));
         pnExplore = new ExploreView();
         stackPanes.getChildren().add(pnExplore);
         pnProfile = new ProfileView().withUser(User.getCurrentUser());
@@ -128,14 +128,16 @@ public class MainController implements Initializable {
         stackPanes.getChildren().add(pnSearch);
         pnChat = new ChatView();
         stackPanes.getChildren().add(pnChat);
-        pnChat.setOnRequest(() -> switchToUp(pnNewChat.withChat(Chat.getCurrent())));
         pnSettings = new SettingsView();
         stackPanes.getChildren().add(pnSettings);
         pnCompose = new ComposeView();
         stackPanes.getChildren().add(pnCompose);
+        pnProfile.toFront();
+        pnNewChat.setOnFinished(() -> switchToRight(pnChat));
+        pnChat.setOnRequest(() -> switchToUp(pnNewChat.withChat(Chat.getCurrent())));
         pnCompose.setOnFinished(() -> switchToUp(pnFeed));
         txtSearch.textProperty().addListener((a, old, niu) -> switchToUp(pnSearch));
-        pnProfile.toFront();
+        postController.setCommentAction((post) -> switchToUp(pnCompose.withPost(post)));
         ObservableList<String> searchResults = FXCollections.observableArrayList();
         searchResults.addAll("asdad", "Asdasd", "asfasfasiofj");// TODO
         ResponsiveHBox.bindCentering(lblLogo);
@@ -146,6 +148,7 @@ public class MainController implements Initializable {
             System.out.println(ProfilePopOver.getSelectedUser());
             switchToRight(pnProfile.withUser(ProfilePopOver.getSelectedUser()));
         });
+        SearchController.setOnProfileRequest(user -> switchToRight(pnProfile.withUser(user)));
     }
 
     private void initForward() {

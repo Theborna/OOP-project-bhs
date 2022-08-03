@@ -1,10 +1,17 @@
 package com.electro.controllers.views;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
+import com.electro.phase1.models.connection.ChatUserConnection;
+import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.StdColor;
 import com.electro.phase1.util.StdOut;
+import com.electro.util.FunctionalListview;
 
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
@@ -28,14 +35,28 @@ public class SearchController {
     @FXML
     private AnchorPane pnSearch;
 
+    private static Consumer<User> openPage;
+
     public void initialize(StringProperty textProperty) {
+        List<Runnable> functions = new ArrayList<Runnable>();
         textProperty.addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 if (pnUser.isSelected()) {
                     StdOut.println("searching for users...", StdColor.CYAN);
                     lstSearchUser.getItems().clear();
-                    lstSearchUser.getItems().addAll(arg1, arg2);// TODO: give search results on a thread
+                    functions.clear();
+                    List<User> users = new ArrayList<>(ChatUserConnection.getUsers(Long.valueOf(1)).keySet());
+                    // System.out.println(users);
+                    lstSearchUser.getItems().addAll(users.stream().map(User::getUsername).collect(Collectors.toList()));
+                    functions.clear();
+                    functions.addAll(
+                            users.stream().map(user -> new Runnable() {
+                                @Override
+                                public void run() {
+                                    openPage.accept(user);
+                                }
+                            }).collect(Collectors.toList()));
                 } else if (pnChat.isSelected()) {
                     StdOut.println("searching for chats...", StdColor.CYAN);
                     lstSearchChat.getItems().clear();
@@ -43,6 +64,10 @@ public class SearchController {
                 }
             }
         });
+        FunctionalListview.bind(functions, lstSearchUser);
     }
 
+    public static void setOnProfileRequest(Consumer<User> openPage) {
+        SearchController.openPage = openPage;
+    }
 }

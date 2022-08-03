@@ -35,7 +35,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btnFollow" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="133.0" text="Follow" textFill="WHITE" />
+                                <Button fx:id="btnFollow" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Follow" prefHeight="133.0" text="Follow" textFill="WHITE" />
                                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
                                     <graphic>
                                         <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">

@@ -38,7 +38,11 @@ public class Suggestion {
 
     public static int PostsScore(User user, Post post) {
         int a = 0;
-        Set<User> usersWhoLiked = new HashSet<>();// = Like.getUsers(post);//TODO:fix
+        Set<Like> likes=Like.getUsers(post);
+        Set<User> usersWhoLiked = new HashSet<>();
+        for (Like like : likes) {
+            usersWhoLiked.add(like.getObj2());
+        }
         Set<UserFollowingConnection> Followings = UserFollowingConnection.getFollowings(user);
         User UserWhoPosted = post.getSender();
         for (UserFollowingConnection user2 : Followings) {
@@ -69,7 +73,7 @@ public class Suggestion {
     public static void likedSuggestedPost(User user,Post post){
         Set<Like> usersWhoLiked=Like.getUsers(post);
         Set<User> usersWhoLiked2=new LinkedHashSet<User>();
-        for (Like like : usersWhoLiked) {
+        for (Like like : usersWhoLiked) { 
             usersWhoLiked2.add(like.getObj2());
         }
         Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);

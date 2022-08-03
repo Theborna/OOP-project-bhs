@@ -36,6 +36,8 @@ public class ProfilePageController {
     @FXML
     private ScrollPane scrollProf;
 
+    private User user;
+
     @FXML
     void Scroll(ActionEvent event) {
         boolean top = true;
@@ -48,12 +50,28 @@ public class ProfilePageController {
     }
 
     public void initialize(User user) {
+        this.user = user;
         if (user == User.getCurrentUser()) {
             btnMessage.setDisable(true);
             btnFollow.setDisable(true);
         }
         btnScrollPage.setText(user.getFullName());
         scrollProf.setContent(new ProfileVbox().withUser(user));
+        if (User.getCurrentUser().isFollowing(user))
+            btnFollow.setText("un-follow");
+        else
+            btnFollow.setText("follow");
+    }
+
+    @FXML
+    void Follow(ActionEvent event) {
+        if (User.getCurrentUser().isFollowing(user)) {
+            btnFollow.setText("follow");
+            User.getCurrentUser().unfollow(user);
+        } else {
+            btnFollow.setText("un-follow");
+            User.getCurrentUser().follow(user);
+        }
     }
 
     public class ProfileVbox extends VBox {

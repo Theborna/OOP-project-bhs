@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="fa">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="fontiran.com:license" content="56AXFY">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>ورود توسعه‌دهندگان | Quera</title>
+    <meta name="description"
+      content="از آموزش و تمرین برنامه‌نویسی تا رقابت و استخدام در بهترین شرکت‌ها! در Quera، بزرگترین جامعه‌ی توسعه‌دهندگان ایرانی">
+    <meta name="keywords"
+      content="Quera,کوئرا,برنامه‌نویسی,برنامه نویسی,آموزش,مسابقه,تمرین,رقابت,توسعه‌دهنده,استخدام,چالش,online judge,judge,sharifjudge,programming,contest">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/logo/favicon/apple-touch-icon.2-2887f2aad086.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo/favicon/favicon-32x32.2-b5be5ba884c5.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/logo/favicon/favicon-16x16.2-4bcbe4f363d7.png">
+    <link rel="manifest" href="/static/images/logo/favicon/site.2-eee0bbeb0fd7.webmanifest">
+    <link rel="mask-icon" href="/static/images/logo/favicon/safari-pinned-tab.2-c497e3a2ff0f.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/static/images/logo/favicon/favicon.2-53ba381ba55d.ico">
+    <meta name="apple-mobile-web-app-title" content="Quera">
+    <meta name="application-name" content="Quera">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/static/images/logo/favicon/browserconfig.2-0049c1f5e338.xml">
+    <meta name="theme-color" content="#09c">
+    
+
+    <meta property="og:site_name" content="Quera" />
+    
+      <meta property="og:title" content="Quera" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/static/images/logo/logo-q.2-191a914662ba.png" />
+      
+    
+    
+
+
+  <script>
+    /* beautify ignore:start */
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TDRQP6V');
+    /* beautify ignore:end */
+  </script>
+  
+  
+  
+
+
+    <script type="text/javascript" src="/static/js/reverse.2-7609e8affb59.js"></script>
+    <script defer type="text/javascript" src="/static/vendor_common/common_land.min.2-fc6a20c5ab78.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/vendor_common/common.min.2-c21277d78369.css" />
+    <link rel="stylesheet" type="text/css" href="/static/vendor/semantic/semantic.rtl.min.2-87f68286e0ba.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.2-b80b5257106c.css" />
+    <link rel="stylesheet" type="text/css" href="/static/semanticui/style.2-b3ef4156e542.css" />
+    <link rel="stylesheet" type="text/css" href="/static/land_page/land_page.2-4e5ceee2304d.css" />
+    <link rel="preload" href="/static/fonts/iranyekan/fonts/woff2/IRANYekanWebRegular.2-9b47f3164ee9.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/static/fonts/iranyekan/fonts/woff2/IRANYekanWebBold.2-980f51e04b7c.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/static/fonts/iranyekan/fonts/woff2/IRANYekanWebLight.2-1a7cfbfeabaf.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/static/fonts/iranyekan/fonts/woff2/IRANYekanWebMedium.2-3c3b4ec2f970.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/static/vendor/semantic/themes/default/assets/fonts/icons.2-0ab54153eeec.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/static/vendor/semantic/themes/default/assets/fonts/brand-icons.2-e8c322de9658.woff2" as="font"
+      type="font/woff2" crossorigin="anonymous">
+    <script defer type="text/javascript" src="/static/land_page/land_page.2-f331fad3e78d.js"></script>
+    <script defer type="text/javascript" src="/static/js/main.2-d263ad2294d7.js"></script>
+    
+  
+  <style>
+    body {
+      background: #f0f4f7;
+    }
+    .ui.padded.segment {
+      box-shadow: 0 5px 20px 0 rgba(90, 123, 179, 0.1);
+      border: none;
+    }
+    .attached.tabular.menu {
+      border: none;
+    }
+    .attached.tabular.menu a.item {
+      border: none;
+      width: 50%;
+      justify-content: center
+    }
+    .attached.tabular.menu a.item.active {
+      box-shadow: 0 5px 20px 0 rgba(90, 123, 179, 0.1);
+    }
+    .flex-sb {
+      display: flex;
+      justify-content: space-between;
+    }
+    input {
+      text-align: start !important;
+    }
+    input::placeholder {
+      text-align: right;
+    }
+    #auth-container {
+      padding: 5em 10px 0;
+      width: 100%;
+      max-width: 363px;
+      margin: 0 auto;
+    }
+  </style>
+
+  </head>
+
+
+  <body dir="rtl" id="land-body">
+
+    
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDRQP6V" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+    <header>
+      
+
+      
+
+      
+      
+    </header>
+
+    
+
+    
+  <div id="auth-container">
+    <div style="text-align: center">
+      
+  <a href="/">
+    <img alt="quera"
+      height="30px"
+      src="/static/images/logo/logo-quera.2-45dfbbc2dbde.svg">
+  </a>
+
+    </div>
+    <p class="ui hidden divider"></p>
+    
+  <div class="ui attached tabular menu">
+    <a class="item " href="https://talent.quera.org/employer/login">
+      کارفرمایان
+    </a>
+    <a class="item active" href="https://quera.org/accounts/login">
+      توسعه‌دهندگان
+    </a>
+  </div>
+
+    
+      <div class="ui  bottom attached  padded segment">
+        
+  <div style="margin-bottom: 1rem">ورود به بخش توسعه‌دهندگان</div>
+  <form class="ui form" method="post" action="
+    /accounts/login?next=/qcv/pdf">
+    <input type="hidden" name="csrfmiddlewaretoken" value="9M9J9XTAZU9PXYPrue8EtNV1AXgT1jqDSZnhDYDc08bbFcoppo2wIajrXjucc9eT">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="mail icon"></i>
+        <input dir="ltr" type="email" name="login" autocomplete="email" required placeholder="پست الکترونیک"/>
+      </div>
+      
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <input id="password-input" dir="ltr" type="password" name="password" placeholder="گذرواژه"/>
+      </div>
+      
+    </div>
+    
+      <input type="hidden" name="next" value="/qcv/pdf"/>
+    
+    <div class="field flex-sb">
+      <div class="ui checkbox" id="show-password">
+        <input type="checkbox" id="reveal-box">
+        <label>نمایش گذرواژه</label>
+      </div>
+      <a href="/accounts/password/reset?next=/qcv/pdf"
+        class="item small text">رمز عبور خود را فراموش کرده‌اید؟</a>
+    </div>
+    <div class="field" style="margin-top: 2rem;">
+      <button type="submit" class="ui fluid large primary submit button">ورود</button>
+    </div>
+    <span class="small text">حساب کاربری ندارید؟</span>
+    <a href="/accounts/signup?next=/qcv/pdf"
+      class="item small text">
+      عضویت در کوئرا
+    </a>
+  </form>
+  
+
+        
+          <p class="ui divider"></p>
+          
+          
+            <div class="center-text" style="margin-top: 1em">
+              <span class="small text">ورود از طریق حساب‌های کاربری دیگر</span>
+              <div class="socialaccount_ballot" style="margin-top: 1em">
+                <div class="socialaccount_providers ca-no-bullet">
+                  
+
+
+
+<div style="display: flex; justify-content: center">
+  
+    <a title="Google" class="ui basic fluid button" style="padding: 0.5em 1.5em"
+      href="/accounts/google/login/?process=login&next=%2Fqcv%2Fpdf">
+      <img height="24" src="/static/accounts/images/logos/google.2-f2ae4f908bc3.svg" style="display: block; margin: auto" />
+    </a>
+  
+    <a title="GitHub" class="ui basic fluid button" style="padding: 0.5em 1.5em"
+      href="/accounts/github/login/?process=login&next=%2Fqcv%2Fpdf">
+      <img height="24" src="/static/accounts/images/logos/github.2-da28d1422974.svg" style="display: block; margin: auto" />
+    </a>
+  
+    <a title="LinkedIn" class="ui basic fluid button" style="padding: 0.5em 1.5em"
+      href="/accounts/linkedin_oauth2/login/?process=login&next=%2Fqcv%2Fpdf">
+      <img height="24" src="/static/accounts/images/logos/linkedin.2-2a923a68395d.svg" style="display: block; margin: auto" />
+    </a>
+  
+</div>
+
+                </div>
+              </div>
+            </div>
+          
+        
+      </div>
+    
+    
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // For Showing Password
+      var passwordInput = document.getElementById("password-input")
+      $('#show-password').checkbox({
+        onChecked: function () {
+          passwordInput.type="text"
+        },
+        onUnchecked: function () {
+          passwordInput.type="password"
+        }
+      })
+
+      $('.ui.form').form({
+        inline: true,
+        fields: {
+          login: {
+            identifier: 'login',
+            rules: [
+              {type: 'empty', prompt: 'لطفا آدرس ایمیل خود را وارد کنید.'},
+              {type: 'email', prompt: 'لطفا آدرس ایمیل معتبر وارد کنید.'}
+            ]
+          },
+          password: {
+            identifier: 'password',
+            rules: [
+              {type: 'empty', prompt: 'لطفا گذرواژه خود را وارد کنید.'}
+            ]
+          }
+        }
+      });
+    });
+  </script>
+
+  </div>
+
+
+    
+
+    
+      <script>
+        
+      </script>
+    
+
+  </body>
+
+</html>

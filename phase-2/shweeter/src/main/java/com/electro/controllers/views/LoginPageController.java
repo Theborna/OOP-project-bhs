@@ -50,20 +50,20 @@ public class LoginPageController implements Initializable {
 
     @FXML
     private Button btnForgot, btnRegister, btnSignIn, btnSignUp, preview, btnGoToSignIn, btnForgotSignIn,
-            btnForgotSignUp;
+            btnForgotSignUp, btnForgotSignIn1, btnForgotSignUp1;
 
     @FXML
     private ToggleSwitch tglType, tglVisible, tglTargeted;
 
     @FXML
-    private AnchorPane signIn, signUp, forgot;
+    private AnchorPane signIn, signUp, forgot, changePass;
 
     @FXML
     private DatePicker dateBirth;
     @FXML
     private TextField txtFullName, txtUsername, txtSignUsername, txtEmail, txtSecAns, txtSecurityAns;
     @FXML
-    private PasswordField txtPass, txtPassConf, txtSignPassword;
+    private PasswordField txtPass, txtPassConf, txtSignPassword, txtNewPass, txtNewPassConf;
 
     @FXML
     private VBox vbox, vboxSign, vboxForgot;
@@ -173,13 +173,13 @@ public class LoginPageController implements Initializable {
         if (!(o instanceof Button))
             return;
         Button b = (Button) o;
-        if (b == btnSignUp || b == btnForgotSignUp) {
+        if (b == btnSignUp || b == btnForgotSignUp || b == btnForgotSignUp1) {
             switchTo(signUp);
         } else if (b == btnRegister) {
             if (register()) {
                 switchTo(signIn);
             }
-        } else if (b == btnGoToSignIn || b == btnForgotSignIn) {
+        } else if (b == btnGoToSignIn || b == btnForgotSignIn || b == btnForgotSignIn1) {
             switchTo(signIn);
         } else if (b == btnForgot) {
             forgot();
@@ -310,8 +310,19 @@ public class LoginPageController implements Initializable {
             new ErrorNotification("incorrect answer");
             return;
         }
-        new InfoNotification("password = " + pass);
-
+        new InfoNotification("change ur password");
+        switchTo(changePass);
     }
 
+    @FXML
+    private void changePass() {
+        new FieldEmptyError(txtPass);
+        new FieldEmptyError(txtPassConf);
+        String pass;
+        if ((pass = LoginController.getInstance().getPassword(txtPass.getText())) == null) {
+            new ErrorNotification("invalid password format");
+        } else {
+            return;
+        }
+    }
 }
