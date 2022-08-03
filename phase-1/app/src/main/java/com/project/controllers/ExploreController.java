@@ -32,7 +32,7 @@ public class ExploreController extends FeedController {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         super.clear();
         userViews.clear();
     }

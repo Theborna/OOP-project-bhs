@@ -28,12 +28,12 @@ public class PostDB {
     }
 
     public static void addPost(Post post) throws SQLException {
-        DBInfo.getConnection().createStatement().execute("insert into post values(NULL," +
+        DBInfo.getConnection("poset added").createStatement().execute("insert into post values(NULL," +
                 "'" + post.getText().toString() + "','" +
-                "" + post.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
+                "" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
                 "" + post.getSender().getId() + ", "
                 + (post.getRepliedPost() != null ? Long.toString(post.getRepliedPost().getId()) : "0") + ", 0, 0, 0, "
-                + (post instanceof PromotedPost ? "1" : "0") + ")");
+                + (post instanceof PromotedPost ? "1" : "0") + "," + (post.getMd() == null ? 0 : MediaDB.newMedia(post.getMd())) + ")");
         DBInfo.getConnection().close();
     }
 
@@ -77,6 +77,9 @@ public class PostDB {
         ps.setLikes(rs.getInt(6));
         ps.setViews(rs.getInt(7));
         ps.setComments(rs.getInt(8));
+        if (rs.getInt(10) != 0) {
+            ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+        }
         rs.close();
         st.close();
         con.close();
@@ -103,6 +106,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         rs.close();
@@ -146,6 +152,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         rs.close();
@@ -158,7 +167,7 @@ public class PostDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = generateQueryForFeed(userID);
-        System.out.println(query);
+//        System.out.println(query + " shit ");
         ArrayList<Post> ret = new ArrayList<>();
         if (query == null)
             return new ArrayList<Post>();
@@ -177,6 +186,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         return ret;
@@ -189,10 +201,41 @@ public class PostDB {
             return null;
         String temp = "";
         for (User us : followings) {
+//            System.out.println(us.getId());
             temp += "post_sender_id = " + us.getId() + " or ";
         }
-        temp.substring(0, temp.length() - 4);
+        temp = temp.substring(0, temp.length() - 4);
         return "select * from post where " + temp;
     }
 
+    public static ArrayList<Post> getComments(long postID) throws SQLException {
+        ArrayList<Post> ret = new ArrayList<>();
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = "select * from post where post_replied_id = " + postID;
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            Post ps;
+            if (rs.getInt(9) == 0)
+                ps = new NormalPost(rs.getString(2), null);
+            else
+                ps = new PromotedPost(rs.getString(2), null);
+
+            ps.setId(rs.getLong(1));
+            ps.setCreationDate(DBInfo.parseDate(rs.getString(3)));
+            ps.setSender(UserDB.getUserInfo(rs.getLong(4)));
+            ps.setRepliedPost(getPostbyPostID(rs.getLong(5)));
+            ps.setLikes(rs.getInt(6));
+            ps.setViews(rs.getInt(7));
+            ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
+            ret.add(ps);
+        }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
+    }
 }

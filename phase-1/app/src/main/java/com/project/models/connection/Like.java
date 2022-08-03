@@ -8,17 +8,19 @@ import java.util.Set;
 import com.database.viewDB;
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
+
 /*
-*
-* 0 is for a normal view
-* 1 represents a like
-* -1 represents a dislike
-*
-* we value a post by the sum of the values of its likes
-* */
+ *
+ * 0 is for a normal view
+ * 1 represents a like
+ * -1 represents a dislike
+ *
+ * we value a post by the sum of the values of its likes
+ * */
 public class Like extends connection<Post, User> {
 
     private int value;
+
     public Like(Post obj1, User obj2) {
         super(obj1, obj2);
     }
@@ -55,6 +57,10 @@ public class Like extends connection<Post, User> {
 
     @Override
     public void sendToDB() {
-
+        try {
+            viewDB.sendToDB(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -17,16 +17,15 @@ public class PageView extends FeedView {
     private static PageView instance;
     protected User user;
     protected boolean gaveBasic;
-    private boolean follows;
+
 
     protected PageView() {
         controller = new PageController();
-        follows = User.getCurrentUser().isFollowing(user);
     }
 
     public static PageView getInstance() {
 //        if (instance == null)
-            instance = new PageView();
+        instance = new PageView();
         return instance;
     }
 
@@ -44,8 +43,10 @@ public class PageView extends FeedView {
         if (user == null)
             return;
         controller.clear();
+        ((PageController) controller).setUser(user);
         controller.addAll(user.getPosts());
         gaveBasic = false;
+        ((PageController) controller).setFollows(User.getCurrentUser().isFollowing(user));
     }
 
     @Override
@@ -74,30 +75,26 @@ public class PageView extends FeedView {
         println("\t" + user.getId(), StdColor.BLACK_BRIGHT);
         print("followers:", StdColor.RED);
         println(" " + user.getFollowerCnt());
+        print("following:",StdColor.RED);
+        println(" "+ user.getFollowingCnt());
         print("account type:", StdColor.CYAN);
         println(" " + ((user.isPublic() ? "public" : "private")) + " "
                 + ((user instanceof NormalUser) ? "basic" : "business") + " account");
-        print("total karma:", StdColor.GREEN);
-        println(" shayad karma bezarim");
+//        print("total karma:", StdColor.GREEN);
+//        println(" shayad karma bezarim");
+
         if (user instanceof BusinessUser)
             println(user.getUsername() + " works at " + ((BusinessUser) user).getBusinessType());
     }
 
     @Override
     protected void printCommands() {
-        if (follows)
+        if (((PageController) controller).isFollows())
             printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "un follow");
         else
             printSelections("scroll up", "scroll down", "show post -id", "top", "like", "dislike", "info", "follow");
     }
 
-    public boolean isFollows() {
-        return follows;
-    }
-
-    public void setFollows(boolean follows) {
-        this.follows = follows;
-    }
 
     @Override
     @SuppressWarnings("unchecked")

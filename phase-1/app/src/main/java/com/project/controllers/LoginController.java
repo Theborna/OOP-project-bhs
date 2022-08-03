@@ -25,6 +25,11 @@ public class LoginController implements Controller {
             return nextLine;
         return null;
     }
+    public String getRepeatPassword(String nextLine, String password) {
+        if (nextLine.equals(password))
+            return password;
+        return null;
+    }
 
     public User logToUser(String username, String password) {
             return User.logToUser(username, password);

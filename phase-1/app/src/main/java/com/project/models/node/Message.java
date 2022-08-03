@@ -14,6 +14,7 @@ public class Message extends node implements TextBased { // TODO lots of modific
     private User author;
     private Chat ch;
     private String encKey;
+    private Media md;
     // private int likes, dislikes;
     private static long id;
 
@@ -25,6 +26,14 @@ public class Message extends node implements TextBased { // TODO lots of modific
 //        setData(id++, LocalDateTime.now(),
 //                LocalDateTime.now());
         replyTo = null;
+    }
+
+    public Media getMd() {
+        return md;
+    }
+
+    public void setMd(Media md) {
+        this.md = md;
     }
 
     public void setEncKey(String encKey) {

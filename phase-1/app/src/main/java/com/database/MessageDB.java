@@ -35,7 +35,8 @@ public class MessageDB {
                 + msg.getMessage().toString() + "', '"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', '"
                 + (msg.getEncKey() == null ? "NULL" : msg.getEncKey()) + "', "
-                + (msg.getForwardedFrom() == null ? "NULL" : msg.getForwardedFrom().getId()) + ")";
+                + (msg.getForwardedFrom() == null ? "NULL" : msg.getForwardedFrom().getId()) + ", "
+                + (msg.getMd() == null ? "0" : MediaDB.newMedia(msg.getMd())) + ")";
         st.execute(query);
         st.close();
         con.close();
@@ -78,6 +79,9 @@ public class MessageDB {
             msg.setId(rs.getLong(1));
             msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
             msg.setEncKey((rs.getString(7)));
+            if (rs.getLong(9) != 0) {
+                msg.setMd(MediaDB.getMedia(rs.getLong(9)));
+            }
             ret.add(msg);
         }
         rs.close();
@@ -111,6 +115,9 @@ public class MessageDB {
             msg.setId(rs.getLong(1));
             msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
             msg.setEncKey((rs.getString(7)));
+            if (rs.getLong(9) != 0) {
+                msg.setMd(MediaDB.getMedia(rs.getLong(9)));
+            }
             ret.add(msg);
             n--;
         }
@@ -144,6 +151,9 @@ public class MessageDB {
             msg.setId(rs.getLong(1));
             msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
             msg.setEncKey(rs.getString(7));
+            if (rs.getLong(9) != 0) {
+                msg.setMd(MediaDB.getMedia(rs.getLong(9)));
+            }
             ret.add(msg);
         }
         rs.close();
@@ -152,7 +162,7 @@ public class MessageDB {
         return ret;
     }
 
-    private static Message getMessageByID(long msgID,boolean loadReply) throws SQLException {
+    private static Message getMessageByID(long msgID, boolean loadReply) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = "select * from messages where msg_id = " + msgID;
@@ -167,7 +177,7 @@ public class MessageDB {
                 msg.setForwardedFrom(UserDB.getUserInfo(rs.getLong(8)));
             }
             if (rs.getLong(4) != 0 && loadReply) {
-                msg.setReplyTo(MessageDB.getMessageByID(rs.getLong(4),false));
+                msg.setReplyTo(MessageDB.getMessageByID(rs.getLong(4), false));
             } else {
                 msg.setReplyTo(null);
             }
@@ -176,6 +186,9 @@ public class MessageDB {
             msg.setId(rs.getLong(1));
             msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
             msg.setEncKey((rs.getString(7)));
+            if (rs.getLong(9) != 0) {
+                msg.setMd(MediaDB.getMedia(rs.getLong(9)));
+            }
         }
         rs.close();
         st.close();
@@ -183,8 +196,8 @@ public class MessageDB {
         return msg;
     }
 
-    private static Message getMessageByID(long msgID) throws SQLException{
-        return  getMessageByID(msgID, true);
+    private static Message getMessageByID(long msgID) throws SQLException {
+        return getMessageByID(msgID, true);
     }
 
     public static ArrayList<Message> getMessagesByChatNUserID(long chatID, long userID) throws SQLException {
@@ -212,6 +225,9 @@ public class MessageDB {
             msg.setId(rs.getLong(1));
             msg.setCh(ChatDB.getChatByID(rs.getLong(2)));
             msg.setEncKey(rs.getString(7));
+            if (rs.getLong(9) != 0) {
+                msg.setMd(MediaDB.getMedia(rs.getLong(9)));
+            }
             ret.add(msg);
         }
         rs.close();

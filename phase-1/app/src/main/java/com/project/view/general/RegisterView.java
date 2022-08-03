@@ -113,7 +113,7 @@ public class RegisterView implements View {
             user.setUserType(user instanceof NormalUser ? 0 : 1);
             user.setSalt(salt);
             user.setSecType(controller.getSecurityQ());
-            user.setSecAns(controller.getSecurityAns());
+            user.setSecAns(crypt.encryptedString( controller.getSecurityAns()+ salt));
             user.setName(fullName);
             user.sendToDB();
         } else {

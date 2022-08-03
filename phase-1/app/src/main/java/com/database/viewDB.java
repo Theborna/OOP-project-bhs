@@ -18,6 +18,9 @@ public class viewDB {
     public static void sendToDB(Like like) throws SQLException {
         if (!isExists(like.getObj2().getId(), like.getObj1().getId())) {
             insertView(like);
+            if (like.getValue() != 0)
+                update(like, like);
+
         } else {
             Like temp = getLike(like.getObj2().getId(), like.getObj1().getId());
             update(like, temp);
@@ -28,8 +31,8 @@ public class viewDB {
     public static void insertView(Like like) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.execute("insert into views values(" + like.getObj1().getId() + ", " + like.getObj2().getId() + ",0, "
-                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ", NULL)");
+        st.execute("insert into views values(" + like.getObj1().getId() + ", " + like.getObj2().getId() + ",0, '"
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', NULL)");
     }
 
     public static void update(Like like, Like prlike) throws SQLException {
@@ -37,10 +40,12 @@ public class viewDB {
         like.setValue(Math.max(like.getValue(), -1));
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.execute("update views set like_date = '"
-                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', set value = "
+        String query = "update views set like_date = '"
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', val = "
                 + like.getValue() + " where post_id=" + like.getObj1().getId() + " and user_id = "
-                + like.getObj2().getId());
+                + like.getObj2().getId();
+//        System.out.println(query);
+        st.execute(query);
         st.close();
         con.close();
     }
@@ -49,16 +54,19 @@ public class viewDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from views where post_id = " + postID + " and user_id = " + userID);
-        st.close();
-        con.close();
+
         if (!rs.next()) {
+            st.close();
+            con.close();
             rs.close();
             return null;
         } else {
             Like lk = new Like(PostDB.getPostbyPostID(postID), UserDB.getUserInfo(userID));
             lk.setValue(rs.getInt(3));
             lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
-            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            if (rs.getString(5)!=null) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            st.close();
+            con.close();
             rs.close();
             return lk;
         }
@@ -91,7 +99,7 @@ public class viewDB {
             Like lk = new Like(PostDB.getPostbyPostID(rs.getLong(1)), UserDB.getUserInfo(rs.getLong(2)));
             lk.setValue(rs.getInt(3));
             lk.setCreationDate(DBInfo.parseDate(rs.getString(4)));
-            if (rs.getString(5).equals("null")) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
+            if (rs.getString(5)!=null) lk.setLastModifiedDate(DBInfo.parseDate(rs.getString(5)));
             ret.add(lk);
         }
         rs.close();
@@ -104,15 +112,36 @@ public class viewDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from views where post_id = " + postID + " and user_id = " + userID);
-        st.close();
-        con.close();
         if (!rs.next()) {
+            st.close();
+            con.close();
             rs.close();
             return false;
         } else {
+            st.close();
+            con.close();
             rs.close();
             return true;
         }
     }
+
+    public static int getLikesCount(long post) throws SQLException {
+        int ret = 0;
+        for(Like l : getLikesByPostID(post)){
+            ret += l.getValue();
+        }
+        return ret;
+    }
+
+    public static int getViewsCount(long post) throws SQLException {
+        int ret = 0;
+        for(Like l : getLikesByPostID(post)){
+            if(l.getValue() == 0)
+                ret++;
+        }
+        return ret;
+    }
+
+//    public static Arr
 
 }

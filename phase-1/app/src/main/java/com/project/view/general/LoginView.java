@@ -4,6 +4,7 @@ import static com.project.util.StdOut.*;
 
 import com.project.App;
 import com.project.controllers.LoginController;
+import com.project.crypt;
 import com.project.models.node.user.User;
 import com.project.util.StdColor;
 import com.project.util.StdIn;
@@ -59,11 +60,36 @@ public class LoginView implements View {
         App.setView(SecondaryView.getInstance());
     }
 
-    private String forgot(String username) {
-        String question, answer, password;
-        // TODO: ask question and return password if answer is correct
-        printError("incorrect");
-        return null;
+    private String forgot(String username) throws changeViewException {
+        String question, answer, userAns = null;
+        User us =  User.logToUser(username);
+        question= us.getSecType().toString();
+        answer = us.getSecAns();
+        while(userAns == null){
+            prompt(question);
+            if(!(userAns =crypt.encryptedString(StdIn.nextLine()+us.getSalt())).equals(answer)){
+                printError("incorrect answer");
+                userAns = null;
+            }
+        }
+        String password= null, repeatPassword= null;
+        while (password == null) {
+            prompt("enter password");
+            password = controller.getPassword(StdIn.nextLine());
+            if (password == null)
+                printError("invalid password format");
+        }
+        while (repeatPassword == null) {
+            prompt("repeat password");
+            repeatPassword = controller.getRepeatPassword(StdIn.nextLine(), password);
+            if (repeatPassword == null)
+                printError("not the same");
+        }
+        print("password changed successfully! ",StdColor.GREEN);
+        println("new password: "+ password);
+        password = crypt.encryptedString(password + us.getSalt());
+        us.setPassword(password).sendToDB();
+        return password;
     }
 
     @Override
