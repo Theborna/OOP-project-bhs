@@ -2,9 +2,11 @@ package com.database;
 
 import com.project.crypt;
 import com.project.enums.Security;
+import com.project.models.node.Image;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
+import org.sqlite.core.DB;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -39,7 +41,8 @@ public class UserDB {
                 new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
-                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns() + "')";
+                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns() + "',"
+                + (user.getProfilePhoto() == null ? 0 : MediaDB.newMedia(user.getProfilePhoto())) + ")";
         // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
@@ -87,6 +90,9 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
+            if (rs.getLong(17) != 0)
+                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
+
         } else {
             //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -104,6 +110,8 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
+            if (rs.getLong(17) != 0)
+                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         }
         rs.close();
         st.close();
@@ -141,6 +149,8 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
+            if (rs.getLong(17) != 0)
+                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         } else {
             //System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -158,6 +168,8 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
+            if (rs.getLong(17) != 0)
+                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         }
         rs.close();
         st.close();
@@ -232,7 +244,8 @@ public class UserDB {
     public static ArrayList<User> searchByUserName(String entry) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
+        ResultSet rs = st.executeQuery("select * from users where US_USName like '%" + entry
+                + "%' or US_Name like '%" + entry + "%';");
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next()) {
             int userType = rs.getInt(6);
@@ -256,6 +269,8 @@ public class UserDB {
                 us.setPromoindex(rs.getDouble(14));
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
+                if (rs.getLong(17) != 0)
+                    us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             } else {
                 //System.out.println(userType);
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -273,6 +288,8 @@ public class UserDB {
                 us.setPromoindex(rs.getDouble(14));
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
+                if (rs.getLong(17) != 0)
+                    us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             }
             ret.add(us);
         }
@@ -308,4 +325,26 @@ public class UserDB {
         return true;
 
     }
+
+    public void bolckUser(long currenUser, long blockedUser) throws SQLException {
+        Connection con = DBInfo.getConnection("Block DB Opened");
+        Statement st = con.createStatement();
+        st.execute("insert into block values(" + currenUser + "," + blockedUser + ")");
+    }
+
+    public boolean isblocked(long currentUser, long user2Check) {
+        try {
+            Connection con = DBInfo.getConnection("Blocked DB Opened");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from block where user_id = " + currentUser
+                    + " and blocked_id = " + user2Check);
+            if (rs.next())
+                return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }
