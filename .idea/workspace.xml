@@ -5,15 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MediaDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/enums/MediaType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/ChatDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/DBInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/MessageDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/viewDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/controllers/FeedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/Voice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/post/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/FeedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/FeedView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/PostView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -112,7 +125,9 @@
       <workItem from="1659154476974" duration="26236000" />
       <workItem from="1659194683460" duration="853000" />
       <workItem from="1659320546221" duration="2189000" />
-      <workItem from="1659444733553" duration="7368000" />
+      <workItem from="1659444733553" duration="7475000" />
+      <workItem from="1659455388768" duration="5329000" />
+      <workItem from="1659507820257" duration="8301000" />
     </task>
     <servers />
   </component>
@@ -140,17 +155,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/models/node/user/User.java</url>
-          <line>316</line>
+          <line>326</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java</url>
-          <line>42</line>
+          <line>53</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/model/SelfPageView.java</url>
-          <line>18</line>
+          <line>23</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -177,15 +192,6 @@
           <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/project/view/general/SearchView.java</url>
           <line>56</line>
           <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/phase-1/app/src/main/java/com/database/PostDB.java</url>
-          <line>156</line>
-          <properties class="com.database.PostDB" method="getFeed">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

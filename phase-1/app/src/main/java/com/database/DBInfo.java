@@ -1,5 +1,7 @@
 package com.database;
 
+import com.project.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,6 +19,18 @@ public class DBInfo {
 //        } catch (ClassNotFoundException e) {
 //            e.printStackTrace();
 //        }
+        Log.logger.info("Connected to database succressfully");
+        return DriverManager.getConnection(DBURL, USName, PassWD);
+    }
+
+    public static Connection getConnection(String classname) throws SQLException {
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+        Log.logger.info("Connected to database succressfully");
+        Log.logger.info("Connected to database succressfully" + " : " + classname);
         return DriverManager.getConnection(DBURL, USName, PassWD);
     }
 

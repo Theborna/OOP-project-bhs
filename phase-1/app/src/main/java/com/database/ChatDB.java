@@ -80,7 +80,7 @@ public class ChatDB {
     }
 
     public static void addChat(Chat ch) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = DBInfo.getConnection("new chat");
         Statement st = con.createStatement();
         String query = "insert into chat values(" + "NULL " + ",'" +
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +

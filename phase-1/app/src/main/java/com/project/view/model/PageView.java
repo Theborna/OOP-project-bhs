@@ -75,11 +75,14 @@ public class PageView extends FeedView {
         println("\t" + user.getId(), StdColor.BLACK_BRIGHT);
         print("followers:", StdColor.RED);
         println(" " + user.getFollowerCnt());
+        print("following:",StdColor.RED);
+        println(" "+ user.getFollowingCnt());
         print("account type:", StdColor.CYAN);
         println(" " + ((user.isPublic() ? "public" : "private")) + " "
                 + ((user instanceof NormalUser) ? "basic" : "business") + " account");
-        print("total karma:", StdColor.GREEN);
-        println(" shayad karma bezarim");
+//        print("total karma:", StdColor.GREEN);
+//        println(" shayad karma bezarim");
+
         if (user instanceof BusinessUser)
             println(user.getUsername() + " works at " + ((BusinessUser) user).getBusinessType());
     }

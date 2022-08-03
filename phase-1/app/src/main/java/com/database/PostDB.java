@@ -28,12 +28,12 @@ public class PostDB {
     }
 
     public static void addPost(Post post) throws SQLException {
-        DBInfo.getConnection().createStatement().execute("insert into post values(NULL," +
+        DBInfo.getConnection("poset added").createStatement().execute("insert into post values(NULL," +
                 "'" + post.getText().toString() + "','" +
-                "" + post.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
+                "" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
                 "" + post.getSender().getId() + ", "
                 + (post.getRepliedPost() != null ? Long.toString(post.getRepliedPost().getId()) : "0") + ", 0, 0, 0, "
-                + (post instanceof PromotedPost ? "1" : "0") + ")");
+                + (post instanceof PromotedPost ? "1" : "0") + "," + (post.getMd() == null ? 0 : MediaDB.newMedia(post.getMd())) + ")");
         DBInfo.getConnection().close();
     }
 
@@ -77,6 +77,9 @@ public class PostDB {
         ps.setLikes(rs.getInt(6));
         ps.setViews(rs.getInt(7));
         ps.setComments(rs.getInt(8));
+        if (rs.getInt(10) != 0) {
+            ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+        }
         rs.close();
         st.close();
         con.close();
@@ -103,6 +106,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         rs.close();
@@ -146,6 +152,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         rs.close();
@@ -177,6 +186,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         return ret;
@@ -216,6 +228,9 @@ public class PostDB {
             ps.setLikes(rs.getInt(6));
             ps.setViews(rs.getInt(7));
             ps.setComments(rs.getInt(8));
+            if (rs.getInt(10) != 0) {
+                ps.setMd(MediaDB.getMedia(rs.getLong(10)));
+            }
             ret.add(ps);
         }
         rs.close();

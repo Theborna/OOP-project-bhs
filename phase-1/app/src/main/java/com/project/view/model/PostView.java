@@ -94,25 +94,34 @@ public class PostView implements View {
         List<Like> result = new ArrayList<Like>();
         result.addAll(Like.getUsers(post));
         Map<Integer, Integer[]> likes = new LinkedHashMap<>();
-        likes.put(1, new Integer[] { 2, 1 });
-        likes.put(2, new Integer[] { 5, 2 });
-        likes.put(3, new Integer[] { 3, 2 });
-        likes.put(4, new Integer[] { 7, 4 });
-        likes.put(5, new Integer[] { 12, 7 });
-        likes.put(6, new Integer[] { 13, 5 });
-        likes.put(7, new Integer[] { 2, 1 });
-        likes.put(8, new Integer[] { 2, 0 });
-        likes.put(9, new Integer[] { 15, 5 });
-        likes.put(10, new Integer[] { 30, 5 });
-        likes.put(11, new Integer[] { 40, 30 });
-        likes.put(12, new Integer[] { 22, 10 });
-        // TODO: put last months data into this
-        for (Integer[] i : likes.values()) {
-            for (int j = 0; j < i[1]; j++)
-                print(" ", StdColor.RED_BACKGROUND);
-            for (int j = 0; j < i[0] - i[1]; j++)
-                print(" ", StdColor.GREEN_BACKGROUND);
-            println("");
+//        likes.put(1, new Integer[] { 2, 1 });
+//        likes.put(2, new Integer[] { 5, 2 });
+//        likes.put(3, new Integer[] { 3, 2 });
+//        likes.put(4, new Integer[] { 7, 4 });
+//        likes.put(5, new Integer[] { 12, 7 });
+//        likes.put(6, new Integer[] { 13, 5 });
+//        likes.put(7, new Integer[] { 2, 1 });
+//        likes.put(8, new Integer[] { 2, 0 });
+//        likes.put(9, new Integer[] { 15, 5 });
+//        likes.put(10, new Integer[] { 30, 5 });
+//        likes.put(11, new Integer[] { 40, 30 });
+//        likes.put(12, new Integer[] { 22, 10 });
+        for (Like l : result) {
+            int s = l.getCreationDate().getDayOfMonth();
+            if (!likes.containsKey(s))
+                likes.put(s, new Integer[]{1, l.getValue()});
+            else {
+                Integer[] past = likes.get(s);
+                likes.put(s, new Integer[]{past[0] + 1, past[1] + l.getValue()});
+            }
+            // TODO: put last months data into this
+            for (Integer[] i : likes.values()) {
+                for (int j = 0; j < i[1]; j++)
+                    print(" ", StdColor.RED_BACKGROUND);
+                for (int j = 0; j < i[0] - i[1]; j++)
+                    print(" ", StdColor.GREEN_BACKGROUND);
+                println("");
+            }
         }
     }
 }

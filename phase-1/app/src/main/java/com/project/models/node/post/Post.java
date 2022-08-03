@@ -1,37 +1,38 @@
 package com.project.models.node.post;
 
-import java.time.LocalDateTime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import com.database.PostDB;
 import com.database.viewDB;
-import com.project.models.node.Image;
 import com.project.models.node.Media;
 import com.project.models.node.TextBased;
 import com.project.models.node.node;
-import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Post extends node implements TextBased {
     private static long PostId;
     private StringBuilder text;
-    private Image image = null;
-    private ArrayList<Media> media = new ArrayList<Media>();
     private User sender;
     private int likes;
     private int views;
     private int comments;
     private Post repliedPost;
+    private Media md;
 
     public Post(String text, User Sender) {
         this.text = new StringBuilder(text);
         sender = Sender;
 
+    }
+
+    public Media getMd() {
+        return md;
+    }
+
+    public void setMd(Media md) {
+        this.md = md;
     }
 
     public Post getRepliedPost() {

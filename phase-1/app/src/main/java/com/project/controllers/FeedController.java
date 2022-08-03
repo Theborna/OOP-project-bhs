@@ -1,20 +1,25 @@
 package com.project.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
+import com.database.PostDB;
 import com.project.App;
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
+import com.project.util.Log;
 import com.project.util.StdColor;
 import com.project.util.exception.changeViewException;
 import com.project.view.general.CommentView;
 import com.project.view.general.CreatePostView;
 import com.project.view.model.PageView;
 import com.project.view.model.PostView;
+
 import static com.project.util.StdOut.*;
 
 public class FeedController implements ListController<PostView> {
@@ -59,6 +64,12 @@ public class FeedController implements ListController<PostView> {
             case "dislike":
                 dislike();
                 break;
+            case "delete":
+                if (!currentPost.getPost().getSender().equals(User.getCurrentUser()))
+                    printError("you are not the author");
+                else
+                    delete(currentPost.getPost());
+                break;
             case "show -likes":
                 print("likes: ", StdColor.CYAN);
                 break;
@@ -66,12 +77,29 @@ public class FeedController implements ListController<PostView> {
                 println("comments: ", StdColor.CYAN);
                 showComments(input);
                 break;
+            case "show -stats":
+                break;
             case "help":
                 help();
                 break;
             default:
                 printError("no such command");
                 break;
+        }
+    }
+
+    private void delete(Post post) {
+        try {
+            Log.logger.info("deleted post "+ post);
+            PostDB.deletePost(post);
+            getChildren().remove(currentPost);
+            println("deleted post",StdColor.GREEN);
+            if (getChildren().size() > 0)
+                currentPost = getChildren().get(0);
+            else
+                currentPost = null;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

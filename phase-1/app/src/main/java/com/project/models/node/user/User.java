@@ -126,7 +126,12 @@ public abstract class User extends node {
     }
 
     public int getFollowingCnt() {
-        return followingCnt;
+        try {
+            return UserDB.getFollowings(this.id,0).size();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
@@ -263,7 +268,12 @@ public abstract class User extends node {
     }
 
     public int getFollowerCnt() {
-        return followerCnt;
+        try {
+            return UserDB.getFollowers(this.id, 0).size();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public Set<com.project.models.node.post.Post> getPosts() {

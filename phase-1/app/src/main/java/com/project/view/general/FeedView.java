@@ -84,8 +84,12 @@ public class FeedView implements View {
     }
 
     protected void printCommands() {
-        printSelections("next", "last", "top", "like", "dislike",
-                "new post", "comment", "show -likes", "show -comments", "show -page");
+        if (!controller.getCurrent().getPost().getSender().equals(User.getCurrentUser()))
+            printSelections("next", "last", "top", "like", "dislike",
+                    "new post", "comment", "show -likes", "show -comments", "show -page");
+        else
+            printSelections("next", "last", "top", "like", "dislike",
+                    "new post", "comment", "show -likes", "show -comments", "show -page", "delete");
     }
 
     @Override

@@ -44,7 +44,7 @@ public class viewDB {
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', val = "
                 + like.getValue() + " where post_id=" + like.getObj1().getId() + " and user_id = "
                 + like.getObj2().getId();
-        System.out.println(query);
+//        System.out.println(query);
         st.execute(query);
         st.close();
         con.close();
@@ -141,5 +141,7 @@ public class viewDB {
         }
         return ret;
     }
+
+//    public static Arr
 
 }
