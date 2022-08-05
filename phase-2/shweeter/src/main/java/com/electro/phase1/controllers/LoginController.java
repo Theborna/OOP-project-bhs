@@ -20,10 +20,10 @@ public class LoginController implements Controller {
     public String securityQuestion(String username) {
         if (User.getID(username) == null)
             return null;
-        String[] ans = User.getSecurityQuestion(username);
-        securityAns = ans[1];
-        password = ans[2];
-        return securityQ = ans[0];
+        User user_ = User.logToUser(username);
+        securityAns = user_.getSecAns();
+        password = user_.getPassword();
+        return securityQ = user_.getSecType().toString();
     }
 
     public String isCorrectSecure(String answer) {

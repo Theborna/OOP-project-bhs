@@ -11,6 +11,7 @@ import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
 import com.electro.phase1.models.node.user.User;
+import com.electro.util.FunctionalListview;
 import com.electro.util.ResponsiveHBox;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
@@ -23,6 +24,7 @@ import com.electro.views.PostListView;
 import com.electro.views.ProfileView;
 import com.electro.views.SearchView;
 import com.electro.views.SettingsView;
+import com.electro.views.profileInfoView;
 import com.electro.views.component.ProfilePopOver;
 
 import animatefx.animation.SlideInRight;
@@ -108,12 +110,12 @@ public class MainController implements Initializable {
     private ChatView pnChat;
     private SettingsView pnSettings;
     private ComposeView pnCompose;
+    private profileInfoView pnInfo;
     private AnchorPane inFront;
     private JMetro metro;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Chat.LogToChat(1);// TODO: change this
         initSlidingPane();
         initPosts();
         initForward();
@@ -122,8 +124,11 @@ public class MainController implements Initializable {
         stackPanes.getChildren().add(pnNewChat);
         pnExplore = new ExploreView();
         stackPanes.getChildren().add(pnExplore);
+        pnInfo = new profileInfoView();
+        stackPanes.getChildren().add(pnInfo);
         pnProfile = new ProfileView().withUser(User.getCurrentUser());
         stackPanes.getChildren().add(pnProfile);
+        pnProfile.setOnInfoRequest(user -> switchToUp(pnInfo.withUser(user)));
         pnSearch = new SearchView(txtSearch.textProperty());
         stackPanes.getChildren().add(pnSearch);
         pnChat = new ChatView();
@@ -149,6 +154,7 @@ public class MainController implements Initializable {
             switchToRight(pnProfile.withUser(ProfilePopOver.getSelectedUser()));
         });
         SearchController.setOnProfileRequest(user -> switchToRight(pnProfile.withUser(user)));
+        FunctionalListview.setShowPage(user -> switchToRight(pnProfile.withUser(user)));
     }
 
     private void initForward() {

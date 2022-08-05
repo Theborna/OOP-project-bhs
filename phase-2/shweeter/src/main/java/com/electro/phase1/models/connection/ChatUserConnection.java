@@ -1,14 +1,16 @@
 package com.electro.phase1.models.connection;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.electro.database.ChatDB;
 import com.electro.phase1.enums.ChatPermission;
+import com.electro.phase1.enums.ChatType;
 import com.electro.phase1.models.node.Chat;
-import com.electro.phase1.models.node.ChatType;
 import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
 
@@ -21,12 +23,17 @@ public class ChatUserConnection extends connection<User, Chat> {
     public static Set<Chat> getChats(Long userId) {
         Set<Chat> result = new LinkedHashSet<Chat>();
         // TODO: run a query and get all the chats the user is connected to
-        result.add(new Chat("sepronites", ChatType.GROUP));
-        result.add(new Chat("borna saving memes", ChatType.CHANNEL));
-        result.add(new Chat("oop", ChatType.GROUP));
-        result.add(new Chat("sepehr", ChatType.PRIVATE));
-        for (int i = 0; i < 10; i++) {
-            result.add(new Chat(String.valueOf(i), ChatType.PRIVATE));
+        // result.add(new Chat("sepronites", ChatType.GROUP));
+        // result.add(new Chat("borna saving memes", ChatType.CHANNEL));
+        // result.add(new Chat("oop", ChatType.GROUP));
+        // result.add(new Chat("sepehr", ChatType.PRIVATE));
+        // for (int i = 0; i < 10; i++) {
+        // result.add(new Chat(String.valueOf(i), ChatType.PRIVATE));
+        // }
+        try {
+            result.addAll(ChatDB.getChats(userId));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return result;
     }
@@ -43,7 +50,7 @@ public class ChatUserConnection extends connection<User, Chat> {
         return result;
     }
 
-    public static void addUser(Long chatId, Long memberId) {
+    public static void addUser(Long chatId, Long memberId, ChatPermission chatPermission) {
         // TODO: add the user to the chat
     }
 

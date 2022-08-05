@@ -12,9 +12,9 @@ public enum AppRegex {
     DATE(" ^((?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:(?:0?[13578]|1[02])(-)31)|((0?[1,3-9]|1[0-2])(-)(29|30))))$|^(?:(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(-)0?2(-)29)$|^(?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:0?[1-9])|(?:1[0-2]))(-)(?:0?[1-9]|1\\d|2[0-8])$"),
     // mother of all regex
     CHAT_NAME("^\\S.{0,20}$"), EMAIL("^[a-zA-Z0-9.!#$%&’*+\\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"),
-    ADD_USER("-add (?<username>" + username() + ")"), REMOVE_USER("-remove (?<username>" + username() + ")"),
+    ADD_USER("-add (?<username>" + ".+" + ")"), REMOVE_USER("-remove (?<username>" + username() + ")"),
     CHANGE_PERMISSIONS(
-            "-permission (?<username>" + username() + ") (?<permission>(owner)|(admin)|(normal)|(observer))"),
+            "-permission (?<username>.+) (?<permission>(owner)|(admin)|(normal)|(observer))"),
     CHAT_ID(username()),
     SET_PASSWORD("-set -password (?<password>\\w+)"),
     SET_USERNAME("-set -username (?<username>\\w+)"), SET_NAME("-set -name (?<name>.+)"),
@@ -25,7 +25,7 @@ public enum AppRegex {
     SEARCH_CHAT("-search -chat (?<chat>\\w+)"),
     SHOW_USER("-show -user (?<username>\\w+)"),
     SHOW_CHAT("-show -chat (?<chat>\\w+)"),
-//    POST("^.{0,250}+$"),
+    // POST("^.{0,250}+$"),
     ;
 
     static final String username() {

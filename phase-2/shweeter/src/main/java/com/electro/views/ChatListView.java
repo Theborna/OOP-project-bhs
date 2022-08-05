@@ -30,67 +30,85 @@ public class ChatListView extends VBox {
     private boolean toggleMany;
     private List<BooleanProperty> selected;
     private List<Chat> chats;
+    private ArrayList<Node> nodes;
+    private Thread updater;
 
     private ChatListView() {
     }
 
     public void withChat(Collection<Chat> chat) {
         System.out.println("loading the chats...");
-        ArrayList<Node> nodes = new ArrayList<Node>();
+        super.getChildren().clear();
         chats = new ArrayList<>();
+        nodes = new ArrayList<Node>();
         if (selected == null)
             selected = new ArrayList<>();
         selected.clear();
         chats.addAll(chat);
         Thread thread = new Thread(() -> {
+            addChats(chats);
+        });
+        thread.start();
+        updater = new Thread(() -> {
             try {
-                for (int i = 0; i < chats.size(); i++) {
-                    FXMLLoader loader = new FXMLLoader(App.class.getResource("components/chatItem.fxml"));
-                    Node node = loader.load();
-                    nodes.add(node);
-                    selected.add(new SimpleBooleanProperty(false));
-                    chatItemController controller = loader.getController();
-                    final int j = i;
-                    Platform.runLater(() -> {
-                        super.getChildren().add(node);
-                        controller.initialize(chats.get(j));
-                    });
-                    super.widthProperty().addListener(new ChangeListener<Number>() {
-                        @Override
-                        public void changed(ObservableValue<? extends Number> arg0, Number arg1,
-                                Number arg2) {
-                            ((chatItemController) loader.getController()).checkSize();
-                        }
-                    });
-                    ToggleButton btn = lookupButton(node);
-                    selected.get(i).bindBidirectional(btn.selectedProperty());
-
-                    if (!toggleMany)
-                        btn.selectedProperty().addListener(new ChangeListener<Boolean>() {
-
-                            @Override
-                            public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
-                                if (arg2) {
-                                    for (Node _node : nodes)
-                                        if (_node != node)
-                                            lookupButton(_node).setSelected(false);
-                                    Chat.LogToChat(controller.getChat().getId());
-                                    MessageListView.getInstance().addAll();
-                                }
-                            }
-
-                        });
-                    Thread.sleep(60); // sleep
-                }
-            } catch (Exception e) {
+                Thread.sleep(1000);
+                ArrayList<Chat> newChat = new ArrayList<Chat>();
+                newChat.addAll(ChatUserConnection.getChats(User.getCurrentUser().getId()));
+                newChat.removeAll(chats);
+                addChats(newChat);
+                chats.addAll(newChat);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
-        thread.start();
+        updater.setDaemon(true);
+        updater.start();
     }
 
-    public void update() {
+    private void addChats(List<Chat> chats) {
+        try {
+            for (int i = 0; i < chats.size(); i++) {
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("components/chatItem.fxml"));
+                Node node = loader.load();
+                nodes.add(node);
+                BooleanProperty property = new SimpleBooleanProperty(false);
+                selected.add(property);
+                chatItemController controller = loader.getController();
+                final int j = i;
+                Platform.runLater(() -> {
+                    super.getChildren().add(node);
+                    controller.initialize(chats.get(j));
+                });
+                super.widthProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> arg0, Number arg1,
+                            Number arg2) {
+                        ((chatItemController) loader.getController()).checkSize();
+                    }
+                });
+                ToggleButton btn = lookupButton(node);
+                property.bindBidirectional(btn.selectedProperty());
 
+                if (!toggleMany)
+                    btn.selectedProperty().addListener(new ChangeListener<Boolean>() {
+
+                        @Override
+                        public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+                            if (arg2) {
+                                for (Node _node : nodes)
+                                    if (_node != node)
+                                        lookupButton(_node).setSelected(false);
+                                Chat.LogToChat(controller.getChat().getId());
+                                MessageListView.getInstance().addAll();
+                            }
+                        }
+
+                    });
+                Thread.sleep(60); // sleep
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static ToggleButton lookupButton(Node node) {
@@ -130,7 +148,8 @@ public class ChatListView extends VBox {
             for (int i = 0; i < chats.size(); i++) {
                 if (selected.get(i).get()) {
                     User.getCurrentUser().sendMessage(
-                            MessageListView.getInstance().getForwarding().forwardFrom(User.getCurrentUser()),
+                            MessageListView.getInstance().getForwarding().forwardFrom(User.getCurrentUser(),
+                                    chats.get(i)),
                             chats.get(i));
                     System.out.println(chats.get(i) + " " + MessageListView.getInstance().getForwarding());
                 }

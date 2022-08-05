@@ -59,10 +59,10 @@ public class SettingsController implements Initializable {
     }
 
     public void confirm() {// TODO : complete these
-        user.setName(name);
+        user.setName(name.get());
         user.setPassword(crypt.encryptedString(password.get() + user.getSalt()));
-        user.setUsername(username);
-        user.setPublic(visible);
+        user.setUsername(username.get());
+        user.setPublic(visible.get());
         user.sendToDB();
         new InfoNotification("changes made successfully");
     }

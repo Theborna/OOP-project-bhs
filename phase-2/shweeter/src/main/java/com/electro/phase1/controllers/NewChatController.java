@@ -1,5 +1,6 @@
 package com.electro.phase1.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -9,10 +10,11 @@ import java.util.Map;
 import org.controlsfx.control.textfield.CustomTextField;
 
 import com.electro.App;
+import com.electro.database.ChatDB;
 import com.electro.phase1.AppRegex;
 import com.electro.phase1.enums.ChatPermission;
+import com.electro.phase1.enums.ChatType;
 import com.electro.phase1.models.node.Chat;
-import com.electro.phase1.models.node.ChatType;
 import com.electro.phase1.models.node.user.User;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
@@ -215,17 +217,19 @@ public class NewChatController {
         Map<Long, ChatPermission> memberWithPermit = new HashMap<Long, ChatPermission>();
         for (Long member : members.keySet())
             memberWithPermit.put(member, permissions.get(members.get(member)));
+        if (type == ChatType.PRIVATE)
+            linkID = null;// TODO: check this
         chat.setLinkID(linkID).sendToDB();
-        return true;// TODO
         // Adding members
-        // try {
-        // Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());
-        // for (long id : memberWithPermit.keySet()) {
-        // ChatDB.addMemeber(id, chatTemp.getId(), memberWithPermit.get(id));
-        // }
-        // } catch (SQLException e) {
-        // e.printStackTrace();
-        // }
+        try {
+            Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());
+            for (long id : memberWithPermit.keySet()) {
+                ChatDB.addMemeber(id, chatTemp.getId(), memberWithPermit.get(id));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;// TODO
     }
 
     public void clearMembers() {

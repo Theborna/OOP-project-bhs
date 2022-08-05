@@ -45,10 +45,10 @@ public class postController {
     private ImageView ivProfilePic;
 
     @FXML
-    private Label lblLikes, lblName, lblDate, lblAdvertisement;
+    private Label lblLikes, lblName, lblDate, lblAdvertisement, lblReply;
 
     @FXML
-    private BorderPane bpMain, bpPost;
+    private BorderPane bpMain, bpPost, bpMsg;
 
     @FXML
     private AnchorPane pnComments;
@@ -68,11 +68,17 @@ public class postController {
         lblName.setText(post.getSender().getUsername());
         lblLikes.setText(String.valueOf(post.getLikes()));
         lblDate.setText(format.SimpleDate(post.getCreationDate()));
+        btnComment.setText(String.valueOf(post.getCommentsCount()));
         lblAdvertisement.visibleProperty().set(post instanceof PromotedPost);
         new ProfilePopOver(ivProfilePic, post.getSender());
         advertisement();
         loadedComments = false;
         commentHandler();
+        bpMain.setOnMouseEntered(evt -> User.getCurrentUser().view(post));
+        if (post.getRepliedPost() == null)
+            bpPost.setTop(null);
+        else 
+            lblReply.setText("in reply to " + post.getRepliedPost().getSender().getUsername());
     }
 
     @FXML

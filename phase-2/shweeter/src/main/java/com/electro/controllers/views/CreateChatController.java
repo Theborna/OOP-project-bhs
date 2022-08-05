@@ -132,7 +132,9 @@ public class CreateChatController implements Initializable {
         Button btn = (Button) obj;
         if (btn == btnPrivate) {
             controller.setType(controller.getChatType("private"));
+            controller.setLinkID("private");
             txtChatLinkId.setDisable(true);
+            txtChatLinkId.setText("private");//to avoid errors
         } else if (btn == btnChannel) {
             controller.setType(controller.getChatType("channel"));
         } else if (btn == btnGroup) {

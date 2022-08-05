@@ -15,6 +15,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +40,8 @@ public class ProfilePageController {
 
     private User user;
 
+    private ProfileVbox Profile;
+
     @FXML
     void Scroll(ActionEvent event) {
         boolean top = true;
@@ -55,12 +59,17 @@ public class ProfilePageController {
             btnMessage.setDisable(true);
             btnFollow.setDisable(true);
         }
-        btnScrollPage.setText(user.getFullName());
-        scrollProf.setContent(new ProfileVbox().withUser(user));
+        btnScrollPage.setText(user.getName());
+        Profile = new ProfileVbox().withUser(user);
+        scrollProf.setContent(Profile);
         if (User.getCurrentUser().isFollowing(user))
             btnFollow.setText("un-follow");
         else
             btnFollow.setText("follow");
+    }
+
+    public BooleanProperty getInfoRequestProperty() {
+        return Profile.getProfileRequest();
     }
 
     @FXML
@@ -74,13 +83,17 @@ public class ProfilePageController {
         }
     }
 
-    public class ProfileVbox extends VBox {
+    public static class ProfileVbox extends VBox {
+
+        private static BooleanProperty profileRequest;
 
         public ProfileVbox() {
         }
 
         public ProfileVbox withUser(User user) {
             System.out.println("loading the posts...");
+            if (profileRequest == null)
+                profileRequest = new SimpleBooleanProperty(false);
             super.setSpacing(20);
             super.getChildren().clear();
             ArrayList<Post> posts = new ArrayList<Post>();
@@ -92,6 +105,7 @@ public class ProfilePageController {
                     FXMLLoader loader = new FXMLLoader(App.class.getResource("components/profile.fxml"));
                     final Node node = loader.load();
                     profileController controller = loader.getController();
+                    profileRequest.bind(controller.getInfoRequest());
                     Platform.runLater(() -> {
                         controller.initialize(user);
                         super.getChildren().add(node);
@@ -114,6 +128,10 @@ public class ProfilePageController {
             });
             thread.start();
             return this;
+        }
+
+        public BooleanProperty getProfileRequest() {
+            return profileRequest;
         }
 
     }

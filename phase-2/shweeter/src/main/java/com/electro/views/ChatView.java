@@ -14,6 +14,8 @@ public class ChatView extends inPane {
     }
 
     public void setOnRequest(Runnable run) {
+        if(controller == null)
+            return;
         controller.getRequestSettingsProperty().addListener((o, old, niu) -> {
             if (niu)
                 run.run();

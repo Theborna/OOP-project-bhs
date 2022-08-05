@@ -34,13 +34,14 @@ public class UserDB {
         if (user == null)
             return;
         Connection con = getConnection();
-        String query = "insert into pmresan.users values(NULL,'" + user.getUsername() + "'" +
+        String query = "insert into electron.users values(NULL,'" + user.getUsername() + "'" +
                 ",'" + user.getPassword() + "','" + user.getSalt() + "', '" +
                 new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
-                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns() + "')";
-        // System.out.println(query);
+                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns()
+                + "', '1')";
+        System.out.println(query);
         con.createStatement().execute(query);
         con.close();
     }
@@ -52,8 +53,9 @@ public class UserDB {
                 "US_Salt = '" + user.getSalt() + "', US_Type = " + Integer.toString(user.getUserType()) + "" +
                 ", US_Visibilty = " + ((user.isPublic()) ? "1" : "0") + ", US_Name = '" + user.getName() + "'" +
                 ", US_LastName = '" + user.getLastName() + "', US_Email = '" + user.getLastName() +
-                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) + " where US_ID = " + user.getId() + ";";
-        //System.out.println(query);
+                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) + " where US_ID = " + user.getId()
+                + ";";
+        // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
     }
@@ -71,7 +73,7 @@ public class UserDB {
         // 1 -> buisness user
 
         if (userType == 0) {
-            //System.out.println(userType);
+            // System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -88,7 +90,7 @@ public class UserDB {
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
         } else {
-            //System.out.println(userType);
+            // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -125,7 +127,7 @@ public class UserDB {
         // 1 -> buisness user
 
         if (userType == 0) {
-            //System.out.println(userType);
+            // System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -142,7 +144,7 @@ public class UserDB {
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
         } else {
-            //System.out.println(userType);
+            // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
             us.setUSID(rs.getLong(1));
             us.setSalt(rs.getString(4));
@@ -232,7 +234,8 @@ public class UserDB {
     public static ArrayList<User> searchByUserName(String entry) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
+        ResultSet rs = st.executeQuery(
+                "select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next()) {
             int userType = rs.getInt(6);
@@ -240,7 +243,7 @@ public class UserDB {
             // 1 -> buisness user
             User us;
             if (userType == 0) {
-                //System.out.println(userType);
+                // System.out.println(userType);
                 us = new NormalUser(rs.getString(2), rs.getString(3));
                 us.setUSID(rs.getLong(1));
                 us.setSalt(rs.getString(4));
@@ -257,7 +260,7 @@ public class UserDB {
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
             } else {
-                //System.out.println(userType);
+                // System.out.println(userType);
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
                 us.setUSID(rs.getLong(1));
                 us.setSalt(rs.getString(4));
@@ -295,7 +298,6 @@ public class UserDB {
         st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
                 + toFollow.getId());
     }
-
 
     public static boolean isFollowed(User currentUser, User user) throws SQLException {
         Connection con = DBInfo.getConnection();

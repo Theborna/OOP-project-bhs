@@ -3,6 +3,8 @@ package com.electro.controllers.views;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import org.controlsfx.control.ToggleSwitch;
@@ -221,7 +223,8 @@ public class LoginPageController implements Initializable {
         String username = txtUsername.getText(), password = txtPass.getText(),
                 passwordConf = txtPassConf.getText(), email = txtEmail.getText();
         boolean b = controller.setUsername(username) && controller.setPassword(password) && controller.setEmail(email)
-                && controller.getSecurityQuestion(txtSecurityAns.getText());
+                && controller.getSecurityQuestion(txtSecurityAns.getText())
+                && controller.setName(txtFullName.getText());
         System.out.println(chosenSecurityQ.get());
         System.out.println(txtSecurityAns.getText());
         if (!password.equals(passwordConf)) {
@@ -234,7 +237,8 @@ public class LoginPageController implements Initializable {
             Boolean isPublic = tglVisible.isSelected();
             String birthDate = dateBirth.getTypeSelector();
             System.out.println(isNormal + " " + isPublic + " " + birthDate);
-            controller.makeAccount(isPublic, isNormal, null);
+            controller.makeAccount(isPublic, isNormal,
+                    Date.from(dateBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
             // b = false;
         }
         return b;

@@ -1,7 +1,7 @@
 package com.electro.phase1.util;
 
 import java.util.Comparator;
-import java.util.Scanner;
+
 
 /**
  * this implementation of Comparator will compare two strings
@@ -78,16 +78,16 @@ public class NameCompare implements Comparator<String> {
     }
 
     public static void main(String[] args) {// testing purposes
-        while (true) {
-
-            Scanner scanner = new Scanner(System.in);
-            StdOut.prompt("enter first String");
-            String s = scanner.nextLine();
-            StdOut.prompt("enter first String");
-            String t = scanner.nextLine();
-            System.out.println(INSTANCE.compare(s, t));
-            scanner.close();
-
-        }
+        // while (true) {
+        //     try {
+        //         StdOut.prompt("enter first String");
+        //         String s = StdIn.nextLine();
+        //         StdOut.prompt("enter first String");
+        //         String t = StdIn.nextLine();
+        //         System.out.println(INSTANCE.compare(s, t));
+        //     } catch (changeViewException e) {
+        //         System.out.println("leaving not permitted");
+        //     }
+        // }
     }
 }

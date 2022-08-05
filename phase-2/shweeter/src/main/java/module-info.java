@@ -6,6 +6,7 @@ module com.electro {
         requires transitive org.jfxtras.styles.jmetro;
         requires org.controlsfx.controls;
         requires transitive java.desktop;
+        requires java.sql;
 
         opens com.electro.controllers.components
                         to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls, java.desktop;
@@ -17,9 +18,11 @@ module com.electro {
                         to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro, org.controlsfx.controls,
                         java.desktop;
         opens com.electro.phase1;
+        opens com.electro.database to java.sql;
 
         exports com.electro.controllers.components;
         exports com.electro.controllers.views;
         exports com.electro;
         exports com.electro.phase1;
+        exports com.electro.database;
 }

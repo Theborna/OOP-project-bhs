@@ -78,7 +78,7 @@ public class chatItemController {
         // System.out.println(chat.getName());
         lblName.setText(name = chat.getName());
         Message last = MessageConnection.getLastMessage(chat.getId());
-        lblLastSender.setText(sender = last.getAuthor().getUsername());
+        lblLastSender.setText(sender = (last.getAuthor().getUsername() + ": "));
         lblLastMessage.setText(message = last.getText());
         lblDate.setText(date = format.SimpleDate(last.getLastModifiedDate()));
     }

@@ -53,19 +53,19 @@
     </dependency>
 
     <!-- sql dependencies-->
-    <!-- <dependency>
+    <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <scope>system</scope>
       <version>8.0.29</version>
       <systemPath>${project.basedir}/mysql-connector-java-5.1.46.jar</systemPath>
-    </dependency> -->
+    </dependency>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-    <dependency>
+    <!-- <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.29</version>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>mysql-bin</groupId>
       <artifactId>mysql-connector-java-bin</artifactId>

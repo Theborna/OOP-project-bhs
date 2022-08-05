@@ -9,6 +9,7 @@ import com.electro.phase1.enums.Security;
 import com.electro.phase1.models.node.user.BusinessUser;
 import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
+import com.electro.phase1.util.crypt;
 import com.electro.views.component.ErrorNotification;
 
 public class RegisterController extends LoginController {
@@ -79,11 +80,18 @@ public class RegisterController extends LoginController {
 
     public void makeAccount(boolean isPublic, boolean isNormal, Date birthDate) {
         User user;
+        String salt = crypt.salt();
+        password = crypt.encryptedString(password + salt);
         if (isNormal)
             user = new NormalUser(username, password);
         else
             user = new BusinessUser(username, password);
-        user.setPublic(isPublic).setBirthDate(birthDate).sendToDB(); // TODO: update controller
+        user.setPublic(isPublic).setBirthDate(birthDate).setSecAns(crypt.encryptedString(securityAns + salt));
+        user.setSecType(securityQ);
+        user.setEmail(email);
+        user.setName(fullName);
+        user.setSalt(salt);
+        user.sendToDB(); // TODO: update controller
     }
 
     public boolean getSecurityQuestion(String nextLine) {
@@ -102,5 +110,12 @@ public class RegisterController extends LoginController {
 
     public String getSecurityAns() {
         return securityAns;
+    }
+
+    public boolean setName(String text) {
+        if (!AppRegex.FULL_NAME.matches(text))
+            return false;
+        fullName = text;
+        return true;
     }
 }

@@ -1,12 +1,14 @@
 package com.electro.controllers.views;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import com.electro.database.UserDB;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.StdColor;
@@ -43,11 +45,17 @@ public class SearchController {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 if (pnUser.isSelected()) {
+                    if (arg2 == null)
+                        return;
                     StdOut.println("searching for users...", StdColor.CYAN);
                     lstSearchUser.getItems().clear();
                     functions.clear();
-                    List<User> users = new ArrayList<>(ChatUserConnection.getUsers(Long.valueOf(1)).keySet());
-                    // System.out.println(users);
+                    List<User> users = new ArrayList<User>();
+                    try {
+                        users.addAll(UserDB.searchByUserName(arg2));
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     lstSearchUser.getItems().addAll(users.stream().map(User::getUsername).collect(Collectors.toList()));
                     functions.clear();
                     functions.addAll(
@@ -70,4 +78,5 @@ public class SearchController {
     public static void setOnProfileRequest(Consumer<User> openPage) {
         SearchController.openPage = openPage;
     }
+
 }

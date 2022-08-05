@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DBInfo {
-    public static final String DBURL = "jdbc:mysql://localhost:3306/pmresan";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/electron";
     public static final String USName = "root";
     public static final String PassWD = "";
 
@@ -20,7 +20,7 @@ public class DBInfo {
 //            e.printStackTrace();
 //        }
         Log.logger.info("Connected to database succressfully");
-        return DriverManager.getConnection(DBURL, USName, PassWD);
+        return DriverManager.getConnection(DB_URL, USName, PassWD);
     }
 
     public static Connection getConnection(String classname) throws SQLException {
@@ -31,7 +31,7 @@ public class DBInfo {
 //        }
         Log.logger.info("Connected to database succressfully");
         Log.logger.info("Connected to database succressfully" + " : " + classname);
-        return DriverManager.getConnection(DBURL, USName, PassWD);
+        return DriverManager.getConnection(DB_URL, USName, PassWD);
     }
 
     public static LocalDateTime parseDate(String date) {

@@ -1,6 +1,8 @@
 package com.electro.phase1.models.node.user;
 
-import java.time.LocalDateTime;
+import com.electro.phase1.models.node.post.Post;
+import com.electro.phase1.models.node.post.PromotedPost;
+import com.electro.phase1.util.Log;
 
 public class BusinessUser extends User {
     
@@ -8,14 +10,17 @@ public class BusinessUser extends User {
 
     public BusinessUser(String username, String password) {
         super(username, password);
-        //TODO Auto-generated constructor stub
+        setUserType(1);
     }
 
 
     @Override
-    public void Post(com.electro.phase1.models.node.post.Post post) {
+    public void Post(String post, Post inReplyTo) {
         // TODO Auto-generated method stub
-
+        Post newPost = new PromotedPost(post,this);
+        newPost.setRepliedPost(inReplyTo);
+        Log.logger.info("added post: " + newPost.toString());
+        newPost.sendToDB();
     }
 
     public String getBusinessType() {

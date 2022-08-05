@@ -6,8 +6,11 @@ import java.io.IOException;
 import com.electro.App;
 import com.electro.controllers.components.postController;
 import com.electro.phase1.AppRegex;
+import com.electro.phase1.models.node.Image;
 import com.electro.phase1.models.node.node;
 import com.electro.phase1.models.node.post.Post;
+import com.electro.phase1.models.node.user.User;
+import com.electro.views.FileView;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;
 import com.electro.views.component.InfoNotification;
@@ -35,14 +38,12 @@ public class ComposeController {
     @FXML
     private BorderPane bpMain;
 
-
-    
     @FXML
     private TextArea txtPost;
 
     private BooleanProperty finishedProperty;
     private File file;
-    private Long inReply;
+    private Post inReply;
 
     @FXML
     void btnHandle(ActionEvent event) {
@@ -60,6 +61,8 @@ public class ComposeController {
 
     private void file() {
         file = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
+        System.out.println(file.toPath().toAbsolutePath().toString());
+        bpMain.setBottom(new FileView(new Image(file.toPath().toAbsolutePath().toString())));
     }
 
     private void delete() {
@@ -73,6 +76,7 @@ public class ComposeController {
             new ErrorNotification("post cannot be empty");
         // } else if (AppRegex.P/ )
         finishedProperty.set(true);
+        User.getCurrentUser().Post(text, inReply);
         new InfoNotification("post sent successfully");
     }
 
@@ -87,7 +91,7 @@ public class ComposeController {
             bpMain.setTop(null);
             return;
         }
-        inReply = withPost.getId();
+        inReply = withPost;
         FXMLLoader loader = new FXMLLoader(App.class.getResource("components/post.fxml"));
         Node node;
         try {

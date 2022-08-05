@@ -23,6 +23,7 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -42,9 +43,11 @@ public class MessageListView extends VBox {
     }
 
     public void addAll() {
+        super.setAlignment(Pos.BOTTOM_CENTER);
         System.out.println("loading the messages...");
         messages = new ArrayList<>();
-        messages.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
+        if (Chat.getCurrent() != null)
+            messages.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
         init();
         clearChildren();
         load();
@@ -81,10 +84,10 @@ public class MessageListView extends VBox {
         updater = new Thread(() -> { // TODO: make this with sockets
             while (true) {
                 try {
-
-                    Thread.sleep(200);// the apparent ping
+                    Thread.sleep(1000);// the apparent ping
                     ArrayList<Message> newMsg = new ArrayList<Message>();
-                    newMsg.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
+                    if (Chat.getCurrent() != null)
+                        newMsg.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
                     newMsg.removeAll(messages);
                     addMessages(newMsg);
                     messages.addAll(newMsg);

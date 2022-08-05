@@ -4,7 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.electro.phase1.models.connection.PostUserConnection;
+import com.electro.phase1.models.connection.UserFollowingConnection;
 import com.electro.phase1.models.node.user.User;
+import com.electro.phase1.util.Suggestion;
+import com.electro.util.FunctionalListview;
 import com.electro.views.PostListView;
 
 import javafx.beans.binding.Bindings;
@@ -17,7 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class ExploreController implements Initializable {
+public class ExploreController {
     private static final int ROW_HEIGHT = 32;
     private static final int THRESHOLD = 500;
     @FXML
@@ -26,7 +29,6 @@ public class ExploreController implements Initializable {
     @FXML
     private ScrollPane scrollExplore;
 
-    @FXML
     private ListView<String> lstRecommendedPages;
 
     @FXML
@@ -36,13 +38,9 @@ public class ExploreController implements Initializable {
     private VBox vboxRecommend;
 
     public void initialize(User user) {
+        lstRecommendedPages = new FunctionalListview(UserFollowingConnection.getExploreUsers(user));
         scrollExplore.setContent(new PostListView().withPosts(PostUserConnection.getExplore(user)));
-        lstRecommendedPages.getItems().addAll("hossein", "nika", "samira");
         scrollExplore.widthProperty().addListener((o, old, niu) -> vboxRecommend.setPrefWidth(niu.floatValue() / 3));
-    }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
         lstRecommendedPages.setPrefHeight(lstRecommendedPages.getItems().size() * ROW_HEIGHT + 2);
         lstRecommendedPages.getItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -51,5 +49,4 @@ public class ExploreController implements Initializable {
             }
         });
     }
-
 }

@@ -15,12 +15,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <BorderPane fx:id="bpMain" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.electro.controllers.components.postController">
    <center>
       <BorderPane fx:id="bpPost" maxHeight="1.7976931348623157E308" styleClass="post">
          <center>
-            <BorderPane>
+            <BorderPane fx:id="bpMsg">
                <top>
                   <HBox prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
@@ -138,6 +137,9 @@
                </padding>
             </VBox>
          </left>
+         <top>
+            <Label fx:id="lblReply" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="text18" text="in reply to RepliedTo" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </top>
       </BorderPane>
    </center>
    <bottom>

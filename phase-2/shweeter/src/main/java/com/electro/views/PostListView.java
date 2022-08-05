@@ -19,7 +19,6 @@ public class PostListView extends VBox {
     public PostListView withPosts(Collection<Post> posts) {
         System.out.println("loading the posts...");
         super.setSpacing(20);
-        // ArrayList<Node> nodes = new ArrayList<Node>();
         Thread thread = new Thread(() -> {
             try {
                 for (Post post : posts) {

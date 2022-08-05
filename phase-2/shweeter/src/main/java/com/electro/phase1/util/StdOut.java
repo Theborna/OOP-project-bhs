@@ -4,8 +4,6 @@ import static com.electro.phase1.util.StdColor.*;
 
 import java.util.Arrays;
 
-// import com.project.view.View;
-
 public class StdOut {
 
     private static final int RULE_SIZE = 140;
