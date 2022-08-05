@@ -7,6 +7,8 @@ module com.electro {
         requires org.controlsfx.controls;
         requires transitive java.desktop;
         requires java.sql;
+        requires telegrambots;
+        requires telegrambots.meta;
 
         opens com.electro.controllers.components
                         to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls, java.desktop;
