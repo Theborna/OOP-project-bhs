@@ -14,6 +14,7 @@ import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.Like;
 import com.project.models.connection.PostUserConnection;
 import com.project.models.node.Chat;
+import com.project.models.node.Media;
 import com.project.models.node.Message;
 import com.project.models.node.node;
 import com.project.models.node.post.Post;
@@ -40,6 +41,7 @@ public abstract class User extends node {
     private Security secType;
     private String secAns;
     private LimitedList<Message> pastMsg;
+    private Media profilePhoto;
 
     public User(String username, String password) {
         this.username = username;
@@ -363,5 +365,13 @@ public abstract class User extends node {
     public User setPassword(String password) {
         this.password = password;
         return this;
+    }
+
+    public Media getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(Media profilePhoto) {
+        this.profilePhoto = profilePhoto;
     }
 }
