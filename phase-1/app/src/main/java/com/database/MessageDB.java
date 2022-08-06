@@ -43,6 +43,16 @@ public class MessageDB {
 
     }
 
+    public static void deleteMessage(long msg_id) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = "delete from messages where msg_id = " + msg_id + ";";
+        //System.out.println(query);
+        st.execute(query);
+        st.close();
+        con.close();
+    }
+
     public static void updatePreviouslyBuiltMSG(Message msg) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
