@@ -1,6 +1,8 @@
 package com.electro.phase1.util.telegram;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.objects.Chat;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
@@ -22,15 +24,10 @@ public class TGinit {
     }
 
     public static TG getInstance() {
-        if (tg == null)
+        if (tg == null) 
             new TGinit();
         return tg;
     }
 
-    public static void main(String[] args) {
-        getInstance();
-        System.out.println(tg.getBotToken());
-        // tg.sendMessage("testing the logger...");
-    }
 
 }

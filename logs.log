@@ -7691,3 +7691,21 @@ Aug 06, 2022 8:21:51 PM com.project.App setView
 INFO: changed view to ChatView
 Aug 06, 2022 8:21:54 PM com.project.App setView
 INFO: changed view to SecondaryView
+Aug 06, 2022 8:33:19 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:33:19 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:35:30 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:35:30 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:36:06 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:36:06 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:36:44 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:36:44 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:36:54 PM com.project.App setView
+INFO: changed view to LoginView

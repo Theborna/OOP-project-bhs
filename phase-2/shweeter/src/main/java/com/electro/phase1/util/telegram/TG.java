@@ -7,11 +7,20 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-// import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class TG extends TelegramLongPollingBot {
 
-    // Dotenv env;
+    private String response;
+    private final String API_KEY;
+
+    public TG() {
+        super();
+        response = "velam kon lashi";
+        Dotenv env = Dotenv.load();
+        API_KEY = env.get("API_KEY");
+        System.out.println(API_KEY);
+    }
 
     @Override
     public String getBotUsername() {
@@ -20,28 +29,26 @@ public class TG extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "5421036090:AAGFN42FvfONUIX25ZOM4b4_C8vzr9Z9I1s";
+        return API_KEY;
     }
 
     @Override
     public void onUpdateReceived(Update update) {
-        System.out.println("dick");
+        try {
+            execute(new SendMessage(update.getMessage().getChat().getId().toString(), response));
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(response);
+        }
     }
 
-    public void sendMessage(String message) {
-        new Thread(() -> {
-            Message msg = new Message();
-            msg.setText(message);
-            Chat ch = new Chat();
-            ch.setId(-1001735428152L);
-            msg.setChat(ch);
-            try {
-                execute(new SendMessage("-1001735428152", message));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }).start();
+    public synchronized void sendMessage(String message) {
+        System.out.println("TG.sendMessage() run by thread " + Thread.currentThread().getName());
+        try {
+            execute(new SendMessage("-1001735428152", message));
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
-
-
 }
