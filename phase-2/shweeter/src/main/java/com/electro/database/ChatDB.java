@@ -7,10 +7,13 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.electro.phase1.enums.ChatPermission;
 import com.electro.phase1.enums.ChatType;
 import com.electro.phase1.models.node.Chat;
+import com.electro.phase1.models.node.user.User;
 
 public class ChatDB {
     private ChatDB() {
@@ -178,6 +181,17 @@ public class ChatDB {
         rs.close();
         st.close();
         con.close();
+        return ret;
+    }
+
+    public static Map<User, ChatPermission> getMembersOfChat(long chatid) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from member where chatid = " + chatid);
+        Map<User, ChatPermission> ret = new HashMap<>();
+        while (rs.next()) {
+            ret.put(UserDB.getUserInfo(rs.getLong(1)), ChatPermission.values()[rs.getInt(3)]);
+        }
         return ret;
     }
 

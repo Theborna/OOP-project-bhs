@@ -5,38 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/artifacts/ClientDemo_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/out/artifacts/ClientDemo_jar/ClientDemo.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/target/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/target/classes/MessagingServer/RecPacket.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/target/classes/MessagingServer/ServerConnection$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/target/classes/MessagingServer/ServerConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientDemo/target/classes/MessagingServer/sentPacket.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/MessagingServer/RecPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/MessagingServer/ServerConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/MessagingServer/sentPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/MessagingServer/RecPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/MessagingServer/ServerConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/MessagingServer/sentPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ClientDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientDemo/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/ServerConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/recPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/sentPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/sentPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/DB/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/DB/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/RecPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/RecPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/sentPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/sentPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/DB/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/DB/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/RecPacket.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/RecPacket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/sentPacket.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/target/classes/com/company/Socket/sentPacket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/ChatDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +143,7 @@
       <workItem from="1659734421893" duration="374000" />
       <workItem from="1659735940136" duration="1519000" />
       <workItem from="1659737531945" duration="2014000" />
-      <workItem from="1659761829200" duration="5486000" />
+      <workItem from="1659761829200" duration="7283000" />
     </task>
     <servers />
   </component>
