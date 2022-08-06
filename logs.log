@@ -8019,3 +8019,123 @@ Aug 06, 2022 11:13:39 PM com.electro.phase1.models.node.user.User sendMessage
 INFO: sent message: Message[id=0] to chat: Chat[id=5]
 Aug 06, 2022 11:13:50 PM com.electro.phase1.models.node.user.User sendMessage
 INFO: sent message: Message[id=0] to chat: Chat[id=5]
+Aug 06, 2022 11:19:22 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 06, 2022 11:19:24 PM com.electro.App start
+INFO: application started on phase-2
+Aug 06, 2022 11:20:01 PM com.electro.database.DBInfo getConnection
+INFO: Connected to database successfully : new chat
+Aug 06, 2022 11:20:28 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:20:28 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:20:28 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:20:28 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:20:28 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:20:37 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 06, 2022 11:20:53 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 06, 2022 11:21:25 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:21:25 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:21:25 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:21:26 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:21:38 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:21:38 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:21:38 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:21:38 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:21:46 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:21:46 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:21:46 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:21:46 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:21:53 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:21:53 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:21:53 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:21:53 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:21:54 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:21:56 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:21:56 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:21:56 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:21:56 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:21:56 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:22:29 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:22:29 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:22:29 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:22:29 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:22:29 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:22:34 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:22:34 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:22:34 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:22:34 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:22:34 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:22:41 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:22:41 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:22:41 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:22:41 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:22:42 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:23:09 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 06, 2022 11:23:09 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:23:09 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:23:09 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:23:09 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:23:57 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:23:57 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:23:57 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:23:57 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 06, 2022 11:25:17 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 06, 2022 11:25:17 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 06, 2022 11:25:17 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 06, 2022 11:25:18 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
