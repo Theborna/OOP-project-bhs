@@ -23,16 +23,17 @@ public class TG extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         System.out.println("dick");
     }
-    public void sendMessage(String message) {
-        Message msg = new Message();
-        msg.setText(message);
-        Chat ch = new Chat();
-        ch.setId(-1001735428152L);
-        msg.setChat(ch);
-        try {
-            execute(new SendMessage("-1001735428152",message));
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
+
+    public synchronized void sendMessage(String message) {
+        // Message msg = new Message();
+        // msg.setText(message);
+        // Chat ch = new Chat();
+        // ch.setId(-1001735428152L);
+        // msg.setChat(ch);
+        // try {
+        //     execute(new SendMessage("-1001735428152", message));
+        // } catch (TelegramApiException e) {
+        //     e.printStackTrace();
+        // }
     }
 }

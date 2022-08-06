@@ -16,6 +16,7 @@ import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.node;
 
 import javafx.application.Platform;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -33,10 +34,10 @@ public class MessageListView extends VBox {
     private static MessageListView instance;
     private List<Message> messages;
     private List<Node> nodes;
-    private List<BooleanProperty> replied, forwarded;
-    private Message repliedTo, forwarding;
-    private StringProperty repliedName, repliedMsg;
-    private BooleanProperty forwardingProperty;
+    private List<BooleanProperty> replied, forwarded, edited;
+    private Message repliedTo, forwarding, editing;
+    private StringProperty repliedName, repliedMsg; // also used for editing
+    private BooleanProperty forwardingProperty, editProperty;
     private static Thread updater;
 
     private MessageListView() {
@@ -64,6 +65,8 @@ public class MessageListView extends VBox {
             replied = new ArrayList<>();
         if (forwarded == null)
             forwarded = new ArrayList<>();
+        if (edited == null)
+            edited = new ArrayList<>();
         if (forwardingProperty == null)
             forwardingProperty = new SimpleBooleanProperty(false);
     }
@@ -72,6 +75,7 @@ public class MessageListView extends VBox {
         nodes.clear();
         replied.clear();
         forwarded.clear();
+        edited.clear();
         forwardingProperty.set(false);
         Thread thread = new Thread(() -> {
             try {
@@ -108,10 +112,10 @@ public class MessageListView extends VBox {
             Node node = loader.load();
             messageController controller = loader.getController();
             nodes.add(node);
-            BooleanProperty replyProp,
-                    forwardProp;
+            BooleanProperty replyProp, forwardProp, editProp;
             replied.add(replyProp = new SimpleBooleanProperty(false));
             forwarded.add(forwardProp = new SimpleBooleanProperty(false));
+            edited.add(editProp = new SimpleBooleanProperty(false));
             final int j = i;
             Platform.runLater(() -> {
                 controller.initialize(messages.get(j));
@@ -121,15 +125,12 @@ public class MessageListView extends VBox {
             replyProp.addListener(new ChangeListener<Boolean>() {
                 @Override
                 public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
-                    // clearReply();
-                    // replied.get(j).set(arg2);
                     for (int k = 0; k < replied.size(); k++)
                         if (k != j)
                             replied.get(k).set(false);
-                    // System.out.println(replied);
                     if (arg2) {
                         repliedTo = messages.get(j);
-                        repliedName.set(repliedTo.getSender().getUsername());
+                        repliedName.set(repliedTo.getSender().getUsername() + "\t(replied)");
                         repliedMsg.set(repliedTo.getText());
                     } else {
                         repliedTo = null;
@@ -154,6 +155,33 @@ public class MessageListView extends VBox {
                         forwarding = null;
                     System.out.println(forwarding);
                 }
+            });
+            editProp.bindBidirectional(controller.getEditProperty());
+            editProp.addListener((a, old, niu) -> {
+                for (int k = 0; k < messages.size(); k++)
+                    if (k != j)
+                        edited.get(k).set(false);
+                if (niu) {
+                    editProperty.set(true);
+                    new Thread(() -> {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } finally {
+                            editProperty.set(false);
+                        }
+                    }).start();
+                    editing = messages.get(j);
+                    repliedName.set(editing.getSender().getUsername().concat("\t(editing)"));
+                    repliedMsg.set(editing.getText());
+                } else {
+                    editing = null;
+                    repliedName.set("");
+                    repliedMsg.set("");
+                }
+                System.out.println(editing);
+                System.out.println(repliedMsg.get());
             });
             Thread.sleep(60);
         }
@@ -189,7 +217,7 @@ public class MessageListView extends VBox {
         return repliedMsg;
     }
 
-    public StringProperty getRepliedName() {
+    public StringExpression getRepliedName() {
         return repliedName;
     }
 
@@ -206,5 +234,15 @@ public class MessageListView extends VBox {
     }
 
     public void update() {
+    }
+
+    public Message getEditing() {
+        return editing;
+    }
+
+    public BooleanProperty getEditProperty() {
+        if (editProperty == null)
+            editProperty = new SimpleBooleanProperty(false);
+        return editProperty;
     }
 }

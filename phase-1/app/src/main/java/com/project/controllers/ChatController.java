@@ -68,15 +68,15 @@ public class ChatController implements ListController<MessageView> {
                 showMsg = false;
                 break;
             case "reply":
-                if(currentMsg != null)
-                inReply = currentMsg.getMessage();
+                if (currentMsg != null)
+                    inReply = currentMsg.getMessage();
             case "new message":
             case "new":
             case "compose":
-                post(inReply);
+                post(inReply, null);
                 break;
             case "edit":
-                if(currentMsg == null)
+                if (currentMsg == null)
                     break;
                 switch (editable(currentMsg.getMessage())) {
                     case 0:
@@ -86,7 +86,7 @@ public class ChatController implements ListController<MessageView> {
                         printError("cannot edit this message");
                         break;
                     case 2:
-                        post(null);
+                        post(null, currentMsg.getMessage());
                         break;
                     default:
                         break;
@@ -134,7 +134,7 @@ public class ChatController implements ListController<MessageView> {
         return 2;
     }
 
-    private void post(Message inReply) { // TODO: check support for editting
+    private void post(Message inReply, Message edit) { // TODO: check support for editting
         if (permission == ChatPermission.OBSERVER) {
             printError("non sufficient permissions");
             return;
@@ -142,7 +142,7 @@ public class ChatController implements ListController<MessageView> {
         StringBuilder sb = null;
         try {
             if ((sb = getMsgText(sb)) != null)
-                post(sb, inReply);
+                post(sb, inReply, edit);
             else
                 println("message canceled", StdColor.YELLOW);
 
@@ -229,10 +229,16 @@ public class ChatController implements ListController<MessageView> {
         return msgText;
     }
 
-    public void post(StringBuilder sb, Message inReply) {
+    public void post(StringBuilder sb, Message inReply, Message edit) {
         if (sb == null)
             return;
-        Message message = new Message(sb.toString(), User.getCurrentUser(),Chat.getCurrent());
+        Message message = null;
+        if (edit == null)
+            message = new Message(sb.toString(), User.getCurrentUser(), Chat.getCurrent());
+        else {
+            message = edit;
+            message.setText(sb.toString());
+        }
         // TODO: set message data
         message.setReplyTo(inReply);
         User.getCurrentUser().sendMessage(message, Chat.getCurrent());

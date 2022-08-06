@@ -3,7 +3,7 @@ package com.electro.controllers.components;
 import org.controlsfx.control.PopOver;
 
 import com.electro.App;
-import com.electro.phase1.models.node.Image;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.Media;
 import com.electro.phase1.models.node.Video;
 import com.electro.phase1.models.node.node;
@@ -24,9 +24,9 @@ public class FileController {
 
     public void initialize(Media media) {
         Node node = null;
-        if (media instanceof Image) {
-            ivImage.setImage(((Image) media).getImage());
-            node = new ImageView(((Image) media).getImage());
+        if (media instanceof ImageNode) {
+            ivImage.setImage(((ImageNode) media).getImage());
+            node = new ImageView(((ImageNode) media).getImage());
         } else if (media instanceof Video) {
             ivImage.setImage(App.getImage("images/icons8_video_96px.png"));
         }

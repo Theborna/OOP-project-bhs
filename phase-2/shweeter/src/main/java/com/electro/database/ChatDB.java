@@ -87,7 +87,8 @@ public class ChatDB {
                 "'," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + ","
                 + (ch.getOwner() == null ? "null" : "'" + ch.getOwner().getId() + "'") + ","
                 + ch.getType().ordinal() + ",'" + ch.getName() + "', '"
-                + (ch.getLinkID() == null ? "null" : ("'" + ch.getLinkID() + "'")) + "')";
+                + (ch.getLinkID() == null ? "null" : (ch.getLinkID() + "'")) + ")";
+        System.out.println(query);
         st.execute(query);
         st.close();
         con.close();
