@@ -7,9 +7,14 @@ import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.MessageConnection;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.Log;
+import com.electro.phase1.util.StdColor;
+import com.electro.phase1.util.StdOut;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -26,6 +31,7 @@ public class Chat extends node {
     private boolean canSend;
     private int memberCount;
     private boolean visible;
+    private static BooleanProperty CanSend;
     // For groups and channels
     private User owner;
 
@@ -38,6 +44,8 @@ public class Chat extends node {
     public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
+        if (CanSend == null)
+            CanSend = new SimpleBooleanProperty(false);
         // setData(chatId++, new Date(1), new Date(2));
     }
 
@@ -46,10 +54,12 @@ public class Chat extends node {
         // current = new Chat("kos", ChatType.PRIVATE);
         try {
             current = ChatDB.getChatByID(id);
+            CanSend.set(!current.getPermission(User.getCurrentUser().getId()).equals(ChatPermission.OBSERVER));
+            StdOut.print(CanSend.get(), StdColor.GREEN);
             currentName.set(current.getName());
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } 
     }
 
     public static void LogToChat(Chat chat) {
@@ -121,18 +131,9 @@ public class Chat extends node {
         this.owner = owner;
     }
 
-    public static Long getByLinkID(String linkID) {
-        // TODO get the id of the chat with the specified linkID
-        return null;
-    }
-
-    public Set<Long> getAdmins() {
-        return null;
-    }
-
-    public ChatPermission getPermission(long id) throws SQLException {
+    public ChatPermission getPermission(long userId) throws SQLException {
         // System.out.println(this.id + " user: " + id);
-        return ChatDB.getChatPermission(id, this.id);
+        return ChatDB.getChatPermission(userId, this.id);
     }
 
     public void delete() {
@@ -142,7 +143,6 @@ public class Chat extends node {
 
     @Override
     public void sendToDB() {
-        // TODO Auto-generated method stub
         try {
             ChatDB.sendToDB(this);
         } catch (SQLException e) {
@@ -154,5 +154,9 @@ public class Chat extends node {
         if (currentName == null)
             currentName = new SimpleStringProperty();
         return currentName;
+    }
+
+    public static BooleanProperty getCanSendProperty() {
+        return CanSend;
     }
 }

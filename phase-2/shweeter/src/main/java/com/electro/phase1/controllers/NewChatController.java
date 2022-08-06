@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.controlsfx.control.textfield.CustomTextField;
 
@@ -218,8 +220,9 @@ public class NewChatController {
         for (Long member : members.keySet())
             memberWithPermit.put(member, permissions.get(members.get(member)));
         if (type == ChatType.PRIVATE)
-            linkID = null;// TODO: check this
+            linkID = members.values().toString();// TODO: check this
         chat.setLinkID(linkID).sendToDB();
+        System.out.println(chat.getLinkID());
         // Adding members
         try {
             Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());

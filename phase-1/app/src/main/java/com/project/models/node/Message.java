@@ -23,8 +23,8 @@ public class Message extends node implements TextBased { // TODO lots of modific
         this.sender = sender;
         this.author = sender;
         this.ch = ch;
-//        setData(id++, LocalDateTime.now(),
-//                LocalDateTime.now());
+        // setData(id++, LocalDateTime.now(),
+        // LocalDateTime.now());
         replyTo = null;
     }
 
@@ -95,7 +95,7 @@ public class Message extends node implements TextBased { // TODO lots of modific
         Message newMsg = new Message(this.message.toString(), sender, ch);
         newMsg.author = this.author;
         newMsg.creationDate = LocalDateTime.now();
-//        newMsg.lastModifiedDate =
+        // newMsg.lastModifiedDate =
         return newMsg;
     }
 
@@ -117,6 +117,10 @@ public class Message extends node implements TextBased { // TODO lots of modific
     @Override
     public StringBuilder getBuilder() {
         return message;
+    }
+
+    public void setText(String string) {
+        message = new StringBuilder(string);
     }
 
 }

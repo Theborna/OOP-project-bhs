@@ -21,6 +21,7 @@ import jfxtras.styles.jmetro.Style;
 import java.io.IOException;
 
 import com.electro.phase1.util.Log;
+import com.electro.views.component.WebcamNode;
 
 /**
  * JavaFX App
@@ -63,6 +64,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         Log.logger.info("application started on phase-2");
+        // Image img = WebcamNode.getImage();
     }
 
     public static FileChooser getPicChooser() {

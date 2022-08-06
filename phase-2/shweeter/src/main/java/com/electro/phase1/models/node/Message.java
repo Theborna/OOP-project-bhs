@@ -120,7 +120,11 @@ public class Message extends node implements TextBased { // TODO lots of modific
     }
 
     public boolean isForwarded() {
-        return (author != sender);
+        return !(author.equals(sender));
+    }
+
+    public void setText(String string) {
+        message = new StringBuilder(string);
     }
 
 }

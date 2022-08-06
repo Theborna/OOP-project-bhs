@@ -83,6 +83,17 @@ public class ChatController implements Initializable {
             else
                 bpReply.setTop(hBoxReply);
         });
+        txtAMessage.disableProperty().bind(Chat.getCanSendProperty().not());
+        txtAMessage.disableProperty().addListener((a, old, niu) -> {
+            if (niu)
+                txtAMessage.setPromptText("cannot send message to this chat");
+            else
+                txtAMessage.setPromptText("your message...");
+        });
+        MessageListView.getInstance().getEditProperty().addListener((a, old, niu) -> {
+            if (niu)
+                txtAMessage.setText(MessageListView.getInstance().getEditing().getText());
+        });
     }
 
     @FXML
@@ -127,21 +138,27 @@ public class ChatController implements Initializable {
         if (btn == btnMsgSend) {
             StringBuilder sb = new StringBuilder();
             sb.append(txtAMessage.getText());
-            post(sb, MessageListView.getInstance().getRepliedTo());
+            post(sb, MessageListView.getInstance().getRepliedTo(), MessageListView.getInstance().getEditing());
             txtAMessage.setText("");
         } else if (btn == btnMsgFile) {
             File selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
         }
     }
 
-    public void post(StringBuilder sb, Message inReply) {
+    public void post(StringBuilder sb, Message inReply, Message edit) {
         if (sb == null)
             return;
-        Message message = new Message(sb.toString(), User.getCurrentUser(), Chat.getCurrent());
+        Message message = null;
+        if (edit == null)
+            message = new Message(sb.toString(), User.getCurrentUser(), Chat.getCurrent());
+        else {
+            message = edit;
+            message.setText(sb.toString());
+        }
         // TODO: set message data
         message.setReplyTo(inReply);
         User.getCurrentUser().sendMessage(message, Chat.getCurrent());
-        StdOut.println("message posted successfully", StdColor.GREEN);
+        // println("message posted successfully", StdColor.GREEN);
 
     }
 

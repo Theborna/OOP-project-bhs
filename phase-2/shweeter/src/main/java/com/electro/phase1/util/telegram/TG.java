@@ -7,11 +7,11 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import io.github.cdimascio.dotenv.Dotenv;
+// import io.github.cdimascio.dotenv.Dotenv;
 
 public class TG extends TelegramLongPollingBot {
 
-    Dotenv env;
+    // Dotenv env;
 
     @Override
     public String getBotUsername() {

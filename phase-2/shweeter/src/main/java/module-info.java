@@ -9,6 +9,7 @@ module com.electro {
         requires java.sql;
         requires telegrambots;
         requires telegrambots.meta;
+        requires webcam.capture;
 
         opens com.electro.controllers.components
                         to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls, java.desktop;
@@ -19,6 +20,7 @@ module com.electro {
         opens com.electro.util
                         to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro, org.controlsfx.controls,
                         java.desktop;
+        opens com.electro.views.component to webcam.capture;
         opens com.electro.phase1;
         opens com.electro.database to java.sql;
 

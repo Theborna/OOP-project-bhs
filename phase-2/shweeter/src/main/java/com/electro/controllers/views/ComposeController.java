@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.electro.App;
 import com.electro.controllers.components.postController;
 import com.electro.phase1.AppRegex;
-import com.electro.phase1.models.node.Image;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.node;
 import com.electro.phase1.models.node.post.Post;
 import com.electro.phase1.models.node.user.User;
@@ -62,7 +62,7 @@ public class ComposeController {
     private void file() {
         file = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
         System.out.println(file.toPath().toAbsolutePath().toString());
-        bpMain.setBottom(new FileView(new Image(file.toPath().toAbsolutePath().toString())));
+        bpMain.setBottom(new FileView(new ImageNode(file.toPath().toAbsolutePath().toString())));
     }
 
     private void delete() {

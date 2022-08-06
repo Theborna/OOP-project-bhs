@@ -44,7 +44,7 @@ public class messageController {
     @FXML
     private HBox hBoxReply;
 
-    private BooleanProperty repliedProperty, forwardProperty;
+    private BooleanProperty repliedProperty, forwardProperty, editProperty;
     private Message message;
 
     public void initialize(Message message) { // will include the important stuff about the actual message
@@ -56,6 +56,7 @@ public class messageController {
         lblForward.setText(message.getAuthor().getUsername());
         lblForwardedFrom.visibleProperty().bindBidirectional(lblForward.visibleProperty());
         lblForward.setVisible(message.isForwarded());
+        System.out.println(message.isForwarded());
         if (message.getReplyTo() != null) {
             hBoxReply.setVisible(true);
             lblReplyName.textProperty().set(message.getReplyTo().getSender().getUsername());
@@ -98,6 +99,9 @@ public class messageController {
         item2.setOnAction(evt -> {
             forwardProperty.set(true);
         });
+        item4.setOnAction(evt -> {
+            editProperty.set(true);
+        });
     }
 
     public BooleanProperty repliedProperty() {
@@ -110,5 +114,11 @@ public class messageController {
         if (forwardProperty == null)
             forwardProperty = new SimpleBooleanProperty(false);
         return forwardProperty;
+    }
+
+    public BooleanProperty getEditProperty() {
+        if (editProperty == null)
+            editProperty = new SimpleBooleanProperty(false);
+        return editProperty;
     }
 }

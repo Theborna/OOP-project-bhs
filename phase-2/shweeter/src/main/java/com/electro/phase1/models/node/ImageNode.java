@@ -4,9 +4,9 @@ import com.electro.App;
 import com.electro.phase1.enums.MediaType;
 import com.electro.phase1.models.node.user.User;
 
-public class Image extends Media {
+public class ImageNode extends Media {
 
-    public Image(String address) {
+    public ImageNode(String address) {
         super(address);
         setMt(MediaType.Image);
         // TODO Auto-generated constructor stub

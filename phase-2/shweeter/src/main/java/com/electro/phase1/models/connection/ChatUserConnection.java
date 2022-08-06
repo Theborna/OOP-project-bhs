@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.electro.database.ChatDB;
+import com.electro.database.UserDB;
 import com.electro.phase1.enums.ChatPermission;
 import com.electro.phase1.enums.ChatType;
 import com.electro.phase1.models.node.Chat;
@@ -42,11 +43,12 @@ public class ChatUserConnection extends connection<User, Chat> {
     public static Map<User, ChatPermission> getUsers(Long chatId) { // TODO: i made this into a Map!!!
         Map<User, ChatPermission> result = new LinkedHashMap<User, ChatPermission>();
         // TODO: run a query and get all the users in the chat
-        result.put(new NormalUser("sex", "anal"), ChatPermission.NORMAL);
-        result.put(new NormalUser("sex2", "vaginal"), ChatPermission.NORMAL);
-        for (int i = 0; i < 10; i++) {
-            result.put(new NormalUser(Integer.toString(i), Integer.toString((2 * i))), ChatPermission.NORMAL);
-        }
+        // result.put(new NormalUser("sex", "anal"), ChatPermission.NORMAL);
+        // result.put(new NormalUser("sex2", "vaginal"), ChatPermission.NORMAL);
+        // for (int i = 0; i < 10; i++) {
+        //     result.put(new NormalUser(Integer.toString(i), Integer.toString((2 * i))), ChatPermission.NORMAL);
+        // }
+        // UserDB.get
         return result;
     }
 

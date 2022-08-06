@@ -1,7 +1,7 @@
 package com.electro.database;
 
 import com.electro.phase1.enums.MediaType;
-import com.electro.phase1.models.node.Image;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.Media;
 import com.electro.phase1.models.node.Video;
 
@@ -49,7 +49,7 @@ public class MediaDB {
         while (rs.next()) {
             MediaType mt = MediaType.values()[rs.getInt(3)];
             if (mt == MediaType.Image) {
-                md = new Image(rs.getString(2));
+                md = new ImageNode(rs.getString(2));
                 md.setId(rs.getLong(1));
             } else if (mt == MediaType.Video) {
                 md = new Video(rs.getString(2));

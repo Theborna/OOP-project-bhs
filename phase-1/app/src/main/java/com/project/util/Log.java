@@ -15,10 +15,11 @@ public class Log {
     }
 
     public static void sendtoTG(LogRecord logRecord) {
-        //System.out.println(logRecord.getMessage());
-        TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
+        // System.out.println(logRecord.getMessage());
+        Thread sender = new Thread(() -> TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n"
-                + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage());
+                + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage()));
+        sender.start();
     }
 
     public static void init() {
