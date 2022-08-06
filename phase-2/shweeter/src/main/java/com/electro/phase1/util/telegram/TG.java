@@ -47,24 +47,28 @@ public class TG extends TelegramLongPollingBot {
         Matcher m;
         Message message = update.getMessage();
         if ((m = AppRegex.POST_REQUEST.getMatcher(message.getText())) != null) {
-            if (!AppRegex.USERNAME.matches(m.group("username")))
-                post(update, "invalid username format");
-            else {
-                try {
-                    com.electro.phase1.models.node.user.User user = UserDB.getUserInfo(m.group("username"));
-                    if (user == null)
-                        post(update, "no such user exists");
-                    else {
-                        List<Post> posts = PostDB.getPostsByUSID(user.getId());
-                        for (int i = 0; i < posts.size() && i < Integer.parseInt(m.group("number")); i++)
-                            post(update, posts.get(i).toTGString());
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
+            parsePostRequest(update, m);
+        } else
+            post(update, DEF_RESPONSE);
+    }
+
+    private void parsePostRequest(Update update, Matcher m) {
+        if (!AppRegex.USERNAME.matches(m.group("username")))
+            post(update, "invalid username format");
+        else {
+            try {
+                com.electro.phase1.models.node.user.User user = UserDB.getUserInfo(m.group("username"));
+                if (user == null)
+                    post(update, "no such user exists");
+                else {
+                    List<Post> posts = PostDB.getPostsByUSID(user.getId());
+                    for (int i = 0; i < posts.size() && i < Integer.parseInt(m.group("number")); i++)
+                        post(update, posts.get(i).toTGString());
                 }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        post(update, DEF_RESPONSE);
     }
 
     private void post(Update update, String answer) {
