@@ -290,6 +290,8 @@ public class UserDB {
         Statement st = con.createStatement();
         st.execute("insert into following values(" + current.getId() + ", " + toFollow.getId() + ",'"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 0);");
+        st.close();
+        con.close();
     }
 
     public static void unFollow(User current, User toFollow) throws SQLException {
@@ -305,6 +307,9 @@ public class UserDB {
         ResultSet rs = st.executeQuery("select * from following where follower_id = "
                 + currentUser.getId() + " and following_id = " + user.getId());
         if (!rs.next()) {
+            rs.close();
+            st.close();
+            con.close();
             return false;
         }
         return true;

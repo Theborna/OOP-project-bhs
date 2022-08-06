@@ -191,6 +191,9 @@ public class PostDB {
             }
             ret.add(ps);
         }
+        rs.close();
+        st.close();
+        con.close();
         return ret;
     }
 

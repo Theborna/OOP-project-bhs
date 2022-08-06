@@ -1,6 +1,4 @@
-package com.electro.phase1.util;
-
-import com.electro.phase1.util.telegram.TGinit;
+package com.company;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +11,7 @@ public class Log {
     }
 
     public static void sendtoTG(LogRecord logRecord) {
-        TGinit.getInstance().sendMessage(logRecord.getMessage());
+
     }
 
     public static void init() {

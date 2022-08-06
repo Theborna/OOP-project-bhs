@@ -21,6 +21,7 @@ public class DBInfo {
 //            e.printStackTrace();
 //        }
         Log.logger.info("Connected to database succressfully");
+
         return DriverManager.getConnection(DB_URL, USName, PassWD);
     }
 
