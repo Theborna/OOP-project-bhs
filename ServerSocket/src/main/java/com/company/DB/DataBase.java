@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DataBase {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/electron";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/pmresan";
     private static final String USName = "root";
     private static final String PassWD = "";
 

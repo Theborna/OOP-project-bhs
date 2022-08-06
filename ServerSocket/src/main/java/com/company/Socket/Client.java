@@ -3,9 +3,7 @@ package com.company.Socket;
 import com.company.DB.DataBase;
 import com.company.Log;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,18 +13,25 @@ import java.util.Set;
 public class Client implements Runnable {
     private RecPacket packet;
     private Socket client;
-
+    private long usid;
+    private final BufferedReader in;
+    private final PrintWriter out;
     private static Set<Client> clients = new HashSet<>();
 
 
     public Client(Socket client) throws IOException, ClassNotFoundException {
         this.client = client;
-        ObjectInputStream in = new ObjectInputStream(client.getInputStream());
-        packet = (RecPacket) in.readObject();
-        in.close();
-        if (clients.add(this))
-            Log.logger.info("Server: DickHead with USID = " + packet.getUsid() + " connected to the messaging server");
+        in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        out = new PrintWriter(client.getOutputStream());
 
+    }
+
+    public long getUsid() {
+        return usid;
+    }
+
+    public void setUsid(long usid) {
+        this.usid = usid;
     }
 
     public RecPacket getPacket() {
@@ -38,10 +43,10 @@ public class Client implements Runnable {
     }
 
     public void sendRefreshSignal(long chatId) throws IOException {
-        ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
-        out.writeObject(new sentPacket(chatId));
+
+        out.println(new sentPacket(chatId).toString());
         out.flush();
-        out.close();
+//        out.close();
     }
 
     public Socket getClient() {
@@ -69,16 +74,28 @@ public class Client implements Runnable {
     @Override
     public void run() {
         try {
-            ArrayList<Long> users = DataBase.getInstance().getUserIDByChatID(packet.getChatid());
-            notifyUsers(users);
+            while(true) {
+                packet = new RecPacket(in.readLine());
+                if (packet.getChatid() != 0) {
+//                    System.out.println(packet);
+                    ArrayList<Long> users = DataBase.getInstance().getUserIDByChatID(packet.getChatid());
+                    users.remove(packet.getUsid());
+                    notifyUsers(users);
+                } else {
+                    usid = packet.getUsid();
+                    if (clients.add(this))
+                        Log.logger.info("Server: DickHead with USID = " + packet.getUsid() + " connected to the messaging server");
+                }
+            }
         } catch (SQLException | IOException e) {
             Log.logger.warning(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public static Client getClientByUserID(long userID) {
         for (Client c : clients) {
-            if (c.getPacket().getUsid() == userID)
+            if (c.getUsid() == userID)
                 return c;
         }
         return null;
@@ -87,8 +104,11 @@ public class Client implements Runnable {
     private void notifyUsers(ArrayList<Long> users) throws IOException {
         for (long user : users) {
             Client c = getClientByUserID(user);
-            if(c != null)
+            if (c != null) {
                 c.sendRefreshSignal(packet.getChatid());
+
+            }
+//            System.out.println(user);
         }
     }
 }

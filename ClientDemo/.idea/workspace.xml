@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ClientDemo:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3abfd0bc-c336-48ef-9cca-48f63e18a5e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MessagingServer/ServerConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MessagingServer/recPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MessagingServer/sentPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ClientDemo_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ClientDemo_jar/ClientDemo.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/MessagingServer/RecPacket.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/MessagingServer/ServerConnection$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/MessagingServer/ServerConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/MessagingServer/sentPacket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessagingServer/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessagingServer/ServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessagingServer/recPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessagingServer/sentPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessagingServer/sentPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/DB/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/DB/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/RecPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/RecPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/sentPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/src/main/java/com/company/Socket/sentPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/DB/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/DB/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/RecPacket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/RecPacket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/sentPacket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSocket/target/classes/com/company/Socket/sentPacket.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +66,29 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/MessagingServer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/META-INF" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37241378" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OOP\Project\prj\OOP-project-bhs\ClientDemo\src\main\java\MessagingServer" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ClientDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659782235980</updated>
-      <workItem from="1659782237371" duration="2295000" />
+      <workItem from="1659782237371" duration="10910000" />
     </task>
     <servers />
   </component>

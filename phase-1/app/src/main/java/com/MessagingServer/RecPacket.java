@@ -1,4 +1,4 @@
-package com.company.Socket;
+package com.MessagingServer;
 
 import java.io.Serializable;
 
@@ -9,12 +9,6 @@ public class RecPacket implements Serializable {
     public RecPacket(long chatid, long usid) {
         this.chatid = chatid;
         this.usid = usid;
-    }
-
-    public RecPacket(String in) {
-        String sp[] = in.trim().split("\\s");
-        this.chatid = Long.parseLong(sp[0]);
-        this.usid = Long.parseLong(sp[1]);
     }
 
     public long getChatid() {

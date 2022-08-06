@@ -3,6 +3,7 @@ package com.company.Socket;
 import com.company.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -30,8 +31,10 @@ public class Server {
         Log.logger.info("The dicky server started");
         while (true) {
             Socket sk = serverSocket.accept();
-            Client cl = new Client(sk);
-            new Thread(cl).start();
+//            ObjectInputStream in = new ObjectInputStream(sk.getInputStream());
+//            RecPacket rx = (RecPacket) in.readObject();
+//            System.out.println(rx.getUsid() + "\t" + rx.getChatid());
+            new Thread(new Client(sk)).start();
         }
     }
 }
