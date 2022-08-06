@@ -20,7 +20,6 @@ public class viewDB {
             insertView(like);
             if (like.getValue() != 0)
                 update(like, like);
-
         } else {
             Like temp = getLike(like.getObj2().getId(), like.getObj1().getId());
             update(like, temp);
@@ -33,6 +32,8 @@ public class viewDB {
         Statement st = con.createStatement();
         st.execute("insert into views values(" + like.getObj1().getId() + ", " + like.getObj2().getId() + ",0, '"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', NULL)");
+        st.close();
+        con.close();
     }
 
     public static void update(Like like, Like prlike) throws SQLException {
@@ -141,7 +142,5 @@ public class viewDB {
         }
         return ret;
     }
-
-//    public static Arr
 
 }

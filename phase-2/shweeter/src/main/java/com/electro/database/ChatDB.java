@@ -86,9 +86,7 @@ public class ChatDB {
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
                 "'," + ch.getMemberCount() + "," + (ch.isVisible() ? "1" : "0") + ","
                 + (ch.getOwner() == null ? "null" : "'" + ch.getOwner().getId() + "'") + ","
-                + ch.getType().ordinal() + ",'" + ch.getName() + "', '"
-                + (ch.getLinkID() == null ? "null" : (ch.getLinkID() + "'")) + ")";
-        System.out.println(query);
+                + ch.getType().ordinal() + ",'" + ch.getName() + "', '" + ch.getLinkID() + "')";
         st.execute(query);
         st.close();
         con.close();

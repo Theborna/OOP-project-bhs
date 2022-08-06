@@ -200,7 +200,7 @@ public class PostDB {
     }
 
     private static String generateQueryForFeed(long userID) throws SQLException {
-        ArrayList<User> followings = new ArrayList<>();
+        ArrayList<User> followings = new ArrayList<User>();
         followings.addAll(UserDB.getFollowings(userID, 0).keySet());
         if (followings.isEmpty())
             return null;

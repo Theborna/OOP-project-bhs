@@ -197,7 +197,6 @@ public class UserDB {
         rs.close();
         st.close();
         con.close();
-
         return ret;
     }
 
@@ -214,7 +213,6 @@ public class UserDB {
         rs.close();
         st.close();
         con.close();
-
         return ret;
     }
 
@@ -303,6 +301,8 @@ public class UserDB {
         Statement st = con.createStatement();
         st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
                 + toFollow.getId());
+        st.close();
+        con.close();
     }
 
     public static boolean isFollowed(User currentUser, User user) throws SQLException {
@@ -327,6 +327,8 @@ public class UserDB {
         Statement st = con.createStatement();
         st.execute("update following set promo_index = " + prom + " where following_id = "
                 + followed + " and follower_id = " + follower);
+        st.close();
+        con.close();
     }
 
 }
