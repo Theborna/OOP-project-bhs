@@ -19,7 +19,6 @@ public class TGinit {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
         tg = this;
     }
 
