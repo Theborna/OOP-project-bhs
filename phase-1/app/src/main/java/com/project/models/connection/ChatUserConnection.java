@@ -40,12 +40,11 @@ public class ChatUserConnection extends connection<User, Chat> {
 
     // TODO: i made this into a Map!!!
     public static Map<User, ChatPermission> getUsers(Long chatId) { // TODO: i made this into a Map!!!
-        Map<User, ChatPermission> result = new LinkedHashMap<User, ChatPermission>();
-        // TODO: run a query and get all the users in the chat
-        result.put(new NormalUser("sex", "anal"), ChatPermission.NORMAL);
-        result.put(new NormalUser("sex2", "vaginal"), ChatPermission.NORMAL);
-        for (int i = 0; i < 10; i++) {
-            result.put(new NormalUser(Integer.toString(i), Integer.toString((2 * i))), ChatPermission.NORMAL);
+        Map<User, ChatPermission> result = new LinkedHashMap<>();
+        try {
+            result = ChatDB.getMembersOfChat(chatId);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return result;
     }

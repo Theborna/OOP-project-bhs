@@ -1,10 +1,13 @@
 package com.project.models.connection;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import com.database.UserDB;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 import com.project.util.Suggestion;
@@ -26,24 +29,24 @@ public class UserFollowingConnection extends connection<User, User> {
 
     public static Set<UserFollowingConnection> getFollowings(User user) {
         Set<UserFollowingConnection> result = new LinkedHashSet<UserFollowingConnection>();
-        // TODO run a query on the database and get Followings;
-        result.add(new UserFollowingConnection(user, new NormalUser("sex", "anal")));
-        result.add(new UserFollowingConnection(user, new NormalUser("sex", "vaginal")));
-        for (int i = 0; i < 10; i++) {
-            result.add(new UserFollowingConnection(user,
-                    new NormalUser(Integer.toBinaryString(i), Integer.toString(2 * i))));
+        try {
+            result.addAll(
+                    UserDB.getFollowings(user.getId(), 0).stream().map(i -> (new UserFollowingConnection(user, i)))
+                            .collect(Collectors.toList()));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return result;
     }
 
     public static Set<UserFollowingConnection> getFollowers(User user) {
         Set<UserFollowingConnection> result = new LinkedHashSet<UserFollowingConnection>();
-        // TODO run a query on the database and get Followers;
-        result.add(new UserFollowingConnection(new NormalUser("sex", "anal"), user));
-        result.add(new UserFollowingConnection(new NormalUser("sex", "vaginal"), user));
-        for (int i = 0; i < 10; i++) {
-            result.add(new UserFollowingConnection(new NormalUser(Integer.toBinaryString(i), Integer.toString(2 * i)),
-                    user));
+        try {
+            result.addAll(
+                    UserDB.getFollowers(user.getId(), 0).stream().map(i -> (new UserFollowingConnection(i, user)))
+                            .collect(Collectors.toList()));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return result;
     }

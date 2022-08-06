@@ -1,10 +1,11 @@
 package com.database;
 
-
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.node.Chat;
 import com.project.models.node.post.Post;
+import com.project.models.node.user.User;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.sql.Connection;
@@ -14,6 +15,8 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatDB {
     private ChatDB() {
@@ -54,14 +57,14 @@ public class ChatDB {
     public static void updateChat(Chat ch) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "update chat set ch_member_count =" + ch.getMemberCount() + " , ch_is_visible =" + (ch.isVisible() ? 1 : 0)
+        String query = "update chat set ch_member_count =" + ch.getMemberCount() + " , ch_is_visible ="
+                + (ch.isVisible() ? 1 : 0)
                 + " , ch_owner_id = " + ch.getOwner().getId() + ", ch_type = " + ch.getType().ordinal() + ", ch_name = "
                 + ch.getName() + ", ch_txt_id = '" + ch.getLinkID() + "' where ch_id = " + ch.getId() + ";";
         st.executeQuery(query);
         st.close();
         con.close();
     }
-
 
     public static ArrayList<Chat> getChats(long USID) throws SQLException {
         ArrayList<Chat> chs = new ArrayList<>();
@@ -164,7 +167,8 @@ public class ChatDB {
     public static ArrayList<Chat> searchChat(String linkID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from chat where ch_name like '%" + linkID + "%' or ch_txt_id like '%" + linkID + "%'");
+        ResultSet rs = st.executeQuery(
+                "select * from chat where ch_name like '%" + linkID + "%' or ch_txt_id like '%" + linkID + "%'");
         ArrayList<Chat> ret = new ArrayList<>();
         while (rs.next()) {
             Chat ch = new Chat(rs.getString(7), chatType(rs.getInt(6)));
@@ -176,6 +180,19 @@ public class ChatDB {
             ch.setLinkID(rs.getString(8));
             ret.add(ch);
         }
+        rs.close();
+        st.close();
+        con.close();
+        return ret;
+    }
+
+    public static Map<User, ChatPermission> getMembersOfChat(long chatid) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from member where chatid = " + chatid);
+        Map<User, ChatPermission> ret = new HashMap<>();
+        while (rs.next())
+            ret.put(UserDB.getUserInfo(rs.getLong(1)), ChatPermission.values()[rs.getInt(3)]);
         rs.close();
         st.close();
         con.close();

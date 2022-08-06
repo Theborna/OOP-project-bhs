@@ -190,9 +190,11 @@ public class ChatDB {
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from member where chatid = " + chatid);
         Map<User, ChatPermission> ret = new HashMap<>();
-        while (rs.next()) {
+        while (rs.next())
             ret.put(UserDB.getUserInfo(rs.getLong(1)), ChatPermission.values()[rs.getInt(3)]);
-        }
+        rs.close();
+        st.close();
+        con.close();
         return ret;
     }
 

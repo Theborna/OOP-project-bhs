@@ -303,7 +303,7 @@ public class UserDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         st.execute("insert into following values(" + current.getId() + ", " + toFollow.getId() + ",'"
-                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 0);");
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 100);");
     }
 
     public static void unFollow(User current, User toFollow) throws SQLException {
