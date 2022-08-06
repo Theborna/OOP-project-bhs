@@ -55,6 +55,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         // Connection con = DBInfo.getConnection();
         // System.out.println(con.getCatalog());
+        Log.logger.info("Shit started");
         start();
         while (running) {
             if (rule) {

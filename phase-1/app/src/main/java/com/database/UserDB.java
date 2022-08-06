@@ -35,7 +35,7 @@ public class UserDB {
     public static void registerUSer(User user) throws SQLException {
         if (user == null)
             return;
-        Connection con = getConnection();
+        Connection con = getConnection("User created!");
         String query = "insert into electron.users values(NULL,'" + user.getUsername() + "'" +
                 ",'" + user.getPassword() + "','" + user.getSalt() + "', '" +
                 new Date(user.getBirthDate().getTime()) +

@@ -3,14 +3,11 @@ package com.company.Socket;
 import com.company.Log;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Server {
-    private Set<Packet> packets = new HashSet<>();
 
     private static Server server = null;
     private final int port;
@@ -28,10 +25,14 @@ public class Server {
         return server;
     }
 
-    public void startServer() throws IOException {
+    public void startServer() throws IOException, ClassNotFoundException {
         ServerSocket serverSocket = new ServerSocket(port);
         Log.logger.info("The dicky server started");
-        Socket sk = serverSocket.accept();
-
+        while (true) {
+            Socket sk = serverSocket.accept();
+            Client cl = new Client(sk);
+            new Thread(cl).start();
+        }
     }
 }
+

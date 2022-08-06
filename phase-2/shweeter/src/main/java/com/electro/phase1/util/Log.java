@@ -2,8 +2,9 @@ package com.electro.phase1.util;
 
 import com.electro.phase1.util.telegram.TGinit;
 
-import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.*;
 
 public class Log {
@@ -13,7 +14,10 @@ public class Log {
     }
 
     public static void sendtoTG(LogRecord logRecord) {
-        TGinit.getInstance().sendMessage(logRecord.getMessage());
+        //System.out.println(logRecord.getMessage());
+        TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n"
+                + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage());
     }
 
     public static void init() {
