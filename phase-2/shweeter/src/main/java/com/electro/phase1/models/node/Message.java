@@ -101,7 +101,6 @@ public class Message extends node implements TextBased { // TODO lots of modific
 
     @Override
     public void sendToDB() {
-        // TODO Auto-generated method stub
         try {
             MessageDB.newMessage(this);
         } catch (SQLException e) {

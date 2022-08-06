@@ -6,6 +6,7 @@ import java.util.Set;
 
 import java.util.Date;
 
+import com.electro.MessagingServer.ServerConnection;
 import com.electro.database.MessageDB;
 import com.electro.database.UserDB;
 import com.electro.phase1.util.LimitedList;
@@ -86,6 +87,7 @@ public abstract class User extends node {
         try {
             if (UserDB.auth(username, password)) {
                 currentUser = logToUser(username);
+                ServerConnection.getInstance(currentUser.getId());
             }
         } catch (Throwable e) {
             e.printStackTrace();
@@ -127,7 +129,7 @@ public abstract class User extends node {
 
     public int getFollowingCnt() {
         try {
-            return UserDB.getFollowings(this.id,0).size();
+            return UserDB.getFollowings(this.id, 0).size();
         } catch (SQLException e) {
             e.printStackTrace();
         }

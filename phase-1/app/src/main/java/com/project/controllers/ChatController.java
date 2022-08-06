@@ -110,7 +110,7 @@ public class ChatController implements ListController<MessageView> {
                 }
                 goToSettings();
                 break;
-            case "delete":
+            case "delete message":
                 if (permission != ChatPermission.OWNER) {
                     printError("non sufficient permissions");
                     break;

@@ -16,7 +16,7 @@ public class ServerConnection {
 
     private ServerConnection(long usid) throws IOException {
         socket = new Socket(SERVER_URL, SERVER_PORT);
-        notifyUseres(0, usid);
+        notifyUsers(0, usid);
     }
 
     public static ServerConnection getInstance(long usid) throws IOException {
@@ -25,7 +25,7 @@ public class ServerConnection {
         return sc;
     }
 
-    public void notifyUseres(long chatid, long usid) throws IOException {
+    public void notifyUsers(long chatid, long usid) throws IOException {
         RecPacket packet = new RecPacket(chatid, usid);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         out.println(packet);

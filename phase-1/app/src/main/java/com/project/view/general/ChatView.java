@@ -50,7 +50,7 @@ public class ChatView implements View {
                         "members"}));
         switch (controller.getPermission()) {
             case OWNER:
-                selection.add("delete");
+                selection.add("delete chat");
             case ADMIN:
                 selection.add("settings");
             case NORMAL:
