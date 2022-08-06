@@ -13,8 +13,7 @@ public class Log {
     private Log() {
     }
 
-    public static void sendtoTG(LogRecord logRecord) {
-        //System.out.println(logRecord.getMessage());
+    public static void sendToTG(LogRecord logRecord) {
         TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n"
                 + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage());
@@ -27,7 +26,7 @@ public class Log {
             fh.setFormatter(new Formatter() {
                 @Override
                 public String format(LogRecord record) {
-                    sendtoTG(record);
+                    sendToTG(record);
                     return new SimpleFormatter().format(record);
                 }
             });

@@ -31,7 +31,7 @@ public class ChatListView extends VBox {
     private List<BooleanProperty> selected;
     private List<Chat> chats;
     private ArrayList<Node> nodes;
-    private Thread updater;
+    private static Thread updater;
 
     private ChatListView() {
     }
