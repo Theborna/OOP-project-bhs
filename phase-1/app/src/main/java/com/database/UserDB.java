@@ -1,19 +1,21 @@
 package com.database;
 
+
 import com.project.crypt;
 import com.project.enums.Security;
-import com.project.models.node.Image;
 import com.project.models.node.user.BusinessUser;
 import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
-import org.sqlite.core.DB;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.database.DBInfo.getConnection;
+
 
 public class UserDB {
 
@@ -35,14 +37,14 @@ public class UserDB {
     public static void registerUSer(User user) throws SQLException {
         if (user == null)
             return;
-        Connection con = getConnection("User created!");
-        String query = "insert into electron.users values(NULL,'" + user.getUsername() + "'" +
+        Connection con = getConnection();
+        String query = "insert into users values(NULL,'" + user.getUsername() + "'" +
                 ",'" + user.getPassword() + "','" + user.getSalt() + "', '" +
                 new Date(user.getBirthDate().getTime()) +
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
-                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns() + "',"
-                + (user.getProfilePhoto() == null ? 0 : MediaDB.newMedia(user.getProfilePhoto())) + ")";
+                "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns()
+                + "', '1')";// TODO: add pfp
         // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
@@ -91,9 +93,6 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
-            if (rs.getLong(17) != 0)
-                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
-
         } else {
             // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -111,8 +110,6 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
-            if (rs.getLong(17) != 0)
-                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         }
         rs.close();
         st.close();
@@ -150,8 +147,6 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
-            if (rs.getLong(17) != 0)
-                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         } else {
             // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -169,8 +164,6 @@ public class UserDB {
             us.setPromoindex(rs.getDouble(14));
             us.setSecType(Security.values()[rs.getInt(15)]);
             us.setSecAns(rs.getString(16));
-            if (rs.getLong(17) != 0)
-                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         }
         rs.close();
         st.close();
@@ -184,21 +177,21 @@ public class UserDB {
     }
 
     public static void deleteUser(User user) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("delete from users where US_ID = " + user.getId());
         st.close();
         con.close();
     }
 
-    public static ArrayList<User> getFollowers(long userId, int size) throws SQLException {
-        Connection con = DBInfo.getConnection();
+    public static Map<User, Integer> getFollowers(long userId, int size) throws SQLException {
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
         int cnt = 0;
-        ArrayList<User> ret = new ArrayList<>();
+        Map<User, Integer> ret = new HashMap<>();
         while (rs.next() && (cnt < size || size == 0)) {
-            ret.add(getUserInfo(rs.getLong(2)));
+            ret.put(getUserInfo(rs.getLong(1)), rs.getInt(4));
             cnt++;
         }
         rs.close();
@@ -208,14 +201,14 @@ public class UserDB {
         return ret;
     }
 
-    public static ArrayList<User> getFollowings(long userId, int size) throws SQLException {
-        Connection con = DBInfo.getConnection();
+    public static Map<User, Integer> getFollowings(long userId, int size) throws SQLException {
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where follower_id = " + Long.toString(userId));
         int cnt = 0;
-        ArrayList<User> ret = new ArrayList<>();
+        Map<User, Integer> ret = new HashMap<>();
         while (rs.next() && (cnt < size || size == 0)) {
-            ret.add(getUserInfo(rs.getLong(2)));
+            ret.put(getUserInfo(rs.getLong(1)), rs.getInt(4));
             cnt++;
         }
         rs.close();
@@ -225,9 +218,10 @@ public class UserDB {
         return ret;
     }
 
-    // If the userID does not exist it will return zero as the id :)
+    // If the userID does not wxists it will return zero as the id :)
+
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         String query = "select * from following where follower_id = " + currentUserID + " AND following_id = "
                 + followingID;
@@ -242,7 +236,7 @@ public class UserDB {
     }
 
     public static ArrayList<User> searchByUserName(String entry) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(
                 "select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
@@ -269,8 +263,6 @@ public class UserDB {
                 us.setPromoindex(rs.getDouble(14));
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
-                if (rs.getLong(17) != 0)
-                    us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             } else {
                 // System.out.println(userType);
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
@@ -288,8 +280,6 @@ public class UserDB {
                 us.setPromoindex(rs.getDouble(14));
                 us.setSecType(Security.values()[rs.getInt(15)]);
                 us.setSecAns(rs.getString(16));
-                if (rs.getLong(17) != 0)
-                    us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             }
             ret.add(us);
         }
@@ -300,49 +290,40 @@ public class UserDB {
     }
 
     public static void follow(User current, User toFollow) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("insert into following values(" + current.getId() + ", " + toFollow.getId() + ",'"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 0);");
+        st.close();
+        con.close();
     }
 
     public static void unFollow(User current, User toFollow) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
                 + toFollow.getId());
     }
 
     public static boolean isFollowed(User currentUser, User user) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where follower_id = "
                 + currentUser.getId() + " and following_id = " + user.getId());
         if (!rs.next()) {
+            rs.close();
+            st.close();
+            con.close();
             return false;
         }
+        rs.close();
+        st.close();
+        con.close();
         return true;
-
     }
 
-    public void bolckUser(long currenUser, long blockedUser) throws SQLException {
-        Connection con = DBInfo.getConnection("Block DB Opened");
-        Statement st = con.createStatement();
-        st.execute("insert into block values(" + currenUser + "," + blockedUser + ")");
-    }
+    public static void updatePromoIndex(double prom) {
 
-    public boolean isblocked(long currentUser, long user2Check) {
-        try {
-            Connection con = DBInfo.getConnection("Blocked DB Opened");
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from block where user_id = " + currentUser
-                    + " and blocked_id = " + user2Check);
-            if (rs.next())
-                return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
 }

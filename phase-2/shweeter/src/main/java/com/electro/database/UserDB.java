@@ -1,5 +1,6 @@
 package com.electro.database;
 
+import com.electro.phase1.enums.ChatPermission;
 import com.electro.phase1.util.crypt;
 import com.electro.phase1.enums.Security;
 import com.electro.phase1.models.node.user.BusinessUser;
@@ -10,6 +11,8 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.electro.database.DBInfo.getConnection;
 
@@ -180,14 +183,14 @@ public class UserDB {
         con.close();
     }
 
-    public static ArrayList<User> getFollowers(long userId, int size) throws SQLException {
+    public static Map<User, Integer> getFollowers(long userId, int size) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
         int cnt = 0;
-        ArrayList<User> ret = new ArrayList<>();
+        Map<User, Integer> ret = new HashMap<>();
         while (rs.next() && (cnt < size || size == 0)) {
-            ret.add(getUserInfo(rs.getLong(2)));
+            ret.put(getUserInfo(rs.getLong(1)), rs.getInt(4));
             cnt++;
         }
         rs.close();
@@ -312,7 +315,14 @@ public class UserDB {
             con.close();
             return false;
         }
+        rs.close();
+        st.close();
+        con.close();
         return true;
+    }
+
+    public static void updatePromoIndex(double prom) {
 
     }
+
 }
