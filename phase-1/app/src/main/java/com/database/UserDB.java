@@ -322,8 +322,11 @@ public class UserDB {
         return true;
     }
 
-    public static void updatePromoIndex(double prom) {
-
+    public static void updatePromoIndex(double prom, long followed, long follower) throws SQLException {
+        Connection con = getConnection();
+        Statement st = con.createStatement();
+        st.execute("update following set promo_index = " + prom + " where following_id = "
+                + followed + " and follower_id = " + follower);
     }
 
 }
