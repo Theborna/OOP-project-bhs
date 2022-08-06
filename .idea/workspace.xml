@@ -7,7 +7,8 @@
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ClientDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/ChatDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/ChatDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/database/UserDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +144,7 @@
       <workItem from="1659734421893" duration="374000" />
       <workItem from="1659735940136" duration="1519000" />
       <workItem from="1659737531945" duration="2014000" />
-      <workItem from="1659761829200" duration="7283000" />
+      <workItem from="1659761829200" duration="8805000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,8 +31,9 @@ public class UserFollowingConnection extends connection<User, User> {
     public static Set<UserFollowingConnection> getFollowings(User user) {
         Set<UserFollowingConnection> result = new LinkedHashSet<UserFollowingConnection>();
         try {
+            Map<User, Integer> followings = UserDB.getFollowings(user.getId(), 0);
             result.addAll(
-                    UserDB.getFollowings(user.getId(), 0).stream().map(i -> (new UserFollowingConnection(user, i)))
+                    followings.keySet().stream().map(i -> (new UserFollowingConnection(user, i, followings.get(i))))
                             .collect(Collectors.toList()));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,8 +44,9 @@ public class UserFollowingConnection extends connection<User, User> {
     public static Set<UserFollowingConnection> getFollowers(User user) {
         Set<UserFollowingConnection> result = new LinkedHashSet<UserFollowingConnection>();
         try {
+            Map<User, Integer> followers = UserDB.getFollowers(user.getId(), 0);
             result.addAll(
-                    UserDB.getFollowers(user.getId(), 0).stream().map(i -> (new UserFollowingConnection(i, user)))
+                    followers.keySet().stream().map(i -> (new UserFollowingConnection(i, user, followers.get(i))))
                             .collect(Collectors.toList()));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,7 +102,7 @@ public class UserFollowingConnection extends connection<User, User> {
 
     @Override
     public void sendToDB() {
-        
+
     }
 
 }

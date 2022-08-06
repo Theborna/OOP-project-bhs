@@ -65,7 +65,7 @@ public class SelfPageView extends PageView {
 
     private void showFollowing() {
         try {
-            show(UserDB.getFollowings(User.getCurrentUser().getId(),0));
+            show(UserDB.getFollowings(User.getCurrentUser().getId(),0).keySet());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,7 +73,7 @@ public class SelfPageView extends PageView {
 
     private void showFollowers() {
         try {
-            show(UserDB.getFollowers(User.getCurrentUser().getId(),0));
+            show(UserDB.getFollowers(User.getCurrentUser().getId(),0).keySet());
         } catch (SQLException e) {
             e.printStackTrace();
         }
