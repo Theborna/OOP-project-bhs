@@ -1,4 +1,4 @@
-package com.company.Socket;
+package com.MessagingServer;
 
 import java.io.Serializable;
 

@@ -10,12 +10,13 @@ public class Main {
         // Start the fucking messaging server
         try {
             Log.init();
-            Server.getServer(5000).startServer();
+            Server.getServer(9090).startServer();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
 
             Log.logger.warning(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

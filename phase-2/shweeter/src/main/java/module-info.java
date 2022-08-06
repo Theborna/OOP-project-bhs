@@ -10,6 +10,7 @@ module com.electro {
         requires telegrambots;
         requires telegrambots.meta;
         requires webcam.capture;
+        requires java.dotenv;
 
         opens com.electro.controllers.components
                         to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls, java.desktop;
