@@ -2,11 +2,11 @@ package com.company.Socket;
 
 import java.io.Serializable;
 
-public class Packet implements Serializable {
+public class RecPacket implements Serializable {
     private long chatid;
     private long usid;
 
-    public Packet(long chatid, long usid) {
+    public RecPacket(long chatid, long usid) {
         this.chatid = chatid;
         this.usid = usid;
     }
@@ -31,8 +31,7 @@ public class Packet implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        Packet packet = (Packet) o;
+        RecPacket packet = (RecPacket) o;
         return packet.getUsid() == usid;
     }
 
