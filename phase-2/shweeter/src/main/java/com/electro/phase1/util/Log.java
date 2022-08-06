@@ -1,5 +1,6 @@
 package com.electro.phase1.util;
 
+import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.telegram.TGinit;
 
 import java.io.IOException;
@@ -9,14 +10,18 @@ import java.util.logging.*;
 
 public class Log {
     public static final Logger logger = Logger.getLogger(Log.class.getName());
+    private static long logNum;
 
     private Log() {
     }
 
     public static void sendToTG(LogRecord logRecord) {
-        TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
+        Thread sender = new Thread(() -> TGinit.getInstance().sendMessage(logRecord.getLevel().getName() + "\n"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n"
-                + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage());
+                + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage()
+                + (User.getCurrentUser() == null ? "" : "\nBy user: " + User.getCurrentUser().getUsername())),
+                "Thread-" + String.valueOf(logNum++));
+        sender.start();
     }
 
     public static void init() {

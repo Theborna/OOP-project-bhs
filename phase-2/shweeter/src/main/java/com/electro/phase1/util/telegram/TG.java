@@ -43,7 +43,6 @@ public class TG extends TelegramLongPollingBot {
     }
 
     public synchronized void sendMessage(String message) {
-        // System.out.println("TG.sendMessage() run by thread " + Thread.currentThread().getName());
         try {
             execute(new SendMessage("-1001735428152", message));
         } catch (TelegramApiException e) {
