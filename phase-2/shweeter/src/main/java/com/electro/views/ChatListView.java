@@ -149,8 +149,7 @@ public class ChatListView extends VBox {
                 if (selected.get(i).get()) {
                     User.getCurrentUser().sendMessage(
                             MessageListView.getInstance().getForwarding().forwardFrom(User.getCurrentUser(),
-                                    chats.get(i)),
-                            chats.get(i));
+                                    chats.get(i)));
                     System.out.println(chats.get(i) + " " + MessageListView.getInstance().getForwarding());
                 }
             }

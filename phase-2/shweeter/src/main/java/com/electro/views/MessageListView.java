@@ -14,6 +14,7 @@ import com.electro.phase1.models.connection.MessageConnection;
 import com.electro.phase1.models.node.Chat;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.node;
+import com.electro.phase1.util.Log;
 
 import javafx.application.Platform;
 import javafx.beans.binding.StringExpression;
@@ -93,6 +94,7 @@ public class MessageListView extends VBox {
                 newMsg.removeAll(messages);
                 addMessages(newMsg);
                 messages.addAll(newMsg);
+                Log.logger.info("MessageListView.load() in updater");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -225,8 +227,11 @@ public class MessageListView extends VBox {
     }
 
     public static void update(Long chatID) {
-        if (chatID == Chat.getCurrent().getId())
+        Log.logger.info("MessageListView.update() " + chatID);
+        if (chatID == Chat.getCurrent().getId()) {
+            Log.logger.info("was valid");
             new Thread(updater).start();
+        }
     }
 
     public Message getEditing() {

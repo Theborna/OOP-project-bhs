@@ -105,6 +105,7 @@ public class Message extends node implements TextBased { // TODO lots of modific
     public void sendToDB() {
         try {
             MessageDB.newMessage(this);
+            System.out.println(".()");
             ServerConnection.getInstance(User.getCurrentUser().getId()).notifyUsers(this.getCh().getId(),
                     User.getCurrentUser().getId());
         } catch (SQLException e) {

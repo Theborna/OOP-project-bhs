@@ -12,8 +12,8 @@ public class Main {
         ServerConnection k = ServerConnection.getInstance(usid);
         while (!text.equals("exit")) {
             text = sc.next();
-
             k.notifyUseres(10, usid);
         }
+        sc.close();
     }
 }

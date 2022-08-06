@@ -9,7 +9,7 @@ import java.net.Socket;
 import com.electro.views.MessageListView;
 
 public class ServerConnection {
-    private static final String SERVER_URL = "84.17.35.119";
+    private static final String SERVER_URL = "127.0.0.1";
     private static final int SERVER_PORT = 9090;
 
     private static ServerConnection sc = null;
@@ -28,6 +28,7 @@ public class ServerConnection {
     }
 
     public void notifyUsers(long chatid, long usid) throws IOException {
+        System.out.println("ServerConnection.notifyUsers()");
         RecPacket packet = new RecPacket(chatid, usid);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         out.println(packet);
@@ -52,6 +53,7 @@ public class ServerConnection {
                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     while (true) {
                         String input = in.readLine();
+                        System.out.println("ServerConnection.serverListener().new Runnable() {...}.run()");
                         // update
                         updater(new sentPacket(input).getChatID());
                     }
@@ -61,6 +63,7 @@ public class ServerConnection {
                 }
             }
         });
+        th.setDaemon(true);
         th.start();
     }
 

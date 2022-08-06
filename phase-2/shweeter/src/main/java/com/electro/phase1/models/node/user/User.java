@@ -136,14 +136,10 @@ public abstract class User extends node {
         return 0;
     }
 
-    public void sendMessage(Message message, Chat chat) {// TODO: send a message lmao
-        Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
+    public void sendMessage(Message message) {// TODO: send a message lmao
+        Log.logger.info("sent message: " + message.toString() + " to chat: " + message.getCh().toString());
         // pastMsg.add(message);
-        try {
-            MessageDB.adddToDB(message);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        message.sendToDB();
     }
 
     public void follow(User user) {

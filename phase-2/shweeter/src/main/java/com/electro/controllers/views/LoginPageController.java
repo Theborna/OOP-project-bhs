@@ -13,6 +13,7 @@ import com.electro.App;
 import com.electro.phase1.controllers.LoginController;
 import com.electro.phase1.controllers.RegisterController;
 import com.electro.phase1.enums.Security;
+import com.electro.phase1.util.Log;
 import com.electro.util.ResponsiveHBox;
 import com.electro.views.component.ErrorNotification;
 import com.electro.views.component.FieldEmptyError;

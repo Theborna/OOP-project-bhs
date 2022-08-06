@@ -157,7 +157,7 @@ public class ChatController implements Initializable {
         }
         // TODO: set message data
         message.setReplyTo(inReply);
-        User.getCurrentUser().sendMessage(message, Chat.getCurrent());
+        User.getCurrentUser().sendMessage(message);
         // println("message posted successfully", StdColor.GREEN);
 
     }

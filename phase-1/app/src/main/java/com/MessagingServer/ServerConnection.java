@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ServerConnection {
-    private static final String SERVER_URL = "84.17.35.119";
+    private static final String SERVER_URL = "127.0.0.1";
     private static final int SERVER_PORT = 9090;
 
     private static ServerConnection sc = null;
