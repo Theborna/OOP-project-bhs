@@ -24,8 +24,8 @@ public class ProfileInfoController {
     public void initialize(User user) {
         try {
             StdOut.println("loading page info...");
-            tabFollowers.setContent(new FunctionalListview(UserDB.getFollowers(user.getId(), 0)));
-            tabFollowing.setContent(new FunctionalListview(UserDB.getFollowings(user.getId(), 0)));
+            tabFollowers.setContent(new FunctionalListview(UserDB.getFollowers(user.getId(), 0).keySet()));
+            tabFollowing.setContent(new FunctionalListview(UserDB.getFollowings(user.getId(), 0).keySet()));
         } catch (SQLException e) {
             e.printStackTrace();
         }

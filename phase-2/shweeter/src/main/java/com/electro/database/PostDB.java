@@ -33,7 +33,8 @@ public class PostDB {
                 "" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', " +
                 "" + post.getSender().getId() + ", "
                 + (post.getRepliedPost() != null ? Long.toString(post.getRepliedPost().getId()) : "0") + ", 0, 0, 0, "
-                + (post instanceof PromotedPost ? "1" : "0") + "," + (post.getMd() == null ? 0 : MediaDB.newMedia(post.getMd())) + ")");
+                + (post instanceof PromotedPost ? "1" : "0") + ","
+                + (post.getMd() == null ? 0 : MediaDB.newMedia(post.getMd())) + ")");
         DBInfo.getConnection().close();
     }
 
@@ -120,13 +121,14 @@ public class PostDB {
     public static Like getLikes(long postid, long userid) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
+        ResultSet rs = st
+                .executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
         if (!rs.next()) {
         }
         st.close();
         rs.close();
         con.close();
-        return null;//new Like();
+        return null;// new Like();
     }
 
     public static void like() {
@@ -167,7 +169,7 @@ public class PostDB {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         String query = generateQueryForFeed(userID);
-//        System.out.println(query + " shit ");
+        // System.out.println(query + " shit ");
         ArrayList<Post> ret = new ArrayList<>();
         if (query == null)
             return new ArrayList<Post>();
@@ -197,14 +199,14 @@ public class PostDB {
         return ret;
     }
 
-
     private static String generateQueryForFeed(long userID) throws SQLException {
-        ArrayList<User> followings = UserDB.getFollowings(userID, 0);
+        ArrayList<User> followings = new ArrayList<>();
+        followings.addAll(UserDB.getFollowings(userID, 0).keySet());
         if (followings.isEmpty())
             return null;
         String temp = "";
         for (User us : followings) {
-//            System.out.println(us.getId());
+            // System.out.println(us.getId());
             temp += "post_sender_id = " + us.getId() + " or ";
         }
         temp = temp.substring(0, temp.length() - 4);

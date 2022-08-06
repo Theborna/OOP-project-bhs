@@ -184,7 +184,7 @@ public class UserDB {
     }
 
     public static Map<User, Integer> getFollowers(long userId, int size) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where following_id = " + Long.toString(userId));
         int cnt = 0;
@@ -200,14 +200,14 @@ public class UserDB {
         return ret;
     }
 
-    public static ArrayList<User> getFollowings(long userId, int size) throws SQLException {
-        Connection con = DBInfo.getConnection();
+    public static Map<User, Integer> getFollowings(long userId, int size) throws SQLException {
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where follower_id = " + Long.toString(userId));
         int cnt = 0;
-        ArrayList<User> ret = new ArrayList<>();
+        Map<User, Integer> ret = new HashMap<>();
         while (rs.next() && (cnt < size || size == 0)) {
-            ret.add(getUserInfo(rs.getLong(2)));
+            ret.put(getUserInfo(rs.getLong(1)), rs.getInt(4));
             cnt++;
         }
         rs.close();
@@ -321,8 +321,10 @@ public class UserDB {
         return true;
     }
 
-    public static void updatePromoIndex(double prom) {
-
+    public static void updatePromoIndex(double prom, long followed, long follower) throws SQLException {
+        Connection con = getConnection();
+        Statement st = con.createStatement();
+        st.execute("update following set promo_index = " + prom + " where following_id = "
+                + followed + " and follower_id = " + follower);
     }
-
 }
