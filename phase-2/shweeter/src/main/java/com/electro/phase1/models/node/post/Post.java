@@ -142,4 +142,11 @@ public class Post extends node implements TextBased {
         return result;
     }
 
+    public String toTGString() {
+        return "comments=" + comments + ", likes=" + likes + ", views=" + views +
+                ((repliedPost == null) ? "" : ("\nreplied to: " + repliedPost.getSender().getUsername()))
+                + "\nsender=" + sender.getUsername()
+                + "\ntext=\n" + text;
+    }
+
 }

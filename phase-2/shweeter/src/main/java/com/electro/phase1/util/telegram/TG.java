@@ -1,5 +1,9 @@
 package com.electro.phase1.util.telegram;
 
+import java.sql.SQLException;
+import java.util.List;
+import java.util.regex.Matcher;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
@@ -7,23 +11,30 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import com.electro.database.PostDB;
+import com.electro.database.UserDB;
+import com.electro.phase1.AppRegex;
+import com.electro.phase1.models.node.post.Post;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class TG extends TelegramLongPollingBot {
 
-    private String response;
+    private final String DEF_RESPONSE;
     private final String API_KEY;
+    private final String MAIN_CHAT;
 
     public TG() {
         super();
-        response = "velam kon lashi";
         Dotenv env = Dotenv.load();
-        API_KEY = env.get("API_KEY");
+        DEF_RESPONSE = "velam kon lashi from app";
+        API_KEY = env.get("CLIENT_API_KEY");
+        MAIN_CHAT = env.get("MAIN_CHAT");
     }
 
     @Override
     public String getBotUsername() {
-        return "electronlogsbot";
+        return "electronlogsClientbot";
     }
 
     @Override
@@ -33,18 +44,42 @@ public class TG extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        Matcher m;
+        Message message = update.getMessage();
+        if ((m = AppRegex.POST_REQUEST.getMatcher(message.getText())) != null) {
+            if (!AppRegex.USERNAME.matches(m.group("username")))
+                post(update, "invalid username format");
+            else {
+                try {
+                    com.electro.phase1.models.node.user.User user = UserDB.getUserInfo(m.group("username"));
+                    if (user == null)
+                        post(update, "no such user exists");
+                    else {
+                        List<Post> posts = PostDB.getPostsByUSID(user.getId());
+                        for (int i = 0; i < posts.size() && i < Integer.parseInt(m.group("number")); i++)
+                            post(update, posts.get(i).toTGString());
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        post(update, DEF_RESPONSE);
+    }
+
+    private void post(Update update, String answer) {
         try {
-            execute(new SendMessage(update.getMessage().getChat().getId().toString(), response));
+            execute(new SendMessage(update.getMessage().getChat().getId().toString(), answer));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         } finally {
-            System.out.println(response);
+            System.out.println(answer);
         }
     }
 
     public synchronized void sendMessage(String message) {
         try {
-            execute(new SendMessage("-1001735428152", message));
+            execute(new SendMessage(MAIN_CHAT, message));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

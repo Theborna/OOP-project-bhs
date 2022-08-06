@@ -24,6 +24,7 @@ public enum AppRegex {
     SEARCH_CHAT("-search -chat (?<chat>\\w+)"),
     SHOW_USER("-show -user (?<username>\\w+)"),
     SHOW_CHAT("-show -chat (?<chat>\\w+)"),
+    POST_REQUEST("/posts (?<username>.+) (?<number>\\d+)"),
     ;
 
     static final String username() {

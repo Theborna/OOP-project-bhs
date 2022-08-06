@@ -7,7 +7,20 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class TG extends TelegramLongPollingBot {
+    private String response;
+    private final String API_KEY;
+    private final String MAIN_CHAT;
+
+    public TG() {
+        super();
+        response = "velam kon lashi from server";
+        Dotenv env = Dotenv.load();
+        API_KEY = env.get("API_KEY");
+        MAIN_CHAT = env.get("MAIN_CHAT");
+    }
 
     @Override
     public String getBotUsername() {
@@ -16,13 +29,20 @@ public class TG extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "5421036090:AAGFN42FvfONUIX25ZOM4b4_C8vzr9Z9I1s";
+        return API_KEY;
     }
 
     @Override
     public void onUpdateReceived(Update update) {
-        System.out.println("dick");
+        try {
+            execute(new SendMessage(update.getMessage().getChat().getId().toString(), response));
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(response);
+        }
     }
+
     public void sendMessage(String message) {
         Message msg = new Message();
         msg.setText(message);
@@ -30,7 +50,7 @@ public class TG extends TelegramLongPollingBot {
         ch.setId(-1001735428152L);
         msg.setChat(ch);
         try {
-            execute(new SendMessage("-1001735428152",message));
+            execute(new SendMessage(MAIN_CHAT, message));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
