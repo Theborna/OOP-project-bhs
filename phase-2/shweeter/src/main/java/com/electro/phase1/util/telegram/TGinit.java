@@ -22,11 +22,15 @@ public class TGinit {
     }
 
     public static TG getInstance() {
-        if (tg == null) {
+        if (tg == null)
             new TGinit();
-        }
         return tg;
     }
 
+    public static void main(String[] args) {
+        getInstance();
+        System.out.println(tg.getBotToken());
+        // tg.sendMessage("testing the logger...");
+    }
 
 }

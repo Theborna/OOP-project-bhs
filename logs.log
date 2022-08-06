@@ -115,3 +115,43 @@ Aug 06, 2022 3:15:02 AM com.database.DBInfo getConnection
 INFO: Connected to database succressfully : User created!
 Aug 06, 2022 3:15:02 AM com.project.App setView
 INFO: changed view to LoginView
+Aug 06, 2022 3:16:13 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 3:16:15 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 3:16:30 PM com.project.App setView
+INFO: changed view to LoginView
+Aug 06, 2022 3:16:38 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:16:39 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:16:39 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully : media selection id = 1
+Aug 06, 2022 3:16:39 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:16:39 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:16:40 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully : media selection id = 1
+Aug 06, 2022 3:16:46 PM com.project.App setView
+INFO: changed view to SecondaryView
+Aug 06, 2022 3:17:09 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:17:10 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:17:10 PM com.project.App setView
+INFO: changed view to FeedView
+Aug 06, 2022 3:17:14 PM com.project.App setView
+INFO: changed view to CreatePostView
+Aug 06, 2022 3:17:21 PM com.project.models.node.user.NormalUser Post
+INFO: added post: NormalPost[id=0]
+Aug 06, 2022 3:17:21 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:17:22 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:17:22 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully : poset added
+Aug 06, 2022 3:17:22 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 3:17:22 PM com.project.App setView
+INFO: changed view to FeedView

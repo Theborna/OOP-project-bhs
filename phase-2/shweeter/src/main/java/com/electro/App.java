@@ -20,6 +20,8 @@ import jfxtras.styles.jmetro.Style;
 
 import java.io.IOException;
 
+import com.electro.phase1.util.Log;
+
 /**
  * JavaFX App
  */
@@ -60,6 +62,7 @@ public class App extends Application {
         stage.setMinWidth(500);
         stage.setScene(scene);
         stage.show();
+        Log.logger.info("application started on phase-2");
     }
 
     public static FileChooser getPicChooser() {

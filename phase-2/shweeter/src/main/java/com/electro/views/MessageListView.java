@@ -37,7 +37,7 @@ public class MessageListView extends VBox {
     private Message repliedTo, forwarding;
     private StringProperty repliedName, repliedMsg;
     private BooleanProperty forwardingProperty;
-    private Thread updater;
+    private static Thread updater;
 
     private MessageListView() {
     }
