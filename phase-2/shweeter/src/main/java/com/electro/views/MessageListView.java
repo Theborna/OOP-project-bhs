@@ -38,7 +38,7 @@ public class MessageListView extends VBox {
     private Message repliedTo, forwarding, editing;
     private StringProperty repliedName, repliedMsg; // also used for editing
     private BooleanProperty forwardingProperty, editProperty;
-    private static Thread updater;
+    private static Runnable updater;
 
     private MessageListView() {
     }
@@ -85,25 +85,20 @@ public class MessageListView extends VBox {
             }
         });
         thread.start();
-        updater = new Thread(() -> { // TODO: make this with sockets
-            while (true) {
-                try {
-                    Thread.sleep(1000);// the apparent ping
-                    ArrayList<Message> newMsg = new ArrayList<Message>();
-                    if (Chat.getCurrent() != null)
-                        newMsg.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
-                    newMsg.removeAll(messages);
-                    addMessages(newMsg);
-                    messages.addAll(newMsg);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        updater = () -> {
+            try {
+                ArrayList<Message> newMsg = new ArrayList<Message>();
+                if (Chat.getCurrent() != null)
+                    newMsg.addAll(MessageConnection.getMessages(Chat.getCurrent().getId()));
+                newMsg.removeAll(messages);
+                addMessages(newMsg);
+                messages.addAll(newMsg);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        });
-        updater.setDaemon(true);
-        updater.start();
+        };
     }
 
     private void addMessages(List<Message> messages) throws IOException, InterruptedException {
@@ -209,10 +204,6 @@ public class MessageListView extends VBox {
         return forwarding;
     }
 
-    public void hasReply() {
-
-    }
-
     public StringProperty getRepliedMsg() {
         return repliedMsg;
     }
@@ -233,7 +224,9 @@ public class MessageListView extends VBox {
         return instance;
     }
 
-    public void update() {
+    public static void update(Long chatID) {
+        if (chatID == Chat.getCurrent().getId())
+            new Thread(updater).start();
     }
 
     public Message getEditing() {

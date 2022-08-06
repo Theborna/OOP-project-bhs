@@ -1,9 +1,11 @@
 package com.electro.phase1.models.node;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import com.electro.MessagingServer.ServerConnection;
 import com.electro.database.MessageDB;
 import com.electro.phase1.models.node.user.User;
 
@@ -103,7 +105,11 @@ public class Message extends node implements TextBased { // TODO lots of modific
     public void sendToDB() {
         try {
             MessageDB.newMessage(this);
+            ServerConnection.getInstance(User.getCurrentUser().getId()).notifyUsers(this.getCh().getId(),
+                    User.getCurrentUser().getId());
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -124,6 +130,18 @@ public class Message extends node implements TextBased { // TODO lots of modific
 
     public void setText(String string) {
         message = new StringBuilder(string);
+    }
+
+    public void delete() {
+        try {
+            MessageDB.deleteMessage(this.getId());
+            ServerConnection.getInstance(User.getCurrentUser().getId()).notifyUsers(ch.getId(),
+                    User.getCurrentUser().getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

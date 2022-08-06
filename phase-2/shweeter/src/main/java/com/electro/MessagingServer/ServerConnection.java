@@ -6,8 +6,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import com.electro.views.MessageListView;
+
 public class ServerConnection {
-    private static final String SERVER_URL = "127.0.0.1";
+    private static final String SERVER_URL = "84.17.35.119";
     private static final int SERVER_PORT = 9090;
 
     private static ServerConnection sc = null;
@@ -31,7 +33,7 @@ public class ServerConnection {
         out.println(packet);
         out.flush();
         System.out.println(chatid);
-//        out.close();
+        // out.close();
         if (firstReq)
             serverListener();
         firstReq = false;
@@ -39,6 +41,7 @@ public class ServerConnection {
 
     private void updater(long chatid) {
         System.out.println("update chat with id = " + chatid);
+        MessageListView.update(chatid);
     }
 
     private void serverListener() {

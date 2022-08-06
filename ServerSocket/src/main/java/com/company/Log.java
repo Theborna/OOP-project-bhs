@@ -11,8 +11,6 @@ public class Log {
     public static final Logger logger = Logger.getLogger(Log.class.getName());
 
     public static void sendtoTG(LogRecord logRecord) {
-        //System.out.println(logRecord.getMessage());
-//        System.out.println("kir");
         TGinit.getInstance().sendMessage("Messaging Server:\n" + logRecord.getLevel().getName() + "\n"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n"
                 + logRecord.getSourceMethodName() + "\n" + logRecord.getMessage());

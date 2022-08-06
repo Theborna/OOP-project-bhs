@@ -1,5 +1,9 @@
 package com.electro.controllers.components;
 
+import java.sql.SQLException;
+
+import com.electro.database.ChatDB;
+import com.electro.database.MessageDB;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.format;
@@ -75,9 +79,12 @@ public class messageController {
         MenuItem item2 = new MenuItem("forward");
         MenuItem item3 = new MenuItem("copy");
         MenuItem item4 = new MenuItem("edit");
+        MenuItem item5 = new MenuItem("delete");
         contextMenu.getItems().addAll(item1, item2, item3);
-        if (message.getAuthor().equals(User.getCurrentUser()))
+        if (message.getAuthor().equals(User.getCurrentUser())) {
             contextMenu.getItems().add(item4);
+            contextMenu.getItems().add(item5);
+        }
         msgText.setOnContextMenuRequested(evt -> {
             contextMenu.show(msgText, evt.getScreenX(), evt.getScreenY());
         });
@@ -101,6 +108,11 @@ public class messageController {
         });
         item4.setOnAction(evt -> {
             editProperty.set(true);
+        });
+        item5.setOnAction(evt -> {
+            mainPane.setVisible(false);
+            message.delete();
+            System.out.println("messageController.setContext() delete");
         });
     }
 

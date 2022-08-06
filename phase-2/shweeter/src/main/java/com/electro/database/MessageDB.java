@@ -2,7 +2,10 @@ package com.electro.database;
 
 import javax.swing.plaf.nimbus.State;
 
+import com.electro.MessagingServer.ServerConnection;
 import com.electro.phase1.models.node.Message;
+import com.electro.phase1.models.node.user.User;
+import com.electro.phase1.util.Log;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,7 +22,7 @@ public class MessageDB {
 
     public static void adddToDB(Message msg) throws SQLException {
         Message ret = getMessageByID(msg.getId());
-        //System.out.println(ret.toString());
+        // System.out.println(ret.toString());
         if (ret == null && msg.getId() == 0) {
             newMessage(msg);
         } else {
@@ -30,8 +33,11 @@ public class MessageDB {
     public static void newMessage(Message msg) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "insert into messages values(NULL, " + msg.getCh().getId() + ", " + msg.getSender().getId() + ", "
-                + (msg.getReplyTo() == null ? "NULL" : (msg.getReplyTo().getSender() == null ? "NULL" : msg.getReplyTo().getId())) + ",'"
+        String query = "insert into messages values(NULL, " + msg.getCh().getId() + ", " + msg.getSender().getId()
+                + ", "
+                + (msg.getReplyTo() == null ? "NULL"
+                        : (msg.getReplyTo().getSender() == null ? "NULL" : msg.getReplyTo().getId()))
+                + ",'"
                 + msg.getMessage().toString() + "', '"
                 + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', '"
                 + (msg.getEncKey() == null ? "NULL" : msg.getEncKey()) + "', "
@@ -49,7 +55,7 @@ public class MessageDB {
         String query = "update messages set msg_enc = '" + msg.getMessage() + "', msg_date = '"
                 + msg.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 + "', msg_sender_priv_key_enc = '" + msg.getEncKey() + "' where msg_id = " + msg.getId() + ";";
-        //System.out.println(query);
+        // System.out.println(query);
         st.execute(query);
         st.close();
         con.close();
@@ -90,12 +96,12 @@ public class MessageDB {
         return ret;
     }
 
-
     public static ArrayList<Message> getLastMessage(long userID, int n) throws SQLException {
         ArrayList<Message> ret = new ArrayList<>();
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "select * from messages where msg_sender_id = " + Long.toString(userID) + " order by msg_id desc;";
+        String query = "select * from messages where msg_sender_id = " + Long.toString(userID)
+                + " order by msg_id desc;";
         ResultSet rs = st.executeQuery(query);
         while (rs.next() && n > 0) {
             Message msg = new Message(rs.getString(5), UserDB.getUserInfo(rs.getLong(3)),
@@ -235,5 +241,13 @@ public class MessageDB {
         con.close();
         return ret;
     }
-}
 
+    public static void deleteMessage(long msg_id) throws SQLException {
+        Connection con = DBInfo.getConnection();
+        Statement st = con.createStatement();
+        String query = "delete from messages where msg_id = " + msg_id + ";";
+        st.execute(query);
+        st.close();
+        con.close();
+    }
+}
