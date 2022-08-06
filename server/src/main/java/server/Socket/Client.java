@@ -46,6 +46,7 @@ public class Client implements Runnable {
         out.println(new sentPacket(chatId).toString());
         out.flush();
         // out.close();
+        Log.logger.info("refreshed: " + usid + " ,chat:" + chatId);
     }
 
     public Socket getClient() {
@@ -77,6 +78,7 @@ public class Client implements Runnable {
                 packet = new RecPacket(in.readLine());
                 if (packet.getChatid() != 0) {
                     // System.out.println(packet);
+                    // Log.logger.info(packet.toString());
                     ArrayList<Long> users = DataBase.getInstance().getUserIDByChatID(packet.getChatid());
                     // users.remove(packet.getUsid());
                     notifyUsers(users);

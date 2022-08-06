@@ -50,16 +50,17 @@ public class ChatListView extends VBox {
         });
         thread.start();
         updater = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                ArrayList<Chat> newChat = new ArrayList<Chat>();
-                newChat.addAll(ChatUserConnection.getChats(User.getCurrentUser().getId()));
-                newChat.removeAll(chats);
-                addChats(newChat);
-                chats.addAll(newChat);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            while (true)
+                try {
+                    Thread.sleep(1000);
+                    ArrayList<Chat> newChat = new ArrayList<Chat>();
+                    newChat.addAll(ChatUserConnection.getChats(User.getCurrentUser().getId()));
+                    newChat.removeAll(chats);
+                    addChats(newChat);
+                    chats.addAll(newChat);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
         });
         updater.setDaemon(true);
         updater.start();

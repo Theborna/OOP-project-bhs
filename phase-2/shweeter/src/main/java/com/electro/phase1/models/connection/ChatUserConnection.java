@@ -51,9 +51,4 @@ public class ChatUserConnection extends connection<User, Chat> {
         // UserDB.get
         return result;
     }
-
-    public static void addUser(Long chatId, Long memberId, ChatPermission chatPermission) {
-        // TODO: add the user to the chat
-    }
-
 }

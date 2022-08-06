@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import com.electro.phase1.util.Log;
 import com.electro.views.MessageListView;
+import com.electro.views.component.MessageNotification;
 
 public class ServerConnection {
     private static final String SERVER_URL = "127.0.0.1";
@@ -40,9 +42,11 @@ public class ServerConnection {
         firstReq = false;
     }
 
-    private void updater(long chatid) {
-        System.out.println("update chat with id = " + chatid);
-        MessageListView.update(chatid);
+    private void updater(long chatId) {
+        System.out.println("update chat with id = " + chatId);
+        Log.logger.info("update chat with id = " + chatId);
+        MessageListView.update(chatId);
+        new MessageNotification(chatId);
     }
 
     private void serverListener() {

@@ -11,6 +11,7 @@ public class Server {
     private static Server server = null;
     private final int port;
     private ServerSocket serverSocket;
+    private static long client;
 
     private Server(int port) {
         this.port = port;
@@ -29,8 +30,9 @@ public class Server {
         Log.logger.info("The dicky server started");
         while (true) {
             Socket sk = serverSocket.accept();
-            new Thread(new Client(sk)).start();
+            Thread thread = new Thread(new Client(sk), "Client-" + client++);
+            thread.setDaemon(true);
+            thread.start();
         }
     }
 }
-

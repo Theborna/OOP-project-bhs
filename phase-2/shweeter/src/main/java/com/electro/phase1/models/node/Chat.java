@@ -121,11 +121,6 @@ public class Chat extends node {
         return (last == null) ? creationDate : last.getCreationDate();
     }
 
-    public Chat addAll(Map<Long, ChatPermission> memberWithPermit) {
-        for (Long member : memberWithPermit.keySet())
-            ChatUserConnection.addUser(this.id, member, memberWithPermit.get(member));
-        return this;
-    }
 
     public void setOwner(User owner) {
         this.owner = owner;
