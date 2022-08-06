@@ -5,83 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23541187-e35d-4afc-86ea-5080903f6ef6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_guava_guava_31_1_jre.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__commons_io_commons_io_2_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_2_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_checkerframework_checker_qual_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_grizzly_grizzly_framework_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_grizzly_grizzly_http_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_grizzly_grizzly_http_server_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_external_aopalliance_repackaged_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_external_jakarta_inject_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_hk2_api_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_hk2_locator_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_hk2_utils_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_hk2_osgi_resource_locator_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_containers_jersey_container_grizzly2_http_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_client_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_common_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_server_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_ext_jersey_entity_filtering_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_inject_jersey_hk2_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_json_jackson_2_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_javassist_javassist_3_25_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_json_json_20220320.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_telegram_telegrambots_6_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/libraries/Maven__org_telegram_telegrambots_meta_6_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/mysql-connector-java-5.1.46-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/mysql-connector-java-5.1.46.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/sentPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/telegram/TG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/telegram/TGinit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/telegram/TG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/telegram/TGinit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/ServerConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/recPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientDemo/src/main/java/MessagingServer/sentPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/ServerSocket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/ServerSocket.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/DB/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/DB/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/Socket/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/RecPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/Socket/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServerSocket/src/main/java/com/company/Socket/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerSocket/src/com/company/TG.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/database/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-1/app/src/main/java/com/project/util/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/telegram/TG.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/telegram/TG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/telegram/TGinit.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase-2/shweeter/src/main/java/com/electro/phase1/util/telegram/TGinit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +150,7 @@
       <workItem from="1659734421893" duration="374000" />
       <workItem from="1659735940136" duration="1519000" />
       <workItem from="1659737531945" duration="2014000" />
-      <workItem from="1659761829200" duration="2739000" />
+      <workItem from="1659761829200" duration="4076000" />
     </task>
     <servers />
   </component>
