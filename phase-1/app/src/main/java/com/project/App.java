@@ -1,17 +1,10 @@
 package com.project;
 
-import com.database.DBInfo;
 import com.project.util.Log;
-import com.project.util.StdColor;
 import com.project.util.StdOut;
 import com.project.util.exception.changeViewException;
 import com.project.view.*;
 import com.project.view.general.PrimaryView;
-import com.project.view.general.SearchView;
-
-import java.sql.Connection;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * Main App class

@@ -14,23 +14,11 @@ public class DBInfo {
     public static final String PassWD = "";
 
     public static Connection getConnection() throws SQLException {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-        Log.logger.info("Connected to database succressfully");
         return DriverManager.getConnection(DB_URL, USName, PassWD);
     }
 
     public static Connection getConnection(String classname) throws SQLException {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-        Log.logger.info("Connected to database succressfully");
-        Log.logger.info("Connected to database succressfully" + " : " + classname);
+        Log.logger.info("Connected to database successfully" + " : " + classname);
         return DriverManager.getConnection(DB_URL, USName, PassWD);
     }
 

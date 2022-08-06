@@ -102,7 +102,11 @@ public class UserFollowingConnection extends connection<User, User> {
 
     @Override
     public void sendToDB() {
-
+        try {
+            UserDB.updatePromoIndex(promoIndex, getObj2().getId(), getObj1().getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

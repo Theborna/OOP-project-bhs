@@ -6695,3 +6695,999 @@ Aug 06, 2022 7:24:28 PM com.database.DBInfo getConnection
 INFO: Connected to database succressfully
 Aug 06, 2022 7:24:28 PM com.project.App setView
 INFO: changed view to ExploreView
+Aug 06, 2022 8:07:41 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:07:41 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:07:48 PM com.project.App setView
+INFO: changed view to LoginView
+Aug 06, 2022 8:07:51 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:51 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:51 PM com.project.App setView
+INFO: changed view to SecondaryView
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.project.App setView
+INFO: changed view to ExploreView
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:55 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:56 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:07:57 PM com.project.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.project.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 1
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:07 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:08 PM com.project.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:11 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:12 PM com.project.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 06, 2022 8:08:31 PM com.project.App setView
+INFO: changed view to CreatePostView
+Aug 06, 2022 8:08:36 PM com.project.models.node.user.NormalUser Post
+INFO: added post: NormalPost[id=0]
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully : poset added
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.project.App setView
+INFO: changed view to ExploreView
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:36 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:08:37 PM com.project.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 06, 2022 8:08:40 PM com.project.App setView
+INFO: changed view to SecondaryView
+Aug 06, 2022 8:16:00 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:16:00 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:18:00 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:18:00 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:18:08 PM com.project.App setView
+INFO: changed view to LoginView
+Aug 06, 2022 8:18:15 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:15 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:15 PM com.project.App setView
+INFO: changed view to SecondaryView
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:41 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.project.App setView
+INFO: changed view to ChatListView
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:18:42 PM com.database.DBInfo getConnection
+INFO: Connected to database succressfully
+Aug 06, 2022 8:21:04 PM com.project.util.Log init
+INFO: starting application
+Aug 06, 2022 8:21:04 PM com.project.App setView
+INFO: changed view to PrimaryView
+Aug 06, 2022 8:21:08 PM com.project.App setView
+INFO: changed view to LoginView
+Aug 06, 2022 8:21:16 PM com.project.App setView
+INFO: changed view to SecondaryView
+Aug 06, 2022 8:21:20 PM com.project.App setView
+INFO: changed view to ChatListView
+Aug 06, 2022 8:21:25 PM com.project.App setView
+INFO: changed view to ChatView
+Aug 06, 2022 8:21:36 PM com.project.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=5]
+Aug 06, 2022 8:21:42 PM com.project.App setView
+INFO: changed view to ChatListView
+Aug 06, 2022 8:21:43 PM com.project.App setView
+INFO: changed view to ChatView
+Aug 06, 2022 8:21:51 PM com.project.App setView
+INFO: changed view to ChatView
+Aug 06, 2022 8:21:54 PM com.project.App setView
+INFO: changed view to SecondaryView
