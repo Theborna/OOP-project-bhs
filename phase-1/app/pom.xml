@@ -19,6 +19,14 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.telegram</groupId>
+      <artifactId>Bots</artifactId>
+      <version>6.1.0</version>
+      <type>pom</type>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

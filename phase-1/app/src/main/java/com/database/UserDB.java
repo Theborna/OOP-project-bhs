@@ -225,8 +225,7 @@ public class UserDB {
         return ret;
     }
 
-    // If the userID does not wxists it will return zero as the id :)
-
+    // If the userID does not exist it will return zero as the id :)
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
