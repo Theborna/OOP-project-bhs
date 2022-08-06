@@ -28,7 +28,7 @@ public class MediaDB {
 
     public static long newMedia(Media media) throws SQLException {
         Connection con = DBInfo.getConnection("Media inserted!");
-        PreparedStatement st = con.prepareStatement("insert into media values(NULL, " + saveto(media) + ","
+        PreparedStatement st = con.prepareStatement("insert into media values(NULL, '" + saveto(media) + "',"
                 + media.getMt().ordinal() + ")", Statement.RETURN_GENERATED_KEYS);
         ResultSet rs = st.getGeneratedKeys();
         while (rs.next()) {
@@ -56,8 +56,8 @@ public class MediaDB {
                 md.setId(rs.getLong(1));
             }
         }
-        rs.close();
         st.close();
+        rs.close();
         con.close();
         return md;
     }

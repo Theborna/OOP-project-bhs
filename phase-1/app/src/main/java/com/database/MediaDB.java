@@ -34,6 +34,9 @@ public class MediaDB {
         while (rs.next()) {
             return rs.getLong(1);
         }
+        rs.close();
+        st.close();
+        con.close();
         return 0;
     }
 
@@ -53,6 +56,9 @@ public class MediaDB {
                 md.setId(rs.getLong(1));
             }
         }
+        st.close();
+        rs.close();
+        con.close();
         return md;
     }
 

@@ -176,7 +176,7 @@ public class UserDB {
     }
 
     public static void deleteUser(User user) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("delete from users where US_ID = " + user.getId());
         st.close();
@@ -196,7 +196,6 @@ public class UserDB {
         rs.close();
         st.close();
         con.close();
-
         return ret;
     }
 
@@ -213,14 +212,13 @@ public class UserDB {
         rs.close();
         st.close();
         con.close();
-
         return ret;
     }
 
     // If the userID does not wxists it will return zero as the id :)
 
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         String query = "select * from following where follower_id = " + currentUserID + " AND following_id = "
                 + followingID;
@@ -235,7 +233,7 @@ public class UserDB {
     }
 
     public static ArrayList<User> searchByUserName(String entry) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(
                 "select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
@@ -289,23 +287,25 @@ public class UserDB {
     }
 
     public static void follow(User current, User toFollow) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("insert into following values(" + current.getId() + ", " + toFollow.getId() + ",'"
-                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 0);");
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', 100);");
         st.close();
         con.close();
     }
 
     public static void unFollow(User current, User toFollow) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         st.execute("delete from following where follower_id = " + current.getId() + " and following_id = "
                 + toFollow.getId());
+        st.close();
+        con.close();
     }
 
     public static boolean isFollowed(User currentUser, User user) throws SQLException {
-        Connection con = DBInfo.getConnection();
+        Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from following where follower_id = "
                 + currentUser.getId() + " and following_id = " + user.getId());
@@ -326,5 +326,8 @@ public class UserDB {
         Statement st = con.createStatement();
         st.execute("update following set promo_index = " + prom + " where following_id = "
                 + followed + " and follower_id = " + follower);
+        st.close();
+        con.close();
     }
+
 }
