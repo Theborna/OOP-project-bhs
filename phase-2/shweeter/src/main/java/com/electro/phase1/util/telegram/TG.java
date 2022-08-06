@@ -19,7 +19,6 @@ public class TG extends TelegramLongPollingBot {
         response = "velam kon lashi";
         Dotenv env = Dotenv.load();
         API_KEY = env.get("API_KEY");
-        System.out.println(API_KEY);
     }
 
     @Override
@@ -44,7 +43,7 @@ public class TG extends TelegramLongPollingBot {
     }
 
     public synchronized void sendMessage(String message) {
-        System.out.println("TG.sendMessage() run by thread " + Thread.currentThread().getName());
+        // System.out.println("TG.sendMessage() run by thread " + Thread.currentThread().getName());
         try {
             execute(new SendMessage("-1001735428152", message));
         } catch (TelegramApiException e) {
