@@ -20,6 +20,6 @@ public class ServerConnection {
         return sc;
     }
 
-    public 
+    public
 
 }

@@ -9,8 +9,9 @@ module com.electro {
         requires java.sql;
         requires telegrambots;
         requires telegrambots.meta;
+    requires java.dotenv;
 
-        opens com.electro.controllers.components
+    opens com.electro.controllers.components
                         to javafx.fxml, AnimateFX, org.jfxtras.styles.jmetro, org.controlsfx.controls, java.desktop;
         opens com.electro.controllers.views
                         to javafx.fxml, AnimateFX, shichimifx, org.jfxtras.styles.jmetro, org.controlsfx.controls,
