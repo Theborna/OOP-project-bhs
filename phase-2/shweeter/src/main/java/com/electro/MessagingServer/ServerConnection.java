@@ -18,24 +18,24 @@ public class ServerConnection {
     private final Socket socket;
     private boolean firstReq = true;
 
-    private ServerConnection(long usid) throws IOException {
+    private ServerConnection(long usId) throws IOException {
         socket = new Socket(SERVER_URL, SERVER_PORT);
-        notifyUsers(0, usid);
+        notifyUsers(0, usId);
     }
 
-    public static ServerConnection getInstance(long usid) throws IOException {
+    public static ServerConnection getInstance(long usId) throws IOException {
         if (sc == null)
-            sc = new ServerConnection(usid);
+            sc = new ServerConnection(usId);
         return sc;
     }
 
-    public void notifyUsers(long chatid, long usid) throws IOException {
+    public void notifyUsers(long chatId, long usId) throws IOException {
         System.out.println("ServerConnection.notifyUsers()");
-        RecPacket packet = new RecPacket(chatid, usid);
+        RecPacket packet = new RecPacket(chatId, usId);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         out.println(packet);
         out.flush();
-        System.out.println(chatid);
+        System.out.println(chatId);
         // out.close();
         if (firstReq)
             serverListener();

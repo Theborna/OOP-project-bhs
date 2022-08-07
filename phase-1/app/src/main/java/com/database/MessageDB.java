@@ -1,6 +1,5 @@
 package com.database;
 
-import javax.swing.plaf.nimbus.State;
 
 import com.project.models.node.Message;
 
@@ -11,13 +10,12 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MessageDB {
     private MessageDB() {
     }
 
-    public static void adddToDB(Message msg) throws SQLException {
+    public static void addToDB(Message msg) throws SQLException {
         Message ret = getMessageByID(msg.getId());
         //System.out.println(ret.toString());
         if (ret == null && msg.getId() == 0) {

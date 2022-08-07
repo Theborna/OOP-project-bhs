@@ -3,10 +3,8 @@ package com.database;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
 import com.project.models.node.Chat;
-import com.project.models.node.post.Post;
 import com.project.models.node.user.User;
 
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -66,14 +64,14 @@ public class ChatDB {
         con.close();
     }
 
-    public static ArrayList<Chat> getChats(long USID) throws SQLException {
+    public static ArrayList<Chat> getChats(long US_ID) throws SQLException {
         ArrayList<Chat> chs = new ArrayList<>();
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        String query = "select * from member where userid = " + Long.toString(USID);
+        String query = "select * from member where userId = " + Long.toString(US_ID);
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
-            Chat ch = getChatByID(rs.getLong("chatid"));
+            Chat ch = getChatByID(rs.getLong("chatId"));
             chs.add(ch);
         }
         rs.close();
@@ -135,10 +133,10 @@ public class ChatDB {
         return ch;
     }
 
-    public static ChatPermission getChatPermission(long usid, long chatid) throws SQLException {
+    public static ChatPermission getChatPermission(long usId, long chatId) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from member where userid = " + usid + " and chatid = " + chatid);
+        ResultSet rs = st.executeQuery("select * from member where userId = " + usId + " and chatId = " + chatId);
         if (rs.next()) {
             return chatPermission(rs.getInt(3));
         }
@@ -148,18 +146,18 @@ public class ChatDB {
         return null;
     }
 
-    public static void addMemeber(long usid, long chatid, ChatPermission cp) throws SQLException {
+    public static void addMember(long usId, long chatId, ChatPermission cp) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.execute("insert into member values(" + usid + "," + chatid + "," + cp.ordinal() + ")");
+        st.execute("insert into member values(" + usId + "," + chatId + "," + cp.ordinal() + ")");
         st.close();
         con.close();
     }
 
-    public static void removeMemeber(long usid, long chatid) throws SQLException {
+    public static void removeMember(long usId, long chatId) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        st.executeQuery("delete from member where userid = " + usid + " and chatid = " + chatid);
+        st.executeQuery("delete from member where userId = " + usId + " and chatId = " + chatId);
         st.close();
         con.close();
     }
@@ -186,10 +184,10 @@ public class ChatDB {
         return ret;
     }
 
-    public static Map<User, ChatPermission> getMembersOfChat(long chatid) throws SQLException {
+    public static Map<User, ChatPermission> getMembersOfChat(long chatId) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from member where chatid = " + chatid);
+        ResultSet rs = st.executeQuery("select * from member where chatId = " + chatId);
         Map<User, ChatPermission> ret = new HashMap<>();
         while (rs.next())
             ret.put(UserDB.getUserInfo(rs.getLong(1)), ChatPermission.values()[rs.getInt(3)]);

@@ -3,13 +3,9 @@ package com.project.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 
 import com.database.ChatDB;
-import com.database.PostDB;
 import com.database.UserDB;
-import com.project.App;
-import com.project.AppRegex;
 import com.project.models.node.Chat;
 import com.project.models.node.post.Post;
 import com.project.models.node.user.User;

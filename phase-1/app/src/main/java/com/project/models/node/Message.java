@@ -1,6 +1,5 @@
 package com.project.models.node;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 

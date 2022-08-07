@@ -227,7 +227,7 @@ public class NewChatController {
         try {
             Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());
             for (long id : memberWithPermit.keySet()) {
-                ChatDB.addMemeber(id, chatTemp.getId(), memberWithPermit.get(id));
+                ChatDB.addMember(id, chatTemp.getId(), memberWithPermit.get(id));
             }
         } catch (SQLException e) {
             e.printStackTrace();

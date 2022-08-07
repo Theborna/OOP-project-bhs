@@ -23,12 +23,12 @@ public class DataBase {
         return db;
     }
 
-    public synchronized ArrayList<Long> getUserIDByChatID(long chatid) throws SQLException {
+    public synchronized ArrayList<Long> getUserIDByChatID(long chatId) throws SQLException {
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select userid from member where chatid = " + chatid);
+        ResultSet rs = st.executeQuery("select userId from member where chatId = " + chatId);
         ArrayList<Long> ret = new ArrayList<>();
         while (rs.next()) {
-            ret.add(rs.getLong("userid"));
+            ret.add(rs.getLong("userId"));
         }
         return ret.isEmpty() ? null : ret;
     }

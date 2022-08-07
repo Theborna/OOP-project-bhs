@@ -20,7 +20,7 @@ public class MessageDB {
     private MessageDB() {
     }
 
-    public static void adddToDB(Message msg) throws SQLException {
+    public static void addToDB(Message msg) throws SQLException {
         Message ret = getMessageByID(msg.getId());
         // System.out.println(ret.toString());
         if (ret == null && msg.getId() == 0) {

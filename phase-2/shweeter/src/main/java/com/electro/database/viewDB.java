@@ -36,8 +36,8 @@ public class viewDB {
         con.close();
     }
 
-    public static void update(Like like, Like prlike) throws SQLException {
-        like.setValue(Math.min(like.getValue() + prlike.getValue(), 1));
+    public static void update(Like like, Like prevLike) throws SQLException {
+        like.setValue(Math.min(like.getValue() + prevLike.getValue(), 1));
         like.setValue(Math.max(like.getValue(), -1));
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();

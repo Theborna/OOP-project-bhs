@@ -2,7 +2,6 @@ package com.project.models.node;
 
 
 import com.project.enums.MediaType;
-import com.project.models.node.user.User;
 
 public class Image extends Media {
 
@@ -14,7 +13,6 @@ public class Image extends Media {
     @Override
     public void showMedia() {
         // TODO Auto-generated method stub
-
     }
 
 }

@@ -3,19 +3,15 @@ package com.project.models.node;
 import com.database.ChatDB;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
-import com.project.models.connection.ChatUserConnection;
 import com.project.models.connection.MessageConnection;
 import com.project.models.node.user.User;
 import com.project.util.Log;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Set;
 
 public class Chat extends node {
     private static Chat current;
-    private static long chatId;
     private String linkID;
     private String name;
     private ChatType type;
@@ -24,12 +20,6 @@ public class Chat extends node {
     private boolean visible;
     // For groups and channels
     private User owner;
-
-    // TODO: sepehr changes
-    // private int participantNum;
-    // private ArrayList<User> participants;
-    // private ArrayList<Message> messages;
-    // private ArrayList<User> administrators;
 
     public Chat(String name, ChatType type) {
         this.name = name;
@@ -106,24 +96,28 @@ public class Chat extends node {
         return (last == null) ? creationDate : last.getCreationDate();
     }
 
-    public Chat addAll(Map<Long, ChatPermission> memberWithPermit) {
-        for (Long member : memberWithPermit.keySet())
-            ChatUserConnection.addUser(this.id, member, memberWithPermit.get(member));
-        return this;
-    }
+    // public Chat addAll(Map<Long, ChatPermission> memberWithPermit) {
+    // for (Long member : memberWithPermit.keySet())
+    // ChatUserConnection.addUser(this.id, member, memberWithPermit.get(member));
+    // return this;
+    // }
 
     public void setOwner(User owner) {
         this.owner = owner;
     }
 
     public static Long getByLinkID(String linkID) {
-        // TODO get the id of the chat with the specified linkID
+        try {
+            return ChatDB.getChatByLinkID(linkID).getId();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    public Set<Long> getAdmins() {
-        return null;
-    }
+    // public Set<Long> getAdmins() {
+    //     return null;
+    // }
 
     public ChatPermission getPermission(long id) throws SQLException {
         // System.out.println(this.id + " user: " + id);
@@ -137,7 +131,6 @@ public class Chat extends node {
 
     @Override
     public void sendToDB() {
-        // TODO Auto-generated method stub
         try {
             ChatDB.sendToDB(this);
         } catch (SQLException e) {

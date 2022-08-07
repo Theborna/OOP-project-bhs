@@ -79,7 +79,7 @@ public class UserDB {
         if (userType == 0) {
             // System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
-            us.setUSID(rs.getLong(1));
+            us.setUS_ID(rs.getLong(1));
             us.setSalt(rs.getString(4));
             us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
@@ -96,7 +96,7 @@ public class UserDB {
         } else {
             // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
-            us.setUSID(rs.getLong(1));
+            us.setUS_ID(rs.getLong(1));
             us.setSalt(rs.getString(4));
             us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
@@ -133,7 +133,7 @@ public class UserDB {
         if (userType == 0) {
             // System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
-            us.setUSID(rs.getLong(1));
+            us.setUS_ID(rs.getLong(1));
             us.setSalt(rs.getString(4));
             us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
@@ -150,7 +150,7 @@ public class UserDB {
         } else {
             // System.out.println(userType);
             us = new BusinessUser(rs.getString(2), rs.getString(3));
-            us.setUSID(rs.getLong(1));
+            us.setUS_ID(rs.getLong(1));
             us.setSalt(rs.getString(4));
             us.setBirthDate(rs.getDate(5));
             us.setUserType(userType);
@@ -247,7 +247,7 @@ public class UserDB {
             if (userType == 0) {
                 // System.out.println(userType);
                 us = new NormalUser(rs.getString(2), rs.getString(3));
-                us.setUSID(rs.getLong(1));
+                us.setUS_ID(rs.getLong(1));
                 us.setSalt(rs.getString(4));
                 us.setBirthDate(rs.getDate(5));
                 us.setUserType(userType);
@@ -264,7 +264,7 @@ public class UserDB {
             } else {
                 // System.out.println(userType);
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
-                us.setUSID(rs.getLong(1));
+                us.setUS_ID(rs.getLong(1));
                 us.setSalt(rs.getString(4));
                 us.setBirthDate(rs.getDate(5));
                 us.setUserType(userType);

@@ -2,10 +2,8 @@ package com.project.controllers;
 
 import com.database.UserDB;
 import com.project.AppRegex;
-import com.project.crypt;
 import com.project.models.node.user.User;
 
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class LoginController implements Controller {

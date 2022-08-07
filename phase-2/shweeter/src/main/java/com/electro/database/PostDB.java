@@ -87,7 +87,7 @@ public class PostDB {
         return ps;
     }
 
-    public static ArrayList<Post> getPostsByUSID(long us_ID) throws SQLException {
+    public static ArrayList<Post> getPostsByUS_ID(long us_ID) throws SQLException {
         ArrayList<Post> ret = new ArrayList<>();
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
@@ -118,11 +118,11 @@ public class PostDB {
         return ret;
     }
 
-    public static Like getLikes(long postid, long userid) throws SQLException {
+    public static Like getLikes(long postid, long userId) throws SQLException {
         Connection con = DBInfo.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st
-                .executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userid);
+                .executeQuery("select * from likes where lk_post_id = " + postid + " and lk_user_id = " + userId);
         if (!rs.next()) {
         }
         st.close();

@@ -140,7 +140,7 @@ public abstract class User extends node {
         Log.logger.info("sent message: " + message.toString() + " to chat: " + chat.toString());
         // pastMsg.add(message);
         try {
-            MessageDB.adddToDB(message);
+            MessageDB.addToDB(message);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -176,11 +176,11 @@ public abstract class User extends node {
         this.followingCnt = followingCnt;
     }
 
-    public void setUSID(long US_ID) {
+    public void setUS_ID(long US_ID) {
         setId(US_ID);
     }
 
-    public long getUSID() {
+    public long getUS_ID() {
         return getId();
     }
 

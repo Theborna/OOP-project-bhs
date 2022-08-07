@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        long usid = 15;
-        System.out.println(usid);
+        long usId = 15;
+        System.out.println(usId);
         String text = sc.next();
-        ServerConnection k = ServerConnection.getInstance(usid);
+        ServerConnection k = ServerConnection.getInstance(usId);
         while (!text.equals("exit")) {
             text = sc.next();
-            k.notifyUseres(10, usid);
+            k.notifyUseres(10, usId);
         }
         sc.close();
     }

@@ -1,8 +1,6 @@
 package com.project.models.node;
 
 import com.project.enums.MediaType;
-import com.project.models.node.post.Post;
-import com.project.models.node.user.User;
 
 public abstract class Media extends node {
     private String address;
@@ -33,7 +31,6 @@ public abstract class Media extends node {
     @Override
     public void sendToDB() {
         // TODO Auto-generated method stub
-        
     }
 
     

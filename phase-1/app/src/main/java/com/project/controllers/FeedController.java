@@ -3,10 +3,7 @@ package com.project.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.logging.Logger;
 
 import com.database.PostDB;
 import com.project.App;

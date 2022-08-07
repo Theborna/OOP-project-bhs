@@ -3,28 +3,28 @@ package MessagingServer;
 import java.io.Serializable;
 
 public class RecPacket implements Serializable {
-    private long chatid;
-    private long usid;
+    private long chatId;
+    private long usId;
 
-    public RecPacket(long chatid, long usid) {
-        this.chatid = chatid;
-        this.usid = usid;
+    public RecPacket(long chatId, long usId) {
+        this.chatId = chatId;
+        this.usId = usId;
     }
 
     public long getChatid() {
-        return chatid;
+        return chatId;
     }
 
-    public void setChatid(long chatid) {
-        this.chatid = chatid;
+    public void setChatid(long chatId) {
+        this.chatId = chatId;
     }
 
     public long getUsid() {
-        return usid;
+        return usId;
     }
 
-    public void setUsid(long usid) {
-        this.usid = usid;
+    public void setUsid(long usId) {
+        this.usId = usId;
     }
 
     @Override
@@ -32,11 +32,11 @@ public class RecPacket implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RecPacket packet = (RecPacket) o;
-        return packet.getUsid() == usid;
+        return packet.getUsid() == usId;
     }
 
     @Override
     public String toString() {
-        return chatid + " " + usid;
+        return chatId + " " + usId;
     }
 }

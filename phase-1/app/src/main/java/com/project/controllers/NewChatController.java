@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 
 import com.database.ChatDB;
-import com.database.DBInfo;
 import com.project.AppRegex;
 import com.project.enums.ChatPermission;
 import com.project.enums.ChatType;
@@ -176,7 +175,7 @@ public class NewChatController {
         try {
             Chat chatTemp = ChatDB.getChatByLinkID(chat.getLinkID());
             for (long id : memberWithPermit.keySet()) {
-                ChatDB.addMemeber(id, chatTemp.getId(), memberWithPermit.get(id));
+                ChatDB.addMember(id, chatTemp.getId(), memberWithPermit.get(id));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -32,7 +32,7 @@ public class PostUserConnection extends connection<User, Post> {
 //            result.add(new Post(String.valueOf(i)));
 //        }
         try {
-            result.addAll(PostDB.getPostsByUSID(userId));
+            result.addAll(PostDB.getPostsByUS_ID(userId));
         } catch (SQLException e) {
             e.printStackTrace();
         }

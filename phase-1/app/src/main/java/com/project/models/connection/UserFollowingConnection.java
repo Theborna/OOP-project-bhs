@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.database.UserDB;
-import com.project.models.node.user.NormalUser;
 import com.project.models.node.user.User;
 import com.project.util.Suggestion;
 import com.project.util.UserScore;
@@ -92,12 +91,11 @@ public class UserFollowingConnection extends connection<User, User> {
         this.sendToDB();
     }
 
-    public static Set<User> getExploreUsers(User user) { // TODO: find appropriate users to show
+    public static Set<User> getExploreUsers(User user) { 
         ArrayList<UserScore> userScores = UserScore.userScores(new ArrayList<User>(Suggestion.setScoreForUsers(user)),
                 user);
         Collections.sort(userScores);
         return new LinkedHashSet<User>(UserScore.getUsers(userScores));
-        // return getFeed(user.getId());
     }
 
     @Override

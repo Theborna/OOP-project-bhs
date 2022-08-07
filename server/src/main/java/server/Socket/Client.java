@@ -13,7 +13,7 @@ import java.util.Set;
 public class Client implements Runnable {
     private RecPacket packet;
     private Socket client;
-    private long usid;
+    private long usId;
     private final BufferedReader in;
     private final PrintWriter out;
     private static Set<Client> clients = new HashSet<>();
@@ -26,11 +26,11 @@ public class Client implements Runnable {
     }
 
     public long getUsid() {
-        return usid;
+        return usId;
     }
 
-    public void setUsid(long usid) {
-        this.usid = usid;
+    public void setUsid(long usId) {
+        this.usId = usId;
     }
 
     public RecPacket getPacket() {
@@ -46,7 +46,7 @@ public class Client implements Runnable {
         out.println(new sentPacket(chatId).toString());
         out.flush();
         // out.close();
-        Log.logger.info("refreshed: " + usid + " ,chat:" + chatId);
+        Log.logger.info("refreshed: " + usId + " ,chat:" + chatId);
     }
 
     public Socket getClient() {
@@ -83,9 +83,9 @@ public class Client implements Runnable {
                     // users.remove(packet.getUsid());
                     notifyUsers(users);
                 } else {
-                    usid = packet.getUsid();
+                    usId = packet.getUsid();
                     if (clients.add(this))
-                        Log.logger.info("Server: DickHead with USID = " + packet.getUsid()
+                        Log.logger.info("Server: DickHead with US_ID = " + packet.getUsid()
                                 + " connected to the messaging server");
                 }
             }

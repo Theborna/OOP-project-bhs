@@ -1,13 +1,9 @@
 package com.project.controllers;
 
-import java.util.regex.Matcher;
-
 import com.project.AppRegex;
 import com.project.crypt;
 import com.project.models.node.user.User;
 import com.project.util.exception.changeViewException;
-
-import static com.project.util.StdOut.*;
 
 public class SettingsController implements Controller {
 
@@ -35,7 +31,7 @@ public class SettingsController implements Controller {
     @Override
     public void parse(String input) throws changeViewException {
         input = input.trim().toLowerCase();
-        Matcher m;
+        // Matcher m;
         if (input.equals("help"))
             help();
         else if (input.equals("confirm"))

@@ -1,4 +1,4 @@
 CREATE TABLE `electron`.`member` (
-  `userid` BIGINT(32) NOT NULL,
-  `chatid` BIGINT(32) NOT NULL,
+  `userId` BIGINT(32) NOT NULL,
+  `chatId` BIGINT(32) NOT NULL,
   `perm` TINYINT(4) NOT NULL);

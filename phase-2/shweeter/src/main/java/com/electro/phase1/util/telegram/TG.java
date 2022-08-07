@@ -61,7 +61,7 @@ public class TG extends TelegramLongPollingBot {
                 if (user == null)
                     post(update, "no such user exists");
                 else {
-                    List<Post> posts = PostDB.getPostsByUSID(user.getId());
+                    List<Post> posts = PostDB.getPostsByUS_ID(user.getId());
                     for (int i = 0; i < posts.size() && i < Integer.parseInt(m.group("number")); i++)
                         post(update, posts.get(i).toTGString());
                 }
