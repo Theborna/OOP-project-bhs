@@ -37,7 +37,7 @@ public class Suggestion {
 
     public static int PostsScore(User user, Post post) {
         int a = 0;
-        Set<Like> likes=Like.getUsers(post);
+        Set<Like> likes = Like.getUsers(post);
         Set<User> usersWhoLiked = new HashSet<>();
         for (Like like : likes) {
             usersWhoLiked.add(like.getObj2());
@@ -61,7 +61,7 @@ public class Suggestion {
         Set<UserFollowingConnection> followers = UserFollowingConnection.getFollowers(user2);
         for (UserFollowingConnection followingConnection : followings) {
             for (UserFollowingConnection followerConnection : followers) {
-                if (followerConnection.getObj1() == followingConnection.getObj2()) {
+                if (followerConnection.getObj1().equals(followingConnection.getObj2())) {
                     a += (int) (20.0 * (((double) (followingConnection.getPromoIndex())) / 100.0));
                 }
             }
@@ -69,63 +69,64 @@ public class Suggestion {
         return a;
     }
 
-    public static void likedSuggestedPost(User user,Post post){
-        Set<Like> usersWhoLiked=Like.getUsers(post);
-        Set<User> usersWhoLiked2=new LinkedHashSet<User>();
-        for (Like like : usersWhoLiked) { 
+    public static void likedSuggestedPost(User user, Post post) {
+        Set<Like> usersWhoLiked = Like.getUsers(post);
+        Set<User> usersWhoLiked2 = new LinkedHashSet<User>();
+        for (Like like : usersWhoLiked) {
             usersWhoLiked2.add(like.getObj2());
         }
-        Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
+        Set<UserFollowingConnection> followings = UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            if(usersWhoLiked2.contains(connection.getObj2())){
+            if (usersWhoLiked2.contains(connection.getObj2())) {
                 connection.increasePromoIndex(40);
             }
         }
     }
 
-    public static void dislikedSuggestedPost(User user,Post post){
-        Set<Like> usersWhoLiked=Like.getUsers(post);
-        Set<User> usersWhoLiked2=new LinkedHashSet<User>();
+    public static void dislikedSuggestedPost(User user, Post post) {
+        Set<Like> usersWhoLiked = Like.getUsers(post);
+        Set<User> usersWhoLiked2 = new LinkedHashSet<User>();
         for (Like like : usersWhoLiked) {
             usersWhoLiked2.add(like.getObj2());
         }
-        Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
+        Set<UserFollowingConnection> followings = UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            if(usersWhoLiked2.contains(connection.getObj2())){
+            if (usersWhoLiked2.contains(connection.getObj2())) {
                 connection.decreasePromoIndex(40);
             }
         }
     }
 
-    public static void likedSuggestedUser(User user,User user2){
-        Set<UserFollowingConnection> followers= UserFollowingConnection.getFollowers(user2);
-        Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
+    public static void likedSuggestedUser(User user, User user2) {
+        Set<UserFollowingConnection> followers = UserFollowingConnection.getFollowers(user2);
+        Set<UserFollowingConnection> followings = UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            for(UserFollowingConnection connection2 : followers) {
-                if(connection.getObj2()==connection2.getObj1()){
+            for (UserFollowingConnection connection2 : followers) {
+                if (connection.getObj2().equals(connection2.getObj1())) {
                     connection.increasePromoIndex(10);
                 }
             }
         }
     }
 
-    public static void dislikedSuggestedUser(User user,User user2){
-        Set<UserFollowingConnection> followers= UserFollowingConnection.getFollowers(user2);
-        Set<UserFollowingConnection> followings= UserFollowingConnection.getFollowings(user);
+    public static void dislikedSuggestedUser(User user, User user2) {
+        Set<UserFollowingConnection> followers = UserFollowingConnection.getFollowers(user2);
+        Set<UserFollowingConnection> followings = UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : followings) {
-            for(UserFollowingConnection connection2 : followers) {
-                if(connection.getObj2()==connection2.getObj1()){
+            for (UserFollowingConnection connection2 : followers) {
+                if (connection.getObj2().equals(connection2.getObj1())) {
                     connection.decreasePromoIndex(10);
                 }
             }
         }
     }
 
-    public static Set<User> setScoreForUsers(User user){
-        Set<User> users=new LinkedHashSet<User>();
+    public static Set<User> setScoreForUsers(User user) {
+        Set<User> users = new LinkedHashSet<User>();
         Set<UserFollowingConnection> Followings = UserFollowingConnection.getFollowings(user);
         for (UserFollowingConnection connection : Followings) {
-            Set<UserFollowingConnection> followingsFollowings = UserFollowingConnection.getFollowings(connection.getObj2());
+            Set<UserFollowingConnection> followingsFollowings = UserFollowingConnection
+                    .getFollowings(connection.getObj2());
             for (UserFollowingConnection connectionConnection : followingsFollowings) {
                 users.add(connectionConnection.getObj2());
             }

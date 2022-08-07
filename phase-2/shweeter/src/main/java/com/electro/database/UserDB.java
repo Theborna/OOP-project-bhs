@@ -206,7 +206,7 @@ public class UserDB {
         int cnt = 0;
         Map<User, Integer> ret = new HashMap<>();
         while (rs.next() && (cnt < size || size == 0)) {
-            ret.put(getUserInfo(rs.getLong(1)), rs.getInt(4));
+            ret.put(getUserInfo(rs.getLong(2)), rs.getInt(4));
             cnt++;
         }
         rs.close();

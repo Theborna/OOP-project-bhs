@@ -25,8 +25,7 @@ public class UserFollowingConnection extends connection<User, User> {
     }
 
     public UserFollowingConnection(User obj1, User obj2) {
-        super(obj1, obj2);
-        promoIndex = 100;
+        this(obj1, obj2, 100);
     }
 
     public static Set<UserFollowingConnection> getFollowings(User user) {
@@ -93,12 +92,13 @@ public class UserFollowingConnection extends connection<User, User> {
         this.sendToDB();
     }
 
-    public static Set<User> getExploreUsers(User user) { // TODO: find appropriate users to show
+    public static Set<User> getExploreUsers(User user) {
         ArrayList<UserScore> userScores = UserScore.userScores(new ArrayList<User>(Suggestion.setScoreForUsers(user)),
                 user);
+        System.out.println(userScores);
         Collections.sort(userScores);
+        System.out.println(userScores);
         return new LinkedHashSet<User>(UserScore.getUsers(userScores));
-        // return getFeed(user.getId());
     }
 
     @Override

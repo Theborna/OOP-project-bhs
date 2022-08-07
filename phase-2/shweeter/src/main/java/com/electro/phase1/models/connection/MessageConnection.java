@@ -18,24 +18,12 @@ public class MessageConnection extends connection<Message, Chat> {
     }
 
     public static Set<Message> getMessages(Long chatId) {
-        // TODO: run query and shit
         Set<Message> messages = null;
         try {
             messages = new LinkedHashSet<>(MessageDB.getMessagesByChatID(chatId));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        User other = new NormalUser("sep", "14124");
-//        Message ziba = new Message(
-//                "khaste am va az badbakhti daram mimiram dige nemitoonam edame bedam in mozakhrafat ro riazi ham moonde",
-//                User.getCurrentUser());
-//        messages.add(ziba);
-//        messages.add(new Message("+++++", other).setReplyTo(ziba));
-//        messages.add(new Message("sammeeee", other).setReplyTo(ziba));
-//        for (int i = 0; i < 29; i++)
-//            messages.add(new Message(String.valueOf(i), (i % 2 == 0) ? User.getCurrentUser() : other));
-        // messages.addAll(MessageDB.)
-
         return messages;
     }
 

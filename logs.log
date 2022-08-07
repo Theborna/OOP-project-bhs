@@ -8179,3 +8179,175 @@ Aug 07, 2022 2:48:37 AM com.electro.phase1.util.Log init
 INFO: starting application
 Aug 07, 2022 2:48:39 AM com.electro.App start
 INFO: application started on phase-2
+Aug 07, 2022 4:28:47 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 4:28:49 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 4:30:05 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=2]
+Aug 07, 2022 4:30:06 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 4:30:06 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 4:30:06 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 4:30:07 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 4:30:07 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 4:30:07 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 4:30:07 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 4:30:07 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:03:24 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 7:03:26 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 7:05:18 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:05:18 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:05:18 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:05:18 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:05:19 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:05:19 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:05:19 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:05:19 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:05:29 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=2]
+Aug 07, 2022 7:05:29 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:05:29 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:05:29 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:05:30 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:05:30 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:05:30 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:05:30 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:05:30 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:27:03 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:27:03 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:27:03 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:27:04 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:27:04 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:27:04 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:27:04 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:27:04 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:27:19 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=2]
+Aug 07, 2022 7:27:19 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:27:19 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 07, 2022 7:27:19 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 07, 2022 7:27:37 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:27:37 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:27:41 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:29:26 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 7:29:28 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 7:29:41 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 07, 2022 7:29:44 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:39:21 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 07, 2022 7:39:23 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:39:25 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:39:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:39:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 07, 2022 7:39:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=7] ,value: 0
+Aug 07, 2022 7:40:20 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 7:40:22 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 7:57:05 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 7:57:06 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 7:57:18 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 7:57:19 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 8:03:40 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 8:03:41 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 8:09:14 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 8:09:16 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 8:09:28 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 07, 2022 8:09:30 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 07, 2022 8:09:31 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=9] ,value: 0
+Aug 07, 2022 8:10:34 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 8:10:36 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 8:10:49 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 8:10:50 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 8:11:03 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 07, 2022 9:50:22 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 9:50:23 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 9:51:26 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 9:51:28 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 9:53:37 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 9:53:38 PM com.electro.App start
+INFO: application started on phase-2
+Aug 07, 2022 9:54:24 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 07, 2022 9:54:26 PM com.electro.App start
+INFO: application started on phase-2
