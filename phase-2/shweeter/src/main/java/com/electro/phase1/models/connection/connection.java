@@ -11,7 +11,6 @@ public abstract class connection<E extends node, T extends node> extends node {
 
     private E obj1;
     private T obj2;
-    private int value;
 
     public connection(E obj1, T obj2) {
         this.obj1 = obj1;
@@ -37,11 +36,6 @@ public abstract class connection<E extends node, T extends node> extends node {
         return obj2;
     }
 
-    public Like setValue(int value) {
-        this.value = value;
-        return null;
-    }
-
     @Override
     public void sendToDB() {
 
@@ -51,6 +45,15 @@ public abstract class connection<E extends node, T extends node> extends node {
         if (a == null || b == null)
             return null;
         return (a + b - 2) * (a + b - 1) / 2 + a;
+    }
+
+    public static void main(String[] args) { // testing purposes
+        int size = 8;
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++)
+                System.out.print(PairingFunction(Long.valueOf(i), Long.valueOf(j)) + ", ");
+            System.out.println();
+        }
     }
 
 }

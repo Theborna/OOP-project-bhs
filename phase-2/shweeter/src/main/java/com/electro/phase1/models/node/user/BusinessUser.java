@@ -16,7 +16,6 @@ public class BusinessUser extends User {
 
     @Override
     public void Post(String post, Post inReplyTo) {
-        // TODO Auto-generated method stub
         Post newPost = new PromotedPost(post,this);
         newPost.setRepliedPost(inReplyTo);
         Log.logger.info("added post: " + newPost.toString());

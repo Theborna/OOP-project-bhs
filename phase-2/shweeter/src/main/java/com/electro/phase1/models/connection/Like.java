@@ -25,7 +25,6 @@ public class Like extends connection<Post, User> {
         super(obj1, obj2);
     }
 
-    @Override
     public Like setValue(int value) {
         this.value = value;
         return this;

@@ -6,7 +6,9 @@ public class PromotedPost extends Post {
 
     public PromotedPost(String text, User Sender) {
         super(text, Sender);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
+
+
 
 }
