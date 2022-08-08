@@ -198,6 +198,7 @@ public class MessageListView extends VBox {
 
     public void clearReply() {
         repliedTo = null;
+        editing = null;
         repliedName.set("");
         repliedMsg.set("");
     }
@@ -243,4 +244,5 @@ public class MessageListView extends VBox {
             editProperty = new SimpleBooleanProperty(false);
         return editProperty;
     }
+
 }

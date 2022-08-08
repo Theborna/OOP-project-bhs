@@ -8,6 +8,7 @@ import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.format;
+import com.electro.views.FileView;
 import com.electro.views.component.ProfilePopOver;
 
 import javafx.beans.property.BooleanProperty;
@@ -77,6 +78,14 @@ public class messageController {
         pfp.setImage(img = ((ImageNode) message.getSender().getProfilePhoto())
                 .getImage(height * img.getWidth() / img.getHeight(), height));
         pfp.setClip(new Circle(pfp.getFitWidth() / 2, pfp.getFitHeight() / 2, pfp.getFitHeight() / 2));
+        setMedia();
+    }
+
+    private void setMedia() {
+        if (message.getMd() == null)
+            mainPane.setBottom(null);
+        else
+            mainPane.setBottom(new FileView(message.getMd()));
     }
 
     private void setContext() {

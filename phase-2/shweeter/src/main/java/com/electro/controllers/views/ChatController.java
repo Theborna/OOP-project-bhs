@@ -7,12 +7,14 @@ import java.util.ResourceBundle;
 import com.electro.App;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.node.Chat;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.StdColor;
 import com.electro.phase1.util.StdOut;
 import com.electro.util.StretchTextArea;
 import com.electro.views.ChatListView;
+import com.electro.views.FileView;
 import com.electro.views.MessageListView;
 
 import de.jensd.shichimifx.utils.SplitPaneDividerSlider;
@@ -64,6 +66,8 @@ public class ChatController implements Initializable {
     @FXML
     private TextArea txtAMessage;
 
+    private ImageNode img;
+
     private BooleanProperty requestSettingsProperty;
 
     private void initChatItems() {
@@ -72,6 +76,7 @@ public class ChatController implements Initializable {
     }
 
     private void initMessages() {
+        img = null;
         MessageListView.getInstance().addAll();
         scrollMsg.setContent(MessageListView.getInstance());
         lblRepliedName.textProperty().bind(MessageListView.getInstance().getRepliedName());
@@ -127,6 +132,8 @@ public class ChatController implements Initializable {
     @FXML
     private void cancelReply() {
         MessageListView.getInstance().clearReply();
+        img = null;
+        bpReply.setBottom(null);
     }
 
     @FXML
@@ -138,14 +145,17 @@ public class ChatController implements Initializable {
         if (btn == btnMsgSend) {
             StringBuilder sb = new StringBuilder();
             sb.append(txtAMessage.getText());
-            post(sb, MessageListView.getInstance().getRepliedTo(), MessageListView.getInstance().getEditing());
+            post(sb, MessageListView.getInstance().getRepliedTo(), MessageListView.getInstance().getEditing(), img);
             txtAMessage.setText("");
+            img = null;
+            bpReply.setBottom(null);
         } else if (btn == btnMsgFile) {
-            File selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
+            img = new ImageNode(App.getPicChooser().showOpenDialog(App.getScene().getWindow()).getPath());
+            bpReply.setBottom(new FileView(img));
         }
     }
 
-    public void post(StringBuilder sb, Message inReply, Message edit) {
+    public void post(StringBuilder sb, Message inReply, Message edit, ImageNode img) {
         if (sb == null)
             return;
         Message message = null;
@@ -157,6 +167,7 @@ public class ChatController implements Initializable {
         }
         // TODO: set message data
         message.setReplyTo(inReply);
+        message.setMd(img);
         User.getCurrentUser().sendMessage(message);
         // println("message posted successfully", StdColor.GREEN);
 

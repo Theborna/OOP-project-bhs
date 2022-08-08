@@ -19859,3 +19859,49 @@ Aug 08, 2022 8:31:38 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post NormalPost[id=4] ,value: 0
 Aug 08, 2022 8:31:39 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post NormalPost[id=4] ,value: 0
+Aug 08, 2022 10:19:48 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 08, 2022 10:19:50 PM com.electro.App start
+INFO: application started on phase-2
+Aug 08, 2022 10:20:36 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 10:21:08 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=2]
+Aug 08, 2022 10:21:09 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 08, 2022 10:21:09 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 08, 2022 10:21:09 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 08, 2022 10:21:10 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 2
+Aug 08, 2022 10:21:10 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 2
+Aug 08, 2022 10:21:10 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 08, 2022 10:21:10 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 08, 2022 10:21:10 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 08, 2022 10:23:19 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 08, 2022 10:23:21 PM com.electro.App start
+INFO: application started on phase-2
+Aug 08, 2022 10:23:42 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 08, 2022 10:23:46 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 08, 2022 10:24:06 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 10:24:06 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 10:24:06 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 10:24:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=13] ,value: 0
+Aug 08, 2022 10:24:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 08, 2022 10:24:09 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 08, 2022 10:24:10 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=11] ,value: 0
