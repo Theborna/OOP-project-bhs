@@ -111,6 +111,7 @@ public class App extends Application {
         return new Image(App.class.getResource(url).toExternalForm());
     }
 
+
     class WindowButtons extends HBox {
         public WindowButtons() {
             Button closeBtn = new Button("X");

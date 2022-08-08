@@ -6,7 +6,6 @@ import java.util.regex.Matcher;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -75,7 +74,15 @@ public class TG extends TelegramLongPollingBot {
         try {
             execute(new SendMessage(update.getMessage().getChat().getId().toString(), answer));
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            new Thread(() -> {
+                try {
+                    Thread.sleep(100);// sleep time
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                } finally {
+                    post(update, answer);
+                }
+            }).start();
         } finally {
             System.out.println(answer);
         }
@@ -85,7 +92,15 @@ public class TG extends TelegramLongPollingBot {
         try {
             execute(new SendMessage(MAIN_CHAT, message));
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            new Thread(() -> {
+                try {
+                    Thread.sleep(100);// sleep time
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                } finally {
+                    sendMessage(message);
+                }
+            }).start();
         }
     }
 }

@@ -24,7 +24,6 @@ public class Post extends node implements TextBased {
     public Post(String text, User Sender) {
         this.text = new StringBuilder(text);
         sender = Sender;
-
     }
 
     public Media getMd() {

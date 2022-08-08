@@ -15,6 +15,8 @@ import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.Like;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
+import com.electro.phase1.models.node.ImageNode;
+import com.electro.phase1.models.node.Media;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.node;
 import com.electro.phase1.models.node.post.Post;
@@ -41,6 +43,7 @@ public abstract class User extends node {
     private Security secType;
     private String secAns;
     private LimitedList<Message> pastMsg;
+    private Media profilePhoto;
 
     public User(String username, String password) {
         this.username = username;
@@ -255,7 +258,7 @@ public abstract class User extends node {
         return currentUser;
     }
 
-    public abstract void Post(String post, Post inReplyTo);
+    public abstract void Post(String post, Post inReplyTo, Media media);
 
     public String getUsername() {
         return username;
@@ -349,8 +352,6 @@ public abstract class User extends node {
 
     @Override
     public void sendToDB() {
-        // TODO: send the user to the database, register
-        // System.out.println("heyuylg");
         try {
             UserDB.sendToDB(this);
         } catch (SQLException e) {
@@ -361,5 +362,15 @@ public abstract class User extends node {
     public User setPassword(String password) {
         this.password = password;
         return this;
+    }
+
+    public void setProfilePhoto(Media profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
+
+    public Media getProfilePhoto() {
+        if (profilePhoto == null)
+            return ImageNode.DEFAULT_PFP;
+        return profilePhoto;
     }
 }

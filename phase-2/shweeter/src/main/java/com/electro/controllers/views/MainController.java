@@ -10,6 +10,7 @@ import com.electro.controllers.components.postController;
 import com.electro.phase1.models.connection.ChatUserConnection;
 import com.electro.phase1.models.connection.PostUserConnection;
 import com.electro.phase1.models.node.Chat;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.user.User;
 import com.electro.util.FunctionalListview;
 import com.electro.util.ResponsiveHBox;
@@ -52,10 +53,13 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 import jfxtras.styles.jmetro.JMetro;
@@ -94,6 +98,12 @@ public class MainController implements Initializable {
     @FXML
     private Label lblLogo;
 
+    @FXML
+    private Label lblFollowing, lblFollowers, lblUsername, lblName;
+
+    @FXML
+    private ImageView ivPfp;
+
     // @FXML
     // private BorderPane bpChatsToForward;
 
@@ -119,6 +129,7 @@ public class MainController implements Initializable {
         initSlidingPane();
         initPosts();
         initForward();
+        initSideInfo();
         // adding all the panes, kinda duplicated but cant be bothered to do better
         pnNewChat = new CreateChatView();
         stackPanes.getChildren().add(pnNewChat);
@@ -155,6 +166,17 @@ public class MainController implements Initializable {
         });
         SearchController.setOnProfileRequest(user -> switchToRight(pnProfile.withUser(user)));
         FunctionalListview.setShowPage(user -> switchToRight(pnProfile.withUser(user)));
+    }
+
+    private void initSideInfo() {
+        lblName.setText(User.getCurrentUser().getName());
+        lblUsername.setText(User.getCurrentUser().getUsername());
+        lblFollowing.setText(User.getCurrentUser().getFollowingCnt() + "");
+        lblFollowers.setText(User.getCurrentUser().getFollowerCnt() + "");
+        Image img = ((ImageNode) User.getCurrentUser().getProfilePhoto()).getImage();
+        ivPfp.setImage(((ImageNode) User.getCurrentUser().getProfilePhoto())
+                .getImage(100 * img.getWidth() / img.getHeight(), 100));
+        ivPfp.setClip(new Circle(ivPfp.getFitWidth() / 2, ivPfp.getFitHeight() / 2, ivPfp.getFitHeight() / 2));
     }
 
     private void initForward() {

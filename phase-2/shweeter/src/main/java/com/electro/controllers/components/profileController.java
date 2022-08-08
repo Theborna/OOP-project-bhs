@@ -1,5 +1,6 @@
 package com.electro.controllers.components;
 
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.user.BusinessUser;
 import com.electro.phase1.models.node.user.User;
 
@@ -12,7 +13,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 public class profileController {
@@ -58,6 +61,12 @@ public class profileController {
             btnFollow.setText("follow");
         if (infoRequest == null)
             infoRequest = new SimpleBooleanProperty(false);
+        Image img = ((ImageNode) user.getProfilePhoto()).getImage();
+        double height = ivProfile.getFitHeight();
+        ivProfile.setImage(((ImageNode) user.getProfilePhoto())
+                .getImage(height * img.getWidth() / img.getHeight(), height));
+        ivProfile.setClip(
+                new Circle(ivProfile.getFitWidth() / 2, ivProfile.getFitHeight() / 2, ivProfile.getFitHeight() / 2));
     }
 
     @FXML

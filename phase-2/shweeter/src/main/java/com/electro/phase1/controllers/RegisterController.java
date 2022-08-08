@@ -1,11 +1,14 @@
 package com.electro.phase1.controllers;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.electro.phase1.AppRegex;
 import com.electro.phase1.enums.Security;
+import com.electro.phase1.models.node.ImageNode;
+import com.electro.phase1.models.node.Media;
 import com.electro.phase1.models.node.user.BusinessUser;
 import com.electro.phase1.models.node.user.NormalUser;
 import com.electro.phase1.models.node.user.User;
@@ -20,6 +23,7 @@ public class RegisterController extends LoginController {
     private Security securityQ;
     private String securityAns;
     private String email, fullName;
+    private Media pfp;
 
     public RegisterController() {
         super();
@@ -91,6 +95,7 @@ public class RegisterController extends LoginController {
         user.setEmail(email);
         user.setName(fullName);
         user.setSalt(salt);
+        user.setProfilePhoto(pfp);
         user.sendToDB(); // TODO: update controller
     }
 
@@ -117,5 +122,11 @@ public class RegisterController extends LoginController {
             return false;
         fullName = text;
         return true;
+    }
+
+    public void setPfp(File pfp) {
+        if (pfp == null)
+            return;
+        this.pfp = new ImageNode(pfp.getPath());
     }
 }

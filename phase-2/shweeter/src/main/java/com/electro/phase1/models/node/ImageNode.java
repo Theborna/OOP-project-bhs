@@ -4,12 +4,15 @@ import com.electro.App;
 import com.electro.phase1.enums.MediaType;
 import com.electro.phase1.models.node.user.User;
 
+import javafx.scene.image.Image;
+
 public class ImageNode extends Media {
+    public static final ImageNode DEFAULT_PFP = new ImageNode(
+            App.class.getResource("icons/icons8_github_512px_1.png").toExternalForm());
 
     public ImageNode(String address) {
         super(address);
         setMt(MediaType.Image);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -18,8 +21,11 @@ public class ImageNode extends Media {
 
     }
 
-    public javafx.scene.image.Image getImage() {
-        return App.getImage("images/icons8_info_96px.png");// TODO
+    public Image getImage(double width, double height) {
+        return new Image(address, width, height, false, true);
     }
 
+    public Image getImage() {
+        return new Image(address);
+    }
 }

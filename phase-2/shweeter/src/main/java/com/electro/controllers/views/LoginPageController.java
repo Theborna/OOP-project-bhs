@@ -87,8 +87,11 @@ public class LoginPageController implements Initializable {
     private AnchorPane inFront;
     private JMetro metro;
 
+    private File selectedFile;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        selectedFile = null;
         initButton(btnForgot);
         initButton(btnSignIn);
         initButton(btnSignUp);
@@ -204,7 +207,7 @@ public class LoginPageController implements Initializable {
 
     @FXML
     private void browsePfp() {
-        File selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
+        selectedFile = App.getPicChooser().showOpenDialog(App.getScene().getWindow());
     }
 
     private boolean register() {
@@ -214,7 +217,7 @@ public class LoginPageController implements Initializable {
         new FieldEmptyError(txtPass);
         new FieldEmptyError(txtPassConf);
         new FieldEmptyError(txtEmail);
-        // new FieldEmptyError(txtSecurityAns);
+        controller.setPfp(selectedFile);
         Security s;
         controller.setSecurityQ(s = Security.getQuestion(chosenSecurityQ.get()));
         if (s == null) {

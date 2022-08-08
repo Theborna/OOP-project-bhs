@@ -1,11 +1,16 @@
 package com.electro.controllers.views;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import org.controlsfx.control.ToggleSwitch;
 
+import com.electro.App;
+import com.electro.database.MediaDB;
 import com.electro.phase1.AppRegex;
+import com.electro.phase1.models.node.ImageNode;
+import com.electro.phase1.models.node.Media;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.crypt;
 import com.electro.views.component.ErrorNotification;
@@ -32,6 +37,7 @@ public class SettingsController implements Initializable {
     private StringProperty email;
     private String bio;
     private BooleanProperty visible;
+    private Media pfp;
 
     @FXML
     private Button btnConfirm;
@@ -53,16 +59,24 @@ public class SettingsController implements Initializable {
     public void init() {
         username.set(user.getUsername());
         email.set(user.getEmail());
-        password.set(user.getPassword());
+        // password.set(user.getPassword());
         name.set(user.getName());
         visible.set(user.isPublic());
+        pfp = user.getProfilePhoto();
     }
 
     public void confirm() {// TODO : complete these
         user.setName(name.get());
-        user.setPassword(crypt.encryptedString(password.get() + user.getSalt()));
+        if (password.get() != null)
+            user.setPassword(crypt.encryptedString(password.get() + user.getSalt()));
         user.setUsername(username.get());
         user.setPublic(visible.get());
+        try {
+            pfp.setId(MediaDB.newMedia(pfp));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        user.setProfilePhoto(pfp);
         user.sendToDB();
         new InfoNotification("changes made successfully");
     }
@@ -82,6 +96,8 @@ public class SettingsController implements Initializable {
     }
 
     public boolean setPassword(String password) {
+        if (password == null)
+            return true;
         if (!AppRegex.PASSWORD.matches(password))
             return false;
         this.password.set(password);
@@ -143,4 +159,8 @@ public class SettingsController implements Initializable {
         visible.addListener((a, old, niu) -> System.out.println(niu));
     }
 
+    @FXML
+    private void choosePic() {
+        pfp = new ImageNode(App.getPicChooser().showOpenDialog(App.getScene().getWindow()).getPath());
+    }
 }

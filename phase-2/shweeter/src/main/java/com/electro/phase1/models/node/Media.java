@@ -36,5 +36,33 @@ public abstract class Media extends node {
         
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((address == null) ? 0 : address.hashCode());
+        result = prime * result + ((mt == null) ? 0 : mt.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Media other = (Media) obj;
+        if (address == null) {
+            if (other.address != null)
+                return false;
+        } else if (!address.equals(other.address))
+            return false;
+        if (mt != other.mt)
+            return false;
+        return true;
+    }
+
     
 }

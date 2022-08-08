@@ -72,11 +72,12 @@ public class ComposeController {
 
     private void post() {
         String text = txtPost.getText();
-        if (text.length() == 0)
+        if (text.length() == 0) {
             new ErrorNotification("post cannot be empty");
-        // } else if (AppRegex.P/ )
+            return;
+        }
         finishedProperty.set(true);
-        User.getCurrentUser().Post(text, inReply);
+        User.getCurrentUser().Post(text, inReply, ((file == null) ? null : new ImageNode(file.getPath())));
         new InfoNotification("post sent successfully");
     }
 

@@ -43,7 +43,7 @@ public class UserDB {
                 "', " + Integer.toString(user.getUserType()) + ", " + ((user.isPublic()) ? "1" : "0") + ", 0,0,0,'"
                 + user.getName() + "','" + user.getLastName() +
                 "', '" + user.getEmail() + "', 0, " + user.getSecType().ordinal() + ", '" + user.getSecAns()
-                + "', '1')";// TODO: add pfp
+                + "', '" + ((user.getProfilePhoto() == null) ? 0 : MediaDB.newMedia(user.getProfilePhoto())) + "')";
         // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
@@ -56,7 +56,9 @@ public class UserDB {
                 "US_Salt = '" + user.getSalt() + "', US_Type = " + Integer.toString(user.getUserType()) + "" +
                 ", US_Visibilty = " + ((user.isPublic()) ? "1" : "0") + ", US_Name = '" + user.getName() + "'" +
                 ", US_LastName = '" + user.getLastName() + "', US_Email = '" + user.getLastName() +
-                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) + " where US_ID = " + user.getId()
+                "', US_PromotionIndex = " + Double.toString(user.getPromoindex()) +
+                ", us_pic_id = " + user.getProfilePhoto().getId() +
+                " where US_ID = " + user.getId()
                 + ";";
         // System.out.println(query);
         con.createStatement().execute(query);
@@ -75,41 +77,26 @@ public class UserDB {
         // 0 -> normal user
         // 1 -> buisness user
 
-        if (userType == 0) {
-            // System.out.println(userType);
+        if (userType == 0)
             us = new NormalUser(rs.getString(2), rs.getString(3));
-            us.setUS_ID(rs.getLong(1));
-            us.setSalt(rs.getString(4));
-            us.setBirthDate(rs.getDate(5));
-            us.setUserType(userType);
-            us.setPublic(rs.getBoolean(7));
-            us.setFollowerCnt(rs.getInt(8));
-            us.setFollowingCnt(rs.getInt(9));
-            us.setPostCnt(rs.getInt(10));
-            us.setName(rs.getString(11));
-            us.setLastName(rs.getString(12));
-            us.setEmail(rs.getString(13));
-            us.setPromoindex(rs.getDouble(14));
-            us.setSecType(Security.values()[rs.getInt(15)]);
-            us.setSecAns(rs.getString(16));
-        } else {
-            // System.out.println(userType);
+        else
             us = new BusinessUser(rs.getString(2), rs.getString(3));
-            us.setUS_ID(rs.getLong(1));
-            us.setSalt(rs.getString(4));
-            us.setBirthDate(rs.getDate(5));
-            us.setUserType(userType);
-            us.setPublic(rs.getBoolean(7));
-            us.setFollowerCnt(rs.getInt(8));
-            us.setFollowingCnt(rs.getInt(9));
-            us.setPostCnt(rs.getInt(10));
-            us.setName(rs.getString(11));
-            us.setLastName(rs.getString(12));
-            us.setEmail(rs.getString(13));
-            us.setPromoindex(rs.getDouble(14));
-            us.setSecType(Security.values()[rs.getInt(15)]);
-            us.setSecAns(rs.getString(16));
-        }
+        us.setUS_ID(rs.getLong(1));
+        us.setSalt(rs.getString(4));
+        us.setBirthDate(rs.getDate(5));
+        us.setUserType(userType);
+        us.setPublic(rs.getBoolean(7));
+        us.setFollowerCnt(rs.getInt(8));
+        us.setFollowingCnt(rs.getInt(9));
+        us.setPostCnt(rs.getInt(10));
+        us.setName(rs.getString(11));
+        us.setLastName(rs.getString(12));
+        us.setEmail(rs.getString(13));
+        us.setPromoindex(rs.getDouble(14));
+        us.setSecType(Security.values()[rs.getInt(15)]);
+        us.setSecAns(rs.getString(16));
+        if (rs.getLong(17) != 0)
+            us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         rs.close();
         st.close();
         con.close();
@@ -130,40 +117,25 @@ public class UserDB {
         // 1 -> buisness user
 
         if (userType == 0) {
-            // System.out.println(userType);
             us = new NormalUser(rs.getString(2), rs.getString(3));
-            us.setUS_ID(rs.getLong(1));
-            us.setSalt(rs.getString(4));
-            us.setBirthDate(rs.getDate(5));
-            us.setUserType(userType);
-            us.setPublic(rs.getBoolean(7));
-            us.setFollowerCnt(rs.getInt(8));
-            us.setFollowingCnt(rs.getInt(9));
-            us.setPostCnt(rs.getInt(10));
-            us.setName(rs.getString(11));
-            us.setLastName(rs.getString(12));
-            us.setEmail(rs.getString(13));
-            us.setPromoindex(rs.getDouble(14));
-            us.setSecType(Security.values()[rs.getInt(15)]);
-            us.setSecAns(rs.getString(16));
-        } else {
-            // System.out.println(userType);
+        } else
             us = new BusinessUser(rs.getString(2), rs.getString(3));
-            us.setUS_ID(rs.getLong(1));
-            us.setSalt(rs.getString(4));
-            us.setBirthDate(rs.getDate(5));
-            us.setUserType(userType);
-            us.setPublic(rs.getBoolean(7));
-            us.setFollowerCnt(rs.getInt(8));
-            us.setFollowingCnt(rs.getInt(9));
-            us.setPostCnt(rs.getInt(10));
-            us.setName(rs.getString(11));
-            us.setLastName(rs.getString(12));
-            us.setEmail(rs.getString(13));
-            us.setPromoindex(rs.getDouble(14));
-            us.setSecType(Security.values()[rs.getInt(15)]);
-            us.setSecAns(rs.getString(16));
-        }
+        us.setUS_ID(rs.getLong(1));
+        us.setSalt(rs.getString(4));
+        us.setBirthDate(rs.getDate(5));
+        us.setUserType(userType);
+        us.setPublic(rs.getBoolean(7));
+        us.setFollowerCnt(rs.getInt(8));
+        us.setFollowingCnt(rs.getInt(9));
+        us.setPostCnt(rs.getInt(10));
+        us.setName(rs.getString(11));
+        us.setLastName(rs.getString(12));
+        us.setEmail(rs.getString(13));
+        us.setPromoindex(rs.getDouble(14));
+        us.setSecType(Security.values()[rs.getInt(15)]);
+        us.setSecAns(rs.getString(16));
+        if (rs.getLong(17) != 0)
+            us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
         rs.close();
         st.close();
         con.close();
@@ -215,8 +187,7 @@ public class UserDB {
         return ret;
     }
 
-    // If the userID does not wxists it will return zero as the id :)
-
+    // If the userID does not exists it will return zero as the id :)
     public static int getPromoIndexFromFollowingsDB(long followingID, long currentUserID) throws SQLException {
         Connection con = getConnection();
         Statement st = con.createStatement();
@@ -243,41 +214,26 @@ public class UserDB {
             // 0 -> normal user
             // 1 -> buisness user
             User us;
-            if (userType == 0) {
-                // System.out.println(userType);
+            if (userType == 0)
                 us = new NormalUser(rs.getString(2), rs.getString(3));
-                us.setUS_ID(rs.getLong(1));
-                us.setSalt(rs.getString(4));
-                us.setBirthDate(rs.getDate(5));
-                us.setUserType(userType);
-                us.setPublic(rs.getBoolean(7));
-                us.setFollowerCnt(rs.getInt(8));
-                us.setFollowingCnt(rs.getInt(9));
-                us.setPostCnt(rs.getInt(10));
-                us.setName(rs.getString(11));
-                us.setLastName(rs.getString(12));
-                us.setEmail(rs.getString(13));
-                us.setPromoindex(rs.getDouble(14));
-                us.setSecType(Security.values()[rs.getInt(15)]);
-                us.setSecAns(rs.getString(16));
-            } else {
-                // System.out.println(userType);
+            else
                 us = new BusinessUser(rs.getString(2), rs.getString(3));
-                us.setUS_ID(rs.getLong(1));
-                us.setSalt(rs.getString(4));
-                us.setBirthDate(rs.getDate(5));
-                us.setUserType(userType);
-                us.setPublic(rs.getBoolean(7));
-                us.setFollowerCnt(rs.getInt(8));
-                us.setFollowingCnt(rs.getInt(9));
-                us.setPostCnt(rs.getInt(10));
-                us.setName(rs.getString(11));
-                us.setLastName(rs.getString(12));
-                us.setEmail(rs.getString(13));
-                us.setPromoindex(rs.getDouble(14));
-                us.setSecType(Security.values()[rs.getInt(15)]);
-                us.setSecAns(rs.getString(16));
-            }
+            us.setUS_ID(rs.getLong(1));
+            us.setSalt(rs.getString(4));
+            us.setBirthDate(rs.getDate(5));
+            us.setUserType(userType);
+            us.setPublic(rs.getBoolean(7));
+            us.setFollowerCnt(rs.getInt(8));
+            us.setFollowingCnt(rs.getInt(9));
+            us.setPostCnt(rs.getInt(10));
+            us.setName(rs.getString(11));
+            us.setLastName(rs.getString(12));
+            us.setEmail(rs.getString(13));
+            us.setPromoindex(rs.getDouble(14));
+            us.setSecType(Security.values()[rs.getInt(15)]);
+            us.setSecAns(rs.getString(16));
+            if (rs.getLong(17) != 0)
+                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             ret.add(us);
         }
         rs.close();

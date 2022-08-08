@@ -36,7 +36,7 @@ public class crypt {
         return hexString.toString();
     }
 
-    public static String encryptedString(String input)  {
+    public static String encryptedString(String input) {
         try {
             return toHexString(getSHA(input));
         } catch (NoSuchAlgorithmException e) {
@@ -68,7 +68,7 @@ public class crypt {
         return cipher.doFinal(message);
     }
 
-    public static byte[] decryptMessage(byte[] encryptedMessage, byte[] keyBytes) //TODO: bug dare
+    public static byte[] decryptMessage(byte[] encryptedMessage, byte[] keyBytes) // TODO: bug dare
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException,
             BadPaddingException, IllegalBlockSizeException {
 
@@ -85,18 +85,19 @@ public class crypt {
     }
 
     public static void main(String[] args) throws Exception { // testing purposes
-        String randomString = salt();
-        String key = "D*G-KaNdRgUkXp2s", keyedEnc;
-        System.out.println("salt: " + randomString);
-        System.out.println(encryptedString("borna").toCharArray().length);
-        System.out.println(encryptedString("borna1").toCharArray().length);
-        System.out.println(encryptedString("hossein").toCharArray().length);
-        System.out.println(encryptedString("islhioashfioashfioashfioashfiohasiofhas").toCharArray().length);
-        // System.out.println(encryptedString("borna" + randomString));
-        System.out.println("key: " + key);
-        System.out.println(encryptedString("borna"));
-        System.out.println(encryptedString("borna"));
-        System.out.println(keyedEnc = encryptedStringKeyed("borna", key));
-        System.out.println(decryptedStringKeyed(keyedEnc, key));
+        // String randomString = salt();
+        // String key = "D*G-KaNdRgUkXp2s", keyedEnc;
+        // System.out.println("salt: " + randomString);
+        // System.out.println(encryptedString("borna").toCharArray().length);
+        // System.out.println(encryptedString("borna1").toCharArray().length);
+        // System.out.println(encryptedString("hossein").toCharArray().length);
+        // System.out.println(encryptedString("islhioashfioashfioashfioashfiohasiofhas").toCharArray().length);
+        // // System.out.println(encryptedString("borna" + randomString));
+        // System.out.println("key: " + key);
+        // System.out.println(encryptedString("borna"));
+        // System.out.println(encryptedString("borna"));
+        // System.out.println(keyedEnc = encryptedStringKeyed("borna", key));
+        // System.out.println(decryptedStringKeyed(keyedEnc, key));
+
     }
 }

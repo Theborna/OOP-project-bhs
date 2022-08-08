@@ -10,29 +10,40 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.*;
+import java.util.regex.Matcher;
 
 public class MediaDB {
     private MediaDB() {
     }
 
-    private static String saveto(Media m) {
-        String path = "D:/content/";
-        File f = new File(path + System.currentTimeMillis());
+    private static String saveTo(Media m) {
+        String path = "F:/code/Java OOP/final project/content/";
+        File g = new File(m.getAddress());
+        String extension = "";
+        int i = g.getName().lastIndexOf('.');
+        if (i >= 0)
+            extension = g.getName().substring(i);
+        File f = new File(path + System.currentTimeMillis() + extension);
         try {
-            Files.copy(new File(m.getAddress()).toPath(), f.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(g.toPath(), f.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return f.getPath();
+        return f.getPath().replaceAll(Matcher.quoteReplacement("\\"), Matcher.quoteReplacement("\\\\"));
     }
 
     public static long newMedia(Media media) throws SQLException {
-        Connection con = DBInfo.getConnection("Media inserted!");
-        PreparedStatement st = con.prepareStatement("insert into media values(NULL, '" + saveto(media) + "',"
+        Connection con = DBInfo.getConnection();
+        PreparedStatement st = con.prepareStatement("insert into media values(NULL, '" + saveTo(media) + "',"
                 + media.getMt().ordinal() + ")", Statement.RETURN_GENERATED_KEYS);
+        st.execute();
         ResultSet rs = st.getGeneratedKeys();
         while (rs.next()) {
-            return rs.getLong(1);
+            long ans = rs.getLong(1);
+            rs.close();
+            st.close();
+            con.close();
+            return ans;
         }
         rs.close();
         st.close();
@@ -41,7 +52,7 @@ public class MediaDB {
     }
 
     public static Media getMedia(long mID) throws SQLException {
-        Connection con = DBInfo.getConnection("media selection id = " + mID);
+        Connection con = DBInfo.getConnection();
         String query = "select * from media where id = " + mID;
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(query);
@@ -61,6 +72,5 @@ public class MediaDB {
         con.close();
         return md;
     }
-
 
 }

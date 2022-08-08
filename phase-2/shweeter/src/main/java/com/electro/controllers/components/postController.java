@@ -3,10 +3,12 @@ package com.electro.controllers.components;
 import java.util.Set;
 import java.util.function.Consumer;
 
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.post.Post;
 import com.electro.phase1.models.node.post.PromotedPost;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.format;
+import com.electro.views.FileView;
 import com.electro.views.PostListView;
 import com.electro.views.component.PostStatsPopOver;
 import com.electro.views.component.ProfilePopOver;
@@ -26,10 +28,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -77,8 +81,27 @@ public class postController {
         bpMain.setOnMouseEntered(evt -> User.getCurrentUser().view(post));
         if (post.getRepliedPost() == null)
             bpPost.setTop(null);
-        else 
+        else
             lblReply.setText("in reply to " + post.getRepliedPost().getSender().getUsername());
+        setPfp();
+        setMedia();
+    }
+
+    private void setPfp() {
+        Image img = ((ImageNode) post.getSender().getProfilePhoto()).getImage();
+        double height = ivProfilePic.getFitHeight();
+        ivProfilePic.setImage(img = ((ImageNode) post.getSender().getProfilePhoto())
+                .getImage(height * img.getWidth() / img.getHeight(), height));
+        ivProfilePic.setClip(
+                new Circle(ivProfilePic.getFitWidth() / 2, ivProfilePic.getFitHeight() / 2,
+                        ivProfilePic.getFitHeight() / 2));
+    }
+
+    private void setMedia() {
+        if(post.getMd() == null)
+            bpMsg.setBottom(null);
+        else
+            bpMsg.setBottom(new FileView(post.getMd()));
     }
 
     @FXML

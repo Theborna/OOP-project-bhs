@@ -1,6 +1,7 @@
 package com.electro.controllers.views;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.electro.App;
 import com.electro.controllers.components.postController;
@@ -17,6 +18,8 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -122,6 +125,11 @@ public class ProfilePageController {
                         nodes.add(node_);
                         Thread.sleep(60);// resting
                     }
+                    // Platform.runLater(() -> {
+                    //     ObservableList<Node> workingCollection = FXCollections.observableArrayList(super.getChildren());
+                    //     Collections.swap(workingCollection, 0, 1);
+                    //     super.getChildren().setAll(workingCollection);
+                    // });
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

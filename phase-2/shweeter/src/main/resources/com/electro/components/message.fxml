@@ -19,17 +19,9 @@
          <children>
             <HBox prefHeight="37.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
-                  <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="70.0" styleClass="text18" text=":\Name\" textFill="#c1ff80">
+                  <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="text18" text=":\Name\" textFill="#c1ff80">
                      <font>
                         <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="date" minHeight="50.0" styleClass="text14" text="Today at 11:42 &gt;" textFill="#bcbcbc">
-                     <font>
-                        <Font size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets />
@@ -41,6 +33,14 @@
                      </padding>
                   </Label>
                   <Label fx:id="lblForward" maxHeight="1.7976931348623157E308" styleClass="text14" text="Hossein" />
+                  <Label fx:id="date" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" styleClass="text14" text="Today at 11:42 &gt;" textFill="#bcbcbc" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <TextFlow fx:id="msgText" prefWidth="200.0">
@@ -57,7 +57,7 @@
    <left>
       <AnchorPane prefHeight="73.0" prefWidth="76.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="pfp" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+            <ImageView fx:id="pfp" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                <image>
                   <Image url="@../icons/icons8_github_512px_1.png" />
                </image>

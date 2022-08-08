@@ -67,6 +67,33 @@
                      </BorderPane.margin>
                   </TextFlow>
                </center>
+               <bottom>
+                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" styleClass="choosePane" BorderPane.alignment="CENTER">
+                     <left>
+                        <AnchorPane BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                           <children>
+                              <ImageView fx:id="ivImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icons/icons8_github_512px_1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </left>
+                     <center>
+                        <Button fx:id="btnShow" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="text24" text="Click to show content" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </bottom>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
             </BorderPane>
          </center>
          <bottom>
@@ -123,7 +150,7 @@
          <left>
             <VBox BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="ivProfilePic" fitHeight="150.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ivProfilePic" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true">
                      <image>
                         <Image url="@../images/jimmy-fallon.png" />
                      </image>

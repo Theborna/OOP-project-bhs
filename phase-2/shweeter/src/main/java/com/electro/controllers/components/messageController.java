@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import com.electro.database.ChatDB;
 import com.electro.database.MessageDB;
+import com.electro.phase1.models.node.ImageNode;
 import com.electro.phase1.models.node.Message;
 import com.electro.phase1.models.node.user.User;
 import com.electro.phase1.util.format;
@@ -17,11 +18,13 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -69,6 +72,11 @@ public class messageController {
             mainPane.setTop(null);
         new ProfilePopOver(pfp, message.getSender());
         setContext();
+        Image img = ((ImageNode) message.getSender().getProfilePhoto()).getImage();
+        double height = pfp.getFitHeight();
+        pfp.setImage(img = ((ImageNode) message.getSender().getProfilePhoto())
+                .getImage(height * img.getWidth() / img.getHeight(), height));
+        pfp.setClip(new Circle(pfp.getFitWidth() / 2, pfp.getFitHeight() / 2, pfp.getFitHeight() / 2));
     }
 
     private void setContext() {
