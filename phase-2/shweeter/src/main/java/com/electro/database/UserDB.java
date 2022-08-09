@@ -303,15 +303,23 @@ public class UserDB {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(
-                "select * from block where user_id = " + userID);
+                "select * from block where blocked_id = " + userID);
         ArrayList<Long> ret = new ArrayList<>();
         while (rs.next()) {
-            ret.add(rs.getLong(2))
+            ret.add(rs.getLong(1));
         }
         rs.close();
         st.close();
         con.close();
         return ret;
+    }
+
+    public static void Unblock(long currentUser, long touBlock) throws SQLException {
+        Connection con = getConnection();
+        String query = "delete from block where user_id = " + currentUser + " and blocked_id = " + touBlock;// TODO: add pfp
+        // System.out.println(query);
+        con.createStatement().execute(query);
+        con.close();
     }
 
 }
