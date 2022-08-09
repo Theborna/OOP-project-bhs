@@ -209,7 +209,10 @@ public class UserDB {
         ResultSet rs = st.executeQuery(
                 "select * from users where US_USName like '%" + entry + "%' or US_Name like '%" + entry + "%';");
         ArrayList<User> ret = new ArrayList<>();
+        ArrayList<Long> blocked = getBlockedUsers(userid);
         while (rs.next()) {
+            if (blocked.contains(rs.getLong(1)))
+                continue;
             int userType = rs.getInt(6);
             // 0 -> normal user
             // 1 -> buisness user
@@ -236,7 +239,6 @@ public class UserDB {
                 us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
             ret.add(us);
         }
-        ret.removeAll(getBlockedUsers(userid));
         rs.close();
         st.close();
         con.close();
@@ -290,19 +292,18 @@ public class UserDB {
     public static void block(User currentUser, User toBlock) throws SQLException {
         Connection con = getConnection(currentUser + " blocked " + toBlock);
         String query = "insert into block values(" + currentUser.getId() + "," + toBlock.getId() + ")";// TODO: add pfp
-        // System.out.println(query);
         con.createStatement().execute(query);
         con.close();
     }
 
-    public static ArrayList<User> getBlockedUsers(long userID) throws SQLException {
+    public static ArrayList<Long> getBlockedUsers(long userID) throws SQLException {
         Connection con = getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(
                 "select * from block where user_id = " + userID);
-        ArrayList<User> ret = new ArrayList<>();
+        ArrayList<Long> ret = new ArrayList<>();
         while (rs.next()) {
-            ret.add(UserDB.getUserInfo(rs.getLong(2)));
+            ret.add((rs.getLong(2)));
         }
         rs.close();
         st.close();
