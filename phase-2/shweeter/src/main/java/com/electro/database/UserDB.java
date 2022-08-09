@@ -288,7 +288,7 @@ public class UserDB {
     }
 
     public static void block(User currentUser, User toBlock) throws SQLException {
-        Connection con = getConnection();
+        Connection con = getConnection(currentUser + " blocked " + toBlock);
         String query = "insert into block values(" + currentUser.getId() + "," + toBlock.getId() + ")";// TODO: add pfp
         // System.out.println(query);
         con.createStatement().execute(query);
@@ -302,31 +302,7 @@ public class UserDB {
                 "select * from block where user_id = " + userID);
         ArrayList<User> ret = new ArrayList<>();
         while (rs.next()) {
-            int userType = rs.getInt(6);
-            // 0 -> normal user
-            // 1 -> buisness user
-            User us;
-            if (userType == 0)
-                us = new NormalUser(rs.getString(2), rs.getString(3));
-            else
-                us = new BusinessUser(rs.getString(2), rs.getString(3));
-            us.setUS_ID(rs.getLong(1));
-            us.setSalt(rs.getString(4));
-            us.setBirthDate(rs.getDate(5));
-            us.setUserType(userType);
-            us.setPublic(rs.getBoolean(7));
-            us.setFollowerCnt(rs.getInt(8));
-            us.setFollowingCnt(rs.getInt(9));
-            us.setPostCnt(rs.getInt(10));
-            us.setName(rs.getString(11));
-            us.setLastName(rs.getString(12));
-            us.setEmail(rs.getString(13));
-            us.setPromoindex(rs.getDouble(14));
-            us.setSecType(Security.values()[rs.getInt(15)]);
-            us.setSecAns(rs.getString(16));
-            if (rs.getLong(17) != 0)
-                us.setProfilePhoto(MediaDB.getMedia(rs.getLong(17)));
-            ret.add(us);
+            ret.add(UserDB.getUserInfo(rs.getLong(2)));
         }
         rs.close();
         st.close();

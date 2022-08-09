@@ -20201,3 +20201,19 @@ Aug 09, 2022 5:30:31 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post PromotedPost[id=12] ,value: 0
 Aug 09, 2022 5:30:32 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:33:43 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:33:44 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:34:07 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=10] ,value: 0
+Aug 09, 2022 5:34:07 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=10] ,value: 0
+Aug 09, 2022 5:34:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=10] ,value: 0
+Aug 09, 2022 5:34:10 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=10] ,value: 0
+Aug 09, 2022 5:34:53 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=10] ,value: 0
+Aug 09, 2022 5:35:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=2] ,value: 0
