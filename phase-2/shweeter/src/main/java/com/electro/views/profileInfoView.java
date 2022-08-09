@@ -12,7 +12,7 @@ public class profileInfoView extends inPane {
     }
 
     public profileInfoView withUser(User user) {
-        controller = getController("prof-info");
+        controller = getController("components/prof-info");
         controller.initialize(user);
         return this;
     }

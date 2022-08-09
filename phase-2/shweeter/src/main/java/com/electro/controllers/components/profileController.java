@@ -76,7 +76,8 @@ public class profileController {
 
     @FXML
     void Block(ActionEvent event) {
-        // User.getCurrentUser().unfollow(user); TODO
+        User.getCurrentUser().unfollow(user);
+        User.getCurrentUser().block(user);
     }
 
     @FXML

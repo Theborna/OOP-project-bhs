@@ -19905,3 +19905,299 @@ Aug 08, 2022 10:24:09 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post NormalPost[id=12] ,value: 0
 Aug 08, 2022 10:24:10 PM com.electro.phase1.models.node.user.User view
 INFO: viewed post NormalPost[id=11] ,value: 0
+Aug 08, 2022 10:26:58 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 08, 2022 10:27:00 PM com.electro.App start
+INFO: application started on phase-2
+Aug 08, 2022 11:51:51 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 08, 2022 11:51:52 PM com.electro.App start
+INFO: application started on phase-2
+Aug 08, 2022 11:54:58 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 08, 2022 11:55:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 11:55:09 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 08, 2022 11:55:33 PM com.electro.phase1.models.node.user.User sendMessage
+INFO: sent message: Message[id=0] to chat: Chat[id=6]
+Aug 08, 2022 11:55:33 PM com.electro.MessagingServer.ServerConnection updater
+INFO: update chat with id = 6
+Aug 08, 2022 11:55:33 PM com.electro.views.MessageListView update
+INFO: MessageListView.update() 6
+Aug 08, 2022 11:55:33 PM com.electro.views.MessageListView update
+INFO: was valid
+Aug 08, 2022 11:55:34 PM com.electro.views.MessageListView lambda$1
+INFO: MessageListView.load() in updater
+Aug 08, 2022 11:58:45 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 08, 2022 11:58:49 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=2] ,value: 0
+Aug 08, 2022 11:58:49 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=2] ,value: 0
+Aug 08, 2022 11:58:49 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=2] ,value: 0
+Aug 08, 2022 11:58:50 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=2] ,value: 0
+Aug 08, 2022 11:58:51 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=13] ,value: 0
+Aug 08, 2022 11:58:51 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=13] ,value: 0
+Aug 08, 2022 11:58:53 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 08, 2022 11:58:53 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 08, 2022 11:58:54 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:38:58 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 3:39:00 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 3:44:18 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 3:44:19 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 09, 2022 3:44:21 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=7] ,value: 0
+Aug 09, 2022 3:44:22 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:44:23 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=13] ,value: 0
+Aug 09, 2022 3:44:23 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:44:24 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:44:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:44:40 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=11] ,value: 0
+Aug 09, 2022 3:44:42 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=12] ,value: 0
+Aug 09, 2022 3:45:04 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 3:45:04 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 3:46:29 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 3:46:30 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 3:47:19 PM com.electro.database.DBInfo getConnection
+INFO: Connected to database successfully : new chat
+Aug 09, 2022 3:58:21 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 3:58:23 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 4:42:40 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 4:42:41 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 4:50:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:50:36 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 4:50:38 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:50:39 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:50:41 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:50:42 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:50:44 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=4] ,value: 0
+Aug 09, 2022 4:50:46 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=9] ,value: 0
+Aug 09, 2022 4:51:16 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:51:18 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=9] ,value: 0
+Aug 09, 2022 4:51:19 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:51:21 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=9] ,value: 0
+Aug 09, 2022 4:51:22 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:51:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:51:30 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=5] ,value: 0
+Aug 09, 2022 4:51:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:51:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:51:36 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:52:07 PM com.electro.phase1.models.node.user.BusinessUser Post
+INFO: added post: PromotedPost[id=0]
+Aug 09, 2022 4:52:07 PM com.electro.database.DBInfo getConnection
+INFO: Connected to database successfully : poset added
+Aug 09, 2022 4:52:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:52:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=3] ,value: 0
+Aug 09, 2022 4:52:10 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 4:52:12 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:52:15 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:52:30 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:52:32 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:11 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:15 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:26 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:28 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:28 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:29 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:53:31 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 4:55:14 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=14] ,value: 0
+Aug 09, 2022 5:05:35 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:05:36 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:06:26 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 5:06:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 5:06:32 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 09, 2022 5:06:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 09, 2022 5:06:33 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=6] ,value: 0
+Aug 09, 2022 5:06:36 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post NormalPost[id=1] ,value: 0
+Aug 09, 2022 5:08:09 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:08:11 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:08:29 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:11:18 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:11:20 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:11:36 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:11:38 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:11:43 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=6] ,value: 0
+Aug 09, 2022 5:11:46 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:12:10 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:12:12 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:22:41 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:22:42 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:23:01 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:23:23 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:23:29 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:30 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 1
+Aug 09, 2022 5:23:32 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:40 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:40 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:45 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:47 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:23:50 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:24:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:24:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:24:10 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=11] ,value: 0
+Aug 09, 2022 5:24:12 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=11] ,value: 0
+Aug 09, 2022 5:28:06 PM com.electro.phase1.util.Log init
+INFO: starting application
+Aug 09, 2022 5:28:08 PM com.electro.App start
+INFO: application started on phase-2
+Aug 09, 2022 5:28:25 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:28:35 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 1
+Aug 09, 2022 5:28:35 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:28:42 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:28:43 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:28:49 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 1
+Aug 09, 2022 5:28:50 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=11] ,value: 0
+Aug 09, 2022 5:28:56 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 0
+Aug 09, 2022 5:28:57 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 0
+Aug 09, 2022 5:29:06 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 0
+Aug 09, 2022 5:29:08 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=11] ,value: 0
+Aug 09, 2022 5:29:09 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=11] ,value: 0
+Aug 09, 2022 5:29:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:29:29 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:29:49 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:29:50 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:29:51 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:29:54 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:29:56 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:30:00 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=5] ,value: 0
+Aug 09, 2022 5:30:03 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=1] ,value: 0
+Aug 09, 2022 5:30:06 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=6] ,value: 0
+Aug 09, 2022 5:30:10 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=7] ,value: 0
+Aug 09, 2022 5:30:13 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 0
+Aug 09, 2022 5:30:14 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=8] ,value: 0
+Aug 09, 2022 5:30:17 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:18 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:22 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:24 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:27 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:31 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0
+Aug 09, 2022 5:30:32 PM com.electro.phase1.models.node.user.User view
+INFO: viewed post PromotedPost[id=12] ,value: 0

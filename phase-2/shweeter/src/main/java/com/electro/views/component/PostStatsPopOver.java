@@ -24,7 +24,7 @@ public class PostStatsPopOver extends PopOver {
             FXMLLoader loader = App.loadFXML("components/post-stats");
             Parent root = loader.load();
             postStatController controller = loader.getController();
-            controller.initialize();
+            controller.initialize(post);
             // super.setStyle("-fx-background-color: transparent");
             // if (App.getStyle() == Style.DARK)
             // root.getStylesheets().add(MainController.darkPath);

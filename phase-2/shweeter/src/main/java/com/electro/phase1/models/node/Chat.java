@@ -44,8 +44,6 @@ public class Chat extends node {
     public Chat(String name, ChatType type) {
         this.name = name;
         this.type = type;
-        if (CanSend == null)
-            CanSend = new SimpleBooleanProperty(false);
         // setData(chatId++, new Date(1), new Date(2));
     }
 
@@ -59,7 +57,7 @@ public class Chat extends node {
             currentName.set(current.getName());
         } catch (SQLException e) {
             e.printStackTrace();
-        } 
+        }
     }
 
     public static void LogToChat(Chat chat) {
@@ -121,7 +119,6 @@ public class Chat extends node {
         return (last == null) ? creationDate : last.getCreationDate();
     }
 
-
     public void setOwner(User owner) {
         this.owner = owner;
     }
@@ -152,6 +149,8 @@ public class Chat extends node {
     }
 
     public static BooleanProperty getCanSendProperty() {
+        if (CanSend == null)
+            CanSend = new SimpleBooleanProperty(false);
         return CanSend;
     }
 }
