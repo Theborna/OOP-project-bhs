@@ -303,12 +303,21 @@ public class UserDB {
                 "select * from block where blocked_id = " + userID);
         ArrayList<Long> ret = new ArrayList<>();
         while (rs.next()) {
-            ret.add((rs.getLong(1)));
+            ret.add(rs.getLong(1));
         }
         rs.close();
         st.close();
         con.close();
         return ret;
+    }
+
+    public static void Unblock(long currentUser, long touBlock) throws SQLException {
+        Connection con = getConnection();
+        String query = "delete from block where user_id = " + currentUser + " and blocked_id = " + touBlock;// TODO: add
+                                                                                                            // pfp
+        // System.out.println(query);
+        con.createStatement().execute(query);
+        con.close();
     }
 
 }
