@@ -12,9 +12,8 @@ public class Main {
             Log.init();
             Server.getServer(9090).startServer();
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         } catch (ClassNotFoundException e) {
-
             Log.logger.warning(e.getMessage());
             e.printStackTrace();
         }

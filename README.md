@@ -5,15 +5,19 @@ this project will be a social media platform similar to twitter with elements fr
 ## phase-0
 
 explaining the project with UML diagrams included
+
 ## phase-1
 
 working project but only on the terminal
+
 ## phase-2
 
 fully working platform with gui
 
+### please run the contents of the 'Server' folder first and then run phase-2 to get the app started
+
 ### team
 
 - Borna Khodabandeh
-- Sepehr Heidari
 - Hossein Anjidandi
+- Sepehr Heidari (minor contributions)

@@ -91,7 +91,7 @@ public class Client implements Runnable {
             }
         } catch (SQLException | IOException e) {
             Log.logger.warning(e.getMessage());
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 
