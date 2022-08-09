@@ -374,5 +374,12 @@ public abstract class User extends node {
         return profilePhoto;
     }
 
+    public void block(User user) {
+        try {
+            UserDB.block(this, user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

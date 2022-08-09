@@ -52,7 +52,7 @@ public class SearchController {
                     functions.clear();
                     List<User> users = new ArrayList<User>();
                     try {
-                        users.addAll(UserDB.searchByUserName(arg2));
+                        users.addAll(UserDB.searchByUserName(arg2, User.getCurrentUser().getId()));
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
